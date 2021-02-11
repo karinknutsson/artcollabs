@@ -34,8 +34,9 @@ gem 'devise'
 
 gem 'acts-as-taggable-on', '~> 7.0'
 gem 'pundit'
-# cloudinary
+# .env
 gem 'dotenv-rails', groups: [:development, :test]
+gem 'cloudinary', '~> 1.16.0'
 
 
 gem 'autoprefixer-rails'
