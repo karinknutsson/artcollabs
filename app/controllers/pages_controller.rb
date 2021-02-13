@@ -3,6 +3,7 @@ class PagesController < ApplicationController
 
   def home
     @projects = policy_scope(Project).order(created_at: :desc)
+    # add collections arrays from Projects?
   end
 
   def dashboard
