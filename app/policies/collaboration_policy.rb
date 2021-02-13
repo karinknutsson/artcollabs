@@ -4,6 +4,7 @@ class CollaborationPolicy < ApplicationPolicy
       scope.all
     end
   end
+
   def index?
     true
     record.user == user || user.admin?

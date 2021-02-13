@@ -7,12 +7,11 @@ class CollaborationsController < ApplicationController
     authorize @collaboration
   end
 
-  def create
+  def create 
+    # ❌
     @collaboration = Collaboration.new(collaboration_params)
-
     # How to get project ID?
     # @project = Project.find(params[:project_id])
-    
     @collaboration.project = @project
     authorize @collaboration
     respond_to do |format|

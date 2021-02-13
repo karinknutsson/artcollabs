@@ -7,6 +7,7 @@ class MilestonesController < ApplicationController
   end
 
   def create
+    # NOT TESTED AT ALL
     @milestone = Milestone.new(milestone_params)
     @project = Project.find(params[:project_id])
     @milestone.project = @project

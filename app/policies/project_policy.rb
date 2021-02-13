@@ -6,7 +6,7 @@ class ProjectPolicy < ApplicationPolicy
   end
 
   # ASSING POLICIES FOR PROJECTS SO THAT ONLY TEAM MEMBERS CAN SEE ADDITIONAL INFO
-  
+
 
   def index?
     true
