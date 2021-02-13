@@ -16,13 +16,13 @@ puts "----------------------SEED STARTED----------------------"
 puts " \n "
 puts "🆕👨‍🦲-- Creating Users"
 
-admin = User.new(email: "admin@artcollabs.com", password: "admin123456")
+admin = User.create(email: "admin@artcollabs.com", password: "admin123456")
 puts "Created admin \n email: #{admin.email}, password: #{admin.password} \n "
 
-dummy1 = User.new(email: "user@artcollabs.com", password: "000000")
+dummy1 = User.create(email: "user@artcollabs.com", password: "000000")
 puts "Created dummy 1 \n email: #{dummy1.email}, password: #{dummy1.password} \n "
 
-dummy2 = User.new(email: "user2@artcollabs.com", password: "000000")
+dummy2 = User.create(email: "user2@artcollabs.com", password: "000000")
 puts "Created dummy 2 \n email: #{dummy2.email}, password: #{dummy2.password} \n "
 
 

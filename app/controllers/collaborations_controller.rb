@@ -1,5 +1,5 @@
 class CollaborationsController < ApplicationController
-  before_action :set_collaboration, only %i[ create edit update destroy ]
+  before_action :set_collaboration, only %i[ edit update destroy ]
   before_action :authenticate_user!
   def new
     @collaboration = current_user.collaboration.new

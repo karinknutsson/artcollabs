@@ -13,7 +13,8 @@ class ProjectsController < ApplicationController
   end
 
   def create
-    @project = current_user.project.new(project_params)
+    @project = Project.new(project_params)
+    @project.user = current_user
     authorize @project
     respond_to do |format|
       if @project.save

@@ -16,7 +16,7 @@ class ProjectPolicy < ApplicationPolicy
 
   def create?
     true
-    record.user == user || user.admin?
+    #record.user == user || user.admin?
   end
 
   def new?
