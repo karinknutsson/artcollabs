@@ -11,7 +11,15 @@ class MilestonesController < ApplicationController
     @project = Project.find(params[:project_id])
     @milestone.project = @project
     authorize @milestone
-    @project.save
+    respond_to do |format|
+      if @milestone.save
+        format.html { redirect_to @milestone, notice: "milestone was successfully created." }
+        format.json { render :show, status: :created, location: @milestone }
+      else
+        format.html { render :new, status: :unprocessable_entity }
+        format.json { render json: @milestonee.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
   def edit

@@ -8,7 +8,18 @@ class CollaborationsController < ApplicationController
 
   def create
     @collaboration = current_user.collaboration.new(collaboration_params)
+    @project = Project.find(params[:project_id])
+    @collaboration.project = @project
     authorize @collaboration
+    respond_to do |format|
+      if @collaboration.save
+        format.html { redirect_to @collaboration, notice: "collaboration was successfully created." }
+        format.json { render :show, status: :created, location: @collaboration }
+      else
+        format.html { render :new, status: :unprocessable_entity }
+        format.json { render json: @collaboratione.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
   def edit

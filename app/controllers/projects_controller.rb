@@ -16,8 +16,8 @@ class ProjectsController < ApplicationController
     @project = current_user.project.new(project_params)
     authorize @project
     respond_to do |format|
-      if @song_text.save
-        format.html { redirect_to @song_text, notice: "Project was successfully created." }
+      if @project.save
+        format.html { redirect_to @project, notice: "Project was successfully created." }
         format.json { render :show, status: :created, location: @project }
       else
         format.html { render :new, status: :unprocessable_entity }
