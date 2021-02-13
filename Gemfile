@@ -30,6 +30,15 @@ gem 'bootsnap', '>= 1.4.2', require: false
 
 gem 'devise'
 
+# GEMS WE INSTALLED
+
+gem 'acts-as-taggable-on', '~> 7.0'
+gem 'pundit'
+# .env
+gem 'dotenv-rails', groups: [:development, :test]
+gem 'cloudinary', '~> 1.16.0'
+
+
 gem 'autoprefixer-rails'
 gem 'font-awesome-sass'
 gem 'simple_form'

@@ -3,4 +3,9 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+
+  acts_as_taggable_on :tags
+  acts_as_taggable_on :skills, :links, :interests #You can also configure multiple tag types per model
+  
+  has_many_attached :photos
 end
