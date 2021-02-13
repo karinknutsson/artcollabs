@@ -5,6 +5,10 @@ class ProjectsController < ApplicationController
   def show
     @project = Project.find(params[:id])
     authorize @project
+
+    # to test collaborations
+    @collaboration = Collaboration.new
+    authorize @collaboration
   end
 
   def new

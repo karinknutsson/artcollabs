@@ -1,25 +1,22 @@
-class ProjectPolicy < ApplicationPolicy
+class CollaborationPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
       scope.all
     end
   end
-
-  # ASSING POLICIES FOR PROJECTS SO THAT ONLY TEAM MEMBERS CAN SEE ADDITIONAL INFO
-  
-
   def index?
     true
     record.user == user || user.admin?
   end
 
   def show?
-    #true
-    record.user == user || user.admin?
+    true
+    #record.user == user || user.admin?
   end
 
   def create?
     true
+    
   end
 
   def new?

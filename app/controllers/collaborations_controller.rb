@@ -1,14 +1,18 @@
 class CollaborationsController < ApplicationController
-  before_action :set_collaboration, only %i[ edit update destroy ]
+  before_action :set_collaboration, only: %i[ edit update destroy ]
   before_action :authenticate_user!
+  
   def new
-    @collaboration = current_user.collaboration.new
+    @collaboration = Collaboration.new(params[:project_id])
     authorize @collaboration
   end
 
   def create
-    @collaboration = current_user.collaboration.new(collaboration_params)
-    @project = Project.find(params[:project_id])
+    @collaboration = Collaboration.new(collaboration_params)
+
+    # How to get project ID?
+    # @project = Project.find(params[:project_id])
+    
     @collaboration.project = @project
     authorize @collaboration
     respond_to do |format|
