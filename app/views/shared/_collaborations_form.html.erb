@@ -1,4 +1,4 @@
-<%= simple_form_for @collaboration do |f| %>
+<%= simple_form_for [@project, @collaboration] do |f| %>
   <%= f.input :role %>
   <%= f.submit %>
 <% end %>
