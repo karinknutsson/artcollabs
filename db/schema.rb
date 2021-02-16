@@ -10,10 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_13_113628) do
+ActiveRecord::Schema.define(version: 2021_02_13_131528) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "chatrooms", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "collaborations", force: :cascade do |t|
     t.bigint "project_id", null: false
@@ -26,6 +31,16 @@ ActiveRecord::Schema.define(version: 2021_02_13_113628) do
     t.index ["user_id"], name: "index_collaborations_on_user_id"
   end
 
+  create_table "direct_messages", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "chatroom_id", null: false
+    t.text "content"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["chatroom_id"], name: "index_direct_messages_on_chatroom_id"
+    t.index ["user_id"], name: "index_direct_messages_on_user_id"
+  end
+
   create_table "favourites", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "project_id", null: false
@@ -33,6 +48,16 @@ ActiveRecord::Schema.define(version: 2021_02_13_113628) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["project_id"], name: "index_favourites_on_project_id"
     t.index ["user_id"], name: "index_favourites_on_user_id"
+  end
+
+  create_table "messages", force: :cascade do |t|
+    t.string "content"
+    t.bigint "project_chat_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["project_chat_id"], name: "index_messages_on_project_chat_id"
+    t.index ["user_id"], name: "index_messages_on_user_id"
   end
 
   create_table "milestones", force: :cascade do |t|
@@ -43,6 +68,13 @@ ActiveRecord::Schema.define(version: 2021_02_13_113628) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["project_id"], name: "index_milestones_on_project_id"
+  end
+
+  create_table "project_chats", force: :cascade do |t|
+    t.bigint "project_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["project_id"], name: "index_project_chats_on_project_id"
   end
 
   create_table "projects", force: :cascade do |t|
@@ -106,9 +138,14 @@ ActiveRecord::Schema.define(version: 2021_02_13_113628) do
 
   add_foreign_key "collaborations", "projects"
   add_foreign_key "collaborations", "users"
+  add_foreign_key "direct_messages", "chatrooms"
+  add_foreign_key "direct_messages", "users"
   add_foreign_key "favourites", "projects"
   add_foreign_key "favourites", "users"
+  add_foreign_key "messages", "project_chats"
+  add_foreign_key "messages", "users"
   add_foreign_key "milestones", "projects"
+  add_foreign_key "project_chats", "projects"
   add_foreign_key "projects", "users"
   add_foreign_key "taggings", "tags"
 end
