@@ -6,7 +6,6 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-
 Project.destroy_all
 Collaboration.destroy_all
 Milestone.destroy_all
@@ -25,5 +24,7 @@ puts "Created dummy 1 \n email: #{dummy1.email}, password: #{dummy1.password} \n
 dummy2 = User.create(email: "user2@artcollabs.com", password: "000000")
 puts "Created dummy 2 \n email: #{dummy2.email}, password: #{dummy2.password} \n "
 
-
-
+User.create(email: "felixwor@aol.com", password: "12345678")
+Project.create(user: User.last, title: "Project 1")
+ProjectChat.create(project: Project.last)
+Message.create(project_chat: ProjectChat.last, user: User.last, content: "This is my first message")
