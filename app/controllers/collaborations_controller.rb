@@ -9,36 +9,34 @@ class CollaborationsController < ApplicationController
   def create 
     # ❌
     @collaboration = Collaboration.new(collaboration_params)
-    # How to get project ID?
     @project = Project.find(params[:project_id])
     @collaboration.project = @project
     @collaboration.user = current_user
     authorize @collaboration
-    # respond_to do |format|
       if @collaboration.save
         redirect_to @project
         flash[:notice] = "You submitted a request to collaborate for the project #{@project.title}. Now go create something while you wait for approval!"
       else
         render :new
-
       end
-    # end
   end
 
   def edit
+    authorize @collaboration
   end
 
   def update
+    authorize @collaboration
   end
 
   def destroy
+    authorize @collaboration
   end
 
   private
 
   def set_collaboration
     @collaboration = @collaboration.find(params[:id])
-    authorize @collaboration
   end
   
   def collaboration_params
