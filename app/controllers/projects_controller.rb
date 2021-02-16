@@ -5,6 +5,7 @@ class ProjectsController < ApplicationController
   def show
     # ✅
     @project = Project.find(params[:id])
+    @collaboration = Collaboration.new
     authorize @project
   end
 
@@ -19,24 +20,25 @@ class ProjectsController < ApplicationController
     @project = Project.new(project_params)
     @project.user = current_user
     authorize @project
-    respond_to do |format|
-      if @project.save
-        format.html { redirect_to @project, notice: "Project was successfully created." }
-        format.json { render :show, status: :created, location: @project }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @project.errors, status: :unprocessable_entity }
-      end
+    if @project.save
+      redirect_to @project
+      flash[:notice] = " New project: \n #{@project.title} was created"
+    else
+      render :new
+    end
     end
   end
 
   def edit
+    authorize @project
   end
 
   def update
+    authorize @project
   end
 
   def destroy
+    authorize @project
   end
 
   private

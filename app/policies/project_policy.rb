@@ -9,12 +9,10 @@ class ProjectPolicy < ApplicationPolicy
 
 
   def index?
-    true
     record.user == user || user.admin?
   end
 
   def show?
-    #true
     record.user == user || user.admin?
   end
 
@@ -27,7 +25,6 @@ class ProjectPolicy < ApplicationPolicy
   end
 
   def update?
-    true
     record.user == user || user.admin?
   end
 
@@ -36,7 +33,6 @@ class ProjectPolicy < ApplicationPolicy
   end
 
   def destroy?
-    true
     record.user == user || user.admin?
   end
 end

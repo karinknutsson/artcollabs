@@ -5,19 +5,8 @@ class CollaborationPolicy < ApplicationPolicy
     end
   end
 
-  def index?
-    true
-    record.user == user || user.admin?
-  end
-
-  def show?
-    true
-    #record.user == user || user.admin?
-  end
-
   def create?
     true
-    
   end
 
   def new?
@@ -25,8 +14,8 @@ class CollaborationPolicy < ApplicationPolicy
   end
 
   def update?
-    true
     record.user == user || user.admin?
+    # or record.project.user == user - if owner can edit roles etc...
   end
 
   def edit?
@@ -34,7 +23,6 @@ class CollaborationPolicy < ApplicationPolicy
   end
 
   def destroy?
-    true
     record.user == user || user.admin?
   end
 end

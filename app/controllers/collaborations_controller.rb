@@ -3,42 +3,40 @@ class CollaborationsController < ApplicationController
   before_action :authenticate_user!
   
   def new
-    @collaboration = Collaboration.new(params[:project_id])
-    authorize @collaboration
+    # 
   end
 
   def create 
     # ❌
     @collaboration = Collaboration.new(collaboration_params)
-    # How to get project ID?
-    # @project = Project.find(params[:project_id])
+    @project = Project.find(params[:project_id])
     @collaboration.project = @project
+    @collaboration.user = current_user
     authorize @collaboration
-    respond_to do |format|
       if @collaboration.save
-        format.html { redirect_to @collaboration, notice: "collaboration was successfully created." }
-        format.json { render :show, status: :created, location: @collaboration }
+        redirect_to @project
+        flash[:notice] = "You submitted a request to collaborate for the project #{@project.title}. Now go create something while you wait for approval!"
       else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @collaboratione.errors, status: :unprocessable_entity }
+        render :new
       end
-    end
   end
 
   def edit
+    authorize @collaboration
   end
 
   def update
+    authorize @collaboration
   end
 
   def destroy
+    authorize @collaboration
   end
 
   private
 
   def set_collaboration
     @collaboration = @collaboration.find(params[:id])
-    authorize @collaboration
   end
   
   def collaboration_params
