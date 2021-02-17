@@ -6,6 +6,8 @@ class ProjectsController < ApplicationController
     # ✅
     @project = Project.find(params[:id])
     @collaboration = Collaboration.new
+    @milestone = Milestone.new
+    @milestones = Milestone.where(project_id: @project)
     authorize @project
   end
 
@@ -26,7 +28,6 @@ class ProjectsController < ApplicationController
     else
       render :new
     end
-    end
   end
 
   def edit
@@ -35,10 +36,18 @@ class ProjectsController < ApplicationController
 
   def update
     authorize @project
+    if @project.update(project_params)
+      redirect_to @project
+      flash[:notice] = " \n #{@project.title} was edited"
+    else
+      render :edit
+    end
   end
 
   def destroy
     authorize @project
+    @project.destroy
+    redirect_to root_path
   end
 
   private

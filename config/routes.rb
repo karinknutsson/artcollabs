@@ -11,4 +11,7 @@ Rails.application.routes.draw do
     resources :collaborations
     resources :milestones
   end
+
+  patch '/confirm/:id', to: 'collaboration#confirm', as: "confirm"
+  delete "project/:id", to: "projects#destroy", as: "delete_project"
 end

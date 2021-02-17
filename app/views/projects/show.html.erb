@@ -1,6 +1,44 @@
-<h1>Projects#show</h1>
-<p>Find me in app/views/projects/show.html.erb</p>
-<%= @project.title %>
-<%= render "shared/collaborations_form" %>
+<div class="container">
+  <%= link_to "back", root_path %>
+  <h1><%= @project.title %></h1>
+  <p><%= @project.description %></p>
 
-<!-- if current_user.collaborations.includes(project) ? something like this for allowing specific users to see information -->
+
+  <%= link_to "Delete project", project_path(@project), method: :delete %>
+  
+  <br>
+  <!-- if current_user.collaborations.includes(project) ? something like this for allowing only team members to see information -->
+
+  <br>--------------------- <br>
+  <h1>Milestones</h1>
+
+  <!-- FORM NOT WORKING -->
+  <!--%= render "shared/milestones_form" %-->
+  <% @milestones.each do |milestone| %>
+    <%= milestone.title %>
+    <%= milestone.description %>
+    <!--%= milestone.status %-->
+
+  <% end %>
+
+  <br>--------------------- <br>
+  <h1>Collabs</h1>
+  <h2>new collab</h2>
+  <%= render "shared/collaborations_form" %>
+  <% @project.collaborations.each do |collab| %>
+    <br>=====<br>
+    <%= collab.user.email %>
+    <p>wants to collabs as <%= collab.role %></p>
+    
+    <!--link to does not get the params -->
+    <%= link_to "edit your collab request", edit_project_collaboration_path(@project, collab) %>
+    <br>
+    <div class="container bg-secondary">
+      Project owner:
+      <%= link_to  "Confirm", confirm_path(collab), method: :patch, data: { confirm: "Are you sure?" }, class: "btn btn-success text-right" %>
+      <%= link_to  "  Deny  ", confirm_path(collab), method: :patch, data: { confirm: "Are you sure?" }, class: "btn btn-danger text-right" %>
+    </div> 
+  <% end %>
+
+  <!-- method: :delete, data: { confirm: "delete project named: '#{@project.title}'?" }%-->
+</div>
