@@ -4,4 +4,5 @@ class Collaboration < ApplicationRecord
 
   validates :role, presence: true
   validates :message, presence: true
+  
 end
