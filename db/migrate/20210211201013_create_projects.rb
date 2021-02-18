@@ -3,7 +3,7 @@ class CreateProjects < ActiveRecord::Migration[6.0]
     create_table :projects do |t|
       t.string :title
       t.text :description
-      t.string :status
+      t.string :status, default: "open"
       t.string :budget
       t.integer :max_members
       t.date :start_date

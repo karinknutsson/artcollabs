@@ -13,5 +13,5 @@ Rails.application.routes.draw do
   end
 
   patch '/confirm/:id', to: 'collaboration#confirm', as: "confirm"
-  delete "project/:id", to: "projects#destroy", as: "delete_project"
+  # delete "project/:id", to: "projects#destroy", as: "delete_project"
 end

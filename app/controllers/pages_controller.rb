@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-  before_action :set_user_projects, only: %i[ :profile, :dashboard ]
+  before_action :set_user_projects, only: %i[ profile dashboard ]
   skip_before_action :authenticate_user!, only: [ :home ]
 
   def home

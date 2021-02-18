@@ -8,7 +8,7 @@ class MilestonePolicy < ApplicationPolicy
   # ASSING POLICIES FOR PROJECT SHOW PAGE SO THAT ONLY TEAM MEMBERS CAN SEE MILESTONES
 
   def create?
-    # record.project.user == user ( the owner can create ) for other ones
+    true
   end
 
   def new?
@@ -16,7 +16,7 @@ class MilestonePolicy < ApplicationPolicy
   end
 
   def update?
-    record.user == user || user.admin?
+    true
   end
 
   def edit?
@@ -24,6 +24,6 @@ class MilestonePolicy < ApplicationPolicy
   end
 
   def destroy?
-    record.user == user || user.admin?
+    true
   end
 end

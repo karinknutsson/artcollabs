@@ -4,7 +4,6 @@ class ProjectsController < ApplicationController
   
   def show
     # ✅
-    @project = Project.find(params[:id])
     @collaboration = Collaboration.new
     @milestone = Milestone.new
     @milestones = Milestone.where(project_id: @project)
@@ -45,6 +44,7 @@ class ProjectsController < ApplicationController
   end
 
   def destroy
+    raise
     authorize @project
     @project.destroy
     redirect_to root_path

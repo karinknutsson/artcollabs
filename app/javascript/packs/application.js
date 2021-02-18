@@ -22,6 +22,11 @@ require("channels")
 // WRITE YOUR OWN JS STARTING FROM HERE 👇
 // ----------------------------------------------------
 
+
+// Delete will work on Edge
+
+//= require jquery_ujs 
+
 // External imports
 import "bootstrap";
 
@@ -33,3 +38,4 @@ document.addEventListener('turbolinks:load', () => {
   // initSelect2();
   initProjectChatCable();
 });
+
