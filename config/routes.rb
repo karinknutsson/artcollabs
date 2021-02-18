@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
 
+  get 'favourites/new'
+  get 'favourites/create'
+  get 'favourites/destroy'
   get 'favourite_projects/new'
   get 'favourite_projects/create'
   get 'favourite_projects/destroy'
