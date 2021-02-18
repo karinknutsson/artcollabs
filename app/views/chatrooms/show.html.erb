@@ -1,0 +1,18 @@
+<h1>Direct Chat</h1>
+<div id="direct-messages" data-chatroom-id="<%= @chatroom.id %>">
+  <% @chatroom.direct_messages.each do |direct_message| %>
+    <div class="direct-message-container" id="direct-message-<%= direct_message.id %>">
+      <i class="author">
+        <span><%= direct_message.user.email %></span>
+        <small><%= direct_message.created_at.strftime("%a %b %e at %l:%M%p") %></small>
+      </i>
+      <p><%= direct_message.content %></p>
+    </div>
+  <% end %>
+</div>
+
+<%= simple_form_for [ @chatroom, @direct_message ], remote: true do |f| %>
+  <%= f.input :content, label: false, placeholder: "Message" %>
+  <%= f.submit %>
+  <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+<% end %>

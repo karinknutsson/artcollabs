@@ -14,4 +14,5 @@
 <%= simple_form_for [ @project_chat, @message ], remote: true do |f| %>
   <%= f.input :content, label: false, placeholder: "Message ##{@project.title}" %>
   <%= f.submit %>
+  <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
 <% end %>

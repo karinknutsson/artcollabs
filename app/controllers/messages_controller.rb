@@ -1,6 +1,5 @@
 class MessagesController < ApplicationController
   def create
-    raise
     @project_chat = ProjectChat.find(params[:project_chat_id])
     @message = Message.new(message_params)
     @message.project_chat = @project_chat
