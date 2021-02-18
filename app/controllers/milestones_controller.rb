@@ -2,8 +2,10 @@ class MilestonesController < ApplicationController
 
   before_action :set_milestone, only %i[ show edit update destroy ]
   
+  #❌
   def show
-    @milestones = policy_scope(Milestone).order(created_at: :desc)
+    #@milestones = policy_scope(Milestone).order(created_at: :desc)
+    @milestones = Milestone.where(project_id: @project)
   end
 
   def create
@@ -12,24 +14,24 @@ class MilestonesController < ApplicationController
     @project = Project.find(params[:project_id])
     @milestone.project = @project
     authorize @milestone
-    respond_to do |format|
-      if @milestone.save
-        format.html { redirect_to @milestone, notice: "milestone was successfully created." }
-        format.json { render :show, status: :created, location: @milestone }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @milestonee.errors, status: :unprocessable_entity }
-      end
+    if @milestone.save
+      redirect_to @project
+      flash[:notice] = "Milestone added"
+    else
+      render :new
     end
   end
 
   def edit
+    authorize @milestone
   end
 
   def update
+    authorize @milestone
   end
 
   def destroy
+    authorize @milestone
   end
 
   private
@@ -39,6 +41,6 @@ class MilestonesController < ApplicationController
   end
 
   def milestone_params
-    params.require(:milestone).permit(:title, :description, :compled, :project_id)
+    params.require(:milestone).permit(:title, :description, :completed, :project_id)
   end
 end
