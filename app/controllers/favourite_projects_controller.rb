@@ -19,7 +19,7 @@ class FavouriteProjectsController < ApplicationController
   end
 
   def set_project
-    # How to get the projects ID in the index for example?
+    # This would work on show, but how to get the projects ID in the index for example?
     @project = Project.find(params[:project_id])
   end
 end
