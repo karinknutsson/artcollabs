@@ -1,0 +1,7 @@
+<div class="direct-message-container" id="direct-message-<%= direct_message.id %>">
+  <i class="author">
+    <span><%= direct_message.user.email %></span>
+    <small><%= direct_message.created_at.strftime("%a %b %e at %l:%M%p") %></small>
+  </i>
+  <p><%= direct_message.content %></p>
+</div>

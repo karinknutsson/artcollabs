@@ -40,17 +40,20 @@ puts "Created dummy 1 \n email: #{dummy1.email}, password: #{dummy1.password} \n
 dummy2 = User.create(email: "user2@artcollabs.com", password: "000000")
 puts "Created dummy 2 \n email: #{dummy2.email}, password: #{dummy2.password} \n "
 
-puts "------ Creating Felix 🧔" 
+puts "------ Creating Felix 🧔"
 felix = User.create(email: "felixwor@aol.com", password: "12345678")
-puts "Felix created" 
+puts "Felix created"
 
 puts "📨📨-- Message system seeds ..."
 
 Project.create(user: User.last, title: "Project 1")
 ProjectChat.create(project: Project.last)
 Message.create(project_chat: ProjectChat.last, user: User.last, content: "This is my first message")
+new_chatroom = Chatroom.create
+new_message = DirectMessage.create(chatroom: Chatroom.last, user: User.last, content: "This is my first silly direct message")
 
-10.times do 
+
+10.times do
   User.create(email: "#{Faker::Internet.email}", password: "000000")
 
 end
@@ -68,12 +71,12 @@ puts " \n "
 puts "🆕🧾-- Creating Projects"
 
 counter = 0
-3.times do 
+3.times do
   counter = counter + 1
   Project.create(title: " DUMMY 1 - #{Faker::JapaneseMedia::StudioGhibli.quote}", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quorum sine causa fieri nihil putandum est. Quamquam in hac divisione rem ipsam prorsus probo, elegantiam desidero. Satis est ad hoc responsum. Quid dubitas igitur mutare principia naturae? Duo Reges: constructio interrete.
 
   Experiamur igitur, inquit, etsi habet haec Stoicorum ratio difficilius quiddam et obscurius. Philosophi autem in suis lectulis plerumque moriuntur. Disserendi artem nullam habuit. Erit enim instructus ad mortem contemnendam, ad exilium, ad ipsum etiam dolorem.
-  
+
   Tu vero, inquam, ducas licet, si sequetur; Haec qui audierit, ut ridere non curet, discedet tamen nihilo firmior ad dolorem ferendum, quam venerat. An vero, inquit, quisquam potest probare, quod perceptfum, quod. Odium autem et invidiam facile vitabis. Ergo omni animali illud, quod appetiti positum est in eo, quod naturae est accommodatum. Aliis esse maiora, illud dubium, ad id, quod summum bonum dicitis, ecquaenam possit fieri accessio.", status: "open", budget: "#{budget_generator}", max_members: rand(1..10), location: "#{location_generator}", user: dummy1)
   puts "created Project ##{counter} for Dummy 1"
 end
@@ -81,12 +84,12 @@ end
 puts " \n "
 
 counter = 0
-3.times do 
+3.times do
   counter = counter + 1
   Project.create(title: " DUMMY 2 - #{Faker::JapaneseMedia::StudioGhibli.quote}", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quorum sine causa fieri nihil putandum est. Quamquam in hac divisione rem ipsam prorsus probo, elegantiam desidero. Satis est ad hoc responsum. Quid dubitas igitur mutare principia naturae? Duo Reges: constructio interrete.
 
   Experiamur igitur, inquit, etsi habet haec Stoicorum ratio difficilius quiddam et obscurius. Philosophi autem in suis lectulis plerumque moriuntur. Disserendi artem nullam habuit. Erit enim instructus ad mortem contemnendam, ad exilium, ad ipsum etiam dolorem.
-  
+
   Tu vero, inquam, ducas licet, si sequetur; Haec qui audierit, ut ridere non curet, discedet tamen nihilo firmior ad dolorem ferendum, quam venerat. An vero, inquit, quisquam potest probare, quod perceptfum, quod. Odium autem et invidiam facile vitabis. Ergo omni animali illud, quod appetiti positum est in eo, quod naturae est accommodatum. Aliis esse maiora, illud dubium, ad id, quod summum bonum dicitis, ecquaenam possit fieri accessio.", status: "open", budget: "#{budget_generator}", max_members: rand(1..10), location: "#{location_generator}", user: dummy2)
   puts "created Project ##{counter} for Dummy 2"
 end
@@ -94,12 +97,12 @@ end
 puts " \n "
 
 counter = 0
-10.times do 
+10.times do
   counter = counter + 1
   Project.create(title: "#{Faker::JapaneseMedia::StudioGhibli.quote}", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quorum sine causa fieri nihil putandum est. Quamquam in hac divisione rem ipsam prorsus probo, elegantiam desidero. Satis est ad hoc responsum. Quid dubitas igitur mutare principia naturae? Duo Reges: constructio interrete.
 
   Experiamur igitur, inquit, etsi habet haec Stoicorum ratio difficilius quiddam et obscurius. Philosophi autem in suis lectulis plerumque moriuntur. Disserendi artem nullam habuit. Erit enim instructus ad mortem contemnendam, ad exilium, ad ipsum etiam dolorem.
-  
+
   Tu vero, inquam, ducas licet, si sequetur; Haec qui audierit, ut ridere non curet, discedet tamen nihilo firmior ad dolorem ferendum, quam venerat. An vero, inquit, quisquam potest probare, quod perceptfum, quod. Odium autem et invidiam facile vitabis. Ergo omni animali illud, quod appetiti positum est in eo, quod naturae est accommodatum. Aliis esse maiora, illud dubium, ad id, quod summum bonum dicitis, ecquaenam possit fieri accessio.", status: "open", budget: "#{budget_generator}", max_members: rand(1..10), location: "#{location_generator}", user: User.all.sample )
   puts "created Project ##{counter} for Other Users"
 end
@@ -128,7 +131,7 @@ puts "Collaboration from dummy 1 on dummy 2 requested"
 puts " \n "
 
 counter = 0
-20.times do 
+20.times do
   counter = counter + 1
   collab = Collaboration.create(project: Project.all.sample, role: "#{Faker::Job.field}", user: User.all.sample, message: "#{Faker::Music::Prince.lyric}")
   puts "Random collab #{counter}: User: #{collab.user.email}, project: #{collab.project.title}"
@@ -140,7 +143,7 @@ puts "🆕🚩🚩-- Creating Milestones"
 puts " \n "
 
 counter = 0
-20.times do 
+20.times do
   counter = counter + 1
   milestone = Milestone.create(project: Project.all.sample, title: "#{Faker::Marketing.buzzwords}", description: "Ab his oratores, ab his imperatores ac rerum publicarum principes extiterunt. Quantum Aristoxeni ingenium consumptum videmus in musicis? Qui autem diffidet perpetuitati bonorum suorum, timeat necesse est, ne aliquando amissis illis sit miser. Quo modo autem optimum, si bonum praeterea nullum est? Non minor, inquit, voluptas percipitur ex vilissimis rebus quam ex pretiosissimis. Illum mallem levares, quo optimum atque humanissimum virum, Cn. Aliter enim explicari, quod quaeritur, non potest.", completed: [true, false].sample)
   puts "Random Milestone #{counter}: project: #{milestone.project.title}"
