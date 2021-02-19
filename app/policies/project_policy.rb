@@ -9,7 +9,7 @@ class ProjectPolicy < ApplicationPolicy
 
 
   def index?
-    record.user == user || user.admin?
+    true
   end
 
   def show?
