@@ -17,6 +17,9 @@ Rails.application.routes.draw do
     resources :favourite_projects, only: [ :new, :create, :destroy ]
   end
 
+  get '/profile/:id', to: 'pages#profile', as: "profile"
+  get '/dashboard/:id', to: 'pages#dashboard', as: "dashboard"
+
+
   patch '/confirm/:id', to: 'collaboration#confirm', as: "confirm"
-  # delete "project/:id", to: "projects#destroy", as: "delete_project"
 end

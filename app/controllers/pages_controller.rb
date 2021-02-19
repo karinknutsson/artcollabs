@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-  before_action :set_user_projects, only: %i[ profile dashboard ]
+  before_action :set_user_projects_and_collabs, only: %i[ profile dashboard ]
   skip_before_action :authenticate_user!, only: [ :home ]
 
   def home
@@ -7,29 +7,30 @@ class PagesController < ApplicationController
     # add collections arrays from Projects?
   end
 
+  # ⭕ I think some policies must be set 
   def dashboard
-    authorize @projects
-    # authorize @collaborations
-    # authorize @collaborations_to_my_projects
+    #authorize @projects
+  
   end
 
-  def profile
-    authorize @projects
-    # authorize @collaborations
-    # authorize @collaborations_to_my_projects
+  # ⭕ I think some policies must be set 
+  def profile 
+    #authorize @projects
   end
   
   private
 
   def set_user_projects_and_collabs
-    @user = current_user
-    @projects = @user.projects
+
+    @user = User.find(params[:id])
+    @projects = Project.where(user: @user)
 
     # My collabs on other's projects
-    @collaborations = @user.collaborations
+    @collaborations = Collaboration.where(user: @user)
 
     ## Collabs for my projects
     @collaborations_to_my_projects = Collaboration.joins(:projects).where(user: current_user).where(confirmed: nil)
+
   end
 
 end
