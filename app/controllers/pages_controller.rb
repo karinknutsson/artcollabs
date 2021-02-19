@@ -28,7 +28,7 @@ class PagesController < ApplicationController
     # My collabs on other's projects
     @collaborations = Collaboration.where(user: @user)
 
-    ## Collabs for my projects
+    ## pending Collabs for my projects
     @collaborations_to_my_projects = Collaboration.joins(:projects).where(user: current_user).where(confirmed: nil)
 
   end
