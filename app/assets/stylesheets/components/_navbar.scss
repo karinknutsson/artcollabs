@@ -1,7 +1,9 @@
 .nav-artcollabs {
-  background: $light-blue;
+  background-color: $light-blue;
   height: 72px;
   position: relative;
+  display: flex;
+  align-items: center;
 }
 
 .nav-logo-container {
@@ -25,5 +27,5 @@
 
 .nav-btn-login {
   position: absolute;
-  right: 60px;
+  right: 56px;
 }

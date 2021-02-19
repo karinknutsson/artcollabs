@@ -12,7 +12,10 @@
 
   <% else %>
 
-    <%= link_to "Log in / Sign up", new_user_session_path, class: "btn-artcollabs btn-dark-blue nav-btn-login"%>
+    <div class="nav-btn-login">
+      <%= link_to "Log in", new_user_session_path, class: "btn-artcollabs btn-dark-blue btn-margin-right"%>
+      <%= link_to "Sign up", new_user_registration_path, class: "btn-artcollabs btn-dark-blue"%>
+    </div>
 
   <% end %>
 

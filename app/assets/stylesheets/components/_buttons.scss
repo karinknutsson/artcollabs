@@ -1,14 +1,19 @@
 .btn-artcollabs {
   border-radius: 50px;
   border: 0;
-  padding: 10px 40px 10px 40px;
+  padding: 8px 40px 8px 40px;
+  font-family: 'futurateeregular', Futura, Helvetica, sans-serif;
+  font-size: 10pt;
 }
 
 .btn-dark-blue {
   background-color: $dark-blue;
-
 }
 
 .btn-warm-red {
   background-color: $warm-red;
+}
+
+.btn-margin-right {
+  margin-right: 16px;
 }
