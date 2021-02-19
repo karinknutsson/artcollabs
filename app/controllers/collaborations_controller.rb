@@ -1,14 +1,14 @@
 class CollaborationsController < ApplicationController
   before_action :set_collaboration, only: %i[ update destroy ]
+  before_action :set_project, only: %i[ create edit destroy ]
   before_action :authenticate_user!
   
   def new
   end
 
   def create 
-    # ✅
     @collaboration = Collaboration.new(collaboration_params)
-    @project = Project.find(params[:project_id])
+    # @project = Project.find(params[:project_id])
     @collaboration.project = @project
     @collaboration.user = current_user
     authorize @collaboration
@@ -20,12 +20,10 @@ class CollaborationsController < ApplicationController
       end
   end
 
-  # ✅
   def edit 
-    @project = Project.find(params[:project_id])
+    # @project = Project.find(params[:project_id])
     @collaboration = Collaboration.find(params[:id])
     authorize @collaboration
-
   end
 
   def update
@@ -39,8 +37,10 @@ class CollaborationsController < ApplicationController
   end
 
   def destroy
+    # @project = Project.find(params[:project_id])
     @collaboration.destroy
     authorize @collaboration
+    redirect_to @project
   end
 
   def confirm
@@ -66,6 +66,10 @@ class CollaborationsController < ApplicationController
   end
 
   private
+  
+  def set_project
+    @project = Project.find(params[:project_id])
+  end
 
   def set_collaboration
     @collaboration = Collaboration.find(params[:id])
