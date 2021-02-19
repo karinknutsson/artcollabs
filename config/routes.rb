@@ -13,6 +13,10 @@ Rails.application.routes.draw do
     resources :messages, only: :create
   end
 
+  resources :chatrooms, only: :show do
+    resources :direct_messages, only: :create
+  end
+
   resources :projects do
     resources :collaborations
     resources :milestones
