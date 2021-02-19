@@ -1,0 +1,52 @@
+.show-container {
+  margin: 64px auto 48px auto;
+  width: 80vw;
+  h1 {
+    margin: 24px 12px 40px 12px;
+    font-size: 40pt;
+    color: black;
+  }
+  h2 {
+    font-size: 16pt;
+  }
+  h2.active-tab {
+    color: black;
+  }
+  h2.inactive-tab {
+    color: $grey-med;
+  }
+}
+
+.tab-container {
+  padding: 0 20px 0 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.show-content {
+  margin-top: 40px;
+  display: flex;
+}
+
+.content-left {
+}
+
+.content-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.project-description {
+  width: 75%;
+  margin: 0 0 40px 12px;
+  font-size: 10pt;
+}
+
+.project-links {
+  width: 75%;
+  border-top: 2px solid $grey-light-med;
+  h4 {
+    margin: 12px;
+  }
+}

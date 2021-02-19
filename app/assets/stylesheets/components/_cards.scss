@@ -1,0 +1,29 @@
+.member-card {
+  margin-top: 18px;
+  width: 240px;
+  border: 2px solid $grey-light-med;
+  border-radius: 20px;
+}
+
+.member-card-title {
+  padding: 12px;
+  border-bottom: 2px solid $grey-light;
+}
+
+.member-card-members {
+  img {
+    width: 32px;
+    height: 32px;
+    border-radius: 50px;
+  }
+}
+
+.member {
+  margin: 10px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  h6 {
+    margin: 8px;
+  }
+}

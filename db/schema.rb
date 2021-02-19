@@ -111,7 +111,7 @@ ActiveRecord::Schema.define(version: 2021_02_19_120327) do
   create_table "projects", force: :cascade do |t|
     t.string "title"
     t.text "description"
-    t.string "status", default: "open"
+    t.string "status"
     t.string "budget"
     t.integer "max_members"
     t.date "start_date"
