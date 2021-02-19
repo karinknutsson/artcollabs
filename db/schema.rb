@@ -10,14 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_16_194440) do
+ActiveRecord::Schema.define(version: 2021_02_18_200018) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "chatrooms", force: :cascade do |t|
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -38,6 +34,11 @@ ActiveRecord::Schema.define(version: 2021_02_16_194440) do
     t.string "checksum", null: false
     t.datetime "created_at", null: false
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
+  end
+
+  create_table "chatrooms", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "collaborations", force: :cascade do |t|
@@ -71,8 +72,17 @@ ActiveRecord::Schema.define(version: 2021_02_16_194440) do
     t.index ["user_id"], name: "index_favourites_on_user_id"
   end
 
+  create_table "links", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.string "title"
+    t.string "url"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_links_on_user_id"
+  end
+
   create_table "messages", force: :cascade do |t|
-    t.string "content"
+    t.text "content"
     t.bigint "project_chat_id", null: false
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
@@ -101,7 +111,7 @@ ActiveRecord::Schema.define(version: 2021_02_16_194440) do
   create_table "projects", force: :cascade do |t|
     t.string "title"
     t.text "description"
-    t.string "status"
+    t.string "status", default: "open"
     t.string "budget"
     t.integer "max_members"
     t.date "start_date"
@@ -165,6 +175,7 @@ ActiveRecord::Schema.define(version: 2021_02_16_194440) do
   add_foreign_key "direct_messages", "users"
   add_foreign_key "favourites", "projects"
   add_foreign_key "favourites", "users"
+  add_foreign_key "links", "users"
   add_foreign_key "messages", "project_chats"
   add_foreign_key "messages", "users"
   add_foreign_key "milestones", "projects"
