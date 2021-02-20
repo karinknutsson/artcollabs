@@ -39,17 +39,36 @@
 
 // Global styles
 body {
+  background-color: white;
   color: black;
   font-family: 'Source Sans Pro', sans-serif;
   font-size: 10pt;
   font-weight: 400;
 }
 
-h1 {
+h1, h2, h3, h4, h5, h6 {
   font-family: 'futurateebold', Futura, Helvetica, sans-serif;
+}
+
+h4 {
+  font-size: 14pt;
+}
+
+h6 {
+  font-size: 10pt;
+}
+
+hr {
+  border-top: 2px solid $grey-light-med;
+}
+
+a.tab, a.tab:visited {
+  color: $grey-med;
+}
+a.tab:active, a.tab:hover {
   color: $dark-blue;
 }
 
-
-
-
+a.white, a.btn-white:visited, a.white:active, a.btn-white:hover{
+  color: white;
+}
