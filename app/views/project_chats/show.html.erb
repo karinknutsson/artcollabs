@@ -13,8 +13,9 @@
     </div>
 
     <%= simple_form_for [ @project_chat, @message ], remote: true do |f| %>
-      <%= f.input :content, label: false, placeholder: "Message ##{@project.title}" %>
-      <%= f.submit class: "btn-chats btn-warm-red" %>
+      <%= f.input :content, label: false, placeholder: "Message ##{@project.title}", :input_html => {
+        :id => "input_message" } %>
+      <%= f.submit class: "btn-chats btn-warm-red submit-button" %>
       <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
     <% end %>
 </div>
