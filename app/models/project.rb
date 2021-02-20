@@ -14,7 +14,7 @@ class Project < ApplicationRecord
 
   validates :title, presence: true, length: { maximum: 100 }, uniqueness: true
   validates :description, presence: true
-  validates :status, presence: true, inclusion: { in: %w[open closed finished] }
+  validates :status, presence: true, inclusion: { in: %w[open active closed finished] }
   validates :budget, presence: true
   validates :max_members, presence: true
   # validates :start_date, presence: true

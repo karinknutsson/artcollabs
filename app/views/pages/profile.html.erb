@@ -1,1 +1,17 @@
 <%= @user.email %>
+<%= link_to "edit your account details", edit_user_registration_path(@user)  %>
+
+<h1>My projects</h1>
+<% @projects.each do |project| %>
+  <br><%= link_to "#{project.title}", project_path(project) %>
+  <%= project.status %>
+<% end %>
+
+<br>--------------------- <br>
+<h1>My collabs</h1>
+<% @collaborations.each do |collaboration| %>
+  <br>as <%= collaboration.role %> on
+  <%= link_to "#{collaboration.project.title}", project_path(collaboration.project) %>
+<% end %>
+
+  

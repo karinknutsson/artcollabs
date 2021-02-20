@@ -18,7 +18,7 @@ Rails.application.routes.draw do
   end
 
   get '/profile/:id', to: 'pages#profile', as: "profile"
-  get '/dashboard/:id', to: 'pages#dashboard', as: "dashboard"
+  get '/dashboard/', to: 'pages#dashboard', as: "dashboard"
 
 
   patch '/confirm/:id', to: 'collaboration#confirm', as: "confirm"

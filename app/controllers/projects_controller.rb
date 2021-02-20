@@ -3,30 +3,40 @@ class ProjectsController < ApplicationController
   before_action :authenticate_user!
   
   def show
-    # ✅
+    @user = current_user
     @collaboration = Collaboration.new
     @milestone = Milestone.new
     @milestones = Milestone.where(project_id: @project)
+    if @favourite_project = FavouriteProject.find_by(user: @user, project: @project)
+      @favourite_project
+    else
+      @favourite_project = FavouriteProject.new
+    end
     authorize @project
   end
 
   def index
     sql_query = "title ILIKE :query OR budget ILIKE :query OR location ILIKE :query"
+    @user = current_user
+    @favourite_project = FavouriteProject.new
     if params[:query].present?
-      @projects = policy_scope(Project.where(sql_query, query: "%#{params[:query]}%")).order(created_at: :desc)
+      if @projects = policy_scope(Project.where(sql_query, query: "%#{params[:query]}%")).order(created_at: :desc).empty?
+        redirect_to projects_path
+        flash[:notice] = " No projects with #{params[:query]}"
+      else
+        @projects = policy_scope(Project.where(sql_query, query: "%#{params[:query]}%")).order(created_at: :desc)
+      end
     else
       @projects = policy_scope(Project).order(created_at: :desc)
     end
   end
 
   def new
-    # ✅
     @project = Project.new
     authorize @project
   end
 
   def create
-    # ✅
     @project = Project.new(project_params)
     @project.user = current_user
     authorize @project
@@ -53,10 +63,13 @@ class ProjectsController < ApplicationController
   end
 
   def destroy
-    raise
     authorize @project
     @project.destroy
     redirect_to root_path
+  end
+
+  def check_favourites_for_current_user
+    @project
   end
 
   private

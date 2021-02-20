@@ -16,7 +16,7 @@ class UsersController < ApplicationController
   end
 
   def add_links_tag
-    @user.link_list.add(# "http://www.instagra,com/dada" - where will the tags be set?)
+    @user.link_list.add(# "http://www.instagram.com/dada" - where will the tags be set?)
     @user.save # save to persist tag_list
   end
 
