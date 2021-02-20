@@ -1,5 +1,5 @@
 <h1>Direct Chat</h1>
-<div id="direct-messages" data-chatroom-id="<%= @chatroom.id %>">
+<div class="btn-artcollabs" id="direct-messages" data-chatroom-id="<%= @chatroom.id %>">
   <% @chatroom.direct_messages.each do |direct_message| %>
     <div class="direct-message-container" id="direct-message-<%= direct_message.id %>">
       <i class="author">
