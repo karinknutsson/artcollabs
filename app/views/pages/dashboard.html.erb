@@ -1,0 +1,4 @@
+<%= @user.email %>
+<% @projects.each do |project| %>
+  <br><%= link_to "#{project.title}", project_path(project)  %>
+<% end %>

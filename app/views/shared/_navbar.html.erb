@@ -8,6 +8,7 @@
 
     <div class="nav-avatar">
       <%= image_tag("avatar.jpg") %>
+      <%= link_to 'Log Out', destroy_user_session_path, method: :delete %>
     </div>
 
   <% else %>

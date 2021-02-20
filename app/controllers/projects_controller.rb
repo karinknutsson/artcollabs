@@ -10,6 +10,15 @@ class ProjectsController < ApplicationController
     authorize @project
   end
 
+  def index
+    sql_query = "title ILIKE :query OR budget ILIKE :query OR location ILIKE :query"
+    if params[:query].present?
+      @projects = policy_scope(Project.where(sql_query, query: "%#{params[:query]}%")).order(created_at: :desc)
+    else
+      @projects = policy_scope(Project).order(created_at: :desc)
+    end
+  end
+
   def new
     # ✅
     @project = Project.new
