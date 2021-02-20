@@ -1,4 +1,24 @@
-<%= @user.email %>
+
+<h1>My projects</h1>
 <% @projects.each do |project| %>
-  <br><%= link_to "#{project.title}", project_path(project)  %>
+  <br><%= link_to "#{project.title}", project_path(project) %>
 <% end %>
+
+<br>--------------------- <br>
+<h1>My collabs</h1>
+<% @collaborations.each do |collaboration| %>
+  <br>as <%= collaboration.role %> on
+  <%= link_to "#{collaboration.project.title}", project_path(collaboration.project) %>
+<% end %>
+
+<br>--------------------- <br>
+<h1>Collaborations to my projects</h1>
+<h2>pending</h2>
+<% @collaborations_to_my_projects.each do |collab| %>
+  <!--PENDING COLLABS-->
+  <% if collab.status == nil %>  
+    <br><%= link_to "#{collab.project.title}", project_path(collab.project) %>
+  <% end %>
+  
+<% end %>
+  
