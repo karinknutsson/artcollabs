@@ -1,3 +1,28 @@
-<% @projects.each do |project| %>
-  <br><%= link_to "#{project.title}", project_path(project)  %>
-<% end %>
+<div class="index-card-container">
+
+  <% @projects.each do |project| %>
+
+    <div class="index-card">
+      <div class="card-image">
+        <%= image_tag "gracejones.jpg" %>
+      </div>
+      <div class="card-title">
+        <h5><%= link_to "#{project.title}", project_path(project) %></h5>
+      </div>
+      <div class="card-roles">
+        <i class="fas fa-user-circle user-icon icon-black"></i><i class="fas fa-user-circle user-icon icon-grey"></i> 3 more people can join
+      </div>
+      <div class="card-tags">
+        <span>photography</span>
+        <span>icon</span>
+        <span>fierce</span>
+        <span>monochrome</span>
+      </div>
+      <div class="card-footer">
+        <%= image_tag "avatar.jpg" %>
+      </div>
+    </div>
+
+  <% end %>
+
+</div>

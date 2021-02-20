@@ -13,7 +13,6 @@
 @import "pages/index";
 
 // FONTS
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,300;0,400;0,600;0,700;1,400;1,600&display=swap');
 @font-face {
     font-family: 'futurateeregular';
@@ -52,6 +51,10 @@ h1, h2, h3, h4, h5, h6 {
 
 h4 {
   font-size: 14pt;
+}
+
+h5 {
+  font-size: 12pt;
 }
 
 h6 {
