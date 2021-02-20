@@ -13,7 +13,6 @@
 @import "pages/index";
 
 // FONTS
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,300;0,400;0,600;0,700;1,400;1,600&display=swap');
 @font-face {
     font-family: 'futurateeregular';
@@ -50,8 +49,20 @@ h1, h2, h3, h4, h5, h6 {
   font-family: 'futurateebold', Futura, Helvetica, sans-serif;
 }
 
+h2 {
+  font-size: 24pt;
+}
+
+h3 {
+  font-size: 16pt;
+}
+
 h4 {
   font-size: 14pt;
+}
+
+h5 {
+  font-size: 12pt;
 }
 
 h6 {
@@ -71,4 +82,19 @@ a.tab:active, a.tab:hover {
 
 a.white, a.btn-white:visited, a.white:active, a.btn-white:hover{
   color: white;
+}
+
+.main-body-container {
+  min-height: 79vh;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active  {
+    -webkit-box-shadow: 0 0 0 30px white inset !important;
+}
+
+input:-webkit-autofill {
+    -webkit-text-fill-color: black !important;
 }

@@ -1,5 +1,45 @@
 h1 {
   color: $dark-blue;
   font-size: 64pt;
-  margin: 100px 160px 100px 160px;
+  margin: 80px 160px 80px 160px;
+}
+
+input[type="text"]:focus {
+    outline : none;
+}
+
+.home-search-container {
+  margin: 0 auto;
+  padding: 0 0 0 14px;
+  background-color: white;
+  border-radius: 50px;
+  border: 2pt solid $dark-blue;
+  height: 48px;
+  width: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.home-search-text {
+  border: 0;
+  width: 90%;
+  background-color: rgba(0, 0, 0, 0);
+  font-style: "Source Sans Pro", sans-serif;
+  font-size: 12pt;
+}
+
+.icon-bg {
+  width: 34px;
+  height: 34px;
+  background-color: $dark-blue;
+  border-radius: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.home-search-icon {
+  font-size: 16pt;
+  color: white;
 }

@@ -25,7 +25,7 @@ require("channels")
 
 // Delete will work on Edge
 
-//= require jquery_ujs 
+//= require jquery_ujs
 
 // External imports
 import "bootstrap";
@@ -33,11 +33,13 @@ import "bootstrap";
 // Internal imports, e.g:
 import { initProjectChatCable } from '../channels/project_chat_channel';
 import { initChatroomCable } from '../channels/chatroom_channel';
+import { initSendMessage } from './init_send_message';
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
   initProjectChatCable();
   initChatroomCable();
+  initSendMessage();
 });
 
