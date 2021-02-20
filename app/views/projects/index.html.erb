@@ -1,7 +1,9 @@
 <% @projects.each do |project| %>
   <br><%= link_to "#{project.title}", project_path(project)  %>
-  <!-- favourite_path with project it -->
-  <!-- form with icon that calls new path (on submit) -->
+
+  <%= simple_form_for [project, @favourite_project] do |f| %>
+    <%= f.hidden_field :user, value: @user.id %>
+    <%= f.submit %>
+  <% end %>
   
-  <!-- if current_user -  if @user_favourites.project.includes(project) then display -->
 <% end %>

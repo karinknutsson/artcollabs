@@ -3,17 +3,22 @@ class ProjectsController < ApplicationController
   before_action :authenticate_user!
   
   def show
+    @user = current_user
     @collaboration = Collaboration.new
     @milestone = Milestone.new
     @milestones = Milestone.where(project_id: @project)
+    if @favourite_project = FavouriteProject.find_by(user: @user, project: @project)
+      @favourite_project
+    else
+      @favourite_project = FavouriteProject.new
+    end
     authorize @project
   end
 
   def index
     sql_query = "title ILIKE :query OR budget ILIKE :query OR location ILIKE :query"
-    if current_user
-      @user_favourites = FavouriteProject.where(user: current_user)
-    end
+    @user = current_user
+    @favourite_project = FavouriteProject.new
     if params[:query].present?
       if @projects = policy_scope(Project.where(sql_query, query: "%#{params[:query]}%")).order(created_at: :desc).empty?
         redirect_to projects_path
@@ -58,7 +63,6 @@ class ProjectsController < ApplicationController
   end
 
   def destroy
-    raise
     authorize @project
     @project.destroy
     redirect_to root_path

@@ -14,13 +14,4 @@
   <%= link_to "#{collaboration.project.title}", project_path(collaboration.project) %>
 <% end %>
 
-<br>--------------------- <br>
-<h1>Collaborations to my projects</h1>
-<h2>pending</h2>
-<% @collaborations_to_my_projects.each do |collab| %>
-  <% if collab.status == nil %>  
-    <br><%= link_to "#{collab.project.title}", project_path(collab.project) %>
-  <% end %>
-  
-<% end %>
   
