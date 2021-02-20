@@ -79,3 +79,14 @@ a.white, a.btn-white:visited, a.white:active, a.btn-white:hover{
 .main-body-container {
   min-height: 79vh;
 }
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active  {
+    -webkit-box-shadow: 0 0 0 30px white inset !important;
+}
+
+input:-webkit-autofill {
+    -webkit-text-fill-color: black !important;
+}
