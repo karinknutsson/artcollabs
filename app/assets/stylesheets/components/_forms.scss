@@ -1,4 +1,19 @@
 .form-container {
-  margin: 60px auto;
-  width: 50vw;
+  margin: 100px auto 0 auto;
+  width: 40vw;
+}
+
+.float-right {
+  float: right;
+}
+
+input[type=submit] {
+  font-family: "futurateeregular", Futura, Helvetica, sans-serif;
+  font-size: 12pt;
+  color: white;
+  background-color: $warm-red;
+  padding: 8px;
+  width: 220px;
+  border-radius: 50px;
+  border: 0;
 }
