@@ -1,11 +1,19 @@
 
 <h1>Art Collabs is about making things happen!</h1>
 
+
 <%= form_tag projects_path, method: :get do %>
-  <%= text_field_tag :query,
-    params[:query],
-    class: "form-control",
-    placeholder: "Find a project"
-  %>
-  <%= submit_tag "Search", class: "btn" %>
+
+  <div class="home-search-container">
+
+    <%= text_field_tag :query,
+      params[:query],
+      class: "home-search-text",
+      placeholder: "Which topic are you interested in?"
+    %>
+
+    <button class="search-submit"><div class="icon-bg"><i class="fas fa-search home-search-icon"></i></div></button>
+
+  </div>
+
 <% end %>

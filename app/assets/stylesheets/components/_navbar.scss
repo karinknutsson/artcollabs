@@ -1,9 +1,14 @@
+input[type="text"]:focus {
+    outline : none;
+}
+
 .nav-artcollabs {
   background-color: $light-blue;
   height: 72px;
   position: relative;
   display: flex;
   align-items: center;
+  justify-content: space-around;
 }
 
 .nav-logo-container {
@@ -28,4 +33,33 @@
 .nav-btn-login {
   position: absolute;
   right: 56px;
+}
+
+.navbar-search-container {
+  padding: 0 6px 0 14px;
+  background-color: white;
+  border-radius: 50px;
+  height: 36px;
+  width: 320px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.navbar-search-text {
+  border: 0;
+  width: 90%;
+  background-color: rgba(0, 0, 0, 0);
+  font-style: "Source Sans Pro", sans-serif;
+  font-size: 10pt;
+}
+
+.search-submit {
+  border: 0;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.search-icon {
+  font-size: 14pt;
+  color: $grey-med;
 }
