@@ -1,3 +1,7 @@
+input[type="text"]:focus {
+    outline : none;
+}
+
 .nav-artcollabs {
   background-color: $light-blue;
   height: 72px;
@@ -44,7 +48,7 @@
 
 .navbar-search-text {
   border: 0;
-  width: 85%;
+  width: 90%;
   background-color: rgba(0, 0, 0, 0);
   font-style: "Source Sans Pro", sans-serif;
   font-size: 10pt;

@@ -11,7 +11,7 @@
 .index-card {
   margin: 0;
   width: 240px;
-  height: 340px;
+  height: 346px;
   border: 2px solid $grey-light-med;
   border-radius: 20px;
 }
@@ -38,7 +38,7 @@
 }
 
 .card-tags {
-  margin: 6px;
+  margin: 6px 6px 12px 6px;
   line-height: 24px;
   span {
     margin: 6px;
@@ -108,12 +108,12 @@
   }
 }
 
-@media(max-width: 992px) {
+@media(max-width: 800px) {
   .index-card-container {
     grid-template-columns: 1fr 1fr;
   }
 }
-@media(max-width: 768px) {
+@media(max-width: 500px) {
   .index-card-container {
     grid-template-columns: 1fr;
   }
