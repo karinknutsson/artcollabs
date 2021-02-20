@@ -46,14 +46,6 @@ puts "------ Creating Felix 🧔"
 felix = User.create(email: "felixwor@aol.com", password: "12345678")
 puts "Felix created"
 
-puts "📨📨-- Message system seeds ..."
-
-Project.create(user: User.last, title: "Project 1")
-ProjectChat.create(project: Project.last)
-Message.create(project_chat: ProjectChat.last, user: User.last, content: "This is my first message")
-new_chatroom = Chatroom.create
-new_message = DirectMessage.create(chatroom: Chatroom.last, user: User.last, content: "This is my first silly direct message")
-
 
 10.times do
   User.create(email: "#{Faker::Internet.email}", password: "000000")
@@ -151,4 +143,10 @@ counter = 0
   puts "Random Milestone #{counter}: project: #{milestone.project.title}"
   puts " \n "
 end
+
+puts "📨📨-- Message system seeds ..."
+
+new_chatroom = Chatroom.create
+new_message = DirectMessage.create(chatroom: Chatroom.last, user: User.last, content: "This is my first silly direct message")
+
 puts "----------------------SEED ENDED----------------------"
