@@ -1,9 +1,29 @@
-<% @projects.each do |project| %>
-  <br><%= link_to "#{project.title}", project_path(project)  %>
+<div class="index-card-container">
 
-  <%= simple_form_for [project, @favourite_project] do |f| %>
-    <%= f.hidden_field :user, value: @user.id %>
-    <%= f.submit %>
+  <% @projects.each do |project| %>
+
+    <div class="index-card">
+      <div class="card-image">
+        <%= image_tag "gracejones.jpg" %>
+      </div>
+      <div class="card-title">
+        <h6><%= link_to "#{project.title}", project_path(project) %></h6>
+      </div>
+      <div class="card-roles">
+        <i class="fas fa-user-circle user-icon icon-black"></i><i class="fas fa-user-circle user-icon icon-grey"></i> 3 more people can join
+      </div>
+      <div class="card-tags">
+        <span>photography</span>
+        <span>icon</span>
+        <span>fierce</span>
+        <span>monochrome</span>
+      </div>
+      <div class="card-footer">
+        <%= image_tag "avatar.jpg" %>
+        <h6><a href="#">Pandora</a></h6>
+      </div>
+    </div>
+
   <% end %>
-  
-<% end %>
+
+</div>

@@ -6,9 +6,18 @@
 
   <% if user_signed_in? %>
 
-    <div class="nav-avatar">
-      <%= image_tag("avatar.jpg") %>
-      <%= link_to 'Log Out', destroy_user_session_path, method: :delete %>
+    <%= render "shared/navbar_search_form" %>
+
+    <div class="dropdown dropleft navbar-dropdown">
+      <button type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <div class="nav-avatar">
+          <%= image_tag("avatar.jpg") %>
+        </div>
+      </button>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <%= link_to "Dashboard", dashboard_path, class: "dropdown-item" %>
+        <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+      </div>
     </div>
 
   <% else %>
