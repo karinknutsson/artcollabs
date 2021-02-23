@@ -5,6 +5,7 @@ class Project < ApplicationRecord
 
   has_many :collaborations, dependent: :destroy
   has_many :milestones, dependent: :destroy
+  has_one_attached :photo, dependent: :destroy
   has_many_attached :photos, dependent: :destroy
   has_one :project_chat, dependent: :destroy
 
@@ -12,14 +13,14 @@ class Project < ApplicationRecord
   # has_many_attached :audios, resource_type: video ,dependent: :destroy
   # <%= cl_video_tag @i..., controls: true, style: "width: 100%;" %>
 
-  validates :title, presence: true, length: { maximum: 100 }, uniqueness: true
-  validates :description, presence: true
-  validates :status, presence: true, inclusion: { in: %w[open active closed finished] }
-  validates :budget, presence: true
-  validates :max_members, presence: true
+  # validates :title, presence: true, length: { maximum: 100 }, uniqueness: true
+  # validates :description, presence: true
+  # validates :status, presence: true, inclusion: { in: %w[open active closed finished] }
+  # validates :budget, presence: true
+  # validates :max_members, presence: true
   # validates :start_date, presence: true
   # validates :end_date, presence: true
-  validates :location, presence: true
+  # validates :location, presence: true
 
   before_create :initialize_project_chat
 
