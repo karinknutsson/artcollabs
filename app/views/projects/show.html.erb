@@ -2,13 +2,13 @@
 
   <h1><%= @project.title %></h1>
 
-  <% if current_user == @project.owner %>
+  <% if @user_type == :creator %>
 
     <%= render "shared/about_owner" %>
 
-  <% elsif current_user == @project.collaborator %>
+  <% elsif @user_type == :collaborator  %>
 
-    <%= render "shared/about_collaborator"
+    <%= render "shared/about_collaborator" %>
 
   <% else %>
 
@@ -18,4 +18,3 @@
 
 </div>
 
-<%= render "shared/favourite_projects_form" %>
