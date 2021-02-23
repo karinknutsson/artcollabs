@@ -20,6 +20,17 @@ def location_generator
   [Faker::Address.full_address, "remote"].sample
 end
 
+def name_generator
+  ["The end of Osiris", "Pentimento", "Through triple darkness", "Wake up the statues", "symptom, sympathy", "The importance of being self suficient", "Verhandlungsbasis", "false ruins and lost innocence", "Freedom and Independence", "Scene with Perfect Babble", "Absence over Vision", "Kinetic Sunset", "Algorithm purpose", "Sketch of Binary Perception", "Cryonic Suspension May Save Your Life", "Samurai Masu Biitsu", "Spoiler Alert, Everybody is Dying.", "Selvagem", "Darkroom Lover", "Lay me down", "Adelaide's Voyage", "0055444", "TRANSGRESSION", "Heimcomputer", "Axioms", "Cupio dissolvi", "tepeu", "Lento Brutalo", "près du mur", "et j'ai besoin d'un câlin", "resistance de ma bouche", "...hemos hecho", "bezduszny", "kycklingarna har rymt", "harab aldijaj", "talchulhaessda", "I was wrong", "1978", "Intacto", "She's made a choice (and you won't like it.)", "Joints I should have smoked",  "I'm not a crook", "The rent is too damn high", "mathematischen Verhältnissen", "Springbrunnen", "Grosse Nasenlöcher", "Exertion", "Why would anyone do that?", "56600 - The Past. The Future.", "The Goose Feels Happy", "Soul Rythms", "Black Aura - White What?" ]
+end
+
+woman_side = Project.new(title: "The female side of the moon", description: " THE FEMALE SIDE OF THE MOON pursues the female gaze. But rather than examining what it is and if such a thing ever exists, it wants to render and foster the multiplicity of the looks of women* towards women*. The bodies photographed turn into the cracks of the earth, they witness the restless geographies they arise from. Much of Maple‘s work is inspired by feminism and gender politics. She is interested in the part shame plays in womens’ lives,
+  be that how they take up space in the world, their physical appearance, their bodily functions or blame culture.
+  Maple is interested in how we can change the visual narrative for women as a form of empowerment. In much of this work
+  she uses humor as a Trojan horse to get a message across. Her work crosses a wide variety of media such as performance,
+  painting and photography. The idea comes first then the medium she chooses
+  is determined by the strongest way to get the idea across, hence is constantly evolving.", budget: "#{budget_generator}", location: "#{location_generator}", status: "open", max_members: 2)
+
 puts "💥Deleting previous DB"
 DirectMessage.destroy_all
 Message.destroy_all
@@ -64,42 +75,7 @@ puts " \n "
 puts " \n "
 puts "🆕🧾-- Creating Projects"
 
-counter = 0
-3.times do
-  counter = counter + 1
-  Project.create(title: " DUMMY 1 - #{Faker::TvShows::RuPaul.queen}", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quorum sine causa fieri nihil putandum est. Quamquam in hac divisione rem ipsam prorsus probo, elegantiam desidero. Satis est ad hoc responsum. Quid dubitas igitur mutare principia naturae? Duo Reges: constructio interrete.
 
-  Experiamur igitur, inquit, etsi habet haec Stoicorum ratio difficilius quiddam et obscurius. Philosophi autem in suis lectulis plerumque moriuntur. Disserendi artem nullam habuit. Erit enim instructus ad mortem contemnendam, ad exilium, ad ipsum etiam dolorem.
-
-  Tu vero, inquam, ducas licet, si sequetur; Haec qui audierit, ut ridere non curet, discedet tamen nihilo firmior ad dolorem ferendum, quam venerat. An vero, inquit, quisquam potest probare, quod perceptfum, quod. Odium autem et invidiam facile vitabis. Ergo omni animali illud, quod appetiti positum est in eo, quod naturae est accommodatum. Aliis esse maiora, illud dubium, ad id, quod summum bonum dicitis, ecquaenam possit fieri accessio.", status: "open", budget: "#{budget_generator}", max_members: rand(1..10), location: "#{location_generator}", user: dummy1)
-  puts "created Project ##{counter} for Dummy 1"
-end
-
-puts " \n "
-
-counter = 0
-3.times do
-  counter = counter + 1
-  Project.create(title: " DUMMY 2 - #{Faker::TvShows::RuPaul.queen}", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quorum sine causa fieri nihil putandum est. Quamquam in hac divisione rem ipsam prorsus probo, elegantiam desidero. Satis est ad hoc responsum. Quid dubitas igitur mutare principia naturae? Duo Reges: constructio interrete.
-
-  Experiamur igitur, inquit, etsi habet haec Stoicorum ratio difficilius quiddam et obscurius. Philosophi autem in suis lectulis plerumque moriuntur. Disserendi artem nullam habuit. Erit enim instructus ad mortem contemnendam, ad exilium, ad ipsum etiam dolorem.
-
-  Tu vero, inquam, ducas licet, si sequetur; Haec qui audierit, ut ridere non curet, discedet tamen nihilo firmior ad dolorem ferendum, quam venerat. An vero, inquit, quisquam potest probare, quod perceptfum, quod. Odium autem et invidiam facile vitabis. Ergo omni animali illud, quod appetiti positum est in eo, quod naturae est accommodatum. Aliis esse maiora, illud dubium, ad id, quod summum bonum dicitis, ecquaenam possit fieri accessio.", status: "open", budget: "#{budget_generator}", max_members: rand(1..10), location: "#{location_generator}", user: dummy2)
-  puts "created Project ##{counter} for Dummy 2"
-end
-
-puts " \n "
-
-counter = 0
-10.times do
-  counter = counter + 1
-  Project.create(title: "#{Faker::TvShows::RuPaul.queen}", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quorum sine causa fieri nihil putandum est. Quamquam in hac divisione rem ipsam prorsus probo, elegantiam desidero. Satis est ad hoc responsum. Quid dubitas igitur mutare principia naturae? Duo Reges: constructio interrete.
-
-  Experiamur igitur, inquit, etsi habet haec Stoicorum ratio difficilius quiddam et obscurius. Philosophi autem in suis lectulis plerumque moriuntur. Disserendi artem nullam habuit. Erit enim instructus ad mortem contemnendam, ad exilium, ad ipsum etiam dolorem.
-
-  Tu vero, inquam, ducas licet, si sequetur; Haec qui audierit, ut ridere non curet, discedet tamen nihilo firmior ad dolorem ferendum, quam venerat. An vero, inquit, quisquam potest probare, quod perceptfum, quod. Odium autem et invidiam facile vitabis. Ergo omni animali illud, quod appetiti positum est in eo, quod naturae est accommodatum. Aliis esse maiora, illud dubium, ad id, quod summum bonum dicitis, ecquaenam possit fieri accessio.", status: "open", budget: "#{budget_generator}", max_members: rand(1..10), location: "#{location_generator}", user: User.all.sample )
-  puts "created Project ##{counter} for Other Users"
-end
 
 puts " \n \n "
 sleep(1)
