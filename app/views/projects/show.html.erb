@@ -2,7 +2,19 @@
 
   <h1><%= @project.title %></h1>
 
-  <%= render "shared/about" %>
+  <% if current_user == @project.owner %>
+
+    <%= render "shared/about_owner" %>
+
+  <% elsif current_user == @project.collaborator %>
+
+    <%= render "shared/about_collaborator"
+
+  <% else %>
+
+    <%= render "shared/about_user" %>
+
+  <% end %>
 
 </div>
 
