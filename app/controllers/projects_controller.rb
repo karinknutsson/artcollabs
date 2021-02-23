@@ -1,12 +1,13 @@
 class ProjectsController < ApplicationController
   before_action :set_project, only: %i[ show edit update destroy ]
   before_action :authenticate_user!
-  
+
   def show
     @user = current_user
     @collaboration = Collaboration.new
     @milestone = Milestone.new
     @milestones = Milestone.where(project_id: @project)
+    @user_type = get_user_type
     if @favourite_project = FavouriteProject.find_by(user: @user, project: @project)
       @favourite_project
     else
@@ -80,5 +81,15 @@ class ProjectsController < ApplicationController
 
   def project_params
     params.require(:project).permit(:user_id, :title, :description, :status, :budget, :max_members, :start_date, :end_date)
+  end
+
+  def get_user_type
+    if @project.user_id == current_user.id
+      :creator
+    elsif Collaboration.find_by(project_id: @project.id, user_id: current_user.id)
+      :collaborator
+    else
+      :visitor
+    end
   end
 end
