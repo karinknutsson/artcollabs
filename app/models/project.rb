@@ -24,7 +24,7 @@ class Project < ApplicationRecord
   # validates :end_date, presence: true
   # validates :location, presence: true
 
-  before_create :initialize_project_chat
+  after_create :initialize_project_chat
 
   include PgSearch::Model
   pg_search_scope :search_by_title_and_budget_and_location,
@@ -36,6 +36,6 @@ class Project < ApplicationRecord
   private
 
   def initialize_project_chat
-    self.project_chat = ProjectChat.new
+    self.project_chat = ProjectChat.create(project: self)
   end
 end

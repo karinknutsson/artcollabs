@@ -2,37 +2,10 @@
     <h2>About</h2>
     <h2><a href="#" class="tab">Timeline</a></h2>
     <h2><a href="#" class="tab">Media</a></h2>
-    <h2><%= link_to "Chat", "#", class: "tab" %></h2>
+
+    <% if  @project.project_chat.present? %>
+      <h2><%= link_to "Chat", project_chat_path(@project.project_chat), class: "tab" %></h2>
+    <% end %>
   </div>
-<!-- project_chat_path(@project.project_chat) -->
 
   <hr>
-
-  <div class="show-content">
-
-    <div class="content-left">
-
-      <div class="project-description">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
-      </div>
-
-      <div class="project-links">
-        <h4>Resources</h4>
-
-      </div>
-
-    </div>
-
-    <div class="content-right">
-
-      <a href="#" class="white btn-artcollabs btn-warm-red">Edit content</a>
-      <a href="#" class="white btn-artcollabs btn-warm-red">Pending requests</a>
-      <a href="#" class="white btn-artcollabs btn-warm-red">Delete project</a>
-
-      <%= render "shared/members" %>
-
-    </div>
-
-  </div>
-
-  <div style="height: 60px"></div>
