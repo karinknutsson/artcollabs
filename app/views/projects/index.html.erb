@@ -4,7 +4,7 @@
 
     <div class="index-card">
       <div class="card-image">
-        <%= image_tag "gracejones.jpg" %>
+        <%= image_tag project.photo %>
       </div>
       <div class="card-title">
         <h6><%= link_to "#{project.title}", project_path(project) %></h6>
@@ -20,7 +20,7 @@
       </div>
       <div class="card-footer">
         <%= image_tag "avatar.jpg" %>
-        <h6><a href="#">Pandora</a></h6>
+        <h6><a href="#"><%= project.user.username %></a></h6>
       </div>
     </div>
 

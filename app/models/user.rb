@@ -7,6 +7,7 @@ class User < ApplicationRecord
   acts_as_taggable_on :tags
   acts_as_taggable_on :skills, :links, :interests #You can also configure multiple tag types per model
   
+  has_one_attached :avatar
   has_many_attached :photos
   has_many :links, dependent: :destroy
 end
