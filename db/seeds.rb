@@ -62,7 +62,7 @@ felix = User.create(email: "felixwor@aol.com", password: "12345678")
 puts "Felix created"
 
 
-10.times do
+20.times do
   User.create(email: "#{Faker::Internet.email}", password: "000000", username: "#{Faker::Internet.username}")
 end
 
