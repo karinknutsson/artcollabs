@@ -7,10 +7,12 @@ input[type=submit] {
   width: 220px;
   border-radius: 50px;
   border: 0;
+  transition: background 1.5s;
 }
 
 input[type=submit]:hover {
   color: white;
+  background-color: $warm-yellow;
 }
 
 .form-container {
