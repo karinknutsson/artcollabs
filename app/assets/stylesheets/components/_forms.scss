@@ -7,6 +7,12 @@ input[type=submit] {
   width: 220px;
   border-radius: 50px;
   border: 0;
+  transition: background 1.5s;
+}
+
+input[type=submit]:hover {
+  color: white;
+  background-color: $warm-yellow;
 }
 
 .form-container {
@@ -18,7 +24,16 @@ input[type=submit] {
   float: right;
 }
 
+.float-center {
+  float: center;
+}
+
 .new-project-container {
   margin: 60px auto 160px auto;
   width: 50vw;
+}
+
+.delete-account {
+  margin-top: 180px;
+  margin-bottom: 120px;
 }
