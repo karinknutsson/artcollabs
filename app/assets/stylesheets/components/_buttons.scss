@@ -22,8 +22,24 @@
   background-color: $warm-yellow;
 }
 
+.btn-grey {
+  margin: 0 0 16px 0;
+  background-color: $grey-dark;
+  width: 240px;
+  text-align: center;
+  transition: background 1.5s;
+}
+
+.btn-grey:hover {
+  background-color: $warm-yellow;
+}
+
 .btn-margin-right {
   margin-right: 16px;
+}
+
+.btn-apply {
+  color: white !important;
 }
 
 .white-text {
