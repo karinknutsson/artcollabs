@@ -9,7 +9,7 @@
     <div class="chat-left">
 
       <div id="messages" data-projectchat-id="<%= @project_chat.id %>">
-        <% @project_chat.messages.each do |message| %>
+        <% @project_chat.messages.reverse.each do |message| %>
           <div class="message-container" id="message-<%= message.id %>">
             <div class="message-top">
               <span class="chat-user"><%= message.user.username %></span>
