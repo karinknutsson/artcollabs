@@ -1,24 +1,35 @@
+<div class="show-container">
 
-<h1>My projects</h1>
+  <h1>Dashboard</h1>
+
+  <div class="tab-container">
+    <h2>My projects</h2>
+    <h2><a href="#" class="tab">My collaborations</a></h2>
+  </div>
+
+  <hr>
+
+<h6>My projects</h6>
 <% @projects.each do |project| %>
   <br><%= link_to "#{project.title}", project_path(project) %>
 <% end %>
 
 <br>--------------------- <br>
-<h1>My collabs</h1>
+<h6>My collabs</h6>
 <% @collaborations.each do |collaboration| %>
   <br>as <%= collaboration.role %> on
   <%= link_to "#{collaboration.project.title}", project_path(collaboration.project) %>
 <% end %>
 
 <br>--------------------- <br>
-<h1>Collaborations to my projects</h1>
+<h6>Collaborations to my projects</h6>
 <h2>pending</h2>
 <% @collaborations_to_my_projects.each do |collab| %>
   <!--PENDING COLLABS-->
-  <% if collab.status == nil %>  
+  <% if collab.status == nil %>
     <br><%= link_to "#{collab.project.title}", project_path(collab.project) %>
   <% end %>
-  
+
 <% end %>
-  
+
+</div>
