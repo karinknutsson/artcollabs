@@ -13,22 +13,26 @@
         <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
       <% end %>
 
+      <%= f.input :username,
+                  hint: "we need your current user name to confirm your changes",
+                  required: true,
+                  input_html: { autocomplete: "username", value: current_user.username } %>
       <%= f.input :first_name,
                   hint: "we need your current first name to confirm your changes",
                   required: true,
-                  input_html: { autocomplete: "first_name" } %>
+                  input_html: { autocomplete: "first_name", value: current_user.first_name } %>
       <%= f.input :last_name,
                   hint: "we need your current last name to confirm your changes",
                   required: true,
-                  input_html: { autocomplete: "last_name" } %>
+                  input_html: { autocomplete: "last_name", value: current_user.last_name } %>
       <%= f.input :bio,
                   hint: "we need your current bio to confirm your changes",
                   required: true,
-                  input_html: { autocomplete: "bio" } %>
+                  input_html: { autocomplete: "bio", value: current_user.bio } %>
       <%= f.input :location,
                   hint: "we need your current location to confirm your changes",
                   required: true,
-                input_html: { autocomplete: "location" } %>
+                input_html: { autocomplete: "location", value: current_user.bio } %>
       <%= f.input :password,
                   hint: "leave it blank if you don't want to change it",
                   required: false,

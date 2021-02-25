@@ -8,6 +8,11 @@ input[type="text"]:focus {
     outline : none;
 }
 
+::placeholder {
+  color: $grey-med;
+  opacity: 1;
+}
+
 .home-search-container {
   margin: 0 auto;
   padding: 0 0 0 14px;
