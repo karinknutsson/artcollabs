@@ -87,7 +87,7 @@ class ProjectsController < ApplicationController
 
   def get_user_type
     if @project.user_id == current_user.id
-      :creator
+      :owner
     elsif Collaboration.find_by(project_id: @project.id, user_id: current_user.id)
       :collaborator
     else

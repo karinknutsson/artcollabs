@@ -83,6 +83,9 @@
   width: 240px;
   border: 2px solid $grey-light-med;
   border-radius: 20px;
+  h4 {
+    margin: 4px;
+  }
 }
 
 .member-card-title {
@@ -105,6 +108,25 @@
   align-items: center;
   h6 {
     margin: 8px;
+  }
+}
+
+.owner-card-info {
+  padding: 16px;
+  img {
+    width: 64px;
+    height: 64px;
+    border-radius: 100px;
+  }
+}
+
+.owner-details {
+  ul {
+    padding-left: 2px;
+    list-style-type: none;
+  }
+  li {
+    padding-top: 8px;
   }
 }
 
