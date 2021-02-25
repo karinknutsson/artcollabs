@@ -90,7 +90,7 @@ modular1978.save
 transgression = Project.new(title: "TRANSGRESSION", description: "Our sponsor, the Worcester Art Museum (WAM), is largely involved with art from the past and exhibiting example of historical periods of art. However, in the near future they will be sponsoring a new exhibit, called Reusable Universes, that will feature artwork created by the contemporary artist, Shih Chieh Huang. This new exhibit will need corresponding interactive activities, provided by the WAM, to allow visitors to become more involved. Huang takes inspiration from early technology such as computer cooling fans, basic circuit boards, and even simpler objects; such as power strips, in order to create his sculptures. His views of these everyday objects differ from those of the public and our understanding of his creative process can only be developed so far through text. In order for viewers to truly grasp the thoughts and concepts that go into his work, Huang has set out to bring his artistic process to life and put on a show featuring himself creating one of his sculptures. He plans to highlight the meaning of each object through the location and orientation he chooses as the audience observes how he brings his art to life. Working alongside the WAM, Huang will be able to give the audience enough information and examples of his work to develop a true appreciation of his art style.", budget: "#{budget_generator}", location: "#{location_generator}", status: "open", max_members: 2, user: dummy2)
 image = URI.open("https://res.cloudinary.com/det3cfeuo/image/upload/v1614188111/rhld9yqy6yejtyo0xbgs92fdlxxd.jpg")
 transgression.photo.attach(io: image, filename: "transgression", content_type: "image/png")
-trangression.save
+transgression.save
 
 
 intacto = Project.new(title: "Intacto", description: "Designers, architects and urban planners are increasingly taking on the task of managing social and political issues of relationships, neighborhoods, energy flows, mobility, cultural heritage, identity and urban change, rather than just spatial and formal aspects. The theme ‘Landscapes of care’ focuses on a change of direction in the values, interests and priorities that drive architecture and urban planning. The main focus changes from the individual actor or the individual object, towards a greater sensitivity to issues of interconnection, attachment and interdependence. 
@@ -243,41 +243,45 @@ little_frank = Project.new(title: "Little Frank Studies", description: "Fraser w
   little_frank.photo.attach(io: image, filename: "little_frank", content_type: "image/png")
 little_frank.save
 
-# female_side = Project.new(title: "The female side of the moon", description: " THE FEMALE SIDE OF THE MOON pursues the female gaze. But rather than examining what it is and if such a thing ever exists, it wants to render and foster the multiplicity of the looks of women* towards women*. The bodies photographed turn into the cracks of the earth, they witness the restless geographies they arise from. Much of Maple‘s work is inspired by feminism and gender politics. She is interested in the part shame plays in womens’ lives,
-# be that how they take up space in the world, their physical appearance, their bodily functions or blame culture.
-# Maple is interested in how we can change the visual narrative for women as a form of empowerment. In much of this work
-# she uses humor as a Trojan horse to get a message across. Her work crosses a wide variety of media such as performance,
-# painting and photography. The idea comes first then the medium she chooses
-# is determined by the strongest way to get the idea across, hence is constantly evolving.", budget: "#{budget_generator}", location: "#{location_generator}", status: "open", max_members: 2, user: User.all.sample)
-# female_side.photo.attach(io: File.open("app/assets/images/ph_projects/female_side.jpg", "rb"), filename: "female_side")
-# female_side.save
+female_side = Project.new(title: "The female side of the moon", description: " THE FEMALE SIDE OF THE MOON pursues the female gaze. But rather than examining what it is and if such a thing ever exists, it wants to render and foster the multiplicity of the looks of women* towards women*. The bodies photographed turn into the cracks of the earth, they witness the restless geographies they arise from. Much of Maple‘s work is inspired by feminism and gender politics. She is interested in the part shame plays in womens’ lives,
+be that how they take up space in the world, their physical appearance, their bodily functions or blame culture.
+Maple is interested in how we can change the visual narrative for women as a form of empowerment. In much of this work
+she uses humor as a Trojan horse to get a message across. Her work crosses a wide variety of media such as performance,
+painting and photography. The idea comes first then the medium she chooses
+is determined by the strongest way to get the idea across, hence is constantly evolving.", budget: "#{budget_generator}", location: "#{location_generator}", status: "open", max_members: 2, user: User.all.sample)
+image = URI.open("https://res.cloudinary.com/det3cfeuo/image/upload/v1614188140/uhzsae6o5c5e7qazdvr062dxbdyu.jpg")
+female_side.photo.attach(io: image, filename: "female_side", content_type: "image/png")
+female_side.save
 
-# freedom = Project.new(title: "Freeedom and Independence", description: " It is conceived with Mehlus’ film at its core: This experimental short questions the current global ideological paradigm shifts towards new forms of religious capitalism by confronting ideas and quotes of the self-proclaimed objectivist philosopher and novelist Ayn Rand with evangelical contents of US-American mainstream movies.", budget: "#{budget_generator}", location: "#{location_generator}", status: "open", max_members: 2, user: User.all.sample)
-# freedom.photo.attach(io: File.open("app/assets/images/ph_projects/freedom.jpg", "rb"), filename: "freedom")
-# freedom.save
+freedom = Project.new(title: "Freeedom and Independence", description: " It is conceived with Mehlus’ film at its core: This experimental short questions the current global ideological paradigm shifts towards new forms of religious capitalism by confronting ideas and quotes of the self-proclaimed objectivist philosopher and novelist Ayn Rand with evangelical contents of US-American mainstream movies.", budget: "#{budget_generator}", location: "#{location_generator}", status: "open", max_members: 2, user: User.all.sample)
+image = URI.open("https://res.cloudinary.com/det3cfeuo/image/upload/v1614188142/vlwwm7ijitob4umpnkobq9szwhsb.jpg")
+freedom.photo.attach(io: image, filename: "freedom", content_type: "image/png")
+freedom.save
 
-# adelaides = Project.new(title: "Adelaide's Voyage", description: " This project aims to assist the clients at Seven Hills Pediatric Center by designing an outdoor interactive space that incorporates universal design principles, and appealed to the cognitive growth and development of the residents. To complete our goal we produced designs and prototypes of recreational activities that integrate educational aspects that meets the accommodations for individuals with various spectrums of cognitive, physical, and developmental disabilities.", budget: "#{budget_generator}", location: "#{location_generator}", status: "open", max_members: 2, user: User.all.sample)
-# adelaides.photo.attach(io: File.open("app/assets/images/ph_projects/The-Bag-Lady-Manifesta-Eric-Lippe-2016-e1518700665524.jpg", "rb"), filename: "adelaides")
-# adelaides.save
+adelaides = Project.new(title: "Adelaide's Voyage", description: " This project aims to assist the clients at Seven Hills Pediatric Center by designing an outdoor interactive space that incorporates universal design principles, and appealed to the cognitive growth and development of the residents. To complete our goal we produced designs and prototypes of recreational activities that integrate educational aspects that meets the accommodations for individuals with various spectrums of cognitive, physical, and developmental disabilities.", budget: "#{budget_generator}", location: "#{location_generator}", status: "open", max_members: 2, user: User.all.sample)
+image = URI.open("https://res.cloudinary.com/det3cfeuo/image/upload/v1614188143/rymi4y1mdts1c5sd8qs8bk982j2t.jpg")
+adelaides.photo.attach(io: image, filename: "adelaides", content_type: "image/png")
+adelaides.save
 
-# sensibel = Project.new(title: "sensibel", description: "
-# We are looking for sculptors and models to pose for a series of sculptors that are going to be painted by me and photographed by Fernanda Souza, later it will be rendered in 3D (we're also looking for a person to do that.)
+sensibel = Project.new(title: "sensibel", description: "
+We are looking for sculptors and models to pose for a series of sculptors that are going to be painted by me and photographed by Fernanda Souza, later it will be rendered in 3D (we're also looking for a person to do that.)
 
-# The concept:
+The concept:
 
-# Originating in philosophical and scientific writings, sensibility became an English-language literary movement, particularly in the then-new genre of the novel. Such works, called sentimental novels, featured individuals who were prone to sensibility, often weeping, fainting, feeling weak, or having fits in reaction to an emotionally moving experience. If one were especially sensible, one might react this way to scenes or objects that appear insignificant to others. This reactivity was considered an indication of a sensible person's ability to perceive something intellectually or emotionally stirring in the world around them. However, the popular sentimental genre soon met with a strong backlash, as anti-sensibility readers and writers contended that such extreme behavior was mere histrionics, and such an emphasis on one's own feelings and reactions a sign of narcissism. Samuel Johnson, in his portrait of Miss Gentle, articulated this criticism:
+Originating in philosophical and scientific writings, sensibility became an English-language literary movement, particularly in the then-new genre of the novel. Such works, called sentimental novels, featured individuals who were prone to sensibility, often weeping, fainting, feeling weak, or having fits in reaction to an emotionally moving experience. If one were especially sensible, one might react this way to scenes or objects that appear insignificant to others. This reactivity was considered an indication of a sensible person's ability to perceive something intellectually or emotionally stirring in the world around them. However, the popular sentimental genre soon met with a strong backlash, as anti-sensibility readers and writers contended that such extreme behavior was mere histrionics, and such an emphasis on one's own feelings and reactions a sign of narcissism. Samuel Johnson, in his portrait of Miss Gentle, articulated this criticism:
 
-# She daily exercises her benevolence by pitying every misfortune that happens to every family within her circle of notice; she is in hourly terrors lest one should catch cold in the rain, and another be frighted by the high wind. Her charity she shews by lamenting that so many poor wretches should languish in the streets, and by wondering what the great can think on that they do so little good with such large estates.
-# Sentimentalism asserted that over-shown feeling was not a weakness but rather showed one to be a moral person. Arising from religiously motivated empathy, it expanded to the other perceptions—for example, sensual love was no longer understood as a destructive passion (Vanitas) but rather as a basis of social institutions, as it was for Antoine Houdar de la Motte. Requited love was, as in serious opera (the Tragédie en musique or Opera seria), a symbol for a successful alliance between nations. The 'Lesesucht' re-evaluated what was permitted literature, and the novel as a type of literature as versus drama.
+She daily exercises her benevolence by pitying every misfortune that happens to every family within her circle of notice; she is in hourly terrors lest one should catch cold in the rain, and another be frighted by the high wind. Her charity she shews by lamenting that so many poor wretches should languish in the streets, and by wondering what the great can think on that they do so little good with such large estates.
+Sentimentalism asserted that over-shown feeling was not a weakness but rather showed one to be a moral person. Arising from religiously motivated empathy, it expanded to the other perceptions—for example, sensual love was no longer understood as a destructive passion (Vanitas) but rather as a basis of social institutions, as it was for Antoine Houdar de la Motte. Requited love was, as in serious opera (the Tragédie en musique or Opera seria), a symbol for a successful alliance between nations. The 'Lesesucht' re-evaluated what was permitted literature, and the novel as a type of literature as versus drama.
 
-# Around the middle of the century, sentimentalism set 'untouched' nature against (courtly) civilization, as in the works of Jean Jacques Rousseau. In addition, Samuel Richardson's sentimental epistolary novel 'Pamela, or Virtue Rewarded' (1740) had great literary influence.
+Around the middle of the century, sentimentalism set 'untouched' nature against (courtly) civilization, as in the works of Jean Jacques Rousseau. In addition, Samuel Richardson's sentimental epistolary novel 'Pamela, or Virtue Rewarded' (1740) had great literary influence.
 
-# In continental Europe, one aspect of sentimentalism was Empfindsamkeit. The sensitive style (German: empfindsamer Stil) of music, developed in Germany, aimed to express 'true and natural' feelings, in contrast to the baroque.
+In continental Europe, one aspect of sentimentalism was Empfindsamkeit. The sensitive style (German: empfindsamer Stil) of music, developed in Germany, aimed to express 'true and natural' feelings, in contrast to the baroque.
 
-# The origin of sentimentalism in this context was chiefly religious, with the emotionally coloured texts for the oratorios of Johann Sebastian Bach stream being typical examples. Empfindsamkeit is also known as secularized pietism because it frequently came with moralizing content that had increasingly broken free of church and religious ties. An important theorist of the movement was Jean Baptiste Dubos.
-# ", budget: "#{budget_generator}", location: "#{location_generator}", status: "open", max_members: 2, user: User.all.sample)
-# sensibel.photo.attach(io: File.open("app/assets/images/ph_projects/wire-scultpures-03.jpg", "rb"), filename: "sensibel")
-# sensibel.save
+The origin of sentimentalism in this context was chiefly religious, with the emotionally coloured texts for the oratorios of Johann Sebastian Bach stream being typical examples. Empfindsamkeit is also known as secularized pietism because it frequently came with moralizing content that had increasingly broken free of church and religious ties. An important theorist of the movement was Jean Baptiste Dubos.
+", budget: "#{budget_generator}", location: "#{location_generator}", status: "open", max_members: 2, user: User.all.sample)
+image = URI.open("https://res.cloudinary.com/det3cfeuo/image/upload/v1614188145/ee2bl4ps3mq9hqm576sp8qdmnx9q.jpg")
+sensibel.photo.attach(io: image, filename: "sensibel", content_type: "image/png")
+sensibel.save
 
 Project.all.each do |project|
   puts " 💥💥 #{project.title} Created! \n "
