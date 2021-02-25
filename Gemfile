@@ -44,6 +44,8 @@ gem 'font-awesome-sass'
 gem 'simple_form'
 gem 'geocoder'
 gem 'pg_search', '~> 2.3.0'
+gem 'bullet', group: 'development'
+gem 'rails_admin', '~> 2.0'
 
 ##############################
 
