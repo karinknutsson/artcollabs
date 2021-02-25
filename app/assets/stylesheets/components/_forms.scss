@@ -9,6 +9,10 @@ input[type=submit] {
   border: 0;
 }
 
+input[type=submit]:hover {
+  color: white;
+}
+
 .form-container {
   margin: 100px auto 0 auto;
   width: 40vw;
@@ -18,7 +22,16 @@ input[type=submit] {
   float: right;
 }
 
+.float-center {
+  float: center;
+}
+
 .new-project-container {
   margin: 60px auto 160px auto;
   width: 50vw;
+}
+
+.delete-account {
+  margin-top: 180px;
+  margin-bottom: 120px;
 }
