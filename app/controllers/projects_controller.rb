@@ -93,7 +93,7 @@ class ProjectsController < ApplicationController
   end
 
   def project_params
-    params.require(:project).permit(:user_id, :title, :description, :status, :budget, :max_members, :start_date, :end_date, :tags)
+    params.require(:project).permit(:user_id, :title, :description, :status, :budget, :max_members, :start_date, :end_date, :tags, :photo, :photos)
   end
 
   def get_user_type
