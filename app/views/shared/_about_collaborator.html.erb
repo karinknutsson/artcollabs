@@ -1,4 +1,30 @@
-  <%= render "shared/about" %>
+<div class="show-content">
+
+    <div class="content-left">
+
+      <div class="project-description">
+        <%= @project.description %>
+      </div>
+
+      <div class="project-links">
+        <h4>Resources</h4>
+
+      </div>
+
+    </div>
+
+    <div class="content-right">
+
+      <%= render "shared/members" %>
+
+    </div>
+
+  </div>
+
+  <div style="height: 60px"></div>
+
+<!-- LEGACY
+  <%#= render "shared/about" %>
 
   <div class="show-content">
 
@@ -24,3 +50,4 @@
   </div>
 
   <div style="height: 60px"></div>
+-->

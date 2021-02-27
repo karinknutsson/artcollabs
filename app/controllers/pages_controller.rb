@@ -16,7 +16,7 @@ class PagesController < ApplicationController
     # My collabs on other's projects
     @collaborations = Collaboration.where(user: @user)
 
-    # pending Collabs for my projects
+    # ❌ pending Collabs for my projects 
     @collaborations_to_my_projects = Collaboration.joins(:project).where(user: current_user)
 
     ## FOR THE DASHBOARD TABS

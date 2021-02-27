@@ -27,10 +27,11 @@ class ProjectsController < ApplicationController
     @user = current_user
     @favourite_project = FavouriteProject.new
     if params[:query].present?
-      @projects = policy_scope(Project.search_by_title_and_budget_and_location_and_description(params[:query])) + policy_scope(Project.tagged_with(params[:query]))
+      @projects = policy_scope(Project.search_by_title_and_budget_and_location_and_description(params[:query])) +
+      policy_scope(Project.tagged_with(params[:query]))
     elsif @projects = policy_scope(Project.where(sql_query, query: "%#{params[:query]}%")).order(created_at: :desc).empty?
-          redirect_to projects_path
-          flash[:notice] = " No projects with #{params[:query]}"
+      redirect_to projects_path
+      flash[:notice] = " No projects with #{params[:query]}"
     else
       @projects = policy_scope(Project).order(created_at: :desc)
     end

@@ -28,14 +28,12 @@
         <!-- ABOUT - OWNER VIEW -->
         <% if @user_type == :owner %>
           <%= render "shared/about_owner" %>
-        <% end %>
         <!-- ABOUT - COLLABORATOR VIEW -->
-        <% if @user_type == :collaborator %>
-          <%= render "shared/about_owner" %>
-        <% end %>
+        <% elsif @user_type == :collaborator %>
+          <%= render "shared/about_collaborator" %>
         <!-- ABOUT - VISITOR VIEW -->
-        <% if @user_type == :visitor %>
-          <%= render "shared/about_owner" %>
+        <% elsif @user_type == :visitor %>
+          <%= render "shared/about_visitor" %>
         <% end %>
           
       </div>

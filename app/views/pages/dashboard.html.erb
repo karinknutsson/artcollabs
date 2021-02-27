@@ -26,7 +26,7 @@
 <h2>pending</h2>
 <% @collaborations_to_my_projects.each do |collab| %>
   <!--PENDING COLLABS-->
-  <% if collab.status == nil %>
+  <% if collab.confirmed == false %>
     <br><%= link_to "#{collab.project.title}", project_path(collab.project) %>
   <% end %>
 
