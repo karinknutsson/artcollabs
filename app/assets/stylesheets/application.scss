@@ -98,3 +98,9 @@ input:-webkit-autofill:active  {
 input:-webkit-autofill {
     -webkit-text-fill-color: black !important;
 }
+
+.avatar-container {
+  width: 100%;
+  height: 100%;
+  border-radius: 50px;
+}

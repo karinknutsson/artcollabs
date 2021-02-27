@@ -27,9 +27,9 @@
       <% end %>
       <div class="card-footer">
         <% if project.user.avatar.attached? %>
-          <%= image_tag project.avatar.photo %>
+          <%= image_tag project.user.avatar %>
         <% else %>
-          <i class="far fa-user-circle"></i>
+          <%= render "shared/avatar" %>
         <% end %>
         <h6><a href="#"><%= project.user.username %></a></h6>
       </div>
