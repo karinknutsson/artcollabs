@@ -1,4 +1,35 @@
-  <%= render "shared/about" %>
+  <div class="show-content">
+
+    <div class="content-left">
+
+      <div class="project-description">
+        <%= @project.description %>
+      </div>
+
+      <div class="project-links">
+        <h4>Resources</h4>
+
+      </div>
+
+    </div>
+
+    <div class="content-right">
+
+      <a href="#" class="white btn-artcollabs btn-warm-red">Edit content</a>
+      <a href="#" class="white btn-artcollabs btn-warm-red">Pending requests</a>
+      <a href="#" class="white btn-artcollabs btn-warm-red">Delete project</a>
+
+      <%= render "shared/members" %>
+
+    </div>
+
+  </div>
+
+  <div style="height: 60px"></div>
+
+  
+  <!-- legacy
+  <%#= render "shared/about" %>
 
   <div class="show-content">
 

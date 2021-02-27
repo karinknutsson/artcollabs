@@ -1,0 +1,34 @@
+<div class="index-card-container">
+
+  <% @projects.each do |project| %>
+
+    <div class="index-card">
+      <%= link_to project_path(project) do %>
+      <div class="card-image">
+        <% if project.photo.attached? %>
+          <%= image_tag project.photo %>
+        <% end %>
+      </div>
+      <div class="card-title">
+        <h6><%= project.title %></h6>
+      </div>
+      <div class="card-roles">
+        <i class="fas fa-user-circle user-icon icon-black"></i><i class="fas fa-user-circle user-icon icon-grey"></i> 3 more people can join
+      </div>
+      <div class="card-tags">
+        <% if project.tag_list %>
+          <% project.tag_list.each do |tag| %>
+            <span class="a-tag"><%= link_to tag, tagged_path(tag: tag) %></span>
+          <% end %>
+        <% end %>
+      </div>
+      <% end %>
+      <div class="card-footer">
+        <%= image_tag project.user.avatar %>
+        <h6><a href="#"><%= project.user.username %></a></h6>
+      </div>
+    </div>
+
+  <% end %>
+
+</div>

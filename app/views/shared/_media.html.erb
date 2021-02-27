@@ -6,3 +6,16 @@
   </div>
 
  <hr>
+<% if @user_type == :owner %>
+
+    <!--show gallery-->
+
+  <% elsif @user_type == :collaborator  %>
+
+    <!--show gallery-->
+
+  <% else %>
+
+    <!--show not authorized-->
+
+  <% end %>

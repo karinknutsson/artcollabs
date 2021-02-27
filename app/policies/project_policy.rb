@@ -12,6 +12,10 @@ class ProjectPolicy < ApplicationPolicy
     true
   end
 
+  def tagged?
+    true
+  end
+  
   def show?
     true
   end

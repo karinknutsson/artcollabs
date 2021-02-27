@@ -2,7 +2,7 @@ class ProjectsController < ApplicationController
   before_action :set_project, only: %i[ show edit update destroy ]
   before_action :authenticate_user!
 
-  skip_before_action :authenticate_user!, only: %i[ index ]
+  skip_before_action :authenticate_user!, only: %i[ index tagged ]
 
   def show
     @user = current_user
@@ -78,9 +78,11 @@ class ProjectsController < ApplicationController
     @project
   end
 
+  # ❌ not displaying tagged projects
   def tagged
     if params[:tag].present?
       @projects = Project.tagged_with(params[:tags])
+      authorize @projects
     else
       @projects = policy_scope(Project).order(created_at: :desc)
     end
