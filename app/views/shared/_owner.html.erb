@@ -4,8 +4,8 @@
         </div>
         <div class="owner-card-info">
           <div class="owner">
-            <%= image_tag "avatar.jpg" %>
-            <h6><a href="#">Pandora404</a></h6>
+            <%= image_tag @project.user.avatar %>
+            <h6><%= link_to @project.user.username, profile_path(@project.user.id) %></h6>
           </div>
           <div class="owner-details">
             <ul>

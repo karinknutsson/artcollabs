@@ -10,6 +10,7 @@ class ProjectsController < ApplicationController
     @milestone = Milestone.new
     @milestones = Milestone.where(project_id: @project)
     @user_type = get_user_type
+    @collabs = Collaboration.where(project_id: @project)
 
     # show related projects from tags
     # @related_projects = @project.find_related_tags
@@ -72,7 +73,7 @@ class ProjectsController < ApplicationController
     @project.destroy
     redirect_to root_path
   end
- 
+
   # ❌
   def check_favourites_for_current_user
     @project
