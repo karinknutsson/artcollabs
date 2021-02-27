@@ -11,7 +11,7 @@
 .index-card {
   margin: 0;
   width: 240px;
-  height: 346px;
+  height: 366px;
   border: 2px solid $grey-light-med;
   border-radius: 20px;
 }
@@ -29,6 +29,7 @@
 }
 
 .card-title {
+  height: 34px;
   margin: 16px;
 }
 
