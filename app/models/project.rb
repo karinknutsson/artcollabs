@@ -1,7 +1,7 @@
 class Project < ApplicationRecord
   belongs_to :user
 
-  acts_as_taggable_on :keywords #You can also configure multiple tag types per model
+  acts_as_taggable_on :tags #You can also configure multiple tag types per model
 
   has_many :collaborations, dependent: :destroy
   has_many :milestones, dependent: :destroy
@@ -15,7 +15,7 @@ class Project < ApplicationRecord
   # has_many_attached :audios, resource_type: video ,dependent: :destroy
   # <%= cl_video_tag @i..., controls: true, style: "width: 100%;" %>
 
-  # validates :title, presence: true, length: { maximum: 100 }, uniqueness: true
+  validates :title, presence: true, length: { maximum: 80 }, uniqueness: true
   # validates :description, presence: true
   # validates :status, presence: true, inclusion: { in: %w[open active closed finished] }
   # validates :budget, presence: true
@@ -27,8 +27,8 @@ class Project < ApplicationRecord
   after_create :initialize_project_chat
 
   include PgSearch::Model
-  pg_search_scope :search_by_title_and_budget_and_location,
-    against: [ :title, :budget, :location],
+  pg_search_scope :search_by_title_and_budget_and_location_and_description,
+    against: [ :title, :budget, :location, :description ],
     using: {
       tsearch: { prefix: true }
     }
