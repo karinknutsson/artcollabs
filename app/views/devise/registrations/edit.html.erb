@@ -7,12 +7,18 @@
     <%= f.error_notification %>
 
     <div class="form-inputs">
-      <%= f.input :email, required: true, autofocus: true %>
 
       <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
         <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
       <% end %>
 
+      <% if current_user.avatar %>
+        <%= image_tag  current_user.avatar %>
+      <% end %>
+
+      <%= f.input :avatar,
+                  hint: "Choose a picture",
+                  required: false %>
       <%= f.input :username,
                   hint: "we need your current user name to confirm your changes",
                   required: true,
@@ -32,7 +38,8 @@
       <%= f.input :location,
                   hint: "we need your current location to confirm your changes",
                   required: true,
-                input_html: { autocomplete: "location", value: current_user.bio } %>
+                  input_html: { autocomplete: "location", value: current_user.bio } %>
+      <%= f.input :email, required: true, autofocus: true %>
       <%= f.input :password,
                   hint: "leave it blank if you don't want to change it",
                   required: false,
