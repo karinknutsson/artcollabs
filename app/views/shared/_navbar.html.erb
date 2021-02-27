@@ -6,7 +6,9 @@
 
   <% if user_signed_in? %>
 
-    <%= render "shared/navbar_search_form" %>
+    <% unless current_page?(root_path) %>
+      <%= render "shared/navbar_search_form" %>
+    <% end %>
 
     <div class="dropdown dropleft navbar-dropdown">
       <button type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -17,6 +19,7 @@
       <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
         <%= link_to "Dashboard", dashboard_path, class: "dropdown-item" %>
         <%= link_to "New project", new_project_path, class: "dropdown-item" %>
+        <%= link_to "Profile", profile_path(current_user), class: "dropdown-item" %>
         <%= link_to "Settings", edit_user_registration_path, class: "dropdown-item" %>
         <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
       </div>

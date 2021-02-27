@@ -8,7 +8,7 @@ input[type="text"]:focus {
   position: relative;
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: flex-end;
 }
 
 .nav-logo-container {
@@ -33,6 +33,7 @@ input[type="text"]:focus {
 }
 
 .navbar-search-container {
+  margin-right: 96px;
   padding: 0 6px 0 14px;
   background-color: white;
   border-radius: 50px;

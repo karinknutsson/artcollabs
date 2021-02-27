@@ -5,13 +5,13 @@
   column-gap: 16px;
   row-gap: 56px;
   justify-items: center;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
 }
 
 .index-card {
   margin: 0;
   width: 240px;
-  height: 346px;
+  height: 366px;
   border: 2px solid $grey-light-med;
   border-radius: 20px;
 }
@@ -29,6 +29,7 @@
 }
 
 .card-title {
+  height: 34px;
   margin: 16px;
 }
 
@@ -139,6 +140,11 @@
   }
 }
 
+@media(max-width: 1300px) {
+  .index-card-container {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
 @media(max-width: 800px) {
   .index-card-container {
     grid-template-columns: 1fr 1fr;

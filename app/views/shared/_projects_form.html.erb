@@ -1,5 +1,5 @@
 <%= simple_form_for @project do |f| %>
-  <%= f.input :title %>
+  <%= f.input :title, input_html: { maxlength: 56 } %>
   <%= f.input :description %>
   <%= f.input :status %>
   <%= f.input :budget %>

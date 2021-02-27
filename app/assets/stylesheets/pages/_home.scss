@@ -1,7 +1,8 @@
 h1 {
   color: $dark-blue;
-  font-size: 64pt;
-  margin: 80px 160px 80px 160px;
+  font-size: 8vw;
+  line-height: 10vw;
+  margin: 80px 160px 60px 160px;
 }
 
 input[type="text"]:focus {
@@ -20,7 +21,7 @@ input[type="text"]:focus {
   border-radius: 50px;
   border: 2pt solid $dark-blue;
   height: 48px;
-  width: 500px;
+  width: 50vw;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -47,4 +48,14 @@ input[type="text"]:focus {
 .home-search-icon {
   font-size: 16pt;
   color: white;
+}
+
+.home-sub {
+  margin: 0 auto 5vw auto;
+  width: 40vw;
+  h6 {
+    font-size: 1.5vw;
+    color: $grey-darker;
+    line-height: 2vw;
+  }
 }
