@@ -18,10 +18,11 @@
         <i class="fas fa-user-circle user-icon icon-black"></i><i class="fas fa-user-circle user-icon icon-grey"></i> 3 more people can join
       </div>
       <div class="card-tags">
-        <span>photography</span>
-        <span>icon</span>
-        <span>fierce</span>
-        <span>monochrome</span>
+        <% if project.tag_list %>
+          <% project.tag_list.each do |tag| %>
+            <span class="a-tag"><%= link_to tag, tagged_path(tag: tag) %></span>
+          <% end %>
+        <% end %>
       </div>
       <% end %>
       <div class="card-footer">

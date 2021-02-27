@@ -10,6 +10,10 @@ class ProjectsController < ApplicationController
     @milestone = Milestone.new
     @milestones = Milestone.where(project_id: @project)
     @user_type = get_user_type
+
+    # show related projects from tags
+    # @related_projects = @project.find_related_tags
+
     if @favourite_project = FavouriteProject.find_by(user: @user, project: @project)
       @favourite_project
     else
@@ -23,12 +27,10 @@ class ProjectsController < ApplicationController
     @user = current_user
     @favourite_project = FavouriteProject.new
     if params[:query].present?
-      if @projects = policy_scope(Project.where(sql_query, query: "%#{params[:query]}%")).order(created_at: :desc).empty?
-        redirect_to projects_path
-        flash[:notice] = " No projects with #{params[:query]}"
-      else
-        @projects = policy_scope(Project.where(sql_query, query: "%#{params[:query]}%")).order(created_at: :desc)
-      end
+      @projects = policy_scope(Project.search_by_title_and_budget_and_location_and_description(params[:query])) + policy_scope(Project.tagged_with(params[:query]))
+    elsif @projects = policy_scope(Project.where(sql_query, query: "%#{params[:query]}%")).order(created_at: :desc).empty?
+          redirect_to projects_path
+          flash[:notice] = " No projects with #{params[:query]}"
     else
       @projects = policy_scope(Project).order(created_at: :desc)
     end
@@ -70,9 +72,18 @@ class ProjectsController < ApplicationController
     @project.destroy
     redirect_to root_path
   end
-
+ 
+  # ❌
   def check_favourites_for_current_user
     @project
+  end
+
+  def tagged
+    if params[:tag].present?
+      @projects = Project.tagged_with(params[:tags])
+    else
+      @projects = policy_scope(Project).order(created_at: :desc)
+    end
   end
 
   private
@@ -82,7 +93,7 @@ class ProjectsController < ApplicationController
   end
 
   def project_params
-    params.require(:project).permit(:user_id, :title, :description, :status, :budget, :max_members, :start_date, :end_date, :photo, :photos)
+    params.require(:project).permit(:user_id, :title, :description, :status, :budget, :max_members, :start_date, :end_date, :tags, :photo, :photos)
   end
 
   def get_user_type
