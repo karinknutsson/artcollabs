@@ -1,5 +1,6 @@
 <div class="project-photo">
-  <% if @project.photo.attached? %> 
+
+  <% if @project.photo.attached? %>
     <%= image_tag @project.photo %>
   <% end %>
 </div>
