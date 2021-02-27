@@ -6,7 +6,9 @@
 
   <% if user_signed_in? %>
 
-    <%= render "shared/navbar_search_form" %>
+    <% unless current_page?(root_path) %>
+      <%= render "shared/navbar_search_form" %>
+    <% end %>
 
     <div class="dropdown dropleft navbar-dropdown">
       <button type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
