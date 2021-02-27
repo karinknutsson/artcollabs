@@ -15,7 +15,7 @@ class Project < ApplicationRecord
   # has_many_attached :audios, resource_type: video ,dependent: :destroy
   # <%= cl_video_tag @i..., controls: true, style: "width: 100%;" %>
 
-  # validates :title, presence: true, length: { maximum: 100 }, uniqueness: true
+  validates :title, presence: true, length: { maximum: 80 }, uniqueness: true
   # validates :description, presence: true
   # validates :status, presence: true, inclusion: { in: %w[open active closed finished] }
   # validates :budget, presence: true
