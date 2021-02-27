@@ -89,9 +89,7 @@ class ProjectsController < ApplicationController
     if @project.user_id == current_user.id
       :owner
     elsif Collaboration.find_by(project_id: @project.id, user_id: current_user.id)
-      if Collaboration.find_by(project_id: @project.id, user_id: current_user.id).confirmed == true
-        :collaborator
-      end
+      :collaborator
     else
       :visitor
     end
