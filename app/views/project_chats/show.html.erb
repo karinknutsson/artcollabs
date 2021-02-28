@@ -1,6 +1,6 @@
 <div class="project-photo">
   <% if @project.photo.attached? %>
-    <%= cl_image_tag @project.photo, crop: :mfit %>
+    <%= image_tag @project.photo, crop: :mfit %>
   <% end %>
     
 </div>

@@ -1,7 +1,8 @@
-<!-- if owner || collaborator -->
+<!-- If user is owner or collaborator SHOW TABS -->
 <% if @user_type == :owner || @user_type == :collaborator %>
   
   <!-- TABS LINKS -->
+  <!-- add attr data-toggle="tab" to make tags without reloading funcitonality work -->
   <div class="tab-container-bts">
     <ul class="nav justify-content-between" id="ProjectsTab" role="tablist">
       <li class="nav-item tab show" id="about-tab" data-toggle="tab">
@@ -10,28 +11,33 @@
       <li class="nav-item tab" id="timeline-tab" data-toggle="tab">
           <h2><%= link_to "Timeline", "#", class: "tab nav-link" %></h2>
       </li>
-      <li class="nav-item tab" id="media-tab" data-toggle="tab">
-          <h2><%= link_to "Media", "#", class: "tab nav-link" %></h2>
+      <li class="nav-item tab" id="media-tab">
+          <h2><%= link_to "Media", media_path(@project), class: "tab nav-link" %></h2>
       </li>
-      <li class="nav-item tab" id="chat-tab" data-toggle="tab">
+      <li class="nav-item tab" id="chat-tab" >
           <h2><%= link_to "Chat", project_chat_path(@project.project_chat), class: "nav-link tab" %></h2>
       </li>
     </ul>
-  
+
     <hr>
+
+<% end %>
 
     <!-- TAB CONTENTS -->
     <div class="tab-content" id="ProjectsTabContent">
 
       <!-- ABOUT -->
-      <div class="tab-pane fade show active" id="about" role="tabpanel" aria-labelledby="about-tab">
-        <!-- ABOUT - OWNER VIEW -->
+      <div class="tab-pane fade hide active" id="about" role="tabpanel" aria-labelledby="about-tab">
+
+        <!-- ABOUT - OWNER  -->
         <% if @user_type == :owner %>
           <%= render "shared/about_owner" %>
-        <!-- ABOUT - COLLABORATOR VIEW -->
+
+        <!-- ABOUT - COLLABORATOR  -->
         <% elsif @user_type == :collaborator %>
           <%= render "shared/about_collaborator" %>
-        <!-- ABOUT - VISITOR VIEW -->
+
+        <!-- ABOUT - VISITOR  -->
         <% elsif @user_type == :visitor %>
           <%= render "shared/about_visitor" %>
         <% end %>
@@ -60,17 +66,7 @@
         $('#ProjectsTab li:last-child a').tab('show')
       })
     </script>
-<% end %>
-    
-    <!-- LEGACY 
-    <h2>About</h2>
-    <h2><a href="#" class="tab">Timeline</a></h2>
-    <h2><a href="#" class="tab">Media</a></h2>
 
-    <% if  @project.project_chat.present? %>
-      <h2><%= link_to "Chat", project_chat_path(@project.project_chat), class: "tab" %></h2>
-    <% end %>
-    -->
     
-  </div>
+ </div>
 </div>

@@ -1,5 +1,5 @@
 class ProjectsController < ApplicationController
-  before_action :set_project, only: %i[ show edit update destroy ]
+  before_action :set_project, only: %i[ show edit update destroy media]
   before_action :authenticate_user!
 
   skip_before_action :authenticate_user!, only: %i[ index tagged ]
@@ -59,9 +59,12 @@ class ProjectsController < ApplicationController
   end
 
   def update
+    # Gets current page to redirect later
+    session[:return_to] ||= request.referer
     authorize @project
     if @project.update(project_params)
-      redirect_to @project
+      # Redirects to previous page
+      redirect_to session.delete(:return_to)
       flash[:notice] = " \n #{@project.title} was edited"
     else
       render :edit
@@ -89,6 +92,10 @@ class ProjectsController < ApplicationController
     end
   end
 
+  def media
+    authorize @project
+  end
+  
   private
 
   def set_project
@@ -96,7 +103,7 @@ class ProjectsController < ApplicationController
   end
 
   def project_params
-    params.require(:project).permit(:user_id, :title, :description, :status, :budget, :max_members, :start_date, :end_date, :tags, :photo, :photos)
+    params.require(:project).permit(:user_id, :title, :description, :status, :budget, :max_members, :start_date, :end_date, :tags, :photo, :media )
   end
 
   def get_user_type

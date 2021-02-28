@@ -1,10 +1,15 @@
 class PagesController < ApplicationController
+  before_action :get_my_collabs, only: [ :dashboard ]
   skip_before_action :authenticate_user!, only: [ :home ]
 
+  
+  
   def home
     @projects = policy_scope(Project).order(created_at: :desc)
     # add collections arrays from Projects by tags?
     @quote = footer_quotes.sample
+
+    
   end
 
   def dashboard
@@ -17,7 +22,7 @@ class PagesController < ApplicationController
     @collaborations = Collaboration.where(user: @user)
 
     # ❌ pending Collabs for my projects 
-    @collaborations_to_my_projects = Collaboration.joins(:project).where(user: current_user)
+    
 
     ## FOR THE DASHBOARD TABS
     @open_projects = []
@@ -58,5 +63,22 @@ class PagesController < ApplicationController
       "If you hear a voice within you say 'you cannot paint,' then by all means paint, and that voice will be silenced."
     ]
   end
+  
+  private
+  
+  # ❌
+  def get_my_collabs
 
+    @pending_collabs = []    
+
+    @projects = Project.where(user: @user)
+
+    @collaborations_to_my_projects = Collaboration.where(Project.where(user: @user))
+
+    @collaborations_to_my_projects.each do |collab|
+      if collab.confirmed == false
+        @pending_collabs << collab
+      end
+    end
+  end
 end
