@@ -13,7 +13,11 @@
     <div class="dropdown dropleft navbar-dropdown">
       <button type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         <div class="nav-avatar">
+        <% if current_user.avatar.attached? %>
           <%= image_tag current_user.avatar %>
+        <% else %>
+          <%= render "shared/avatar" %>
+        <% end %>
         </div>
       </button>
       <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
