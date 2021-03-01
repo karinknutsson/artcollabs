@@ -20,6 +20,13 @@ class ProjectsController < ApplicationController
       @favourite_project = FavouriteProject.new
     end
     authorize @project
+
+    # Chatroom Logic
+
+    # @chatroom = Chatroom.find(params[:id])
+    # @direct_message = DirectMessage.new
+    # authorize @chatroom
+
   end
 
   def index

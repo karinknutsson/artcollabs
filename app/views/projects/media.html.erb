@@ -4,6 +4,7 @@
   <% end %>
     
 </div>
+  <h1><%= @project.title %></h1>
 
 <div class="show-container">
     <%= render "shared/tabs_without_js" %>
@@ -22,22 +23,20 @@
     </div>
   <% end %>
 
-  <h1><%= @project.title %></h1>
     <div class="media-container">
-      <ul>
 
         <% if @project.media.attached? %>
           <% @project.media.each do |media| %>
-            <li><%= cl_image_tag media.key, loading: "lazy" %></li>  
+            <ul>  
+              <li><%= cl_image_tag media.key, loading: "lazy" %></li>  
             
-            <!--how can something like this be done?
-            <li><img src="#{media.key}" alt=""></li>
-            or use link_to with photo instead of text? -->
-
+              <!--how can something like this be done?
+              <li><img src="#{media.key}" alt=""></li>
+              or use link_to with photo instead of text? -->
           <% end %>  
         <% end %>
         
-        <li></li>
-      </ul>
+              <li></li>
+            </ul>
     </div>
 </div>

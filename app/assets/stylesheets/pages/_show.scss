@@ -15,6 +15,9 @@
   h2.inactive-tab {
     color: $grey-med;
   }
+  #project-title {
+    text-align: center;
+  }
 }
 
 .project-photo {
@@ -33,9 +36,22 @@
   justify-content: space-between;
 }
 
+// ❌
 .tab-container-bts {
+  li {
+      a {
+        &:active {
+          color: black !important;
+        }
+      }
+      .tab {
+        &:active {
+          color: black !important;
+        }
+      }
+    }
+  }
 
-}
 .show-content {
   margin-top: 40px;
   display: flex;
