@@ -44,10 +44,14 @@ class CollaborationsController < ApplicationController
   end
 
   def confirm
+    # Gets current page to redirect later
+    session[:return_to] ||= request.referer
+
     @collaboration = Collaboration.find(params[:id])
     if @collaboration.confirmed == true
       @collaboration.confirmed = false
       flash[:notice] = "Collaboration was denied"
+      # @collaboration.status = denied
     else
       @collaboration.confirmed = true
       flash[:notice] = "Collaboration was accepted"
@@ -56,12 +60,8 @@ class CollaborationsController < ApplicationController
     authorize @collaboration
     @collaboration.save
 
-    # redirect_to project_path(@collaboration.project)
-
-    # ON THE PAGE WHERE THE CONFIRMATION IS GOING TO HAPPEN (got from wignb) >>>
-    # <% if booking.confirmed == nil %>
-    # <%= link_to  "Confirm", confirm_path(booking), method: :patch, data: { confirm: "Are you sure?" }, class: "btn btn-success text-right" %>
-    # <%= link_to  "  Deny  ", confirm_path(booking), method: :patch, data: { confirm: "Are you sure?" }, class: "btn btn-danger text-right" %>
+    # Redirects to previous page
+    redirect_to session.delete(:return_to)
 
   end
 

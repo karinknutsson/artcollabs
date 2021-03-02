@@ -10,4 +10,8 @@ class User < ApplicationRecord
   has_one_attached :avatar
   has_many_attached :photos
   has_many :links, dependent: :destroy
+
+  has_many :collaborations, dependent: :destroy
+  has_many :projects, dependent: :destroy
+
 end
