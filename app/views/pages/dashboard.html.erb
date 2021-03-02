@@ -19,17 +19,24 @@
 <% @collaborations.each do |collaboration| %>
   <br>as <%= collaboration.role %> on
   <%= link_to "#{collaboration.project.title}", project_path(collaboration.project) %>
+  <br>
+  <%= button_to "edit", edit_project_collaboration_path(collaboration.project, collaboration) %>
+  <br>
+  <%= button_to "cancel your collaboration request", project_collaboration_path(collaboration.project, collaboration), method: :delete, data: { confirm: "delete collab request ?" } %>
 <% end %>
 
 <br>--------------------- <br>
 <h6>Collaborations to my projects</h6>
 <h2>pending</h2>
-<% @collaborations_to_my_projects.each do |collab| %>
-  <!--PENDING COLLABS-->
-  <% if collab.status == nil %>
-    <br><%= link_to "#{collab.project.title}", project_path(collab.project) %>
-  <% end %>
 
+<!--PENDING COLLABS-->
+<% @pending_collabs.each do |collaboration| %>
+    <h6><%= collaboration.user.username %> wants to collab as <%= collaboration.role  %> on <%= link_to "#{collaboration.project.title}", project_path(collaboration.project) %></h6>
+
+    <%= button_to  "Confirm", confirm_path(collaboration), method: :patch, data: { confirm: "Are you sure?" }%>
+    <br>
+    <!--THE DENIED CONFIRMATION GETS DELETED ( FOR THE FUTURE, WE SHOULD KEEP IT BUT AS STATUS = DENIED )-->
+    <%= button_to  "  Deny  ", confirm_path(collaboration), method: :patch, data: { confirm: "Are you sure?" } %>
+    <hr>
 <% end %>
-
 </div>

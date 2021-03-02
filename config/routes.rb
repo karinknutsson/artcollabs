@@ -23,12 +23,14 @@ Rails.application.routes.draw do
   end
 
   get '/tagged', to: "projects#tagged", as: :tagged
+  
+  get '/project/:id/media', to: "projects#media", as: "media"
 
   get '/profile/:id', to: 'pages#profile', as: "profile"
   get '/dashboard/', to: 'pages#dashboard', as: "dashboard"
   get '/messages/', to: 'pages#messages', as: "messages"
 
-  patch '/confirm/:id', to: 'collaboration#confirm', as: "confirm"
+  patch '/confirm/:id', to: 'collaborations#confirm', as: "confirm"
 
   mount ActionCable.server => "/cable"
 end

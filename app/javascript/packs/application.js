@@ -43,3 +43,33 @@ document.addEventListener('turbolinks:load', () => {
   initSendMessage();
 });
 
+// SHOW TABS LOGIC
+
+$('#ProjectsTab #about-tab').on('click', function (e) {
+  e.preventDefault()
+  $(this).tab('show active')
+  $('#ProjectsTab li:first-child a').tab('show') // Select first tab
+})
+
+$('#ProjectsTab #timeline-tab').on('click', function (e) {
+  e.preventDefault()
+  $(this).tab('show active')
+  $('#myTab li:nth-child(2) a').tab('show') // Select second tab
+})
+
+$('#ProjectsTab #media-tab').on('click', function (e) {
+  e.preventDefault()
+  $(this).tab('show active')
+  $('#myTab li:nth-child(3) a').tab('show') // Select third tab
+})
+
+$('#ProjectsTab #chat-tab').on('click', function (e) {
+  e.preventDefault()
+  $(this).tab('show active')
+  $('#ProjectsTab li:last-child a').tab('show') // Select last tab
+})
+
+$('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
+  e.target // newly activated tab
+  e.relatedTarget // previous active tab
+})

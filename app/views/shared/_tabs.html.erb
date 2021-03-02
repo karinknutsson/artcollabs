@@ -1,0 +1,106 @@
+<!-- SHOW TABS If user is owner or collaborator  -->
+<!-- ❌ if collaborator not working, confirmation seems not to be working -->
+<!-- If setting collaborator to see tabs even when not confirmed, the page breaks 🙄 -->
+
+<% if @user_type == :owner || @user_type == :collaborator %>
+  
+  <!-- TABS LINKS -->
+  <!-- add attr data-toggle="tab" to make tags without reloading funcitonality work -->
+  <div class="tab-container-bts">
+  
+    <ul class="nav justify-content-between" id="ProjectsTab" role="tablist">
+      <li class="nav-item tab">
+        <a class="nav-link tab" id="about-tab" data-toggle="tab" href="#about" role="tab" aria-controls="about" aria-selected="true"> <h2>About</h2></a>
+      </li>
+
+      <li class="nav-item tab">
+        <a class="nav-link tab" id="timeline-tab" data-toggle="tab" href="#timeline" role="tab" aria-controls="timeline" aria-selected="false"> <h2>Timeline</h2></a>
+      </li>
+
+
+      <li class="nav-item tab">
+        <a class="nav-link tab" id="media-tab" data-toggle="tab" href="#media" role="tab" aria-controls="media" aria-selected="false"> <h2>Media</h2></a>
+      </li>
+
+      <li class="nav-item tab">
+        <!--a class="nav-link tab active" id="chat-tab" data-toggle="tab" href="#chat" role="tab" aria-controls="chat" aria-selected="false"> <h2>Chat</h2></a-->
+        <a> <h2><%= link_to "Chat", project_chat_path(@project.project_chat), class: "nav-link tab" %></h2></a>
+      </li>
+
+    </ul>
+
+    <hr>
+
+  </div>
+<% end %>
+
+    <!-- TAB CONTENTS -->
+    <div class="tab-content" id="ProjectsTabContent">
+
+      <!-- ABOUT -->
+      <div class="tab-pane show active fade" id="about" role="tabpanel" aria-labelledby="about-tab">
+
+        <!-- ABOUT - OWNER  -->
+        <% if @user_type == :owner %>
+          <%= render "shared/about_owner" %>
+
+        <!-- ABOUT - COLLABORATOR  -->
+        <% elsif @user_type == :collaborator %>
+          <%= render "shared/about_collaborator" %>
+
+        <!-- ABOUT - VISITOR  -->
+        <% elsif @user_type == :visitor %>
+          <%= render "shared/about_visitor" %>
+        <% end %>
+          
+      </div>
+
+<!--I have to close this div here in order for it to work right but why? -->
+  </div>
+
+      <!-- TIMELINE -->
+      <div class="tab-pane fade" id="timeline" role="tabpanel" aria-labelledby="timeline-tab">
+        <!-- ABOUT - OWNER 
+          <% if @user_type == :owner %>
+            <%= render "shared/about_owner" %>
+
+          ABOUT - COLLABORATOR  
+          <% elsif @user_type == :collaborator %>
+            <%= render "shared/about_collaborator" %>
+
+          ABOUT - VISITOR  
+          <% elsif @user_type == :visitor %>
+            <%= render "shared/about_visitor" %>
+          <% end %>
+            
+        </div>
+        -->
+        <h2>Content not Available yet.</h2>
+      </div>
+
+      <!-- MEDIA -->
+      <div class="tab-pane fade" id="media" role="tabpanel" aria-labelledby="media-tab">
+        <!-- ABOUT - OWNER  -->
+        <% if @user_type == :owner %>
+          <%= render "shared/media" %>
+
+        <!-- ABOUT - COLLABORATOR  -->
+        <% elsif @user_type == :collaborator %>
+          <%= render "shared/media" %>
+
+        <!-- ABOUT - VISITOR  -->
+        <% elsif @user_type == :visitor %>
+          <h2>You're not allowed to visit this page</h2>
+        <% end %>
+          
+      </div>
+ 
+
+      <!-- CHAT ❌ not working -->
+      <div class="tab-pane fade" id="chat" role="tabpanel" aria-labelledby="chat-tab">
+        <h2>Content not Available here yet.</h2>
+        <h2><%= link_to "Chat", project_chat_path(@project.project_chat), class: "nav-link tab" %></h2>
+      </div>
+
+  </div>
+</div>
