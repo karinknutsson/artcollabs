@@ -85,10 +85,6 @@ a.white, a.btn-white:visited, a.white:active, a.btn-white:hover{
   color: white;
 }
 
-.main-body-container {
-  min-height: 95vh;
-}
-
 input:-webkit-autofill,
 input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,
@@ -100,3 +96,69 @@ input:-webkit-autofill {
     -webkit-text-fill-color: black !important;
 }
 
+.main-body-container {
+  min-height: 95vh;
+}
+
+.artcollabs-input {
+  border-radius: 20px;
+  border: 2px solid $grey-light-med;
+  resize: none;
+  font-family: "Source Sans Pro", sans-serif;
+  font-size: 10pt;
+}
+
+.bio {
+  height: 160px !important;
+}
+
+.profile-container {
+  margin: 40px auto 48px auto;
+  width: 70vw;
+  h1 {
+    margin: 0;
+    font-size: 2.6vw;
+    color: black;
+  }
+  h2 {
+    font-size: 16pt;
+  }
+  h2.active-tab {
+    color: black;
+  }
+  h2.inactive-tab {
+    color: $grey-med;
+  }
+}
+
+.profile-content {
+  display: flex;
+}
+
+.profile-left {
+  width: 60%;
+}
+
+.profile-text {
+  margin: 24px 48px 48px 0;
+}
+
+.profile-pic {
+  margin-top: 24px;
+  padding: 24px;
+  width: 320px;
+  height: 320px;
+  border-radius: 20px;
+  border: 2px solid $grey-light-med;
+  img {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.profile-card {
+  margin-top: 24px;
+  padding: 16px;
+  border-radius: 20px;
+  border: 2px solid $grey-light-med;
+}
