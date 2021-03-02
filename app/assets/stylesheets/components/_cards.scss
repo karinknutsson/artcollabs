@@ -40,6 +40,7 @@
 }
 
 .card-tags {
+  height: 50px;
   margin: 6px 6px 12px 6px;
   line-height: 24px;
   span {
@@ -57,13 +58,19 @@
   align-items: center;
   background-color: rgba(0, 0, 0, 0);
   border-top: 1px solid $grey-light;
+  h6 {
+    margin: 0 0 2px 12px;
+  }
+}
+
+.a-footer {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
   img {
     width: 32px;
     height: 32px;
     border-radius: 50px;
-  }
-  h6 {
-    margin: 0 0 2px 12px;
   }
 }
 
@@ -108,8 +115,19 @@
   display: flex;
   justify-content: flex-start;
   align-items: center;
+}
+
+.a-member {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
   h6 {
     margin: 8px;
+  }
+  img {
+    width: 32px;
+    height: 32px;
+    border-radius: 50px;
   }
 }
 
@@ -128,6 +146,15 @@
   display: flex;
   justify-content: flex-start;
   align-items: center;
+}
+
+.an-owner {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  h6 {
+    margin: 8px;
+  }
 }
 
 .owner-details {

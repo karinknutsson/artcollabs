@@ -2,8 +2,6 @@ class PagesController < ApplicationController
   before_action :get_my_collabs, only: [ :dashboard ]
   skip_before_action :authenticate_user!, only: [ :home ]
 
-  
-  
   def home
     @projects = policy_scope(Project).order(created_at: :desc)
     # add collections arrays from Projects by tags?
