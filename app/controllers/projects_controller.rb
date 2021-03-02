@@ -27,7 +27,6 @@ class ProjectsController < ApplicationController
     # @chatroom = Chatroom.find(params[:id])
     # @direct_message = DirectMessage.new
     # authorize @chatroom
-
   end
 
   def index
@@ -103,7 +102,7 @@ class ProjectsController < ApplicationController
   def media
     authorize @project
   end
-  
+
   private
 
   def set_project
