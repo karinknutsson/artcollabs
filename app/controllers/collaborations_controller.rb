@@ -1,5 +1,5 @@
 class CollaborationsController < ApplicationController
-  before_action :set_collaboration, only: %i[ update destroy ]
+  before_action :set_collaboration, only: %i[ update destroy confirm deny ]
   before_action :set_project, only: %i[ create edit destroy ]
   before_action :authenticate_user!
 
@@ -46,23 +46,24 @@ class CollaborationsController < ApplicationController
   def confirm
     # Gets current page to redirect later
     session[:return_to] ||= request.referer
-
-    @collaboration = Collaboration.find(params[:id])
-    if @collaboration.confirmed == true
-      @collaboration.confirmed = false
-      flash[:notice] = "Collaboration was denied"
-      # @collaboration.status = denied
-    else
-      @collaboration.confirmed = true
-      flash[:notice] = "Collaboration was accepted"
-    end
-
+    @collaboration.status = "confirmed"
+    @collaboration.confirmed = true
+    flash[:notice] = "Collaboration was accepted"
     authorize @collaboration
     @collaboration.save
-
     # Redirects to previous page
     redirect_to session.delete(:return_to)
 
+  end
+
+  def deny
+    session[:return_to] ||= request.referer
+    @collaboration.status = "denied"
+    @collaboration.confirmed = false
+    flash[:notice] = "Collaboration was denied"
+    authorize @collaboration
+    @collaboration.save
+    redirect_to session.delete(:return_to)
   end
 
   private
