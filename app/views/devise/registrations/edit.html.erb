@@ -12,45 +12,44 @@
         <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
       <% end %>
 
-      <% if current_user.avatar %>
-        <%= image_tag  current_user.avatar %>
-      <% end %>
+      <div style="width: 20vw; margin: 0; padding: 0;">
+        <% if current_user.avatar.attached? %>
+          <%= image_tag current_user.avatar %>
+        <% else %>
+          <%= render "shared/avatar" %>
+        <% end %>
+      </div>
 
       <%= f.input :avatar,
                   hint: "Choose a picture",
                   required: false %>
       <%= f.input :username,
-                  hint: "we need your current user name to confirm your changes",
                   required: true,
-                  input_html: { autocomplete: "username", value: current_user.username } %>
+                  input_html: { autocomplete: "username", value: current_user.username, class: "artcollabs-input", maxlength: 32 } %>
       <%= f.input :first_name,
-                  hint: "we need your current first name to confirm your changes",
                   required: true,
-                  input_html: { autocomplete: "first_name", value: current_user.first_name } %>
+                  input_html: { autocomplete: "first_name", value: current_user.first_name, class: "artcollabs-input", maxlength: 128 } %>
       <%= f.input :last_name,
-                  hint: "we need your current last name to confirm your changes",
                   required: true,
-                  input_html: { autocomplete: "last_name", value: current_user.last_name } %>
+                  input_html: { autocomplete: "last_name", value: current_user.last_name, class: "artcollabs-input", maxlength: 128 } %>
       <%= f.input :bio,
-                  hint: "we need your current bio to confirm your changes",
-                  required: true,
-                  input_html: { autocomplete: "bio", value: current_user.bio } %>
+                  input_html: { autocomplete: "bio", value: current_user.bio, class: "artcollabs-input bio", maxlength: 3000 } %>
       <%= f.input :location,
-                  hint: "we need your current location to confirm your changes",
+                  input_html: { autocomplete: "location", value: current_user.location, class: "artcollabs-input", maxlength: 64 } %>
+      <%= f.input :email,
                   required: true,
-                  input_html: { autocomplete: "location", value: current_user.bio } %>
-      <%= f.input :email, required: true, autofocus: true %>
+                  input_html: { class: "artcollabs-input" } %>
       <%= f.input :password,
                   hint: "leave it blank if you don't want to change it",
                   required: false,
-                  input_html: { autocomplete: "new-password" } %>
+                  input_html: { autocomplete: "new-password", class: "artcollabs-input" } %>
       <%= f.input :password_confirmation,
                   required: false,
-                  input_html: { autocomplete: "new-password" } %>
+                  input_html: { autocomplete: "new-password", class: "artcollabs-input" } %>
       <%= f.input :current_password,
                   hint: "we need your current password to confirm your changes",
                   required: true,
-                  input_html: { autocomplete: "current-password" } %>
+                  input_html: { autocomplete: "current-password", class: "artcollabs-input" } %>
     </div>
 
     <div class="form-actions float-right">

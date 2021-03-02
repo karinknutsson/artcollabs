@@ -1,17 +1,49 @@
-<%= @user.email %>
-<%= link_to "edit your account details", edit_user_registration_path(@user)  %>
+<div class="profile-container">
+  <div class="profile-content">
 
-<h1>My projects</h1>
-<% @projects.each do |project| %>
-  <br><%= link_to "#{project.title}", project_path(project) %>
-  <%= project.status %>
-<% end %>
+    <div class="profile-left">
+      <div class="profile-text">
+        <h1><%= @user.first_name %> <%= @user.last_name %></h1>
+        <h4><%= @user.username %></h4>
+      </div>
 
-<br>--------------------- <br>
-<h1>My collabs</h1>
-<% @collaborations.each do |collaboration| %>
-  <br>as <%= collaboration.role %> on
-  <%= link_to "#{collaboration.project.title}", project_path(collaboration.project) %>
-<% end %>
+      <div class="profile-text">
+        <%= @user.bio %>
+      </div>
 
-  
+      <div class="profile-text">
+        <h5>Interests</h5>
+        all my interest listed here
+      </div>
+
+      <div class="profile-text">
+        <h5>Skills</h5>
+        all my skills listed here
+      </div>
+    </div>
+
+    <div class="profile-right">
+      <div class="profile-pic">
+          <% if @user.avatar.attached? %>
+            <%= image_tag @user.avatar %>
+          <% else %>
+            <%= render "shared/avatar" %>
+          <% end %>
+      </div>
+
+      <div class="profile-card">
+        <h5>Links/social media</h5>
+        <br><br>
+      </div>
+
+      <div class="profile-card">
+        <h5>Media uploads</h5>
+        <br><br>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+

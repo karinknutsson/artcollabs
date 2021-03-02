@@ -2,6 +2,8 @@
 
   <% if @project.photo.attached? %>
     <%= image_tag @project.photo %>
+  <% else %>
+    <%= image_tag "clouds.jpg" %>
   <% end %>
 </div>
 

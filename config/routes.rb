@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
-  
+
   devise_for :users
   root to: 'pages#home'
 
@@ -28,7 +28,7 @@ Rails.application.routes.draw do
 
   get '/profile/:id', to: 'pages#profile', as: "profile"
   get '/dashboard/', to: 'pages#dashboard', as: "dashboard"
-
+  get '/messages/', to: 'pages#messages', as: "messages"
 
   patch '/confirm/:id', to: 'collaborations#confirm', as: "confirm"
   patch '/confirm/:id', to: 'collaborations#deny', as: "deny"

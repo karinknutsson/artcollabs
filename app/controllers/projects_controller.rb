@@ -9,10 +9,12 @@ class ProjectsController < ApplicationController
     @collaboration = Collaboration.new
     @milestone = Milestone.new
     @milestones = Milestone.where(project_id: @project)
-    get_user_type
+    @collabs = Collaboration.where(project_id: @project)
     
+    get_user_type
+
     # show related projects from tags
-    # @related_projects = @project.find_related_tags
+    @related_projects = @project.find_related_tags
 
     if @favourite_project = FavouriteProject.find_by(user: @user, project: @project)
       @favourite_project
@@ -22,7 +24,6 @@ class ProjectsController < ApplicationController
     authorize @project
 
     # Chat Logic
-
     @project_chat = ProjectChat.find_by(project: params[:id])
     @project = @project_chat.project
     @message = Message.new
@@ -84,8 +85,7 @@ class ProjectsController < ApplicationController
     @project.destroy
     redirect_to root_path
   end
- 
-  
+
   # ❌ not displaying tagged projects
   def tagged
     if params[:tag].present?

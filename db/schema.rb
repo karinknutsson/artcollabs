@@ -73,6 +73,15 @@ ActiveRecord::Schema.define(version: 2021_02_27_144435) do
     t.index ["user_id"], name: "index_favourite_projects_on_user_id"
   end
 
+  create_table "favourites", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "project_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["project_id"], name: "index_favourites_on_project_id"
+    t.index ["user_id"], name: "index_favourites_on_user_id"
+  end
+
   create_table "links", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.string "title"
@@ -121,7 +130,7 @@ ActiveRecord::Schema.define(version: 2021_02_27_144435) do
   create_table "projects", force: :cascade do |t|
     t.string "title"
     t.text "description"
-    t.string "status", default: "open"
+    t.string "status"
     t.string "budget"
     t.integer "max_members"
     t.date "start_date"
@@ -187,6 +196,8 @@ ActiveRecord::Schema.define(version: 2021_02_27_144435) do
   add_foreign_key "direct_messages", "users"
   add_foreign_key "favourite_projects", "projects"
   add_foreign_key "favourite_projects", "users"
+  add_foreign_key "favourites", "projects"
+  add_foreign_key "favourites", "users"
   add_foreign_key "links", "users"
   add_foreign_key "messages", "project_chats"
   add_foreign_key "messages", "users"

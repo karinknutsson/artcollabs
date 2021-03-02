@@ -44,7 +44,8 @@
 
     <div class="content-right">
 
-      <a href="#" class="white btn-artcollabs btn-warm-red">Edit content</a>
+      <%= link_to "Edit content", edit_project_path(@project.id), class: "white btn-artcollabs btn-warm-red" %>
+
       <a href="#" class="white btn-artcollabs btn-warm-red">Pending requests</a>
       <a href="#" class="white btn-artcollabs btn-warm-red">Delete project</a>
 
