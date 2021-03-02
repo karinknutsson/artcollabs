@@ -1,19 +1,15 @@
-textarea {
-  max-width: 100%;
-  width: 100%;
-}
-
-textarea:focus {
-  outline: none;
-}
-
-#messages {
-  height: 40vh;
-  overflow-y: scroll;
-}
-
 .message-container {
   padding: 16px;
+}
+
+.chat-form {
+  margin: 30px auto 0 auto;
+  width: 80%;
+  height: 200px;
+}
+
+.chat-message {
+  height: 120px !important;
 }
 
 // .message-container.message-sent {
@@ -62,8 +58,9 @@ textarea:focus {
 }
 
 .chat-date {
-  font-size: 8pt;
-  color: $grey-darker;
+  font-size: 10pt;
+  color: $grey-dark;
+  float: right;
 }
 
 .btn-chats {
@@ -95,9 +92,6 @@ textarea:focus {
   justify-content: space-between;
 }
 
-#input_message {
-}
-
 .chat-input-container {
   margin: 0 auto;
   padding: 0 0 0 14px;
@@ -117,6 +111,11 @@ textarea:focus {
   background-color: rgba(0, 0, 0, 0);
   font-style: "Source Sans Pro", sans-serif;
   font-size: 12pt;
+}
+
+#messages {
+  height: 60vh;
+  overflow-y: scroll;
 }
 
 /*.chat-left {

@@ -84,10 +84,6 @@ a.white, a.btn-white:visited, a.white:active, a.btn-white:hover{
   color: white;
 }
 
-.main-body-container {
-  min-height: 95vh;
-}
-
 input:-webkit-autofill,
 input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,
@@ -99,3 +95,37 @@ input:-webkit-autofill {
     -webkit-text-fill-color: black !important;
 }
 
+.main-body-container {
+  min-height: 95vh;
+}
+
+.artcollabs-input {
+  border-radius: 20px;
+  border: 2px solid $grey-light-med;
+  resize: none;
+  font-family: "Source Sans Pro", sans-serif;
+  font-size: 10pt;
+}
+
+.bio {
+  height: 160px !important;
+}
+
+.profile-container {
+  margin: 40px auto 48px auto;
+  width: 70vw;
+  h1 {
+    margin: 0 12px 32px 12px;
+    font-size: 2.6vw;
+    color: black;
+  }
+  h2 {
+    font-size: 16pt;
+  }
+  h2.active-tab {
+    color: black;
+  }
+  h2.inactive-tab {
+    color: $grey-med;
+  }
+}

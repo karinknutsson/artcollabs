@@ -1,17 +1,7 @@
-<%= @user.email %>
-<%= link_to "edit your account details", edit_user_registration_path(@user)  %>
+<div class="profile-container">
+  <h1><%= @user.first_name %> <%= @user.last_name %> (<%= @user.username %>)</h1>
 
-<h1>My projects</h1>
-<% @projects.each do |project| %>
-  <br><%= link_to "#{project.title}", project_path(project) %>
-  <%= project.status %>
-<% end %>
+</div>
 
-<br>--------------------- <br>
-<h1>My collabs</h1>
-<% @collaborations.each do |collaboration| %>
-  <br>as <%= collaboration.role %> on
-  <%= link_to "#{collaboration.project.title}", project_path(collaboration.project) %>
-<% end %>
 
-  
+
