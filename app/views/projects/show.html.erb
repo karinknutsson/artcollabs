@@ -1,4 +1,5 @@
 <div class="project-photo">
+
   <% if @project.photo.attached? %>
     <%= image_tag @project.photo %>
   <% else %>
@@ -6,23 +7,11 @@
   <% end %>
 </div>
 
+<h1 id="project-title"><%= @project.title %></h1>
+
 <div class="show-container">
 
-  <h1><%= @project.title %></h1>
-
-  <% if @user_type == :owner %>
-
-    <%= render "shared/about_owner" %>
-
-  <% elsif @user_type == :collaborator  %>
-
-    <%= render "shared/about_collaborator" %>
-
-  <% else %>
-
-    <%= render "shared/about_visitor" %>
-
-  <% end %>
+  <%= render "shared/tabs" %>
 
 </div>
 

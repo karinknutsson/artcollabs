@@ -7,7 +7,7 @@ class Project < ApplicationRecord
   has_many :milestones, dependent: :destroy
   has_one_attached :photo, dependent: :destroy
   # class_name: "Title_Pic"
-  has_many_attached :photos, dependent: :destroy
+  has_many_attached :media, dependent: :destroy
   # class_name: "Media_files"
   has_one :project_chat, dependent: :destroy
 

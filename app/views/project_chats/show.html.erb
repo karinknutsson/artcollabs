@@ -1,5 +1,8 @@
 <div class="project-photo">
-  <%= image_tag @project.photo, crop: :mfit %>
+  <% if @project.photo.attached? %>
+    <%= image_tag @project.photo, crop: :mfit %>
+  <% end %>
+    
 </div>
 
 <div class="show-container">
