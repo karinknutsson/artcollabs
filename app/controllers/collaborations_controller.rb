@@ -42,7 +42,7 @@ class CollaborationsController < ApplicationController
     # @project = Project.find(params[:project_id])
     @collaboration.destroy
     authorize @collaboration
-    redirect_to @project
+    redirect_to dashboard_path
   end
 
   def confirm
