@@ -1,0 +1,15 @@
+.dashboard-pair {
+  display: flex;
+  margin-bottom: 40px;
+}
+
+.dashboard-item {
+  width: 40%;
+}
+
+.dashboard-request {
+  width: 60%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-end;
+}

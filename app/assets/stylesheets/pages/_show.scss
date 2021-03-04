@@ -20,6 +20,10 @@
   }
 }
 
+.tab .active {
+  color: $dark-blue;
+}
+
 .project-photo {
   width: 100%;
   height: 260px;
@@ -36,12 +40,6 @@
   justify-content: space-between;
 }
 
-// ❌
-.tab-container-bts {
-  .active {
-    color: black !important;
-  }
-}
 .show-content {
   margin-top: 40px;
   display: flex;
