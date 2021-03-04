@@ -19,16 +19,11 @@ class PagesController < ApplicationController
     # My collabs on other's projects
     @collaborations = Collaboration.where(user: @user)
 
-    # ❌ pending Collabs for my projects 
-    
-
     ## FOR THE DASHBOARD TABS
     @open_projects = []
     @active_projects = []
     @closed_projects = []
     @finished_projects = []
-    ###########################
-
     @projects.each do |project|
       if project.status == "open"
         @open_projects << project
@@ -40,6 +35,7 @@ class PagesController < ApplicationController
         @finished_projects << project
       end
     end
+    ###########################
   end
 
   def profile

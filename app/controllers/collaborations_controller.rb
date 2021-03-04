@@ -21,6 +21,7 @@ class CollaborationsController < ApplicationController
   end
 
   def edit
+    
     # @project = Project.find(params[:project_id])
     @collaboration = Collaboration.find(params[:id])
     authorize @collaboration
@@ -37,10 +38,12 @@ class CollaborationsController < ApplicationController
   end
 
   def destroy
+    # Gets current page to redirect later
+    session[:return_to] ||= request.referer
     # @project = Project.find(params[:project_id])
     @collaboration.destroy
     authorize @collaboration
-    redirect_to @project
+    redirect_to session.delete(:return_to)
   end
 
   def confirm

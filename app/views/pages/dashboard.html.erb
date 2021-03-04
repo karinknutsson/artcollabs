@@ -35,7 +35,6 @@
 
     <%= button_to  "Confirm", confirm_path(collaboration), method: :patch, data: { confirm: "Are you sure you want to accept this collaborator?" }%>
     <br>
-    <!--THE DENIED CONFIRMATION GETS DELETED ( FOR THE FUTURE, WE SHOULD KEEP IT BUT AS STATUS = DENIED )-->
     <%= button_to  "  Deny  ", deny_path(collaboration), method: :patch, data: { confirm: "Are you sure you want to deny this collaborator?" } %>
     <hr>
 <% end %>
