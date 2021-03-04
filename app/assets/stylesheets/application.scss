@@ -162,3 +162,9 @@ input:-webkit-autofill {
   border-radius: 20px;
   border: 2px solid $grey-light-med;
 }
+
+.user-avatar {
+  img {
+    object-fit: cover;
+  }
+}
