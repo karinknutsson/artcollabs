@@ -38,20 +38,10 @@
 
 // ❌
 .tab-container-bts {
-  li {
-      a {
-        &:active {
-          color: black !important;
-        }
-      }
-      .tab {
-        &:active {
-          color: black !important;
-        }
-      }
-    }
+  .active {
+    color: black !important;
   }
-
+}
 .show-content {
   margin-top: 40px;
   display: flex;

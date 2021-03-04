@@ -64,7 +64,6 @@ class PagesController < ApplicationController
   
   private
   
-  # ❌
   def get_my_collabs
 
     @pending_collabs = []    
@@ -74,7 +73,7 @@ class PagesController < ApplicationController
     @collaborations_to_my_projects = Collaboration.where(Project.where(user: @user))
 
     @collaborations_to_my_projects.each do |collab|
-      if collab.confirmed == false
+      if collab.status == nil
         @pending_collabs << collab
       end
     end

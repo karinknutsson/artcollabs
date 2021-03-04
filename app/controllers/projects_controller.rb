@@ -9,11 +9,12 @@ class ProjectsController < ApplicationController
     @collaboration = Collaboration.new
     @milestone = Milestone.new
     @milestones = Milestone.where(project_id: @project)
-    @user_type = get_user_type
     @collabs = Collaboration.where(project_id: @project)
+    
+    get_user_type
 
     # show related projects from tags
-    # @related_projects = @project.find_related_tags
+    @related_projects = @project.find_related_tags
 
     if @favourite_project = FavouriteProject.find_by(user: @user, project: @project)
       @favourite_project
@@ -22,11 +23,11 @@ class ProjectsController < ApplicationController
     end
     authorize @project
 
-    # Chatroom Logic
-
-    # @chatroom = Chatroom.find(params[:id])
-    # @direct_message = DirectMessage.new
-    # authorize @chatroom
+    # Chat Logic
+    @project_chat = ProjectChat.find_by(project: params[:id])
+    @project = @project_chat.project
+    @message = Message.new
+    authorize @project_chat
 
   end
 
@@ -85,11 +86,6 @@ class ProjectsController < ApplicationController
     redirect_to root_path
   end
 
-  # ❌
-  def check_favourites_for_current_user
-    @project
-  end
-
   # ❌ not displaying tagged projects
   def tagged
     if params[:tag].present?
@@ -99,28 +95,36 @@ class ProjectsController < ApplicationController
       @projects = policy_scope(Project).order(created_at: :desc)
     end
   end
-
+  
   def media
     authorize @project
   end
   
   private
-
+  
   def set_project
     @project = Project.find(params[:id])
   end
-
+  
   def project_params
     params.require(:project).permit(:user_id, :title, :description, :status, :budget, :max_members, :start_date, :end_date, :tags, :photo, media: [] )
   end
-
+  
   def get_user_type
+    collaboration = Collaboration.find_by(project_id: @project.id, user_id: current_user.id)
     if @project.user_id == current_user.id
-      :owner
-    elsif Collaboration.find_by(project_id: @project.id, user_id: current_user.id) #&& Collaboration.find_by(project_id: @project.id, user_id: current_user.id).confirmed == true
-      :collaborator
+      @user_type = :owner
+    elsif collaboration&.confirmed == true
+      @user_type = :collaborator
     else
-      :visitor
+      @user_type = :visitor
+    end
+  end
+  
+  # ❌
+  def get_favourites_for_current_user
+    if Favourite.find_by(project_id: @project.id, user_id: current_user.id)
+      :favourite
     end
   end
 end
