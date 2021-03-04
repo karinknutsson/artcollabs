@@ -6,7 +6,7 @@
           <div class="member">
             <%= link_to profile_path(@project.user), class: "a-member" do %>
               <% if @project.user.avatar.attached? %>
-                <%= image_tag project.user.avatar %>
+                <%= image_tag @project.user.avatar %>
               <% else %>
                 <div class="avatar-member">
                   <%= render "shared/avatar" %>
