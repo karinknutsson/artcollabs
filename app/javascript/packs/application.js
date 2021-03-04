@@ -77,12 +77,11 @@ $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
 // CLICK ON PROJECT'S PHOTO TO ENLARGE
 
 const projectPhoto = document.querySelector('.project-photo');
-const arrow = document.querySelector(".arrow");
 
-projectPhoto.addEventListener("click", (event) => {
-  arrow.classList.toggle("arrow-active")
-  projectPhoto.classList.toggle("project-photo-active");
-})
+// projectPhoto.addEventListener("click", (event) => {
+//   arrow.classList.toggle("arrow-active")
+//   projectPhoto.classList.toggle("project-photo-active");
+// })
 
 //  better Alerts
 
