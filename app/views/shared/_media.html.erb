@@ -4,28 +4,25 @@
   put them on a modal? 
   using js?
   generate html with src = cl_image_tag? -->
-
+<div class="upload-container container flex-column">
     <%= simple_form_for @project, method: :patch do |f| %>
       <%= f.input :media, as: :file, input_html: { multiple: true }, class: "btn" %>
-      <div class="">
         <%= f.button :submit, "Upload" %>
+        <!-- activate button if input is not empty -->
     <% end %> 
-    <!-- activate button if input is not empty -->
+</div>
 
-    <div class="media-container container">
-      <div class="media">
-            <ul>  
+    <div class="media-container">
+      <div class="flexbin mt-50">
+        
         <% if @project.media.attached? %>
           <% @project.media.each do |media| %>
-              <li><%= cl_image_tag media.key, loading: "lazy" %></li>  
-            
-              <!--how can something like this be done?
-              <li><img src="#{media.key}" alt=""></li>
-              or use link_to with photo instead of text? -->
+              <a href="#">
+                <%= image_tag media %>
+              </a>
           <% end %>  
         <% end %>
-              <li></li>
-            </ul>
+
+
       </div>
     </div>
-

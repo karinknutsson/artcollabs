@@ -17,7 +17,7 @@
         <a class="nav-link tab" id="my-collabs-tab" data-toggle="tab" href="#my-collabs" role="tab" aria-controls="my-collabs" aria-selected="false"><h2>My collaborations</h2></a>
       </li>
     </ul>
-     
+
     <hr>
 
   </div>
@@ -44,7 +44,6 @@
           </div>
           <div class="dashboard-request float-right">
             <%= button_to  "Confirm", confirm_path(collaboration), method: :patch, data: { confirm: "Are you sure?" }  %>
-            <!--THE DENIED CONFIRMATION GETS DELETED ( FOR THE FUTURE, WE SHOULD KEEP IT BUT AS STATUS = DENIED )-->
             <%= button_to  "  Deny  ", confirm_path(collaboration), method: :patch, data: { confirm: "Are you sure?" } %>
           </div>
         </div>

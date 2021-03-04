@@ -110,3 +110,5 @@ setTimeout(fade_out, 8000);
 function fade_out() {
   $(".alert").fadeOut().empty();
 }
+
+

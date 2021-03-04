@@ -834,11 +834,6 @@
     lodash "^4.17.19"
     to-fast-properties "^2.0.0"
 
-"@chenfengyuan/datepicker@^1.0.10":
-  version "1.0.10"
-  resolved "https://registry.yarnpkg.com/@chenfengyuan/datepicker/-/datepicker-1.0.10.tgz#33d544d80f8f0a10dcb6194136ea5639d285b3d5"
-  integrity sha512-w016ygdUgBY6hhV7HFKRy2DeSiRPPczekA6FJfIpmqQYh5leKne4WvW/YWOCY1xrQVvamdLyhMhbsn8vN5iQAg==
-
 "@csstools/convert-colors@^1.4.0":
   version "1.4.0"
   resolved "https://registry.yarnpkg.com/@csstools/convert-colors/-/convert-colors-1.4.0.tgz#ad495dc41b12e75d588c6db8b9834f08fa131eb7"
@@ -3103,6 +3098,11 @@ flatten@^1.0.2:
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/flatten/-/flatten-1.0.3.tgz#c1283ac9f27b368abc1e36d1ff7b04501a30356b"
   integrity sha512-dVsPA/UwQ8+2uoFe5GHtiBMu48dWLTdsuEd7CKGlZlD78r1TTWBvDuFaFGKCo/ZfEr95Uk56vZoX86OsHkUeIg==
+
+flexbin@^0.2.0:
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/flexbin/-/flexbin-0.2.0.tgz#0126306d3d595fcb7dfcb87149b9c9599ff8f4e9"
+  integrity sha1-ASYwbT1ZX8t9/LhxSbnJWZ/49Ok=
 
 flush-write-stream@^1.0.0:
   version "1.1.1"
