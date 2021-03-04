@@ -31,6 +31,7 @@ Rails.application.routes.draw do
   get '/messages/', to: 'pages#messages', as: "messages"
 
   patch '/confirm/:id', to: 'collaborations#confirm', as: "confirm"
+  patch '/confirm/:id', to: 'collaborations#deny', as: "deny"
 
   mount ActionCable.server => "/cable"
 end

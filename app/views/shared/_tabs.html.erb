@@ -2,7 +2,8 @@
 <!-- ❌ if collaborator not working, confirmation seems not to be working -->
 <!-- If setting collaborator to see tabs even when not confirmed, the page breaks 🙄 -->
 
-<% if @user_type == :owner || @user_type == :collaborator %>
+
+<% if (@user_type == :owner || @user_type == :collaborator) %>
 
   <!-- TABS LINKS -->
   <!-- add attr data-toggle="tab" to make tags without reloading funcitonality work -->
@@ -59,46 +60,19 @@
 
       <!-- TIMELINE -->
       <div class="tab-pane fade" id="timeline" role="tabpanel" aria-labelledby="timeline-tab">
-        <!-- ABOUT - OWNER
-          <% if @user_type == :owner %>
-            <%= render "shared/about_owner" %>
-
-          ABOUT - COLLABORATOR
-          <% elsif @user_type == :collaborator %>
-            <%= render "shared/about_collaborator" %>
-
-          ABOUT - VISITOR
-          <% elsif @user_type == :visitor %>
-            <%= render "shared/about_visitor" %>
-          <% end %>
-
-        </div>
-        -->
         <h2>Content not Available yet.</h2>
       </div>
 
       <!-- MEDIA -->
       <div class="tab-pane fade" id="media" role="tabpanel" aria-labelledby="media-tab">
-        <!-- ABOUT - OWNER  -->
-        <% if @user_type == :owner %>
+        <!-- MEDIA - OWNER & COLLABORATOR -->
+        <% if (@user_type == :owner || @user_type == :collaborator) %>
           <%= render "shared/media" %>
-
-        <!-- ABOUT - COLLABORATOR  -->
-        <% elsif @user_type == :collaborator %>
-          <%= render "shared/media" %>
-
-        <!-- ABOUT - VISITOR  -->
-        <% elsif @user_type == :visitor %>
-          <h2>You're not allowed to visit this page</h2>
         <% end %>
-
       </div>
 
-
-      <!-- CHAT ❌ not working -->
       <div class="tab-pane fade" id="chat" role="tabpanel" aria-labelledby="chat-tab">
-
+        <%= render "shared/project_chat" %>
       </div>
 
-  </div>
 </div>

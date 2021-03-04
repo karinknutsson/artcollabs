@@ -17,9 +17,9 @@
           </div>
           <div class="owner-details">
             <ul>
-              <li>Member since: 2021</li>
-              <li>Current projects: 3</li>
-              <li>Finished projects: 21</li>
+              <li>Account created <%= time_ago_in_words(@project.user.created_at) %> ago</li>
+              <li>Current projects: <%= @project.user.projects.count %></li>
+              <li>Finished projects: 2<%#= @project.user.projects.find_by(status: 'finished').count ??? %></li>
             </ul>
           </div>
         </div>
