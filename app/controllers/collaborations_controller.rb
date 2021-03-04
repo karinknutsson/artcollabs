@@ -16,7 +16,8 @@ class CollaborationsController < ApplicationController
         redirect_to @project
         flash[:notice] = "You submitted a request to collaborate for the project #{@project.title}. Now go create something while you wait for approval!"
       else
-        render :new
+        redirect_to @project
+        flash[:notice] = "You have to enter a message to apply."
       end
   end
 
