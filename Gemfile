@@ -37,6 +37,7 @@ gem 'pundit'
 # .env
 gem 'cloudinary', '~> 1.16.0'
 gem 'faker'
+gem 'active_storage_validations'
 
 gem 'autoprefixer-rails'
 gem 'font-awesome-sass'

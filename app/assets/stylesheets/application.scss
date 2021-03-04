@@ -17,27 +17,27 @@
 
 // FONTS
 @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,300;0,400;0,600;0,700;1,400;1,600&display=swap');
-@font-face {
-    font-family: 'futurateeregular';
-    src: asset-url('font/fe11003t-webfont.woff2') format('woff2'),
-         asset-url('font/fe11003t-webfont.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-}
-@font-face {
-    font-family: 'futurateemedregular';
-    src: asset-url('../font/fe11004t-webfont.woff2') format('woff2'),
-         asset-url('../font/fe11004t-webfont.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-}
-@font-face {
-    font-family: 'futurateebold';
-    src: asset-url('font/futuratee-bold-webfont.woff2') format('woff2'),
-         asset-url('font/futuratee-bold-webfont.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-}
+// @font-face {
+//     font-family: 'futurateeregular';
+//     src: url('../fonts/fe11003t-webfont.woff2') format('woff2');
+//          /* url('fonts/fe11003t-webfont.woff') format('woff'); */
+//     font-weight: normal;
+//     font-style: normal;
+// }
+// @font-face {
+//     font-family: 'futurateemedregular';
+//     src: url('../fonts/fe11004t-webfont.woff2') format('woff2');
+//          /* asset-url('../fonts/fe11004t-webfont.woff') format('woff'); */
+//     font-weight: normal;
+//     font-style: normal;
+// }
+// @font-face {
+//     font-family: 'futurateebold';
+//     src: url('../fonts/futuratee-bold-webfont.woff2') format('woff2');
+//          /* asset-url('fonts/futuratee-bold-webfont.woff') format('woff'); */
+//     font-weight: normal;
+//     font-style: normal;
+// }
 
 // Global styles
 body {
@@ -49,7 +49,7 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'futurateebold', Futura, Helvetica, sans-serif;
+  font-family: 'futurateemedregular', Futura, Helvetica, sans-serif;
 }
 
 h2 {
