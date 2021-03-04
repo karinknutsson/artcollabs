@@ -60,7 +60,7 @@ $('#ProjectsTab #timeline-tab').on('click', function (e) {
 $('#ProjectsTab #media-tab').on('click', function (e) {
   e.preventDefault()
   $(this).tab('show active')
-  $('#myTab li:nth-child(3) a').tab('show') // Select third tab
+  $('#ProjectsTab li:nth-child(3) a').tab('show') // Select third tab
 })
 
 $('#ProjectsTab #chat-tab').on('click', function (e) {

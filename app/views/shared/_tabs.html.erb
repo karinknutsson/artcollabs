@@ -66,15 +66,11 @@
 
       <!-- MEDIA -->
       <div class="tab-pane fade" id="media" role="tabpanel" aria-labelledby="media-tab">
-        <!-- MEDIA - OWNER  -->
-        <% if @user_type == :owner %>
+        <!-- MEDIA - OWNER & COLLABORATOR -->
+        <% if (@user_type == :owner || @user_type == :collaborator) %>
           <%= render "shared/media" %>
-
-        <!-- MEDIA - COLLABORATOR  -->
-        <% elsif @user_type == :collaborator %>
-          <%= render "shared/media" %>          
-      </div>
         <% end %>
+      </div>
 
       <div class="tab-pane fade" id="chat" role="tabpanel" aria-labelledby="chat-tab">
         <%= render "shared/project_chat" %>
