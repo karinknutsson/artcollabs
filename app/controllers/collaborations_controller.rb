@@ -4,6 +4,8 @@ class CollaborationsController < ApplicationController
   before_action :authenticate_user!
 
   def new
+    @collaboration = Collaboration.new
+    authorize @collaboration
   end
 
   def create
@@ -14,7 +16,7 @@ class CollaborationsController < ApplicationController
     authorize @collaboration
       if @collaboration.save
         redirect_to @project
-        flash[:notice] = "You submitted a request to collaborate for the project #{@project.title}. Now go create something while you wait for approval!"
+        flash[:notice] = "You submitted a request to collaborate for the project #{@project.title}."
       else
         render :new
       end
@@ -40,7 +42,7 @@ class CollaborationsController < ApplicationController
     # @project = Project.find(params[:project_id])
     @collaboration.destroy
     authorize @collaboration
-    redirect_to @project
+    redirect_to dashboard_path
   end
 
   def confirm

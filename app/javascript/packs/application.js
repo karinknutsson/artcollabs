@@ -69,7 +69,27 @@ $('#ProjectsTab #chat-tab').on('click', function (e) {
   $('#ProjectsTab li:last-child a').tab('show') // Select last tab
 })
 
+$('#DashboardTab #my-projects-tab').on('click', function (e) {
+  e.preventDefault()
+  $(this).tab('show active')
+  $('#DashboardTab li:last-child a').tab('show')
+})
+
+$('#DashboardTab #requests-tab').on('click', function (e) {
+  e.preventDefault()
+  $(this).tab('show active')
+  $('#DashboardTab li:last-child a').tab('show')
+})
+
+$('#DashboardTab #my-collabs-tab').on('click', function (e) {
+  e.preventDefault()
+  $(this).tab('show active')
+  $('#DashboardTab li:last-child a').tab('show')
+})
+
 $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
   e.target // newly activated tab
   e.relatedTarget // previous active tab
 })
+
+

@@ -17,22 +17,22 @@
 @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,300;0,400;0,600;0,700;1,400;1,600&display=swap');
 @font-face {
     font-family: 'futurateeregular';
-    src: url('font/fe11003t-webfont.woff2') format('woff2'),
-         url('font/fe11003t-webfont.woff') format('woff');
+    src: asset-url('font/fe11003t-webfont.woff2') format('woff2'),
+         asset-url('font/fe11003t-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 }
 @font-face {
     font-family: 'futurateemedregular';
-    src: url('../font/fe11004t-webfont.woff2') format('woff2'),
-         url('../font/fe11004t-webfont.woff') format('woff');
+    src: asset-url('../font/fe11004t-webfont.woff2') format('woff2'),
+         asset-url('../font/fe11004t-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 }
 @font-face {
     font-family: 'futurateebold';
-    src: url('font/futuratee-bold-webfont.woff2') format('woff2'),
-         url('font/futuratee-bold-webfont.woff') format('woff');
+    src: asset-url('font/futuratee-bold-webfont.woff2') format('woff2'),
+         asset-url('font/futuratee-bold-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 }
@@ -161,4 +161,14 @@ input:-webkit-autofill {
   padding: 16px;
   border-radius: 20px;
   border: 2px solid $grey-light-med;
+}
+
+.user-avatar {
+  img {
+    object-fit: cover;
+  }
+}
+
+.button_to {
+  margin-left: 40px;
 }

@@ -9,8 +9,9 @@ class ProjectsController < ApplicationController
     @collaboration = Collaboration.new
     @milestone = Milestone.new
     @milestones = Milestone.where(project_id: @project)
-    @collabs = Collaboration.where(project_id: @project)
-    
+    @collabs = Collaboration.where(project_id: @project, status: "confirmed")
+    @project_collabs = Collaboration.where(project_id: @project)
+
     get_user_type
 
     # show related projects from tags
@@ -22,13 +23,11 @@ class ProjectsController < ApplicationController
       @favourite_project = FavouriteProject.new
     end
     authorize @project
-
     # Chat Logic
     @project_chat = ProjectChat.find_by(project: params[:id])
     @project = @project_chat.project
     @message = Message.new
     authorize @project_chat
-
   end
 
   def index
@@ -95,32 +94,36 @@ class ProjectsController < ApplicationController
       @projects = policy_scope(Project).order(created_at: :desc)
     end
   end
-  
+
   def media
     authorize @project
   end
-  
+
   private
-  
+
   def set_project
     @project = Project.find(params[:id])
   end
-  
+
   def project_params
     params.require(:project).permit(:user_id, :title, :description, :status, :budget, :max_members, :start_date, :end_date, :tags, :photo, media: [] )
   end
-  
+
   def get_user_type
     collaboration = Collaboration.find_by(project_id: @project.id, user_id: current_user.id)
     if @project.user_id == current_user.id
       @user_type = :owner
-    elsif collaboration&.confirmed == true
-      @user_type = :collaborator
+    elsif collaboration
+      if collaboration.confirmed == true
+        @user_type = :collaborator
+      else
+        @user_type = :pending
+      end
     else
       @user_type = :visitor
     end
   end
-  
+
   # ❌
   def get_favourites_for_current_user
     if Favourite.find_by(project_id: @project.id, user_id: current_user.id)

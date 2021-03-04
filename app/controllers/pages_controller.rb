@@ -6,8 +6,6 @@ class PagesController < ApplicationController
     @projects = policy_scope(Project).order(created_at: :desc)
     # add collections arrays from Projects by tags?
     @quote = footer_quotes.sample
-
-    
   end
 
   def dashboard
@@ -19,8 +17,8 @@ class PagesController < ApplicationController
     # My collabs on other's projects
     @collaborations = Collaboration.where(user: @user)
 
-    # ❌ pending Collabs for my projects 
-    
+    # ❌ pending Collabs for my projects
+    # get_my_collabs
 
     ## FOR THE DASHBOARD TABS
     @open_projects = []
@@ -61,16 +59,15 @@ class PagesController < ApplicationController
       "If you hear a voice within you say 'you cannot paint,' then by all means paint, and that voice will be silenced."
     ]
   end
-  
+
   private
-  
+
   def get_my_collabs
+    @pending_collabs = []
 
-    @pending_collabs = []    
+    @projects = Project.where(user: current_user)
 
-    @projects = Project.where(user: @user)
-
-    @collaborations_to_my_projects = Collaboration.where(Project.where(user: @user))
+    @collaborations_to_my_projects = Collaboration.where(project_id: @projects)
 
     @collaborations_to_my_projects.each do |collab|
       if collab.status == nil
