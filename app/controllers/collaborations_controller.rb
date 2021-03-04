@@ -16,7 +16,7 @@ class CollaborationsController < ApplicationController
     authorize @collaboration
       if @collaboration.save
         redirect_to @project
-        flash[:notice] = "You submitted a request to collaborate for the project #{@project.title}. Now go create something while you wait for approval!"
+        flash[:notice] = "You submitted a request to collaborate for the project #{@project.title}."
       else
         render :new
       end

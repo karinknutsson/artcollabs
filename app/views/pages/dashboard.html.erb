@@ -29,7 +29,8 @@
     <!-- MY PROJECTS -->
     <div class="tab-pane show active fade dashboard-list" id="my-projects" role="tabpanel" aria-labelledby="my-projects-tab">
       <% @projects.each do |project| %>
-        <br><%= link_to "#{project.title}", project_path(project) %>
+        <br>
+        <h6><%= link_to "#{project.title}", project_path(project) %></h6>
       <% end %>
     </div>
 

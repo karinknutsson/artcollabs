@@ -25,7 +25,7 @@
         <% end %>
       </div>
       <% end %>
-      <div class="card-footer">
+      <div class="card-footer user-avatar">
         <%= link_to profile_path(project.user), class: "a-footer" do %>
           <% if project.user.avatar.attached? %>
             <%= image_tag project.user.avatar %>
