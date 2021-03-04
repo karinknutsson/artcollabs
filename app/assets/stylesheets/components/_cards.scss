@@ -19,13 +19,59 @@
 .card-image {
   width: 100%;
   height: 140px;
+
+  // suggestion - moving pics
+  text-align: center;
+  vertical-align: middle;
+  overflow: hidden;
+  display: inline-block;
+  z-index: 1; 
   img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     border-top-left-radius: 17px;
     border-top-right-radius: 17px;
+
+    // suggestion - moving pics
+    &:hover {
+      animation-name: zoom-in-pic;
+      animation-duration: 20s;
+      animation-iteration-count: infinite;
+      animation-timing-function: linear;
+      
+    }
   }
+}
+
+@keyframes zoom-in-pic {
+  0% {
+    object-position: 100% 0%;
+  }
+  15% {
+    object-position: 100% 100%;
+  }
+  35% {
+    object-fit: none;
+    object-position: 0% 20%;
+  }
+  60% {
+    object-position: 80% 20%;
+  }
+  68% {
+    
+    object-position: 50% 50%;
+  }
+  70% {
+    object-fit: cover;
+  }
+  85% {
+    object-position: 50% 100%;
+  }
+  100% {
+    object-fit: none;
+  }
+
 }
 
 .card-title {

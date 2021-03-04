@@ -18,11 +18,13 @@ class CollaborationsController < ApplicationController
         redirect_to @project
         flash[:notice] = "You submitted a request to collaborate for the project #{@project.title}."
       else
-        render :new
+        redirect_to @project
+        flash[:notice] = "You have to enter a message to apply."
       end
   end
 
   def edit
+    
     # @project = Project.find(params[:project_id])
     @collaboration = Collaboration.find(params[:id])
     authorize @collaboration
@@ -39,10 +41,12 @@ class CollaborationsController < ApplicationController
   end
 
   def destroy
+    # Gets current page to redirect later
+    session[:return_to] ||= request.referer
     # @project = Project.find(params[:project_id])
     @collaboration.destroy
     authorize @collaboration
-    redirect_to dashboard_path
+    redirect_to session.delete(:return_to)
   end
 
   def confirm

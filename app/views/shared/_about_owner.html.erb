@@ -16,8 +16,10 @@
       <%= link_to "Edit content", edit_project_path(@project), class: "white btn-artcollabs btn-warm-red" %>
       <a href="#" class="white btn-artcollabs btn-warm-red">Pending requests</a>
       <a href="#" class="white btn-artcollabs btn-warm-red">Delete project</a>
-
+      
+      <!-- for some browsers (as the one I use), the delete funcion only works with button_to ☹ so we have to style it accordingly. I put it here to test -->
       <%= render "shared/members" %>
+      <%= button_to "Delete project", project_path(@project), method: :delete, class: "white btn-artcollabs btn-warm-red", data: { confirm: "delete project named: '#{@project.title}' ?" } %>
 
     </div>
 

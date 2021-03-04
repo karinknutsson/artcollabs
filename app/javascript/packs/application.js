@@ -92,4 +92,21 @@ $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
   e.relatedTarget // previous active tab
 })
 
+// CLICK ON PROJECT'S PHOTO TO ENLARGE
 
+const projectPhoto = document.querySelector('.project-photo');
+
+// projectPhoto.addEventListener("click", (event) => {
+//   arrow.classList.toggle("arrow-active")
+//   projectPhoto.classList.toggle("project-photo-active");
+// })
+
+//  better Alerts
+
+const alert = document.querySelector('#alert-flash')
+
+setTimeout(fade_out, 8000);
+
+function fade_out() {
+  $(".alert").fadeOut().empty();
+}

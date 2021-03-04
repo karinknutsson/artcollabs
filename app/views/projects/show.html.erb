@@ -1,10 +1,11 @@
-<div class="project-photo">
+<div class="project-photo" id="project-pic">
 
   <% if @project.photo.attached? %>
     <%= image_tag @project.photo %>
   <% else %>
     <%= image_tag "clouds.jpg" %>
   <% end %>
+  
 </div>
 
 <div class="show-container">
