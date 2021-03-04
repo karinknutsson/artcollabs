@@ -1,7 +1,9 @@
 .upload-container {
-  margin-bottom: 50px;
-  button {
-    top: 50%;
+  justify-content: right !important;
+  text-align: right !important;
+  margin-top: 50px;
+  .choose-button, .upload-button {
+    display: inline;
   }
 }
 
