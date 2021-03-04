@@ -36,14 +36,16 @@
     <!-- REQUESTS -->
     <div class="tab-pane fade dashboard-list" id="requests" role="tabpanel" aria-labelledby="requests-tab">
       <% @pending_collabs.each do |collaboration| %>
-        <h6><%= collaboration.user.username %> wants to collab as <%= collaboration.role  %> on <%= link_to "#{collaboration.project.title}", project_path(collaboration.project) %></h6>
-
-        <%= button_to  "Confirm", confirm_path(collaboration), method: :patch, data: { confirm: "Are you sure?" }%>
-        <br>
-        <!--THE DENIED CONFIRMATION GETS DELETED ( FOR THE FUTURE, WE SHOULD KEEP IT BUT AS STATUS = DENIED )-->
-        <%= button_to  "  Deny  ", confirm_path(collaboration), method: :patch, data: { confirm: "Are you sure?" } %>
-        <hr>
-      <% end %>
+        <div class="dashboard-item">
+          <h6><%= collaboration.user.username %> wants to collaborate as <%= collaboration.role  %> on <%= link_to "#{collaboration.project.title}", project_path(collaboration.project) %></h6>
+          Message: <%= collaboration.message %>
+        </div>
+        <div class="dashboard-request float-right">
+          <%= button_to  "Confirm", confirm_path(collaboration), method: :patch, data: { confirm: "Are you sure?" }  %>
+          <!--THE DENIED CONFIRMATION GETS DELETED ( FOR THE FUTURE, WE SHOULD KEEP IT BUT AS STATUS = DENIED )-->
+          <%= button_to  "  Deny  ", confirm_path(collaboration), method: :patch, data: { confirm: "Are you sure?" } %>
+        </div>
+        <% end %>
     </div>
 
     <!-- MY COLLABS -->
