@@ -9,7 +9,8 @@ class Project < ApplicationRecord
   has_many :collaborations, dependent: :destroy
   has_many :milestones, dependent: :destroy
   has_one_attached :photo, dependent: :destroy
-  validates :photo, attached: true, size: { less_than: 100.megabytes , message: 'The image should not be larger than 100 MB' }
+  
+  # validates :photo, size: { less_than: 100.megabytes , message: 'The image should not be larger than 100 MB' }
   # class_name: "Title_Pic"
   has_many_attached :media, dependent: :destroy
   # class_name: "Media_files"

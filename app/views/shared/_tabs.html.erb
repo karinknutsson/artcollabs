@@ -56,8 +56,16 @@
 
       <!-- TIMELINE -->
       <div class="tab-pane fade" id="timeline" role="tabpanel" aria-labelledby="timeline-tab">
-        <h2>Content not Available yet.</h2>
+      <% @milestones.each do |milestone| %>
+        <h2><%= milestone.title %></h2>
+        <p><%= milestone.description %></p>
+        <%#= button_to "Delete milestone", project_milestone_path(@project, milestone), method: :delete, data: { confirm: "delete milestone named: '#{@milestone.title}' ?" } %>
+      <% end %>
+        <div class="container">
+          <%= render "shared/milestones_form"%>
+        </div>
       </div>
+      
 
       <!-- MEDIA -->
       <div class="tab-pane fade" id="media" role="tabpanel" aria-labelledby="media-tab">
