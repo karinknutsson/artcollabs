@@ -9,7 +9,7 @@ class ProjectsController < ApplicationController
     @collaboration = Collaboration.new
     @milestone = Milestone.new
     @milestones = Milestone.where(project_id: @project)
-    @collabs = Collaboration.where(project_id: @project)
+    @collabs = Collaboration.where(project_id: @project, status: "confirmed")
 
     get_user_type
 

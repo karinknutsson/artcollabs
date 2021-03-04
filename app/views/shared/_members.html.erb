@@ -3,7 +3,7 @@
           <h4>Collaborators</h4>
         </div>
         <div class="member-card-members">
-          <div class="member">
+          <div class="member user-avatar">
             <%= link_to profile_path(@project.user), class: "a-member" do %>
               <% if @project.user.avatar.attached? %>
                 <%= image_tag @project.user.avatar %>

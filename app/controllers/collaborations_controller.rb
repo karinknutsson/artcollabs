@@ -4,6 +4,8 @@ class CollaborationsController < ApplicationController
   before_action :authenticate_user!
 
   def new
+    @collaboration = Collaboration.new
+    authorize @collaboration
   end
 
   def create

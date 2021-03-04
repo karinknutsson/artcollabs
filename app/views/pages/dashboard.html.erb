@@ -23,15 +23,14 @@
   </div>
 
     <!-- TAB CONTENTS -->
-    <div class="tab-content" id=DashboardTabContent">
+    <div class="tab-content" id="DashboardTabContent">
+    </div>
 
-      <!-- MY PROJECTS -->
-      <div class="tab-pane show active fade dashboard-list" id="my-projects" role="tabpanel" aria-labelledby="my-projects-tab">
-        <% @projects.each do |project| %>
-          <br><%= link_to "#{project.title}", project_path(project) %>
-        <% end %>
-      </div>
-
+    <!-- MY PROJECTS -->
+    <div class="tab-pane show active fade dashboard-list" id="my-projects" role="tabpanel" aria-labelledby="my-projects-tab">
+      <% @projects.each do |project| %>
+        <br><%= link_to "#{project.title}", project_path(project) %>
+      <% end %>
     </div>
 
     <!-- REQUESTS -->
