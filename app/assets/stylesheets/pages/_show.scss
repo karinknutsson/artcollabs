@@ -70,3 +70,40 @@
     margin: 12px;
   }
 }
+
+// Project photo bigger on click
+
+.project-photo-active {
+  height: 100% !important;
+  img {
+    height: 100% !important;
+    object-fit: cover;
+
+  }
+}
+
+.arrow {
+  h2 {
+    font-size: 1.8em;
+    text-align: right;
+    position: relative;
+    bottom: 40px;
+    right: 40px;
+    color: $dark-blue;
+    &:hover {
+      color: $warm-yellow;
+      transition: 0.5s;
+    }    
+  }
+}
+.arrow-active {
+  h2 {
+    font-size: 1.5em;
+    position: relative;
+    color: #ffc3407e;
+    &:hover {
+      color: $dark-blue!important;
+      transition: 0.5s;
+    }
+  }
+}
