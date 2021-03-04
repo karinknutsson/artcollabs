@@ -4,17 +4,15 @@
   put them on a modal? 
   using js?
   generate html with src = cl_image_tag? -->
-  <div class="upload-container container">
-    <%= simple_form_for @project do |f| %>
+
+    <%= simple_form_for @project, method: :patch do |f| %>
       <%= f.input :media, as: :file, input_html: { multiple: true }, class: "btn" %>
       <div class="">
         <%= f.button :submit, "Upload" %>
-        <%#= flash[:notice] = " new media uploaded to #{@project.title} " %>
-      </div>
-    <% end %>
-  </div>
+    <% end %> 
+    <!-- activate button if input is not empty -->
 
-    <div class="container">
+    <div class="media-container container">
       <div class="media">
             <ul>  
         <% if @project.media.attached? %>
