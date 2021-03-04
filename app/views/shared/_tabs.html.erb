@@ -50,7 +50,7 @@
           <%= render "shared/about_collaborator" %>
 
         <!-- ABOUT - VISITOR  -->
-        <% elsif @user_type == :visitor %>
+        <% elsif (@user_type == :visitor) || (@user_type == :pending) %>
           <%= render "shared/about_visitor" %>
         <% end %>
       </div>

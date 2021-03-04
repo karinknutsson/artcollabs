@@ -1,5 +1,13 @@
-
-<%= simple_form_for [@project, @favourite_project] do |f| %>
-  <%= f.hidden_field :user, value: @user.id %>
-  <button class="white-text btn-artcollabs btn-warm-red">Add to favorites</button>
+<% if FavouriteProject.find_by(user: current_user) %>
+  <%= simple_form_for [@project, @favourite_project] do |f| %>
+    <%= f.hidden_field :user, value: nil %>
+    <%= link_to project_favourite_project_path(@favourite_project) do %>
+      <button class="white-text btn-artcollabs btn-warm-red">Delete from favorites</button>
+    <% end %>
+  <% end %>
+<% else %>
+  <%= simple_form_for [@project, @favourite_project] do |f| %>
+    <%= f.hidden_field :user, value: @user.id %>
+    <button class="white-text btn-artcollabs btn-warm-red">Add to favorites</button>
+  <% end %>
 <% end %>

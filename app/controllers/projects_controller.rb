@@ -113,8 +113,12 @@ class ProjectsController < ApplicationController
     collaboration = Collaboration.find_by(project_id: @project.id, user_id: current_user.id)
     if @project.user_id == current_user.id
       @user_type = :owner
-    elsif collaboration&.confirmed == true
-      @user_type = :collaborator
+    elsif collaboration
+      if collaboration.confirmed == true
+        @user_type = :collaborator
+      else
+        @user_type = :pending
+      end
     else
       @user_type = :visitor
     end

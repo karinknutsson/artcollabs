@@ -18,7 +18,7 @@ class PagesController < ApplicationController
     @collaborations = Collaboration.where(user: @user)
 
     # ❌ pending Collabs for my projects
-    @pending_collabs = get_my_collabs
+    # get_my_collabs
 
     ## FOR THE DASHBOARD TABS
     @open_projects = []
