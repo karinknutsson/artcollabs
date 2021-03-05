@@ -38,8 +38,12 @@
               </button>
             </div>
             <div class="modal-body">
-              <% @pending_collabs.each do |collab| %>
-                <%= collab.user %>
+              <br>
+              <% @pending_collabs.each do |collaboration| %>
+                <br>
+                <h6><%= collaboration.user.username %> wants to collaborate as <%= collaboration.role %></h6>
+                Message: <%= collaboration.message %>
+                <br><br>
               <% end %>
             </div>
           </div>

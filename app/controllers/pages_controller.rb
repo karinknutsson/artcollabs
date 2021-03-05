@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-  before_action :get_my_collabs, only: [ :dashboard ]
+  before_action :get_my_collabs, only: [ :dashboard, :show ]
   skip_before_action :authenticate_user!, only: [ :home ]
 
   def home
@@ -34,6 +34,9 @@ class PagesController < ApplicationController
       end
     end
     ###########################
+  end
+
+  def show
   end
 
   def profile
