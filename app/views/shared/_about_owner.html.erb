@@ -40,10 +40,16 @@
             <div class="modal-body">
               <br>
               <% @pending_collabs.each do |collaboration| %>
-                <br>
-                <h6><%= collaboration.user.username %> wants to collaborate as <%= collaboration.role %></h6>
-                Message: <%= collaboration.message %>
-                <br><br>
+                <div class="request-container">
+                  <div class="modal-request">
+                    <h6><%= collaboration.user.username %> wants to collaborate as <%= collaboration.role %></h6>
+                    Message: <%= collaboration.message %>
+                  </div>
+                  <div class="modal-request">
+                    <%= button_to  "Confirm", confirm_path(collaboration), method: :patch, data: { confirm: "Are you sure?" }, class: "btn-modal"  %>
+                    <%= button_to  "  Deny  ", confirm_path(collaboration), method: :patch, data: { confirm: "Are you sure?" }, class: "btn-modal" %>
+                  </div>
+                </div>
               <% end %>
             </div>
           </div>
