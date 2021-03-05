@@ -11,6 +11,7 @@ class ProjectsController < ApplicationController
     @milestones = Milestone.where(project_id: @project)
     @collabs = Collaboration.where(project_id: @project, status: "confirmed")
     @project_collabs = Collaboration.where(project_id: @project)
+    @pending_collabs = Collaboration.where(project_id: @project, status: nil)
 
     get_user_type
 

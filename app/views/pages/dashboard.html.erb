@@ -29,8 +29,11 @@
     <!-- MY PROJECTS -->
     <div class="tab-pane show active fade dashboard-list" id="my-projects" role="tabpanel" aria-labelledby="my-projects-tab">
       <% @projects.each do |project| %>
-        <br>
-        <h6><%= link_to "#{project.title}", project_path(project) %></h6>
+        <div class="dashboard-pair">
+          <div class="dashboard-item">
+            <h4><%= link_to "#{project.title}", project_path(project) %></h4>
+          </div>
+        </div>
       <% end %>
     </div>
 
@@ -39,7 +42,7 @@
       <% @pending_collabs.each do |collaboration| %>
         <div class="dashboard-pair">
           <div class="dashboard-item">
-            <h6><%= collaboration.user.username %> wants to collaborate as <%= collaboration.role  %> on <%= link_to "#{collaboration.project.title}", project_path(collaboration.project) %></h6>
+            <h4><%= collaboration.user.username %> wants to collaborate as <%= collaboration.role  %> on <%= link_to "#{collaboration.project.title}", project_path(collaboration.project) %></h4>
             Message: <%= collaboration.message %>
           </div>
           <div class="dashboard-request float-right">
@@ -55,12 +58,12 @@
       <% @collaborations.each do |collaboration| %>
         <div class="dashboard-pair">
           <div class="dashboard-item">
-            <h6><%= collaboration.role %> on
-            <%= link_to "#{collaboration.project.title}", project_path(collaboration.project) %></h6>
+            <h4><%= collaboration.role %> on
+            <%= link_to "#{collaboration.project.title}", project_path(collaboration.project) %></h4>
           </div>
           <div class="dashboard-request float-right">
             <%= button_to "Edit", edit_project_collaboration_path(collaboration.project, collaboration) %>
-            <%= button_to "Cancel request", project_collaboration_path(collaboration.project, collaboration), method: :delete, data: { confirm: "Delete request? Are you sure?" } %>
+            <%= button_to "Delete", project_collaboration_path(collaboration.project, collaboration), method: :delete, data: { confirm: "Delete request? Are you sure?" } %>
           </div>
         </div>
       <% end %>
