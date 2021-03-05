@@ -24,7 +24,7 @@ Rails.application.routes.draw do
 
   get '/tagged', to: "projects#tagged", as: :tagged
   
-  get '/project/:id/media', to: "projects#media", as: "media"
+  post '/project/:id/', to: "projects#media"
 
   get '/profile/:id', to: 'pages#profile', as: "profile"
   get '/dashboard/', to: 'pages#dashboard', as: "dashboard"

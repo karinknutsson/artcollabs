@@ -13,5 +13,8 @@ class User < ApplicationRecord
 
   has_many :collaborations, dependent: :destroy
   has_many :projects, dependent: :destroy
-
+  
+  def collaborator?
+    # if current user is a collaborator for this project return true
+  end
 end

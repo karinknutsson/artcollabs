@@ -1,5 +1,8 @@
 class MessagesController < ApplicationController
   def create
+     # Gets current page to redirect later
+     session[:return_to] ||= request.referer
+
     @project_chat = ProjectChat.find(params[:project_chat_id])
     @message = Message.new(message_params)
     @message.project_chat = @project_chat
@@ -9,9 +12,10 @@ class MessagesController < ApplicationController
         @project_chat,
         render_to_string(partial: "message", locals: { message: @message })
       )
-      redirect_to project_chat_path(@project_chat, anchor: "message-#{@message.id}")
+
     else
-      render "project_chat/show"
+      # Redirects to previous page
+      redirect_to session.delete(:return_to)
     end
     authorize @message
   end
