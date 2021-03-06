@@ -50,6 +50,10 @@
                   hint: "we need your current password to confirm your changes",
                   required: true,
                   input_html: { autocomplete: "current-password", class: "artcollabs-input" } %>
+      <%= f.input :interest_list, label: "My interests",
+                  input_html: { autocomplete: "interests", class: "artcollabs-input" } %>
+      <%= f.input :skill_list, label: "My skills",
+                  input_html: { autocomplete: "skills", class: "artcollabs-input" } %>
     </div>
 
     <div class="form-actions float-right">
