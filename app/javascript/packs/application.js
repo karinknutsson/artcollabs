@@ -86,6 +86,12 @@ $('#DashboardTab #requests-tab').on('click', function (e) {
 $('#DashboardTab #my-collabs-tab').on('click', function (e) {
   e.preventDefault()
   $(this).tab('show active')
+  $('#DashboardTab li:nth-child(3) a').tab('show')
+})
+
+$('#DashboardTab #favorites-tab').on('click', function (e) {
+  e.preventDefault()
+  $(this).tab('show active')
   $('#DashboardTab li:last-child a').tab('show')
 })
 
