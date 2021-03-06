@@ -77,13 +77,13 @@ $('#DashboardTab #my-projects-tab').on('click', function (e) {
   $('#DashboardTab li:first-child a').tab('show')
 })
 
-$('#DashboardTab #requests-tab').on('click', function (e) {
+$('#DashboardTab #my-collabs-tab').on('click', function (e) {
   e.preventDefault()
   $(this).tab('show active')
   $('#DashboardTab li:nth-child(2) a').tab('show')
 })
 
-$('#DashboardTab #my-collabs-tab').on('click', function (e) {
+$('#DashboardTab #requests-tab').on('click', function (e) {
   e.preventDefault()
   $(this).tab('show active')
   $('#DashboardTab li:nth-child(3) a').tab('show')
