@@ -13,12 +13,24 @@
 
       <div class="profile-text">
         <h5>Interests</h5>
-        all my interest listed here
+        <div class="card-tags">
+        <% if current_user.interest_list %>
+          <% current_user.interest_list.each do |interest| %>
+            <span class="a-tag"><%= link_to interest, users_path(interest: interest) %></span>
+          <% end %>
+        <% end %>
+        </div>
       </div>
 
       <div class="profile-text">
         <h5>Skills</h5>
-        all my skills listed here
+        <div class="card-tags">
+        <% if current_user.skill_list %>
+          <% current_user.skill_list.each do |skill| %>
+            <span class="a-tag"><%= link_to skill, users_path(skill: skill) %></span>
+          <% end %>
+        <% end %>
+        </div>
       </div>
     </div>
 
@@ -33,7 +45,14 @@
 
       <div class="profile-card">
         <h5>Links/social media</h5>
-        <br><br>
+        <ul>
+          <% if @user.links.present? %>
+            <% @user.links.each do |link|  %>
+              <li><%= link_to link.title, link.url %><%= link_to "Delete", link_path(link), method: :delete, data: { confirm: "delete the link?" } %></li>
+            <% end %>
+          <% end %>
+        </ul>
+        <%= link_to "Add a Link", new_link_path %>
       </div>
 
       <div class="profile-card">

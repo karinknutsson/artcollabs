@@ -7,6 +7,9 @@ Rails.application.routes.draw do
   devise_for :users
   root to: 'pages#home'
 
+  resources :users, only: :index
+
+  resources :links, only: [ :index, :new, :create, :destroy ]
 
   resources :project_chats, only: :show do
     resources :messages, only: :create
@@ -23,7 +26,7 @@ Rails.application.routes.draw do
   end
 
   get '/tagged', to: "projects#tagged", as: :tagged
-  
+
   post '/project/:id/', to: "projects#media"
 
   get '/profile/:id', to: 'pages#profile', as: "profile"
