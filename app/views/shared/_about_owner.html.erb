@@ -42,7 +42,18 @@
               <% @pending_collabs.each do |collaboration| %>
                 <div class="request-container">
                   <div class="modal-request">
-                    <h6><%= collaboration.user.username %> wants to collaborate as <%= collaboration.role %></h6>
+                    <div class="member user-avatar">
+                      <%= link_to profile_path(collaboration.user), class: "a-member" do %>
+                        <% if collaboration.user.avatar.attached? %>
+                          <%= image_tag collaboration.user.avatar %>
+                        <% else %>
+                          <div class="avatar-member">
+                            <%= render "shared/avatar" %>
+                          </div>
+                        <% end %>
+                        <h6><%= collaboration.user.username %></h6>
+                      <% end %>
+                    </div>
                     Message: <%= collaboration.message %>
                   </div>
                   <div class="modal-request">

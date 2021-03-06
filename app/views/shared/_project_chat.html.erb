@@ -27,7 +27,11 @@
             <div class="message-bottom">
               <div class="author">
                 <%= link_to profile_path(message.user) do %>
-                  <%= image_tag message.user.avatar %>
+                  <% if message.user.avatar.attached? %>
+                    <%= image_tag message.user.avatar %>
+                  <% else %>
+                    <%= render "shared/avatar" %>
+                  <% end %>
                 <% end %>
               </div>
               <p><%= message.content %></p>
