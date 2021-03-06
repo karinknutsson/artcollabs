@@ -61,7 +61,7 @@ Rails.application.configure do
   # routes, locales, etc. This feature depends on the listen gem.
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
   
-  # keeps pics
+  # Adds files to media without overwriting
   config.active_storage.replace_on_assign_to_many = false
 
   # Bullet
