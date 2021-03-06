@@ -9,6 +9,8 @@ Rails.application.routes.draw do
 
   resources :users, only: :index
 
+  resources :links, only: [ :index, :new, :create, :destroy ]
+
   resources :project_chats, only: :show do
     resources :messages, only: :create
   end
