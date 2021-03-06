@@ -3,13 +3,13 @@ class Project < ApplicationRecord
 
   acts_as_taggable_on :tags #You can also configure multiple tag types per model
 
-  validate :start_date_cannot_be_in_the_past
-  validate :end_date_cannot_be_before_start_date
+  #validate :start_date_cannot_be_in_the_past
+  #validate :end_date_cannot_be_before_start_date
 
   has_many :collaborations, dependent: :destroy
   has_many :milestones, dependent: :destroy
   has_one_attached :photo, dependent: :destroy
-  
+
   # validates :photo, size: { less_than: 100.megabytes , message: 'The image should not be larger than 100 MB' }
   # class_name: "Title_Pic"
   has_many_attached :media, dependent: :destroy
