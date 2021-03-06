@@ -28,7 +28,6 @@
 
     <!-- MY PROJECTS -->
     <div class="tab-pane show active fade dashboard-list" id="my-projects" role="tabpanel" aria-labelledby="my-projects-tab">
-      <br><br>
       <% @projects.each do |project| %>
         <div class="dashboard-pair">
           <div class="dashboard-item">
@@ -45,7 +44,19 @@
       <% @pending_collabs.each do |collaboration| %>
         <div class="dashboard-pair">
           <div class="dashboard-item">
-            <h4><%= collaboration.user.username %> wants to collaborate as <%= collaboration.role  %> on <%= link_to "#{collaboration.project.title}", project_path(collaboration.project) %></h4>
+            <div class="user-avatar request-user">
+              <%= link_to profile_path(collaboration.user), class: "r-member" do %>
+                <% if collaboration.user.avatar.attached? %>
+                  <%= image_tag collaboration.user.avatar %>
+                <% else %>
+                  <div class="avatar-member">
+                    <%= render "shared/avatar" %>
+                  </div>
+                <% end %>
+                <h3><%= collaboration.user.username %></h3>
+              <% end %>
+            </div>
+            <h4>wants to collaborate as <%= collaboration.role  %> on <%= link_to "#{collaboration.project.title}", project_path(collaboration.project) %></h4>
             Message: <%= collaboration.message %>
           </div>
           <div class="dashboard-request float-right">
