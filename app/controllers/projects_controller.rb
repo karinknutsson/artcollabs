@@ -28,6 +28,7 @@ class ProjectsController < ApplicationController
     @project = @project_chat.project
     @message = Message.new
     authorize @project_chat
+
   end
 
   def index
@@ -67,12 +68,17 @@ class ProjectsController < ApplicationController
   end
 
   def update
-    # Gets current page to redirect later
-    session[:return_to] ||= request.referer
     authorize @project
     if @project.update(project_params)
+
       # Redirects to previous page
-      redirect_to session.delete(:return_to)
+      # redirect_to session.delete(:return_to)
+      if params[:tab] == "media"
+        redirect_to project_path(@project, tab: :media)
+      else  
+        redirect_to project_path(@project)
+      end
+  
       flash[:notice] = " \n #{@project.title} was edited"
     else
       render :edit
@@ -129,5 +135,9 @@ class ProjectsController < ApplicationController
     if Favourite.find_by(project_id: @project.id, user_id: current_user.id)
       :favourite
     end
+  end
+
+  def is_show?
+    current_page?(controller: 'projects', action: 'show')
   end
 end
