@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-  before_action :get_my_collabs, only: [ :dashboard ]
+  before_action :get_my_collabs, only: [ :dashboard, :show ]
   skip_before_action :authenticate_user!, only: [ :home ]
 
   def home
@@ -17,23 +17,30 @@ class PagesController < ApplicationController
     # My collabs on other's projects
     @collaborations = Collaboration.where(user: @user)
 
+    # Favorites
+    @favorites = FavouriteProject.where(user: @user)
+    @project_faves = @favorites.map { |fave| Project.find(fave.project_id) }
+
     ## FOR THE DASHBOARD TABS
-    @open_projects = []
-    @active_projects = []
-    @closed_projects = []
-    @finished_projects = []
-    @projects.each do |project|
-      if project.status == "open"
-        @open_projects << project
-      elsif project.status == "active"
-        @active_projects << project
-      elsif project.status == "closed"
-        @closed_projects << project
-      elsif project.status == "finished"
-        @finished_projects << project
-      end
-    end
+    # @open_projects = []
+    # @active_projects = []
+    # @closed_projects = []
+    # @finished_projects = []
+    # @projects.each do |project|
+    #   if project.status == "open"
+    #     @open_projects << project
+    #   elsif project.status == "active"
+    #     @active_projects << project
+    #   elsif project.status == "closed"
+    #     @closed_projects << project
+    #   elsif project.status == "finished"
+    #     @finished_projects << project
+    #   end
+    # end
     ###########################
+  end
+
+  def show
   end
 
   def profile

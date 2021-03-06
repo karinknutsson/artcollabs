@@ -1,17 +1,21 @@
 <div id="message-<%= message.id %>" class="<%= current_user.id == @message.user_id ? 'message-container message-sent' : 'message-container message-received' %>">
-  <div class="<%= current_user.id == message.user_id ? 'msg-sent' : 'msg-received' %>">
+  <div class="message-container <%= current_user.id == message.user_id ? 'msg-sent' : 'msg-received' %>">
     <div class="message-top">
-      <span class="chat-user"><%= link_to message.user.username, profile_path(message.user) %></span>
+      <%= link_to profile_path(message.user) do %>
+        <span class="chat-user"><%= message.user.username %></span>
+      <% end %>
       <span class="chat-date"><%= message.created_at.strftime("%a %b %e at %l:%M%p") %></span>
     </div>
-    <div class="author">
-      <%= link_to profile_path(message.user) do %>
-        <% if message.user.avatar.attached? %>
-          <%= image_tag message.user.avatar %>
-        <% else %>
-          <%= render "shared/avatar" %>
+    <div class="message-bottom">
+      <div class="author">
+        <%= link_to profile_path(message.user) do %>
+          <% if message.user.avatar.attached? %>
+            <%= image_tag message.user.avatar %>
+          <% else %>
+            <%= render "shared/avatar" %>
+          <% end %>
         <% end %>
-      <% end %>
+      </div>
       <p><%= message.content %></p>
     </div>
   </div>

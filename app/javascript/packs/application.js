@@ -43,7 +43,7 @@ document.addEventListener('turbolinks:load', () => {
   initSendMessage();
 });
 
-// SHOW TABS LOGIC
+// SHOW PAGE TABS
 
 $('#ProjectsTab #about-tab').on('click', function (e) {
   e.preventDefault()
@@ -69,23 +69,33 @@ $('#ProjectsTab #chat-tab').on('click', function (e) {
   $('#ProjectsTab li:last-child a').tab('show') // Select last tab
 })
 
+// DASHBOARD TABS
+
 $('#DashboardTab #my-projects-tab').on('click', function (e) {
   e.preventDefault()
   $(this).tab('show active')
-  $('#DashboardTab li:last-child a').tab('show')
-})
-
-$('#DashboardTab #requests-tab').on('click', function (e) {
-  e.preventDefault()
-  $(this).tab('show active')
-  $('#DashboardTab li:last-child a').tab('show')
+  $('#DashboardTab li:first-child a').tab('show')
 })
 
 $('#DashboardTab #my-collabs-tab').on('click', function (e) {
   e.preventDefault()
   $(this).tab('show active')
+  $('#DashboardTab li:nth-child(2) a').tab('show')
+})
+
+$('#DashboardTab #requests-tab').on('click', function (e) {
+  e.preventDefault()
+  $(this).tab('show active')
+  $('#DashboardTab li:nth-child(3) a').tab('show')
+})
+
+$('#DashboardTab #favorites-tab').on('click', function (e) {
+  e.preventDefault()
+  $(this).tab('show active')
   $('#DashboardTab li:last-child a').tab('show')
 })
+
+// TOGGLE
 
 $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
   e.target // newly activated tab

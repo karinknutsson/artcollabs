@@ -65,11 +65,11 @@ h4 {
 }
 
 h5 {
-  font-size: 12pt;
+  font-size: 14pt;
 }
 
 h6 {
-  font-size: 10pt;
+  font-size: 12pt;
 }
 
 hr {
@@ -173,4 +173,9 @@ input:-webkit-autofill {
 
 .button_to {
   margin-left: 40px;
+}
+
+.modal-content {
+  border-radius: 0;
+  border: 0;
 }
