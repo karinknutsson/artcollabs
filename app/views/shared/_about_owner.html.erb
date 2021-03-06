@@ -14,9 +14,17 @@
 
     <div class="content-right">
       <%= link_to "Edit content", edit_project_path(@project), class: "white btn-artcollabs btn-warm-red" %>
-      <button type="button" class="white btn-artcollabs btn-warm-red btn-apply" data-toggle="modal" data-target="#requestModal">
-        Pending requests
-      </button>
+
+      <% if @pending_collabs.length == 0 %>
+        <button type="button" class="white btn-artcollabs btn-disabled btn-apply" disabled>
+          Pending requests
+        </button>
+      <% else %>
+        <button type="button" class="white btn-artcollabs btn-warm-red btn-apply" data-toggle="modal" data-target="#requestModal">
+          Pending requests
+        </button>
+      <% end %>
+
       <%= link_to "Delete project", project_path(@project), method: :delete, class: "white btn-artcollabs btn-warm-red", data: { confirm: "Delete project '#{@project.title}'?" } %>
 
       <!-- for some browsers (as the one I use), the delete funcion only works with button_to ☹ so we have to style it accordingly. I put it here to test -->
@@ -25,7 +33,6 @@
     </div>
 
   <div style="height: 60px"></div>
-
 
       <!-- Modal -->
       <div class="modal fade" id="requestModal" tabindex="-1" role="dialog" aria-labelledby="requestModalLabel" aria-hidden="true">
