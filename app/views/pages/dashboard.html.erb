@@ -18,7 +18,7 @@
       </li>
 
       <li class="nav-item tab">
-        <a class="nav-link tab" id="favorites-tab" data-toggle="tab" href="#favorites" role="tab" aria-controls="favorites" aria-selected="false""><h2>Favorites</h2></a>
+        <a class="nav-link tab" id="favorites-tab" data-toggle="tab" href="#favorites" role="tab" aria-controls="favorites" aria-selected="false"><h2>Favorites</h2></a>
       </li>
     </ul>
 
@@ -86,7 +86,9 @@
     </div>
 
     <!-- FAVORITES -->
-    <div class="tab-pane fade index-card-container" id="favorites" role="tabpanel" aria-labelledby="favorites-tab">
+    <div class="tab-pane fade dashboard-list" id="favorites" role="tabpanel" aria-labelledby="favorites-tab">
+      <div class="dashboard-grid">
+
       <% @project_faves.each do |project| %>
 
         <div class="index-card">
@@ -127,6 +129,8 @@
         </div>
 
       <% end %>
+
+      </div>
     </div>
 
   </div>
