@@ -1,0 +1,38 @@
+<div class="tab-show-container container">
+  <% @milestones.each do |milestone| %>
+    <% if milestone.completed == true %>
+      completed
+    <% end %>
+
+    <h2><%= milestone.title %></h2>
+    <p><%= milestone.description %></p>
+    
+    <%#= link_to "mark as completed", status_milestone_path(milestone) %>
+    <%#= button_to "Delete milestone", project_milestone_path(@project, milestone), method: :delete, data: { confirm: "delete milestone named: '#{@milestone.title}' ?" } %>
+  <% end %>
+</div>
+<div class="tab-button-container">
+  <button type="button" class="white btn-artcollabs btn-warm-red btn-apply" data-toggle="modal" data-target="#milestoneModal">
+    New Milestone
+  </button>
+</div>
+
+<div class="modal fade" id="milestoneModal" tabindex="-1" role="dialog" aria-labelledby="milestoneModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="milestoneModalLabel">Create new Milestone for <%= @project.title %></h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <%= render "shared/milestones_form"%>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+

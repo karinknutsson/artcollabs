@@ -1,6 +1,6 @@
 class MilestonesController < ApplicationController
 
-  before_action :set_milestone, only: %i[ show edit update destroy ]
+  before_action :set_milestone, only: %i[ show edit update destroy status ]
   before_action :set_project, only: %i[ create edit destroy ]
   
   def show
@@ -16,8 +16,10 @@ class MilestonesController < ApplicationController
     @milestone.project = @project
     authorize @milestone
     if @milestone.save
-      redirect_to @project
-      flash[:notice] = "Milestone added"
+      if params[:tab] == "milestone"
+        redirect_to project_path(@project, tab: :milestone)
+        flash[:notice] = " Milestone was created"
+      end
     else
       render :new
     end
@@ -29,9 +31,13 @@ class MilestonesController < ApplicationController
 
   def update
     authorize @milestone
+
+    
     if @milestone.update(milestone_params)
-      redirect_to project_path(@milestone.project)
-      flash[:notice] = " Milestone was edited"
+      if params[:tab] == "milestone"
+        redirect_to project_path(@project, tab: :milestone)
+        flash[:notice] = " Milestone was edited"
+      end
     else
       render :edit
     end
@@ -41,6 +47,10 @@ class MilestonesController < ApplicationController
     @milestone.destroy
     authorize @milestone
     redirect_to @project
+  end
+
+  def status
+    @milestone.completed = true
   end
 
   private
