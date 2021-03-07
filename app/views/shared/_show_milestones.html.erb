@@ -1,12 +1,46 @@
 <div class="tab-show-container container">
+  <div class="timeline-container">
+    <% @milestones.each_with_index do |milestone, index| %>
+
+      <div class="milestone-container">
+        <% if milestone.completed == true %>
+          <%= render "shared/milestone_complete" %>
+        <% else %>
+          <%= render "shared/milestone_incomplete" %>
+        <% end %>
+        <h6><%= @counter %></h6>
+      </div>
+
+      <% @counter += 1 %>
+
+      <% if index < @milestones.length - 1 %>
+        <div class="line-container">
+          <div style="height: 14px;"></div>
+            <% if @milestones[index].completed == true %>
+              <div class="line-complete"></div>
+            <% else %>
+              <div class="line-incomplete"></div>
+            <% end %>
+        </div>
+      <% end %>
+
+    <% end %>
+  </div>
+
+  <br><br><br>
+
+  <% @counter = 1 %>
+
   <% @milestones.each do |milestone| %>
     <% if milestone.completed == true %>
       completed
     <% end %>
 
-    <h2><%= milestone.title %></h2>
+    <h2><%= @counter %>. <%= milestone.title %></h2>
     <p><%= milestone.description %></p>
-    
+
+    <% @counter += 1 %>
+
     <%#= link_to "mark as completed", status_milestone_path(milestone) %>
     <%#= button_to "Delete milestone", project_milestone_path(@project, milestone), method: :delete, data: { confirm: "delete milestone named: '#{@milestone.title}' ?" } %>
   <% end %>
@@ -28,9 +62,6 @@
       </div>
       <div class="modal-body">
         <%= render "shared/milestones_form"%>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
       </div>
     </div>
   </div>

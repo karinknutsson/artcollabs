@@ -2,11 +2,11 @@ class MilestonesController < ApplicationController
 
   before_action :set_milestone, only: %i[ show edit update destroy status ]
   before_action :set_project, only: %i[ create edit destroy ]
-  
+
   def show
     @milestones = Milestone.where(project_id: @project)
   end
-  
+
   def new
     @milestone = Milestone.new
   end
@@ -32,7 +32,6 @@ class MilestonesController < ApplicationController
   def update
     authorize @milestone
 
-    
     if @milestone.update(milestone_params)
       if params[:tab] == "milestone"
         redirect_to project_path(@project, tab: :milestone)
@@ -54,7 +53,7 @@ class MilestonesController < ApplicationController
   end
 
   private
-  
+
   def set_project
     @project = Project.find(params[:project_id])
   end

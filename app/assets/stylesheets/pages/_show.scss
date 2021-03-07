@@ -84,3 +84,34 @@
     font-size: 10pt;
   }
 }
+
+.timeline-container {
+  width: 100%;
+  display: flex;
+}
+
+.milestone-container {
+  width: 32px;
+  height: 32px;
+  text-align: center;
+  h6 {
+    color: $grey-med;
+    font-family: "futurateebold", Futura, Helvetica, sans-serif;
+  }
+}
+
+.line-container {
+  width: 80px;
+}
+
+.line-complete {
+  width: 100%;
+  height: 4px;
+  background-color: $warm-yellow;
+}
+
+.line-incomplete {
+  width: 100%;
+  height: 4px;
+  background-color: $grey-light-med;
+}
