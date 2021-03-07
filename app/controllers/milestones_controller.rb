@@ -35,7 +35,7 @@ class MilestonesController < ApplicationController
     if @milestone.update(milestone_params)
       if params[:tab] == "milestone"
         redirect_to project_path(@project, tab: :milestone)
-        flash[:notice] = " Milestone was edited"
+        flash[:notice] = "Milestone was edited"
       end
     else
       render :edit
@@ -49,6 +49,7 @@ class MilestonesController < ApplicationController
   end
 
   def status
+    authorize @milestone
     @milestone.completed = true
   end
 

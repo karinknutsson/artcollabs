@@ -32,7 +32,6 @@ class ProjectsController < ApplicationController
     @project = @project_chat.project
     @message = Message.new
     authorize @project_chat
-
   end
 
   def index

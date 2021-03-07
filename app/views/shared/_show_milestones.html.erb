@@ -1,6 +1,6 @@
 <div class="tab-show-container container">
   <div class="timeline-container">
-    <% @milestones.each_with_index do |milestone, index| %>
+    <% @milestones.sort.each_with_index do |milestone, index| %>
 
       <div class="milestone-container">
         <% if milestone.completed == true %>
@@ -16,10 +16,10 @@
       <% if index < @milestones.length - 1 %>
         <div class="line-container">
           <div style="height: 14px;"></div>
-            <% if @milestones[index].completed == true %>
-              <div class="line-complete"></div>
-            <% else %>
+            <% if @milestones[index + 1].completed == true %>
               <div class="line-incomplete"></div>
+            <% else %>
+              <div class="line-complete"></div>
             <% end %>
         </div>
       <% end %>
@@ -31,13 +31,16 @@
 
   <% @counter = 1 %>
 
-  <% @milestones.each do |milestone| %>
-    <% if milestone.completed == true %>
-      completed
-    <% end %>
-
-    <h2><%= @counter %>. <%= milestone.title %></h2>
-    <p><%= milestone.description %></p>
+  <% @milestones.sort.each do |milestone| %>
+    <div class="milestone-item">
+      <h6 class="number"><%= @counter %> <%= milestone.title %> (<%= milestone.id %>)</h6>
+      <p><%= milestone.description %></p>
+      <div class="float-right">
+        <% if milestone.completed != true %>
+          <%= button_to "Mark completed", status_milestone_path(milestone), method: :patch %>
+        <% end %>
+      </div>
+    </div>
 
     <% @counter += 1 %>
 

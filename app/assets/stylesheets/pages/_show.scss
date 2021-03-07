@@ -86,6 +86,7 @@
 }
 
 .timeline-container {
+  padding: 16px;
   width: 100%;
   display: flex;
 }
@@ -100,8 +101,18 @@
   }
 }
 
+.milestone-item {
+  padding: 16px;
+  width: 40vw;
+  h6.number {
+    font-family: "futurateebold", Futura, Helvetica, sans-serif;
+    color: $grey-med;
+  }
+}
+
 .line-container {
   width: 80px;
+  flex-grow: 1;
 }
 
 .line-complete {
