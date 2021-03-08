@@ -14,8 +14,8 @@
       <div class="profile-text">
         <h5>Interests</h5>
         <div class="card-tags">
-        <% if current_user.interest_list %>
-          <% current_user.interest_list.each do |interest| %>
+        <% if @user.interest_list %>
+          <% @user.interest_list.each do |interest| %>
             <span class="a-tag"><%= link_to interest, users_path(interest: interest) %></span>
           <% end %>
         <% end %>
@@ -25,8 +25,8 @@
       <div class="profile-text">
         <h5>Skills</h5>
         <div class="card-tags">
-        <% if current_user.skill_list %>
-          <% current_user.skill_list.each do |skill| %>
+        <% if @user.skill_list %>
+          <% @user.skill_list.each do |skill| %>
             <span class="a-tag"><%= link_to skill, users_path(skill: skill) %></span>
           <% end %>
         <% end %>
