@@ -47,8 +47,10 @@
                   required: false,
                   input_html: { autocomplete: "new-password", class: "artcollabs-input" } %>
       <%= f.input :interest_list, label: "My interests",
+                  hint: "separate with commas",
                   input_html: { autocomplete: "interests", class: "artcollabs-input" } %>
       <%= f.input :skill_list, label: "My skills",
+                  hint: "separate with commas",
                   input_html: { autocomplete: "skills", class: "artcollabs-input" } %>
       <%= f.input :current_password,
                   hint: "we need your current password to confirm your changes",

@@ -3,12 +3,15 @@
     <% @milestones.sort.each_with_index do |milestone, index| %>
 
       <div class="milestone-container">
-        <% if milestone.completed == true %>
-          <%= render "shared/milestone_complete" %>
-        <% else %>
-          <%= render "shared/milestone_incomplete" %>
-        <% end %>
-        <h6><%= @counter %></h6>
+        <div id="dot-<%= @counter %>">
+          <% if milestone.completed == true %>
+            <%= render "shared/milestone_complete" %>
+            <h6 class="complete"><%= @counter %></h6>
+          <% else %>
+            <%= render "shared/milestone_incomplete" %>
+            <h6 class="incomplete"><%= @counter %></h6>
+          <% end %>
+        </div>
       </div>
 
       <% @counter += 1 %>
@@ -32,7 +35,7 @@
   <% @counter = 1 %>
 
   <% @milestones.sort.each do |milestone| %>
-    <div class="milestone-item">
+    <div class="milestone-item" id="<%= @counter %>">
       <h6 class="number"><%= @counter %> <%= milestone.title %> (<%= milestone.id %>)</h6>
       <p><%= milestone.description %></p>
       <div class="float-right">
@@ -70,3 +73,4 @@
   </div>
 </div>
 
+<%= javascript_tag "add_links(" + @counter.to_s + ")" %>
