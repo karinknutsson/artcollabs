@@ -34,17 +34,27 @@ end
 
 @names = ["The end of Osiris", "Pentimento", "Through triple darkness", "Wake up the statues", "The importance of being self suficient", "Verhandlungsbasis", "false ruins and lost innocence", "Scene with Perfect Babble", "Absence over Vision", "Samurai Masu Biitsu", "Spoiler Alert, Everybody is Dying.", "Selvagem", "Darkroom Lover", "Lay me down", "0055444", "@street", "Heimcomputer", "Axioms", "Cupio dissolvi", "tepeu", "près du mur", "et j'ai besoin d'un câlin", "resistance de ma bouche", "...hemos hecho", "bezduszny", "kycklingarna har rymt", "harab aldijaj", "talchulhaessda", "I was wrong", "She's made a choice (and you won't like it.)",  "I'm not a crook", "The rent is too damn high", "mathematischen Verhältnissen", "Springbrunnen", "Exertion", "Why would anyone do that?", "56600 - The Past. The Future.", "The Goose Feels Happy", "Soul Rythms", "Black Aura - White What?" ]
 
-
 def location_generator
   [Faker::Address.full_address, "remote"].sample
 end
 
 def role_generator
- ["Painter", "Model", "Photographer", "MUA", "HMUA", "Musicist", "Sculptor", "Filmmaker", "FX", "Creative Director", "Actor", "Performance Artist", "Digital Artist", "3D artist", "Motion Graphic Artist", "Generative Artist", "Editor", "Support", "Writer", "Dancer", "Coreographer", "Designer", "Developer", "Programmer", "Research", "Animator", "Illustrator", "Fashion Designer", "Colorist", "Baker", "Planner", "Hair Artist", "Floral Artist", "Lyricist", "Potter", "Set Design", "Singer", "Architect", "Fine Artist", "Tattoo Artist", "Scenographer", "Producer", "Executive Producer", "Dramaturge", "Lighting Designer", "Costume Designer", "Stylist", "Sound Designer", "Composer", "Carpenther" ].sample
+ ["Painter", "Model", "Photographer", "MUA", "HMUA", "Musician", "Video Artist", "Sculptor", "Filmmaker", "FX", "Creative Director", "Actor", "Performance Artist", "Digital Artist", "3D artist", "Motion Graphic Artist", "Generative Artist", "Editor", "Support", "Writer", "Dancer", "Coreographer", "Designer", "Developer", "Programmer", "Research", "Animator", "Illustrator", "Fashion Designer", "Colorist", "Planner", "Hair Artist", "Floral Artist", "Lyricist", "Potter", "Set Design", "Singer", "Architect", "Fine Artist", "Tattoo Artist", "Scenographer", "Producer", "Executive Producer", "Dramaturge", "Lighting Designer", "Costume Designer", "Stylist", "Sound Designer", "Composer", "Carpenter", "Curator", "Gallery Owner", "Art Historian" ].sample
 end
 
+@avatar_count = -1
+
 def avatar_generator
- avatar = ["https://res.cloudinary.com/det3cfeuo/image/upload/v1614429314/XzA2NTI1NTYuanBn_typve3.jpg",
+  avatar = [
+  "https://res.cloudinary.com/diucx7fqo/image/upload/v1615307228/83757710_10215744581708193_7794459232341852160_n_wh8yb3.jpg",
+  "https://res.cloudinary.com/diucx7fqo/image/upload/v1615307152/10547973_10152550609520930_9199730471116996778_o_ccd4db.jpg",
+  "https://res.cloudinary.com/diucx7fqo/image/upload/v1615307127/149090476_3635138179946319_6037103335301104052_o_m8jrwl.jpg",
+  "https://res.cloudinary.com/diucx7fqo/image/upload/v1615307101/96843326_10214444925355467_2470081510640713728_o_feco64.jpg",
+  "https://res.cloudinary.com/diucx7fqo/image/upload/v1615307073/90173837_100350838280910_5190167926505734144_n_jfduei.jpg",
+  "https://res.cloudinary.com/diucx7fqo/image/upload/v1615306927/79079119_10215496323389705_7108197701245730816_o_lcrpdj.jpg",
+  "https://res.cloudinary.com/diucx7fqo/image/upload/v1615306898/74211334_2458287684291346_1017414023697661952_n_nh12t9.jpg",
+  "https://res.cloudinary.com/diucx7fqo/image/upload/v1615306736/22859696_10154920863740812_2760474336786047136_o_sgktrk.jpg",
+  "https://res.cloudinary.com/det3cfeuo/image/upload/v1614429314/XzA2NTI1NTYuanBn_typve3.jpg",
   "https://res.cloudinary.com/det3cfeuo/image/upload/v1614429315/XzA3NjY3MzAuanBn_lt7pqk.jpg",
   "https://res.cloudinary.com/det3cfeuo/image/upload/v1614429315/XzAxMzE0MzIuanBn_nralvx.jpg",
   "https://res.cloudinary.com/det3cfeuo/image/upload/v1614429315/XzAwNjQ0NzYuanBn_brysyf.jpg",
@@ -86,12 +96,22 @@ def avatar_generator
   "https://res.cloudinary.com/det3cfeuo/image/upload/b_rgb:6f4d4d/v1614429308/cG5n_6_uklpnv.png",
   "https://res.cloudinary.com/det3cfeuo/image/upload/b_rgb:d691b8/v1614429308/cG5n_1_bbsjki.png",
   "https://res.cloudinary.com/det3cfeuo/image/upload/b_rgb:271414,e_cartoonify/v1614429308/cG5n_3_f08nq6.png",
-  "https://res.cloudinary.com/det3cfeuo/image/upload/b_rgb:2d1515/v1614429306/XzAxODgzNDUuanBn_wme9rz.jpg"].sample
+  "https://res.cloudinary.com/det3cfeuo/image/upload/b_rgb:2d1515/v1614429306/XzAxODgzNDUuanBn_wme9rz.jpg" ]
+
+  if @avatar_count < avatar.length
+    @avatar_count += 1
+    avatar[@avatar_count]
+  else
+    @avatar_count = 0
+    avatar[@avatar_count]
+  end
+
+
 end
 
 def tag_generator
   tag_generator_array = []
-  tags = %w[ music performance installation photography style anthropology covid19 sculpture fakenews projection video architechture designrebel collage cyber drag music cannabis political  gender multidisciplinary event feminism conceptual painting experimental  satanism audio christianism religion painting accessibility senses emotions psychology programming high-tech low-fi counterculture magic darkness holyness global local news sharing love acceptance respect avoidance union multiculturalism equality typing typography deep shallow water fire earth plants sex homossexuality panssexuality bissexuality transsexuality queer lesbianism stones richness poverty dance poetry interpretation masculinity gems shine party glitter paint neon colors night day nature hope ]
+  tags = %w[ music performance installation photography style anthropology covid-19 sculpture fakenews projection video architecture designrebel collage cyber drag music political gender multidisciplinary event feminism conceptual painting experimental satanism audio christianity religion painting accessibility senses emotions psychology programming high-tech low-fi counterculture magic darkness holyness global local news sharing love acceptance respect avoidance union multiculturalism equality typing typography homosexuality panssexuality bisexuality trans queer stones richness poverty dance poetry interpretation masculinity paint colors night day nature duality philosophy idealism constructivism formalist avant-garde minimal explore movement gestalt art-history imperialist patriarchy exhibition opencall open-call groupshow group-show Berlin London NewYork Paris Venice]
   3.times do
     tag_generator_array << tags.sample
   end
@@ -107,7 +127,7 @@ image = URI.open("https://res.cloudinary.com/det3cfeuo/image/upload/v1614425622/
 admin.avatar.attach(io: image, filename: "admin", content_type: "image/png")
 puts "Created admin \n email: #{admin.email}, password: #{admin.password} \n "
 
-dummy1 = User.create(email: "user@artcollabs.com", password: "000000", username: "noellesfriend")
+dummy1 = User.create(email: "user@artcollabs.com", password: "000000", username: "bianca_heuser")
 image = URI.open(avatar_generator)
 dummy1.avatar.attach(io: image, filename: "dummy1", content_type: "image/png")
 puts "Created dummy 1 \n email: #{dummy1.email}, password: #{dummy1.password} \n "
@@ -123,19 +143,22 @@ puts "Created THE Noelle \n email: #{noelle.email}, password: #{noelle.password}
 image = URI.open("https://res.cloudinary.com/det3cfeuo/image/upload/v1614425226/noelle_g5i13t.jpg")
 noelle.avatar.attach(io: image, filename: "noelle", content_type: "image/png")
 
-
 puts "------ Creating Felix 🧔"
 felix = User.create(email: "felixwor@aol.com", password: "12345678")
 image = URI.open("https://profile-images.xing.com/images/6fe0ce6b1a2c5fb6c2a753b94892b1a9-6/felix-worringen.1024x1024.jpg")
 felix.avatar.attach(io: image, filename: "felix", content_type: "image/png")
 puts "Felix created"
+puts " \n "
+
+random_users = []
 
 counter = 0
 20.times do
   counter += 1
-  random_user = User.create(email: "#{Faker::Internet.email}", password: "000000", username: "#{Faker::Internet.username}")
+  random_user = User.create(email: "#{Faker::Internet.email}", password: "000000", username: "#{Faker::Internet.username}", location: location_generator)
   image = URI.open(avatar_generator)
   random_user.avatar.attach(io: image, filename: "random_user#{counter}", content_type: "image/png")
+  random_users << random_user
 end
 
 puts "Created random users"
@@ -145,17 +168,25 @@ puts " \n "
 
 puts "🆕🧾-- Creating Projects"
 
+puts " \n "
+puts "Creating random projects"
+
 counter = 0
 
 @names.each do |name|
-  random_project = Project.new(title: name, description: "On the other hand, we denounce with righteous indignation and dislike men who are so beguiled and demoralized by the charms of pleasure of the moment, so blinded by desire, that they cannot foresee the pain and trouble that are bound to ensue; and equal blame belongs to those who fail in their duty through weakness of will, which is the same as saying through shrinking from toil and pain. These cases are perfectly simple and easy to distinguish. In a free hour, when our power of choice is untrammelled and when nothing prevents our being able to do what we like best, every pleasure is to be welcomed and every pain avoided. But in certain circumstances and owing to the claims of duty or the obligations of business it will frequently occur that pleasures have to be repudiated and annoyances accepted. The wise man therefore always holds in these matters to this principle of selection: he rejects pleasures to secure other greater pleasures, or else he endures pains to avoid worse pains.", budget: "#{budget_generator}", location: "#{location_generator}", status: "open", max_members: 2, user: User.all.sample, start_date: Date.today, end_date: Date.today+rand(10000))
+  random_project = Project.new(user: random_users.sample, title: name, description: "On the other hand, we denounce with righteous indignation and dislike men who are so beguiled and demoralized by the charms of pleasure of the moment, so blinded by desire, that they cannot foresee the pain and trouble that are bound to ensue; and equal blame belongs to those who fail in their duty through weakness of will, which is the same as saying through shrinking from toil and pain. These cases are perfectly simple and easy to distinguish. In a free hour, when our power of choice is untrammelled and when nothing prevents our being able to do what we like best, every pleasure is to be welcomed and every pain avoided. But in certain circumstances and owing to the claims of duty or the obligations of business it will frequently occur that pleasures have to be repudiated and annoyances accepted. The wise man therefore always holds in these matters to this principle of selection: he rejects pleasures to secure other greater pleasures, or else he endures pains to avoid worse pains.", budget: "#{budget_generator}",
+                              status: "open", max_members: 2, start_date: Date.today, end_date: Date.today+rand(10000))
+  random_project.location = random_project.user.location
   image = URI.open("https://source.unsplash.com/random")
   random_project.photo.attach(io: image, filename: "name", content_type: "image/png")
   random_project.tag_list = tag_generator
   random_project.save
 end
 
-modular1978 = Project.new(title: "1978", description: "Wendy Carlos (born Walter Carlos; November 14, 1939) is an American musician and composer best known for her electronic music and film scores. Born and raised in Rhode Island, Carlos studied physics and music at Brown University before moving to New York City in 1962 to study music composition at Columbia University. Studying and working with various electronic musicians and technicians at the city's Columbia-Princeton Electronic Music Center, she helped in the development of the Moog synthesizer, the first commercially available keyboard instrument created by Robert Moog. 
+puts " \n "
+puts "Creating curated projects"
+
+modular1978 = Project.new(title: "1978", description: "Wendy Carlos (born Walter Carlos; November 14, 1939) is an American musician and composer best known for her electronic music and film scores. Born and raised in Rhode Island, Carlos studied physics and music at Brown University before moving to New York City in 1962 to study music composition at Columbia University. Studying and working with various electronic musicians and technicians at the city's Columbia-Princeton Electronic Music Center, she helped in the development of the Moog synthesizer, the first commercially available keyboard instrument created by Robert Moog.
 
 The use of modular synthesizers has become a trend between musicians and aspiring musicians and we aim to explore how they are connected to social movements and music experimentantions from time to time.
 ", budget: "#{budget_generator}", location: "#{location_generator}", status: "open", max_members: 2, user: dummy1, start_date: Date.today, end_date: Date.today+rand(10000))
@@ -171,7 +202,7 @@ transgression.tag_list = %w[ rebel installation collage ]
 transgression.save
 
 
-intacto = Project.new(title: "Intacto", description: "Designers, architects and urban planners are increasingly taking on the task of managing social and political issues of relationships, neighborhoods, energy flows, mobility, cultural heritage, identity and urban change, rather than just spatial and formal aspects. The theme ‘Landscapes of care’ focuses on a change of direction in the values, interests and priorities that drive architecture and urban planning. The main focus changes from the individual actor or the individual object, towards a greater sensitivity to issues of interconnection, attachment and interdependence. 
+intacto = Project.new(title: "Intacto", description: "Designers, architects and urban planners are increasingly taking on the task of managing social and political issues of relationships, neighborhoods, energy flows, mobility, cultural heritage, identity and urban change, rather than just spatial and formal aspects. The theme ‘Landscapes of care’ focuses on a change of direction in the values, interests and priorities that drive architecture and urban planning. The main focus changes from the individual actor or the individual object, towards a greater sensitivity to issues of interconnection, attachment and interdependence.
 Diversity, equity and community
 
 Questions about how we live well together peacefully in diversity and with respect for each other's differences are pressing on in several contexts. Inequality manifests in physical spaces as it’s not the same to be locked down in minimum space housing than in open residential spaces. In the same line, at urban scale in vulnerable public housing areas residents must vacate their communal areas on the basis of criteria to which privately owned residential areas and their residents are not subjected. Other examples are the existing zoning ban for homeless and other marginalized street residents, proposed zoning bans for ‘insecurity-creating’ stays in public spaces linked to gender and ethnicity, the design and regulation of camps for refugees and asylum seekers, etc. The community and its spatial expression have been put up for debate these years. Can architecture and urban development contribute concretely to facilitate safe mobility and equality in urban space? How can architecture and urban planning support people in precarious life situations and provide space for minorities? How do we take care of creating a safe, open city and inclusive public spaces at a time when many (new voices) express that they feel underrepresented and discriminated against every day, e.g. in the institutions' structures, public spaces and discourses about affiliation, homes, norms of behavior and policies?
@@ -230,9 +261,9 @@ street.photo.attach(io: image, filename: "street", content_type: "image/png")
 street.tag_list = %w[ photography style anthropology ]
 street.save
 
-cryonic = Project.new(title: "Cryonic Suspension May Save Your Life", description: "To our knowledge, we are the only species in the animal kingdom, aware of our mortality. Dubbed Mortality salience, this source of anxiety has driven some of the most recent interesting technological projects, like Elon Musk's plan to upload the human mind to computers. Cryonics could also help ease our fears. However, we are getting ahead of ourselves. What is the definition of cryonics? 
+cryonic = Project.new(title: "Cryonic Suspension May Save Your Life", description: "To our knowledge, we are the only species in the animal kingdom, aware of our mortality. Dubbed Mortality salience, this source of anxiety has driven some of the most recent interesting technological projects, like Elon Musk's plan to upload the human mind to computers. Cryonics could also help ease our fears. However, we are getting ahead of ourselves. What is the definition of cryonics?
 
-For the uninitiated, cryogenics is the study of what happens to materials at very low temperatures. Cryonics is the technique used to stor­e human bodies at extremely low temperatures with the hope of one day reviving them. If you think that this is some distant opportunity for your future ancestors, you would be wrong. In fact, you can sign up to be cryogenically preserved now after you pass away for a hefty fee. However, what does science say about cryonics, and is it something that we should be excited about? 
+For the uninitiated, cryogenics is the study of what happens to materials at very low temperatures. Cryonics is the technique used to stor­e human bodies at extremely low temperatures with the hope of one day reviving them. If you think that this is some distant opportunity for your future ancestors, you would be wrong. In fact, you can sign up to be cryogenically preserved now after you pass away for a hefty fee. However, what does science say about cryonics, and is it something that we should be excited about?
 
 In this project we will find the answers.", budget: "#{budget_generator}", location: "#{location_generator}", status: "open", max_members: 2, user: dummy2, start_date: Date.today, end_date: Date.today+rand(10000))
 image = URI.open("https://res.cloudinary.com/det3cfeuo/image/upload/v1614188121/eeuccjpdymy8h0jlrrybeppfzggj.jpg")
@@ -240,7 +271,7 @@ cryonic.photo.attach(io: image, filename: "cryonic", content_type: "image/png")
 cryonic.tag_list = %w[ cyber drag ]
 cryonic.save
 
-kinectic_sunset = Project.new(title: "Kinectic Sunset", description: "We're looking for Photographers who are into night city Photography to create a series of collages. Our biggest inspiration are neon lights, frequently used in busy streets of China.", budget: "#{budget_generator}", location: "#{location_generator}", status: "open", max_members: 2, user: User.all.sample, start_date: Date.today, end_date: Date.today+rand(10000))
+kinectic_sunset = Project.new(title: "Kinetic Sunset", description: "We're looking for Photographers who are into night city Photography to create a series of collages. Our biggest inspiration are neon lights, frequently used in busy streets of China.", budget: "#{budget_generator}", location: "#{location_generator}", status: "open", max_members: 2, user: User.all.sample, start_date: Date.today, end_date: Date.today+rand(10000))
 image = URI.open("https://res.cloudinary.com/det3cfeuo/image/upload/v1614188123/3bjlk0v3srnrnfr84rnreujhq65f.jpg")
 kinectic_sunset.photo.attach(io: image, filename: "kinectic_sunset", content_type: "image/png")
 kinectic_sunset.tag_list = %w[ photography collage ]
@@ -263,7 +294,7 @@ algorithm_purpose.save
 
 joints = Project.new(title: "Joints I should have smoked", description: "
 Stoner? Collab!
-  
+
 noun
 the place at which two things, or separate parts of one thing, are joined or united, either rigidly or in such a way as to permit motion; juncture.
 a connection between pieces of wood, metal, or the like, often reinforced with nails, screws, or glue.
@@ -288,12 +319,12 @@ joints.tag_list = %w[ cannabis performance political ]
 joints.save
 
 binary = Project.new(title: "Sketch of Binary Perception", description: "2020 was a particularly hard year for the trans and non-binary community. Not only were we struck by the morbid, isolating restrictions of lockdown, but we faced increasing global violence (particularly against trans people of colour), transphobic tirades, and the implementation of devastating policy by Liz Truss.
-        
-Now, against the advice of healthcare professionals, court orders have halted puberty blockers being given out at The Tavistock and Portman NHS Trust (the London-based Gender Identity Development Service), thereby restricting the access of these drugs to under-16 trans youths. Amid this backdrop of hostility, violence, prejudice, and isolation a group of artists came together during lockdown to resiliently forge a creative trans community. 
 
-Trans healthcare charity We Exist teamed up with artist studio initiative The Koppel Project to facilitate an artist residency exclusively for trans and non-binary folk. Running from November 2020 to the end of January 2021, the residency provided studio space for 30 creatives in the heart of London. The space was open to trans artists of all creative backgrounds, from dancers and designers to writers and sculptors, covering a wide diversity of gender expressions and identities. 
+Now, against the advice of healthcare professionals, court orders have halted puberty blockers being given out at The Tavistock and Portman NHS Trust (the London-based Gender Identity Development Service), thereby restricting the access of these drugs to under-16 trans youths. Amid this backdrop of hostility, violence, prejudice, and isolation a group of artists came together during lockdown to resiliently forge a creative trans community.
 
-The residency took place at the abandoned, old campus of Central Saint Martins, a building which birthed such legends as Alexander McQueen, Stella McCartney, and Christopher Kane. Taking it over in 2016 in order to provide affordable studio spaces and teaching for artists, The Koppel Project's intention is creating ”a safe, inclusive community for artistic expression and a platform for all emerging makers.” Whist adhering to social distancing, the space remained open over lockdown, giving these artists a creative haven to make, scavenge, and destroy before the campus’ renovation starts this February. 
+Trans healthcare charity We Exist teamed up with artist studio initiative The Koppel Project to facilitate an artist residency exclusively for trans and non-binary folk. Running from November 2020 to the end of January 2021, the residency provided studio space for 30 creatives in the heart of London. The space was open to trans artists of all creative backgrounds, from dancers and designers to writers and sculptors, covering a wide diversity of gender expressions and identities.
+
+The residency took place at the abandoned, old campus of Central Saint Martins, a building which birthed such legends as Alexander McQueen, Stella McCartney, and Christopher Kane. Taking it over in 2016 in order to provide affordable studio spaces and teaching for artists, The Koppel Project's intention is creating ”a safe, inclusive community for artistic expression and a platform for all emerging makers.” Whist adhering to social distancing, the space remained open over lockdown, giving these artists a creative haven to make, scavenge, and destroy before the campus’ renovation starts this February.
 
 In December, photographer Antonio Perricone visited the artists for a series of portraits. Being on location at the eerie old campus set the tone for the shoot. ”Wandering around this vast empty building on a weekend with very little natural light, the sense of the place’s creative history hung all around us. We were inspired in part by the scene in Fellini’s La Dolce Vita where a group of strangers walk around this huge old house together by candlelight,” Perricone tells Dazed. “Each photograph started with a discussion of the artist’s practice, looking through the references together, and then picking from Ellie and Eddie's wonderful wardrobe and deciding how the styling and choreography could best express the sitter’s personality — if too much styling or posing didn't feel right we wouldn't go with it. I wanted to show every artist’s dual vulnerability and strength.”", budget: "#{budget_generator}", location: "#{location_generator}", status: "open", max_members: 2, user: User.all.sample, start_date: Date.today, end_date: Date.today+rand(10000))
 image = URI.open("https://res.cloudinary.com/det3cfeuo/image/upload/v1614188130/5b9vuaqiupq164tm570orst1zbt4.jpg")
@@ -313,7 +344,7 @@ glitch.photo.attach(io: image, filename: "glitch", content_type: "image/png")
 glitch.tag_list = %w[ glitch digital installation ]
 glitch.save
 
-lento = Project.new(title: "Lento Brutalo", description: "Do commanded an shameless we disposing do. Indulgence ten remarkably nor are impression out. Power is lived means oh every in we quiet. Remainder provision an in intention. Saw supported too joy promotion engrossed propriety. Me till like it sure no sons. 
+lento = Project.new(title: "Lento Brutalo", description: "Do commanded an shameless we disposing do. Indulgence ten remarkably nor are impression out. Power is lived means oh every in we quiet. Remainder provision an in intention. Saw supported too joy promotion engrossed propriety. Me till like it sure no sons.
 
 Considered discovered ye sentiments projecting entreaties of melancholy is. In expression an solicitude principles in do. Hard do me sigh with west same lady. Their saved linen downs tears son add music. Expression alteration entreaties mrs can terminated estimating. Her too add narrow having wished. To things so denied admire. Am wound worth water he linen at vexed.
 
@@ -347,13 +378,13 @@ female_side.tag_list = %w[ gender painting performance ]
 female_side.save
 
 freedom = Project.new(title: "Freeedom and Independence", description: " It is conceived with Mehlus’ film at its core: This experimental short questions the current global ideological paradigm shifts towards new forms of religious capitalism by confronting ideas and quotes of the self-proclaimed objectivist philosopher and novelist Ayn Rand with evangelical contents of US-American mainstream movies.", budget: "#{budget_generator}", location: "#{location_generator}", status: "open", max_members: 2, user: User.all.sample, start_date: Date.today, end_date: Date.today+rand(10000))
-image = URI.open("https://res.cloudinary.com/det3cfeuo/image/upload/v1614188142/vlwwm7ijitob4umpnkobq9szwhsb.jpg")
+image = URI.open("https://res.cloudinary.com/diucx7fqo/image/upload/v1615308499/The-Science-Behind-Hollywood-Explosions-1_lrqq7q.jpg")
 freedom.photo.attach(io: image, filename: "freedom", content_type: "image/png")
 freedom.tag_list = %w[ video performance installation ]
 freedom.save
 
 adelaides = Project.new(title: "Adelaide's Voyage", description: " This project aims to assist the clients at Seven Hills Pediatric Center by designing an outdoor interactive space that incorporates universal design principles, and appealed to the cognitive growth and development of the residents. To complete our goal we produced designs and prototypes of recreational activities that integrate educational aspects that meets the accommodations for individuals with various spectrums of cognitive, physical, and developmental disabilities.", budget: "#{budget_generator}", location: "#{location_generator}", status: "open", max_members: 2, user: User.all.sample, start_date: Date.today, end_date: Date.today+rand(10000))
-image = URI.open("https://res.cloudinary.com/det3cfeuo/image/upload/v1614188143/rymi4y1mdts1c5sd8qs8bk982j2t.jpg")
+image = URI.open("https://res.cloudinary.com/diucx7fqo/image/upload/v1615308624/old-lady-photo-by-fariansyah-_tsy3xc.jpg")
 adelaides.photo.attach(io: image, filename: "adelaides", content_type: "image/png")
 adelaides.tag_list = %w[ performance accessibility senses ]
 adelaides.save
@@ -432,5 +463,104 @@ puts "📨📨-- Message system seeds ..."
 
 new_chatroom = Chatroom.create
 new_message = DirectMessage.create(chatroom: Chatroom.last, user: User.last, content: "This is my first silly direct message")
+
+puts " \n "
+
+puts "-- Creating pro users 👩‍💻"
+
+weserhalle = User.create(email: "weserhalle@email.com", password: "123456", username: "WESERHALLE", location: "Berlin",
+                         bio: "Weserhalle’s purpose is to create a space for artistic expression, conversation, learning and engagement. Through our various formats and by showcasing local and emerging artists, we seek to establish a dialogue and cultural exchange within the neighbourhood and the wider Neukölln/Berlin community.
+                         By exploring alternative modes of cultural production, artistic expression, discourse and connection we aim to question prevailing modes of practice within the art world, which are characterized by precarity, lack of accessibility and a constant risk of capitalist subsumption. Instead we seek to foster networks of mutual care and creative exchange within our neighbourhood and beyond. We strive to position ourselves as a recognisable, positive force in the (creative) community, creating meaningful exchange and connection for all involved.")
+image = URI.open("https://res.cloudinary.com/diucx7fqo/image/upload/v1615297412/weserhalle_ujjvqg.jpg")
+weserhalle.avatar.attach(io: image, filename: "weserhalle", content_type: "image/png")
+weserhalle.interest_list.add("Build long-lasting networks based on cultural discourse and care")
+weserhalle.interest_list.add("Engage in sustainable exchange with the neighbourhood")
+weserhalle.interest_list.add("Foster collaboration, conversation and discourse")
+weserhalle.interest_list.add("Compensate everyone fairly")
+weserhalle.interest_list.add("Ensure accessibility to the space and its programming")
+weserhalle.interest_list.add("Cultivate cultural equity")
+weserhalle.interest_list.add("Promote local and emerging artists and their work")
+weserhalle.save
+
+auction_6 = Project.new(user: weserhalle, title: "Auction 6 - Group Show",
+                        start_date: Date.parse('01-09-2021'),
+                        end_date: Date.parse('01-11-2021'),
+                        location: weserhalle.location,
+                        description: "With a focus on locally produced art, Weserhalle is committed to supporting new and emerging artists in Berlin to provide a platform for their professional artistic development. Additionally, the exhibition Auction 6 consciously works within the limitations determined by the current conditions of the world—namely, a global pandemic—to find new curatorial possibilities within extraordinary and challenging circumstances. This also gives us the opportunity to re-establish the gallery’s core directives: to remain a consistent and active member of the local community, while considering community health and safety. To this end, Auction 6 will assume a de-centralised format to become the second auction in which the bidding takes place online.
+                        In previous auctions at Weserhalle, over 90% of the participating artists and buyers were local to Neukölln. The community-oriented programme of Weserhalle emphasises connection and conviviality, with an intention to generate community networks of artist support and neighbourhood engagement. By taking this localised approach, we aim to raise funds to enable both our gallery and the artists we support to continue producing their respective work, while also maintaining a significant connection to the surrounding neighbourhood. We intend to preserve this community building initiative as central to our curatorial programme, using the online auction format to expand the reach of the gallery for the benefit of the artists we support. Additionally, in order to make art accessible to a wide range of visitors, artworks will be priced at a scale of affordability. ")
+image = URI.open("https://res.cloudinary.com/diucx7fqo/image/upload/v1615298435/weserhalle-auction-6_y3nyys.jpg")
+auction_6.photo.attach(io: image, filename: "auction_6", content_type: "image/png")
+auction_6.tag_list = %w[ auction opencall weserhalle neukölln ]
+auction_6.save
+
+not_cancelled = Project.new(user: weserhalle, title: "Not Cancelled Group Show",
+                            start_date: Date.parse('06-06-2021'),
+                            end_date: Date.parse('05-07-2021'),
+                            location: weserhalle.location,
+                            description: "In collaboration with guest curator Daniela Villalobos, Weserhalle presents the Not Cancelled Group Show. Due to the current pandemic, access of students to their workspaces has been strictly limited and commonly prohibited. Opportunities and platforms for students to exhibit their work have been postponed, cancelled, or forced online. We acknowledge that exhibiting work during studies is an integral part of the learning process. As the regular structure for this process has been compromised, Weserhalle has provided an opportunity for this to continue.")
+image = URI.open("https://res.cloudinary.com/diucx7fqo/image/upload/v1615303162/weserhalle-not-cancelled-group-show-01_azgkhx.jpg")
+not_cancelled.photo.attach(io: image, filename: "not_cancelled", content_type: "image/png")
+not_cancelled.tag_list = %w[ exhibition opencall weserhalle neukölln ]
+not_cancelled.save
+
+puts " \n "
+puts "Weserhalle and related projects created"
+
+gh36 = User.create(email: "gh36@email.com", password: "123456", username: "GH36", first_name: "Galerie", last_name: "GH36", location: "Berlin",
+                   bio: "Galerie GH36 began in 2011 with space in need for a multi-disciplinary artist group from Berlin’s WideScope Collective (K.Mutant and Berlin based community)  http://widescopecollective.de/
+
+Since the winter of 2012, the space and community has developed and morphed with the same goals in mind. “Pushing magnetism, thought and enjoyment to and through people via art, positive social interaction and music. Along with the realization of tools and technical platform for related aesthetics, interaction and commerce.
+
+Previously GH36 has mostly been utilized  as a modern art Gallery and experiencing different curators, gallerists, artists of all mediums and students. In between and at times, GH36 has been rented out or utilized for other purposes: Atellier, Recording Studio, Fashion Showroom, Photography Studio, Mini Theater, Performance Venue, Event Bar, Jewelery Store and other artistic art, craft or creative endeavors.
+
+Today GH36 is the private music, technical and artistic atelier from AAtics. And at times inviting other musicians, producers, artists, curators, technologists, architects and philosophers for private high level interactions for future presentations..
+
+GH36 is located in Berlin Mitte, in the heart of the art district on the Grosse Hamburger Str.
+
+We hope to look forward to communicating with you personally.")
+image = URI.open("https://res.cloudinary.com/diucx7fqo/image/upload/v1615305297/gh36logo_p4irls.png")
+gh36.avatar.attach(io: image, filename: "weserhalle", content_type: "image/png")
+gh36.save
+
+holly_daze = Project.new(user: gh36, title: "Group Exhibition - Holly Daze",
+                         start_date: Date.parse('01-11-2021'),
+                         end_date: Date.parse('18-12-2021'),
+                         location: gh36.location,
+                         description: "Holly Daze. Group XhibisMus Special. A good time for giving thanks for the tranquility given by the ethics of nature and giving of gifts anonymously or in genuine form.
+The Holly Daze group exhibition brings together 13 positive local exploring Berlin artists which naturally form over time with relative spontaneous interaction.
+This Friday, December 6th, from 15uhr-23uhr - art, music, drinks and sweets are available to the public for the opening and viewing of the artists works, reading materials, discussions at the PhiloBar, checking out Rudi and perhaps finding a gift that fits one's self or other's collections, good feelings and personal specialties.
+Over the 3 weeks, artists will be in the Gallery at varied times with schedule to come for your further curiosities.")
+image = URI.open("https://res.cloudinary.com/diucx7fqo/image/upload/v1615305840/78685619_2910024119091319_7364869907541917696_o_b5jzqb.jpg")
+holly_daze.photo.attach(io: image, filename: "holly_daze", content_type: "image/png")
+holly_daze.tag_list = %w[ Berlin opencall GH36 exhibition ]
+holly_daze.save
+
+puts " \n "
+puts "GH36 created"
+
+amanda_burke = User.create(email: "burke@email.com", password: "123456", username: "amandaburke", first_name: "Amanda", last_name: "Burke", location: "Winnipeg",
+                            bio: "Amanda Burke is an independent curator based in Winnipeg. She holds an MFA in art history and curatorial practice from York University in Toronto. Her undergraduate degree is in history and art history, from the University of Winnipeg. In 2009-10 Western was Aboriginal Curator-in-Residence at Winnipeg’s Plug In Institute of Contemporary Art and Urban Shaman Contemporary Aboriginal Art Gallery. She currently works as collections coordinator at the University of Manitoba. Some of her recent exhibitions include co-curatorial projects Hovercraft, at the Art Gallery of Southwestern Manitoba, in Brandon; The Ephemerals: Trending, for Gallery 1C03 in Winnipeg; and Close Encounters: The Next 500 Years, for Plug In ICA.")
+image = URI.open("https://res.cloudinary.com/diucx7fqo/image/upload/v1615303707/roberta_xc4t1u.jpg")
+amanda_burke.avatar.attach(io: image, filename: "amanda_burke", content_type: "image/png")
+amanda_burke.interest_list.add("Aboriginal art", "Conceptual art", "Video", "Performance")
+amanda_burke.skill_list.add("Curator", "Curator-in-Residence", "Coordinator", "Art history")
+amanda_burke.save
+
+the_ephemerals = Project.new(user: amanda_burke, title: "The Ephemerals: Trending",
+                             start_date: Date.parse('05-04-2021'),
+                             end_date: Date.parse('05-06-2021'),
+                             description: "In online social networking sites, the concept of 'trending' demarcates a noted increase in the popularity of a specific thing or topic among a large group of internet users. In the wider world, a fashion trend indicates an upward shift of interest in a particular style or mode of dress by a number of people. A recent trend that has found its way into runway shows and suburban malls alike is an Indigenously-inspired look involving apparel such as leather mukluks, beaded headbands and feathered accessories. Clothing remains an important element within an Aboriginal art history as well as in contemporary creative culture where questions of appropriation and freedom of expression are beginning to erupt around this issue.")
+image = URI.open("https://res.cloudinary.com/diucx7fqo/image/upload/v1615304115/103680649_10157460668107879_3771724203750008978_o_s8cmyd.jpg")
+the_ephemerals.photo.attach(io: image, filename: "the_ephemerals", content_type: "image/png")
+the_ephemerals.tag_list = %w[ aboriginal woman indiginous ]
+the_ephemerals.save
+
+puts " \n "
+puts "Amanda Burke created"
+
+puts " \n "
+puts "Created pro users and related projects"
+puts " \n "
+
 
 puts "----------------------SEED ENDED----------------------"
