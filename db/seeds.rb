@@ -13,6 +13,7 @@ require 'faker'
 counter = 0
 
 puts "💥Deleting previous DB"
+puts " \n "
 
 FavouriteProject.destroy_all
 DirectMessage.destroy_all
@@ -111,7 +112,7 @@ end
 
 def tag_generator
   tag_generator_array = []
-  tags = %w[ music performance installation photography style anthropology covid-19 sculpture fakenews projection video architecture designrebel collage cyber drag music political gender multidisciplinary event feminism conceptual painting experimental satanism audio christianity religion painting accessibility senses emotions psychology programming high-tech low-fi counterculture magic darkness holyness global local news sharing love acceptance respect avoidance union multiculturalism equality typing typography homosexuality panssexuality bisexuality trans queer stones richness poverty dance poetry interpretation masculinity paint colors night day nature duality philosophy idealism constructivism formalist avant-garde minimal explore movement gestalt art-history imperialist patriarchy exhibition opencall open-call groupshow group-show Berlin London NewYork Paris Venice]
+  tags = %w[ identity family childhood music performance installation photography perception style anthropology covid-19 sculpture fakenews projection video architecture designrebel collage cyber drag music political gender multidisciplinary event feminism conceptual painting experimental satanism audio christianity religion painting accessibility senses emotions psychology programming high-tech low-fi magic darkness holyness global local news sharing love acceptance crisis respect avoidance union multiculturalism equality typing typography homosexuality panssexuality bisexuality trans queer stones richness poverty dance poetry interpretation masculinity paint colors night day primitive nature duality philosophy idealism constructivism formalist avant-garde minimal explore movement gestalt art-history imperialist patriarchy exhibition opencall open-call groupshow group-show Berlin London NewYork Paris Venice]
   3.times do
     tag_generator_array << tags.sample
   end
@@ -120,14 +121,15 @@ end
 
 puts "----------------------SEED STARTED----------------------"
 puts " \n "
-puts "🆕👨‍🦲-- Creating Users"
+puts "🆕👩‍🦰👨‍🦲-- Creating Users"
+puts " \n "
 
 admin = User.create(email: "admin@artcollabs.com", password: "admin123456", admin: true, username: "artcollabs_admin")
 image = URI.open("https://res.cloudinary.com/det3cfeuo/image/upload/v1614425622/logo_ej62wp.jpg")
 admin.avatar.attach(io: image, filename: "admin", content_type: "image/png")
-puts "Created admin \n email: #{admin.email}, password: #{admin.password} \n "
+puts "Created admin 🔧 \n email: #{admin.email}, password: #{admin.password} \n "
 
-dummy1 = User.create(email: "user@artcollabs.com", password: "000000", username: "bianca_heuser")
+dummy1 = User.create(email: "user@artcollabs.com", password: "000000", username: "blanca_heuser")
 image = URI.open(avatar_generator)
 dummy1.avatar.attach(io: image, filename: "dummy1", content_type: "image/png")
 puts "Created dummy 1 \n email: #{dummy1.email}, password: #{dummy1.password} \n "
@@ -138,10 +140,15 @@ image = URI.open(avatar_generator)
 dummy2.avatar.attach(io: image, filename: "dummy2", content_type: "image/png")
 puts "Created dummy 2 \n email: #{dummy2.email}, password: #{dummy2.password} \n "
 
-noelle = User.create(email: "noelle@gmail.com", password: "000000", username: "noelle_from_hessen")
-puts "Created THE Noelle \n email: #{noelle.email}, password: #{noelle.password} \n "
-image = URI.open("https://res.cloudinary.com/det3cfeuo/image/upload/v1614425226/noelle_g5i13t.jpg")
+noelle = User.create(email: "noelle@gmail.com", password: "000000", username: "noelle_from_hessen",
+                     first_name: "Noelle", last_name: "H.",
+                     bio: "I am Noelle!")
+puts "Created THE Noelle 💅 \n email: #{noelle.email}, password: #{noelle.password} \n "
+image = URI.open("https://res.cloudinary.com/diucx7fqo/image/upload/v1615311038/10475467_10204209381861889_6319051138607362249_n_nm3w2r.jpg")
 noelle.avatar.attach(io: image, filename: "noelle", content_type: "image/png")
+noelle.interest_list.add("visual art", "painting")
+noelle.skill_list.add("oil painting", "acrylic", "resin", "portraits")
+noelle.save
 
 puts "------ Creating Felix 🧔"
 felix = User.create(email: "felixwor@aol.com", password: "12345678")
@@ -149,6 +156,57 @@ image = URI.open("https://profile-images.xing.com/images/6fe0ce6b1a2c5fb6c2a753b
 felix.avatar.attach(io: image, filename: "felix", content_type: "image/png")
 puts "Felix created"
 puts " \n "
+
+puts "-- Creating pro users 👩‍💻"
+puts " \n "
+
+weserhalle = User.create(email: "weserhalle@email.com", password: "123456", username: "WESERHALLE", location: "Berlin",
+                         bio: "Weserhalle’s purpose is to create a space for artistic expression, conversation, learning and engagement. Through our various formats and by showcasing local and emerging artists, we seek to establish a dialogue and cultural exchange within the neighbourhood and the wider Neukölln/Berlin community.
+                         By exploring alternative modes of cultural production, artistic expression, discourse and connection we aim to question prevailing modes of practice within the art world, which are characterized by precarity, lack of accessibility and a constant risk of capitalist subsumption. Instead we seek to foster networks of mutual care and creative exchange within our neighbourhood and beyond. We strive to position ourselves as a recognisable, positive force in the (creative) community, creating meaningful exchange and connection for all involved.")
+image = URI.open("https://res.cloudinary.com/diucx7fqo/image/upload/v1615297412/weserhalle_ujjvqg.jpg")
+weserhalle.avatar.attach(io: image, filename: "weserhalle", content_type: "image/png")
+weserhalle.interest_list.add("Build long-lasting networks based on cultural discourse and care")
+weserhalle.interest_list.add("Engage in sustainable exchange with the neighbourhood")
+weserhalle.interest_list.add("Foster collaboration, conversation and discourse")
+weserhalle.interest_list.add("Compensate everyone fairly")
+weserhalle.interest_list.add("Ensure accessibility to the space and its programming")
+weserhalle.interest_list.add("Cultivate cultural equity")
+weserhalle.interest_list.add("Promote local and emerging artists and their work")
+weserhalle.save
+
+gh36 = User.create(email: "gh36@email.com", password: "123456", username: "GH36", first_name: "Galerie", last_name: "GH36", location: "Berlin",
+                   bio: "Galerie GH36 began in 2011 with space in need for a multi-disciplinary artist group from Berlin’s WideScope Collective (K.Mutant and Berlin based community)  http://widescopecollective.de/
+
+Since the winter of 2012, the space and community has developed and morphed with the same goals in mind. “Pushing magnetism, thought and enjoyment to and through people via art, positive social interaction and music. Along with the realization of tools and technical platform for related aesthetics, interaction and commerce.
+
+Previously GH36 has mostly been utilized  as a modern art Gallery and experiencing different curators, gallerists, artists of all mediums and students. In between and at times, GH36 has been rented out or utilized for other purposes: Atellier, Recording Studio, Fashion Showroom, Photography Studio, Mini Theater, Performance Venue, Event Bar, Jewelery Store and other artistic art, craft or creative endeavors.
+
+Today GH36 is the private music, technical and artistic atelier from AAtics. And at times inviting other musicians, producers, artists, curators, technologists, architects and philosophers for private high level interactions for future presentations..
+
+GH36 is located in Berlin Mitte, in the heart of the art district on the Grosse Hamburger Str.
+
+We hope to look forward to communicating with you personally.")
+image = URI.open("https://res.cloudinary.com/diucx7fqo/image/upload/v1615305297/gh36logo_p4irls.png")
+gh36.avatar.attach(io: image, filename: "weserhalle", content_type: "image/png")
+gh36.save
+
+amanda_burke = User.create(email: "burke@email.com", password: "123456", username: "amandaburke", first_name: "Amanda", last_name: "Burke", location: "Winnipeg",
+                            bio: "Amanda Burke is an independent curator based in Winnipeg. She holds an MFA in art history and curatorial practice from York University in Toronto. Her undergraduate degree is in history and art history, from the University of Winnipeg. In 2009-10 Western was Aboriginal Curator-in-Residence at Winnipeg’s Plug In Institute of Contemporary Art and Urban Shaman Contemporary Aboriginal Art Gallery. She currently works as collections coordinator at the University of Manitoba. Some of her recent exhibitions include co-curatorial projects Hovercraft, at the Art Gallery of Southwestern Manitoba, in Brandon; The Ephemerals: Trending, for Gallery 1C03 in Winnipeg; and Close Encounters: The Next 500 Years, for Plug In ICA.")
+image = URI.open("https://res.cloudinary.com/diucx7fqo/image/upload/v1615303707/roberta_xc4t1u.jpg")
+amanda_burke.avatar.attach(io: image, filename: "amanda_burke", content_type: "image/png")
+amanda_burke.interest_list.add("Aboriginal art", "Conceptual art", "Video", "Performance")
+amanda_burke.skill_list.add("Curator", "Curator-in-Residence", "Coordinator", "Art history")
+amanda_burke.save
+
+serge = User.create(email: "serge@email.com", password: "123456", username: "je_suis_serge", first_name: "Serge", last_name: "Labarte",
+                    bio: "bonjour")
+image = URI.open("https://res.cloudinary.com/diucx7fqo/image/upload/v1615311770/serge_vijvbq.jpg")
+serge.avatar.attach(io: image, filename: "serge", content_type: "image/png")
+serge.interest_list.add("post idea", "video", "perception", "dark matter")
+serge.skill_list.add("curator")
+serge.save
+
+puts "---- Created Serge 🍸 \n email: #{serge.email}, password: #{serge.password} \n "
 
 random_users = []
 
@@ -163,7 +221,6 @@ end
 
 puts "Created random users"
 
-puts " \n "
 puts " \n "
 
 puts "🆕🧾-- Creating Projects"
@@ -332,11 +389,30 @@ binary.photo.attach(io: image, filename: "binary", content_type: "image/png")
 binary.tag_list = %w[ gender multidisciplinary event ]
 binary.save
 
-nase = Project.new(title: "Grosse Nasenlöcher", description: "A speedy man can beat this track mark. The pennant waved when the wind blew.", budget: "#{budget_generator}", location: "#{location_generator}", status: "open", max_members: 2, user: dummy2, start_date: Date.today, end_date: Date.today+rand(10000))
+nase = Project.new(title: "Grosse Nasenlöcher",
+                   description: "Das heutige Europa entstand als Projekt des Widerstandes gegen die Faschismen der Vergangenheit. In einem Workshop- und Konferenzprogramm erforschen junge Menschen zusammen mit Künstler*innen, Wissenschaftler*innen, Kultur- und Bildungsexpert*innen künstlerische Formen der Faschismusbekämpfung als Möglichkeiten der Verwirklichung einer (europäischen) Gemeinschaft.
+
+Wie können sich künstlerische und kuratorische Praxen rassistischem Gedankengut entgegenstellen? Kann der Erdboden Gegenerinnerungen speichern? Könnte eine antirassistische und antisexistische Gamingkultur die Diversität der europäischen Gemeinschaft fördern? Wie sieht Menschenrechtsbildung aus? Diese Fragen umkreisen vier thematische Workshops für Jugendliche und junge Erwachsene: Arts of Resistance, Communities of Resistance, Digital Resistance, Education of Resistance. Workshopteilnehmer*innen können außerdem an Präsentationen von Studierenden aus St. Pölten, Zagreb, Berlin und Bozen teilnehmen: Sie sprechen über künstlerische Arbeiten, die sie ausgehend von Widerstandsliedern, Gedichten und Graffiti aus den Jahren 1939 bis 1945 entwickelten – und darüber, was sich von historischen Widerstandskämpfer*innen für das Hier und Jetzt lernen lässt. In einem abschließenden öffentlichen Vortrag gibt Jonathan Horowitz Einblicke in seine künstlerische und kuratorische Arbeit. Anschließend spricht er mit dem Künstler und Fotograf Wolfgang Tillmans über das Potenzial der Kunst, Rassismus und Antisemitismus zu bekämpfen.
+
+Workshops mit Barbara Staudinger & Sebastian Cichocki (Arts of Resistance); Galia Bar-Or & Milica Tomic (Communities of Resistance); Total Refusal: Digital Disarmament Movement & Keinen Pixel den Faschisten! (Digital Resistance); Jean-Philippe Restoueix, Roman Fröhlich, Katja Pratschke & Active Bystander Company (Education of Resistance)",
+budget: "#{budget_generator}", location: "Berlin", status: "open", max_members: 2, user: random_users.sample, start_date: Date.today, end_date: Date.today+rand(10000))
 image = URI.open("https://res.cloudinary.com/det3cfeuo/image/upload/v1614188131/e3ze6hhdsdvk9v9q5bhumdyamvxm.jpg")
 nase.photo.attach(io: image, filename: "nase", content_type: "image/png")
 nase.tag_list = %w[ conceptual painting experimental ]
 nase.save
+
+holly_daze = Project.new(user: gh36, title: "Group Exhibition - Holly Daze",
+                         start_date: Date.parse('01-11-2021'),
+                         end_date: Date.parse('18-12-2021'),
+                         location: gh36.location,
+                         description: "Holly Daze. Group XhibisMus Special. A good time for giving thanks for the tranquility given by the ethics of nature and giving of gifts anonymously or in genuine form.
+The Holly Daze group exhibition brings together 13 positive local exploring Berlin artists which naturally form over time with relative spontaneous interaction.
+This Friday, December 6th, from 15uhr-23uhr - art, music, drinks and sweets are available to the public for the opening and viewing of the artists works, reading materials, discussions at the PhiloBar, checking out Rudi and perhaps finding a gift that fits one's self or other's collections, good feelings and personal specialties.
+Over the 3 weeks, artists will be in the Gallery at varied times with schedule to come for your further curiosities.")
+image = URI.open("https://res.cloudinary.com/diucx7fqo/image/upload/v1615305840/78685619_2910024119091319_7364869907541917696_o_b5jzqb.jpg")
+holly_daze.photo.attach(io: image, filename: "holly_daze", content_type: "image/png")
+holly_daze.tag_list = %w[ Berlin opencall GH36 exhibition ]
+holly_daze.save
 
 glitch = Project.new(title: "d@3cðáv[39 80==", description: "To die: to suffer 0101555% native hue of resolution is sicklied o'er wsh a bare bodkin? Who woulsssss ear the dread of som234ng after death, the thought, and sweat under a weary life; for in that the unworthy takes, when he himself might his quietus make cowards of outrageous fortune, or not to be444t makes calamity of so long a life; fo334mind to sleep to sleep of dispriz'd lc**e, the unworthy takes, when he himself might his quietus make cowards of dispriz'd love, than fly to be wish'd. To be, or t", budget: "#{budget_generator}", location: "#{location_generator}", status: "open", max_members: 2, user: dummy1, start_date: Date.today, end_date: Date.today+rand(10000))
 image = URI.open("https://res.cloudinary.com/det3cfeuo/image/upload/v1614188134/q3im2lfz6kb7c3it24vqufr96rbo.jpg")
@@ -383,7 +459,18 @@ freedom.photo.attach(io: image, filename: "freedom", content_type: "image/png")
 freedom.tag_list = %w[ video performance installation ]
 freedom.save
 
-adelaides = Project.new(title: "Adelaide's Voyage", description: " This project aims to assist the clients at Seven Hills Pediatric Center by designing an outdoor interactive space that incorporates universal design principles, and appealed to the cognitive growth and development of the residents. To complete our goal we produced designs and prototypes of recreational activities that integrate educational aspects that meets the accommodations for individuals with various spectrums of cognitive, physical, and developmental disabilities.", budget: "#{budget_generator}", location: "#{location_generator}", status: "open", max_members: 2, user: User.all.sample, start_date: Date.today, end_date: Date.today+rand(10000))
+auction_6 = Project.new(user: weserhalle, title: "Auction 6 - Group Show",
+                        start_date: Date.parse('01-09-2021'),
+                        end_date: Date.parse('01-11-2021'),
+                        location: weserhalle.location,
+                        description: "With a focus on locally produced art, Weserhalle is committed to supporting new and emerging artists in Berlin to provide a platform for their professional artistic development. Additionally, the exhibition Auction 6 consciously works within the limitations determined by the current conditions of the world—namely, a global pandemic—to find new curatorial possibilities within extraordinary and challenging circumstances. This also gives us the opportunity to re-establish the gallery’s core directives: to remain a consistent and active member of the local community, while considering community health and safety. To this end, Auction 6 will assume a de-centralised format to become the second auction in which the bidding takes place online.
+                        In previous auctions at Weserhalle, over 90% of the participating artists and buyers were local to Neukölln. The community-oriented programme of Weserhalle emphasises connection and conviviality, with an intention to generate community networks of artist support and neighbourhood engagement. By taking this localised approach, we aim to raise funds to enable both our gallery and the artists we support to continue producing their respective work, while also maintaining a significant connection to the surrounding neighbourhood. We intend to preserve this community building initiative as central to our curatorial programme, using the online auction format to expand the reach of the gallery for the benefit of the artists we support. Additionally, in order to make art accessible to a wide range of visitors, artworks will be priced at a scale of affordability. ")
+image = URI.open("https://res.cloudinary.com/diucx7fqo/image/upload/v1615298435/weserhalle-auction-6_y3nyys.jpg")
+auction_6.photo.attach(io: image, filename: "auction_6", content_type: "image/png")
+auction_6.tag_list = %w[ auction opencall weserhalle neukölln ]
+auction_6.save
+
+adelaides = Project.new(title: "Adelaide's Voyage", description: " This project aims to assist the clients at Seven Hills Geriatric Center by designing an outdoor interactive space that incorporates universal design principles, and appealed to the cognitive growth and development of the residents. To complete our goal we produced designs and prototypes of recreational activities that integrate educational aspects that meets the accommodations for individuals with various spectrums of cognitive, physical, and developmental disabilities.", budget: "#{budget_generator}", location: "#{location_generator}", status: "open", max_members: 2, user: User.all.sample, start_date: Date.today, end_date: Date.today+rand(10000))
 image = URI.open("https://res.cloudinary.com/diucx7fqo/image/upload/v1615308624/old-lady-photo-by-fariansyah-_tsy3xc.jpg")
 adelaides.photo.attach(io: image, filename: "adelaides", content_type: "image/png")
 adelaides.tag_list = %w[ performance accessibility senses ]
@@ -465,33 +552,26 @@ new_chatroom = Chatroom.create
 new_message = DirectMessage.create(chatroom: Chatroom.last, user: User.last, content: "This is my first silly direct message")
 
 puts " \n "
+puts "Creating very last projects"
 
-puts "-- Creating pro users 👩‍💻"
+the_ephemerals = Project.new(user: amanda_burke, title: "The Ephemerals: Trending",
+                             start_date: Date.parse('05-04-2021'),
+                             end_date: Date.parse('05-06-2021'),
+                             description: "In online social networking sites, the concept of 'trending' demarcates a noted increase in the popularity of a specific thing or topic among a large group of internet users. In the wider world, a fashion trend indicates an upward shift of interest in a particular style or mode of dress by a number of people. A recent trend that has found its way into runway shows and suburban malls alike is an Indigenously-inspired look involving apparel such as leather mukluks, beaded headbands and feathered accessories. Clothing remains an important element within an Aboriginal art history as well as in contemporary creative culture where questions of appropriation and freedom of expression are beginning to erupt around this issue.")
+image = URI.open("https://res.cloudinary.com/diucx7fqo/image/upload/v1615304115/103680649_10157460668107879_3771724203750008978_o_s8cmyd.jpg")
+the_ephemerals.photo.attach(io: image, filename: "the_ephemerals", content_type: "image/png")
+the_ephemerals.tag_list = %w[ aboriginal woman indiginous ]
+the_ephemerals.save
 
-weserhalle = User.create(email: "weserhalle@email.com", password: "123456", username: "WESERHALLE", location: "Berlin",
-                         bio: "Weserhalle’s purpose is to create a space for artistic expression, conversation, learning and engagement. Through our various formats and by showcasing local and emerging artists, we seek to establish a dialogue and cultural exchange within the neighbourhood and the wider Neukölln/Berlin community.
-                         By exploring alternative modes of cultural production, artistic expression, discourse and connection we aim to question prevailing modes of practice within the art world, which are characterized by precarity, lack of accessibility and a constant risk of capitalist subsumption. Instead we seek to foster networks of mutual care and creative exchange within our neighbourhood and beyond. We strive to position ourselves as a recognisable, positive force in the (creative) community, creating meaningful exchange and connection for all involved.")
-image = URI.open("https://res.cloudinary.com/diucx7fqo/image/upload/v1615297412/weserhalle_ujjvqg.jpg")
-weserhalle.avatar.attach(io: image, filename: "weserhalle", content_type: "image/png")
-weserhalle.interest_list.add("Build long-lasting networks based on cultural discourse and care")
-weserhalle.interest_list.add("Engage in sustainable exchange with the neighbourhood")
-weserhalle.interest_list.add("Foster collaboration, conversation and discourse")
-weserhalle.interest_list.add("Compensate everyone fairly")
-weserhalle.interest_list.add("Ensure accessibility to the space and its programming")
-weserhalle.interest_list.add("Cultivate cultural equity")
-weserhalle.interest_list.add("Promote local and emerging artists and their work")
-weserhalle.save
-
-auction_6 = Project.new(user: weserhalle, title: "Auction 6 - Group Show",
-                        start_date: Date.parse('01-09-2021'),
-                        end_date: Date.parse('01-11-2021'),
-                        location: weserhalle.location,
-                        description: "With a focus on locally produced art, Weserhalle is committed to supporting new and emerging artists in Berlin to provide a platform for their professional artistic development. Additionally, the exhibition Auction 6 consciously works within the limitations determined by the current conditions of the world—namely, a global pandemic—to find new curatorial possibilities within extraordinary and challenging circumstances. This also gives us the opportunity to re-establish the gallery’s core directives: to remain a consistent and active member of the local community, while considering community health and safety. To this end, Auction 6 will assume a de-centralised format to become the second auction in which the bidding takes place online.
-                        In previous auctions at Weserhalle, over 90% of the participating artists and buyers were local to Neukölln. The community-oriented programme of Weserhalle emphasises connection and conviviality, with an intention to generate community networks of artist support and neighbourhood engagement. By taking this localised approach, we aim to raise funds to enable both our gallery and the artists we support to continue producing their respective work, while also maintaining a significant connection to the surrounding neighbourhood. We intend to preserve this community building initiative as central to our curatorial programme, using the online auction format to expand the reach of the gallery for the benefit of the artists we support. Additionally, in order to make art accessible to a wide range of visitors, artworks will be priced at a scale of affordability. ")
-image = URI.open("https://res.cloudinary.com/diucx7fqo/image/upload/v1615298435/weserhalle-auction-6_y3nyys.jpg")
-auction_6.photo.attach(io: image, filename: "auction_6", content_type: "image/png")
-auction_6.tag_list = %w[ auction opencall weserhalle neukölln ]
-auction_6.save
+folklore = Project.new(user: serge, title: "Folklore and traditions",
+                         start_date: Date.parse('01-08-2021'),
+                         end_date: Date.parse('30-08-2021'),
+                         location: serge.location,
+                         description: "Pictures cannot be considered to be merely documents. They are also able to capture, preserve, interpret and reinvent occurrences, situations, places that are progressively disappearing or - on the contrary - still surviving, like folklore and traditions. This call aims to collect photographs that are capable of catching the essence, the traditional part of our society - e.g. agricultural objects that are not in use anymore, practices or celebrations, folkloristic costumes, ethnic museums and collections. In other words, everything reminding us of our roots, of the most genuine side of the society we live in.")
+image = URI.open("https://res.cloudinary.com/diucx7fqo/image/upload/v1615315345/folklore_njkedb.jpg")
+folklore.photo.attach(io: image, filename: "folklore", content_type: "image/png")
+folklore.tag_list = %w[ opencall exhibition ]
+folklore.save
 
 not_cancelled = Project.new(user: weserhalle, title: "Not Cancelled Group Show",
                             start_date: Date.parse('06-06-2021'),
@@ -503,64 +583,6 @@ not_cancelled.photo.attach(io: image, filename: "not_cancelled", content_type: "
 not_cancelled.tag_list = %w[ exhibition opencall weserhalle neukölln ]
 not_cancelled.save
 
-puts " \n "
-puts "Weserhalle and related projects created"
-
-gh36 = User.create(email: "gh36@email.com", password: "123456", username: "GH36", first_name: "Galerie", last_name: "GH36", location: "Berlin",
-                   bio: "Galerie GH36 began in 2011 with space in need for a multi-disciplinary artist group from Berlin’s WideScope Collective (K.Mutant and Berlin based community)  http://widescopecollective.de/
-
-Since the winter of 2012, the space and community has developed and morphed with the same goals in mind. “Pushing magnetism, thought and enjoyment to and through people via art, positive social interaction and music. Along with the realization of tools and technical platform for related aesthetics, interaction and commerce.
-
-Previously GH36 has mostly been utilized  as a modern art Gallery and experiencing different curators, gallerists, artists of all mediums and students. In between and at times, GH36 has been rented out or utilized for other purposes: Atellier, Recording Studio, Fashion Showroom, Photography Studio, Mini Theater, Performance Venue, Event Bar, Jewelery Store and other artistic art, craft or creative endeavors.
-
-Today GH36 is the private music, technical and artistic atelier from AAtics. And at times inviting other musicians, producers, artists, curators, technologists, architects and philosophers for private high level interactions for future presentations..
-
-GH36 is located in Berlin Mitte, in the heart of the art district on the Grosse Hamburger Str.
-
-We hope to look forward to communicating with you personally.")
-image = URI.open("https://res.cloudinary.com/diucx7fqo/image/upload/v1615305297/gh36logo_p4irls.png")
-gh36.avatar.attach(io: image, filename: "weserhalle", content_type: "image/png")
-gh36.save
-
-holly_daze = Project.new(user: gh36, title: "Group Exhibition - Holly Daze",
-                         start_date: Date.parse('01-11-2021'),
-                         end_date: Date.parse('18-12-2021'),
-                         location: gh36.location,
-                         description: "Holly Daze. Group XhibisMus Special. A good time for giving thanks for the tranquility given by the ethics of nature and giving of gifts anonymously or in genuine form.
-The Holly Daze group exhibition brings together 13 positive local exploring Berlin artists which naturally form over time with relative spontaneous interaction.
-This Friday, December 6th, from 15uhr-23uhr - art, music, drinks and sweets are available to the public for the opening and viewing of the artists works, reading materials, discussions at the PhiloBar, checking out Rudi and perhaps finding a gift that fits one's self or other's collections, good feelings and personal specialties.
-Over the 3 weeks, artists will be in the Gallery at varied times with schedule to come for your further curiosities.")
-image = URI.open("https://res.cloudinary.com/diucx7fqo/image/upload/v1615305840/78685619_2910024119091319_7364869907541917696_o_b5jzqb.jpg")
-holly_daze.photo.attach(io: image, filename: "holly_daze", content_type: "image/png")
-holly_daze.tag_list = %w[ Berlin opencall GH36 exhibition ]
-holly_daze.save
 
 puts " \n "
-puts "GH36 created"
-
-amanda_burke = User.create(email: "burke@email.com", password: "123456", username: "amandaburke", first_name: "Amanda", last_name: "Burke", location: "Winnipeg",
-                            bio: "Amanda Burke is an independent curator based in Winnipeg. She holds an MFA in art history and curatorial practice from York University in Toronto. Her undergraduate degree is in history and art history, from the University of Winnipeg. In 2009-10 Western was Aboriginal Curator-in-Residence at Winnipeg’s Plug In Institute of Contemporary Art and Urban Shaman Contemporary Aboriginal Art Gallery. She currently works as collections coordinator at the University of Manitoba. Some of her recent exhibitions include co-curatorial projects Hovercraft, at the Art Gallery of Southwestern Manitoba, in Brandon; The Ephemerals: Trending, for Gallery 1C03 in Winnipeg; and Close Encounters: The Next 500 Years, for Plug In ICA.")
-image = URI.open("https://res.cloudinary.com/diucx7fqo/image/upload/v1615303707/roberta_xc4t1u.jpg")
-amanda_burke.avatar.attach(io: image, filename: "amanda_burke", content_type: "image/png")
-amanda_burke.interest_list.add("Aboriginal art", "Conceptual art", "Video", "Performance")
-amanda_burke.skill_list.add("Curator", "Curator-in-Residence", "Coordinator", "Art history")
-amanda_burke.save
-
-the_ephemerals = Project.new(user: amanda_burke, title: "The Ephemerals: Trending",
-                             start_date: Date.parse('05-04-2021'),
-                             end_date: Date.parse('05-06-2021'),
-                             description: "In online social networking sites, the concept of 'trending' demarcates a noted increase in the popularity of a specific thing or topic among a large group of internet users. In the wider world, a fashion trend indicates an upward shift of interest in a particular style or mode of dress by a number of people. A recent trend that has found its way into runway shows and suburban malls alike is an Indigenously-inspired look involving apparel such as leather mukluks, beaded headbands and feathered accessories. Clothing remains an important element within an Aboriginal art history as well as in contemporary creative culture where questions of appropriation and freedom of expression are beginning to erupt around this issue.")
-image = URI.open("https://res.cloudinary.com/diucx7fqo/image/upload/v1615304115/103680649_10157460668107879_3771724203750008978_o_s8cmyd.jpg")
-the_ephemerals.photo.attach(io: image, filename: "the_ephemerals", content_type: "image/png")
-the_ephemerals.tag_list = %w[ aboriginal woman indiginous ]
-the_ephemerals.save
-
-puts " \n "
-puts "Amanda Burke created"
-
-puts " \n "
-puts "Created pro users and related projects"
-puts " \n "
-
-
 puts "----------------------SEED ENDED----------------------"

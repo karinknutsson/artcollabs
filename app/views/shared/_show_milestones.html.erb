@@ -19,10 +19,10 @@
       <% if index < @milestones.length - 1 %>
         <div class="line-container">
           <div style="height: 14px;"></div>
-            <% if @milestones[index + 1].completed == true %>
-              <div class="line-incomplete"></div>
-            <% else %>
+            <% if @milestones.sort[index + 1].completed == true %>
               <div class="line-complete"></div>
+            <% else %>
+              <div class="line-incomplete"></div>
             <% end %>
         </div>
       <% end %>

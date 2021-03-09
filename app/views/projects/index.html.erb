@@ -4,27 +4,27 @@
 
     <div class="index-card">
       <%= link_to project_path(project) do %>
-      <div class="card-image">
-        <% if project.photo.attached? %>
-          <%= image_tag project.photo %>
-        <% else %>
-          <%= image_tag "clouds.jpg" %>
-        <% end %>
-      </div>
-      <div class="card-title">
-        <h6><%= project.title %></h6>
-      </div>
-      <div class="card-roles">
-        <i class="fas fa-user-circle user-icon icon-black"></i><i class="fas fa-user-circle user-icon icon-grey"></i> 3 more people can join
-      </div>
-      <div class="card-tags">
-        <% if project.tag_list %>
-          <% project.tag_list.each do |tag| %>
-            <span class="a-tag"><%= link_to tag, tagged_path(tag: tag) %></span>
+        <div class="card-image">
+          <% if project.photo.attached? %>
+            <%= image_tag project.photo %>
+          <% else %>
+            <%= image_tag "clouds.jpg" %>
           <% end %>
-        <% end %>
-      </div>
+        </div>
+        <div class="card-title">
+          <h6><%= project.title %></h6>
+        </div>
+        <div class="card-roles">
+          <i class="fas fa-user-circle user-icon icon-black"></i><i class="fas fa-user-circle user-icon icon-grey"></i> 3 more people can join
+        </div>
       <% end %>
+        <div class="card-tags">
+          <% if project.tag_list %>
+            <% project.tag_list.each do |tag| %>
+              <span class="a-tag"><%= link_to tag, tagged_path(tag: tag) %></span>
+            <% end %>
+          <% end %>
+        </div>
       <div class="card-footer user-avatar">
         <%= link_to profile_path(project.user), class: "a-footer" do %>
           <% if project.user.avatar.attached? %>
