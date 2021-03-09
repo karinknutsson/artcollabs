@@ -7,6 +7,8 @@
       <div class="card-image">
         <% if project.photo.attached? %>
           <%= image_tag project.photo %>
+        <% else %>
+          <%= image_tag "clouds.jpg" %>
         <% end %>
       </div>
       <div class="card-title">
@@ -23,9 +25,17 @@
         <% end %>
       </div>
       <% end %>
-      <div class="card-footer">
-        <%= image_tag project.user.avatar %>
-        <h6><a href="#"><%= project.user.username %></a></h6>
+      <div class="card-footer user-avatar">
+        <%= link_to profile_path(project.user), class: "a-footer" do %>
+          <% if project.user.avatar.attached? %>
+            <%= image_tag project.user.avatar %>
+          <% else %>
+            <div class="avatar-member">
+              <%= render "shared/avatar" %>
+            </div>
+          <% end %>
+          <h6><%= project.user.username %></h6>
+        <% end %>
       </div>
     </div>
 

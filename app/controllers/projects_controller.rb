@@ -97,7 +97,7 @@ class ProjectsController < ApplicationController
   # ❌ not displaying tagged projects
   def tagged
     if params[:tag].present?
-      @projects = Project.tagged_with(params[:tags])
+      @projects = Project.tagged_with(params[:tag])
       authorize @projects
     else
       @projects = policy_scope(Project).order(created_at: :desc)
