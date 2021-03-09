@@ -238,6 +238,7 @@ counter = 0
   random_project.photo.attach(io: image, filename: "name", content_type: "image/png")
   random_project.tag_list = tag_generator
   random_project.save
+  sleep(0.5)
 end
 
 puts " \n "
