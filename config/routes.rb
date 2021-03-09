@@ -22,7 +22,6 @@ Rails.application.routes.draw do
   resources :projects do
     resources :collaborations
     resources :milestones
-    patch 'milestones/:id', to: 'milestones#status', as: "status_milestone"
     resources :favourite_projects, only: [ :new, :create, :destroy ]
   end
 
@@ -37,7 +36,9 @@ Rails.application.routes.draw do
   patch '/confirm/:id', to: 'collaborations#confirm', as: "confirm"
   patch '/confirm/:id', to: 'collaborations#deny', as: "deny"
 
+  patch '/milestones/:id', to: 'milestones#status', as: "status_milestone"
 
-  
+
+
   mount ActionCable.server => "/cable"
 end

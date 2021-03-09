@@ -25,7 +25,11 @@ require("channels")
 
 // Delete will work on Edge
 
+//= require jquery
 //= require jquery_ujs
+//= require rails-ujs
+//= require bootstrap
+//= require_tree
 
 // External imports
 import "bootstrap";
@@ -121,4 +125,18 @@ function fade_out() {
   $(".alert").fadeOut().empty();
 }
 
+// Scrolling for timeline
+function scroll_to(position) {
+  const element_to_scroll_to = document.getElementById(position);
+  element_to_scroll_to.scrollIntoView();
+}
+
+function add_links(amount) {
+  console.log(amount);
+  // const dot_button = document.getElementById('dot-5');
+  // dot_button.addEventListener('click', function(event) {
+  //   const element = '5';
+  //   element.scrollIntoView();
+  // })
+}
 

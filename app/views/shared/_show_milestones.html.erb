@@ -1,12 +1,52 @@
 <div class="tab-show-container container">
-  <% @milestones.each do |milestone| %>
-    <% if milestone.completed == true %>
-      completed
-    <% end %>
+  <div class="timeline-container">
+    <% @milestones.sort.each_with_index do |milestone, index| %>
 
-    <h2><%= milestone.title %></h2>
-    <p><%= milestone.description %></p>
-    
+      <div class="milestone-container">
+        <div id="dot-<%= @counter %>">
+          <% if milestone.completed == true %>
+            <%= render "shared/milestone_complete" %>
+            <h6 class="complete"><%= @counter %></h6>
+          <% else %>
+            <%= render "shared/milestone_incomplete" %>
+            <h6 class="incomplete"><%= @counter %></h6>
+          <% end %>
+        </div>
+      </div>
+
+      <% @counter += 1 %>
+
+      <% if index < @milestones.length - 1 %>
+        <div class="line-container">
+          <div style="height: 14px;"></div>
+            <% if @milestones[index + 1].completed == true %>
+              <div class="line-incomplete"></div>
+            <% else %>
+              <div class="line-complete"></div>
+            <% end %>
+        </div>
+      <% end %>
+
+    <% end %>
+  </div>
+
+  <br><br><br>
+
+  <% @counter = 1 %>
+
+  <% @milestones.sort.each do |milestone| %>
+    <div class="milestone-item" id="<%= @counter %>">
+      <h6 class="number"><%= @counter %> <%= milestone.title %> (<%= milestone.id %>)</h6>
+      <p><%= milestone.description %></p>
+      <div class="float-right">
+        <% if milestone.completed != true %>
+          <%= button_to "Mark completed", status_milestone_path(milestone), method: :patch %>
+        <% end %>
+      </div>
+    </div>
+
+    <% @counter += 1 %>
+
     <%#= link_to "mark as completed", status_milestone_path(milestone) %>
     <%#= button_to "Delete milestone", project_milestone_path(@project, milestone), method: :delete, data: { confirm: "delete milestone named: '#{@milestone.title}' ?" } %>
   <% end %>
@@ -29,10 +69,8 @@
       <div class="modal-body">
         <%= render "shared/milestones_form"%>
       </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-      </div>
     </div>
   </div>
 </div>
 
+<%= javascript_tag "add_links(" + @counter.to_s + ")" %>

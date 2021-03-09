@@ -1,7 +1,11 @@
 <%= simple_form_for [@project, @milestone], url: project_milestones_path(@project, tab: "milestone") do |f| %>
   <%#= f.hidden_field :project, input_html: { value: params["milestone"] } %>
-  <%= f.input :title %>
-  <%= f.input :description %>
+  <%= f.input :title,
+              input_html: {class: "artcollabs-input" } %>
+  <%= f.input :description,
+              input_html: {class: "artcollabs-input bio" } %>
   <%= f.input :completed %>
-  <%= f.submit %>
+  <div class="float-right">
+    <%= f.submit %>
+  </div>
 <% end %>

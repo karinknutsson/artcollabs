@@ -84,3 +84,51 @@
     font-size: 10pt;
   }
 }
+
+.timeline-container {
+  margin-top: 80px;
+  margin-bottom: 40px;
+  padding: 16px;
+  width: 100%;
+  display: flex;
+}
+
+.milestone-container {
+  width: 32px;
+  height: 32px;
+  text-align: center;
+  h6.complete {
+    color: $warm-yellow;
+    font-family: "futurateebold", Futura, Helvetica, sans-serif;
+  }
+  h6.incomplete {
+    color: $grey-med;
+    font-family: "futurateebold", Futura, Helvetica, sans-serif;
+  }
+}
+
+.milestone-item {
+  padding: 16px;
+  width: 40vw;
+  h6.number {
+    font-family: "futurateebold", Futura, Helvetica, sans-serif;
+    color: $grey-med;
+  }
+}
+
+.line-container {
+  width: 80px;
+  flex-grow: 1;
+}
+
+.line-complete {
+  width: 100%;
+  height: 4px;
+  background-color: $warm-yellow;
+}
+
+.line-incomplete {
+  width: 100%;
+  height: 4px;
+  background-color: $grey-light-med;
+}

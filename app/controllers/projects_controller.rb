@@ -7,8 +7,11 @@ class ProjectsController < ApplicationController
   def show
     @user = current_user
     @collaboration = Collaboration.new
+
     @milestone = Milestone.new
     @milestones = Milestone.where(project_id: @project)
+    @counter = 1
+
     @collabs = Collaboration.where(project_id: @project, status: "confirmed")
     @project_collabs = Collaboration.where(project_id: @project)
     @pending_collabs = Collaboration.where(project_id: @project, status: nil)
@@ -29,7 +32,6 @@ class ProjectsController < ApplicationController
     @project = @project_chat.project
     @message = Message.new
     authorize @project_chat
-
   end
 
   def index
@@ -76,10 +78,10 @@ class ProjectsController < ApplicationController
       # redirect_to session.delete(:return_to)
       if params[:tab] == "media"
         redirect_to project_path(@project, tab: :media)
-      else  
+      else
         redirect_to project_path(@project)
       end
-  
+
       flash[:notice] = " \n #{@project.title} was edited"
     else
       render :edit

@@ -37,3 +37,12 @@ input[type=submit]:hover {
   margin-top: 180px;
   margin-bottom: 120px;
 }
+
+.form-avatar {
+  margin: 0;
+  width: 25vw;
+  padding: 0;
+  img {
+    width: 100%;
+  }
+}

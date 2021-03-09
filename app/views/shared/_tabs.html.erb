@@ -52,7 +52,8 @@
           <%= render "shared/about_visitor" %>
         <% end %>
       </div>
-      </div>
+
+    </div>
 
       <!-- TIMELINE -->
       <div class="tab-pane fade <%= 'active show' if params[:tab] == "milestone" %>" id="timeline" role="tabpanel" aria-labelledby="timeline-tab">
@@ -60,7 +61,6 @@
           <%= render "shared/show_milestones" %>
         <% end %>
       </div>
-      
 
       <!-- MEDIA -->
       <div class="tab-pane fade <%= 'active show' if params[:tab] == "media" %>" id="media" role="tabpanel" aria-labelledby="media-tab">
@@ -69,11 +69,8 @@
           <%= render "shared/media" %>
         <% end %>
       </div>
-      
+
       <div class="tab-pane fade" id="chat" role="tabpanel" aria-labelledby="chat-tab">
         <%= render "shared/project_chat" %>
       </div>
 
-
-  </div>
-</div>
