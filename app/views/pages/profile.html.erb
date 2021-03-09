@@ -12,9 +12,9 @@
       </div>
 
       <div class="profile-text">
-        <h5>Interests</h5>
         <div class="card-tags">
-        <% if @user.interest_list %>
+        <% if @user.interest_list.length.positive? %>
+          <h5>Interests</h5>
           <% @user.interest_list.each do |interest| %>
             <span class="a-tag"><%= link_to interest, users_path(interest: interest) %></span>
           <% end %>
@@ -23,9 +23,9 @@
       </div>
 
       <div class="profile-text">
-        <h5>Skills</h5>
         <div class="card-tags">
-        <% if @user.skill_list %>
+        <% if @user.skill_list.length.positive? %>
+          <h5>Skills</h5>
           <% @user.skill_list.each do |skill| %>
             <span class="a-tag"><%= link_to skill, users_path(skill: skill) %></span>
           <% end %>
