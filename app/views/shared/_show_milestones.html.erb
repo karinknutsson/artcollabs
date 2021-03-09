@@ -35,12 +35,12 @@
   <% @counter = 1 %>
 
   <% @milestones.sort.each do |milestone| %>
-    <div class="milestone-item" id="<%= @counter %>">
+    <div class="milestone-item" id="milestone-<%= milestone.id %>">
       <h6 class="number"><%= @counter %> <%= milestone.title %> (<%= milestone.id %>)</h6>
       <p><%= milestone.description %></p>
       <div class="float-right">
         <% if milestone.completed != true %>
-          <%= button_to "Mark completed", status_milestone_path(milestone), method: :patch %>
+          <%= button_to "Mark completed", project_status_milestone_path(@project, milestone), method: :patch, data: { confirm: "Are you sure?" }  %>
         <% end %>
       </div>
     </div>

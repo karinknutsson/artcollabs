@@ -23,6 +23,12 @@ Rails.application.routes.draw do
     resources :collaborations
     resources :milestones
     resources :favourite_projects, only: [ :new, :create, :destroy ]
+
+    patch '/milestone/:id', to: 'milestones#status', as: "status_milestone"
+
+    # member do
+    #   patch :milestones, only: [:status]
+    # end
   end
 
   get '/tagged', to: "projects#tagged", as: :tagged
@@ -36,7 +42,7 @@ Rails.application.routes.draw do
   patch '/confirm/:id', to: 'collaborations#confirm', as: "confirm"
   patch '/confirm/:id', to: 'collaborations#deny', as: "deny"
 
-  patch '/milestones/:id', to: 'milestones#status', as: "status_milestone"
+ 
 
 
 
