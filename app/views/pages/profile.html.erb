@@ -57,7 +57,13 @@
 
       <div class="profile-card">
         <h5>Media uploads</h5>
-        <br><br>
+        <% if @user.photos.attached? %>
+          <% @user.photos.each |photo| %>
+              <a href="#">
+                <%= image_tag media %>
+              </a>
+          <% end %>  
+        <% end %> 
       </div>
     </div>
 

@@ -7,4 +7,13 @@ class UsersController < ApplicationController
   def user_params
     params.require(:user).permit(:name, :tag_list, :avatar, :photos, :skill_list, :interest_list) ## Rails 4 strong params usage
   end
+
+  def tagged
+    if params[:interest].present?
+      @users = User.tagged_with(params[:interest])
+      authorize @users
+    else
+      @users = policy_scope(User).order(created_at: :desc)
+    end
+  end
 end
