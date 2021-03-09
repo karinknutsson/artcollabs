@@ -17,7 +17,7 @@ class MilestonesController < ApplicationController
     authorize @milestone
     if @milestone.save
       if params[:tab] == "milestone"
-        redirect_to project_path(@project, tab: :milestone)
+        redirect_to project_path(@project, tab: :milestone, anchor: "milestone-#{@milestone.id}")
         flash[:notice] = " Milestone was created"
       end
     else
@@ -51,6 +51,11 @@ class MilestonesController < ApplicationController
   def status
     authorize @milestone
     @milestone.completed = true
+    @project = @milestone.project
+    if @milestone.save
+      redirect_to project_path(@project, tab: :milestone, anchor: "milestone-#{@milestone.id}")
+      flash[:notice] = "Milestone was marked as completed"
+    end
   end
 
   private
