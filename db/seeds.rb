@@ -482,15 +482,6 @@ tehran.photo.attach(io: image, filename: "tehran", content_type: "image/png")
 tehran.tag_list = %w[ tehran iran music contemporary ]
 tehran.save
 
-take_place = Project.new(title: "Take Place, 100 artists in a white cube", user: dummy1, location: "Berlin", start_date: Date.parse('01-08-2021'), end_date: Date.parse('10-08-2021'),
-                         description: "The exhibition invites 100 Berlin-based artists to come into an empty gallery space and their presence becomes part of the work. It aims to go beyond the usual bound that separates the artist and the performer from the public, and invite the public to participate in the artist’s experience and to the artist’s point of view.
-                         As a response to Institut für Alles Mögliche, Take Place Ⅰ fills the 20 square meter gallery space with artists. Presented through the window wall towards the street, the work consists of live encounters between people, while the material is the artists or the artists’ presence. During the opening hour, street passengers and visitors are welcome to come into the gallery. Once they enter the gallery, the audiences become parts of the work. With artists standing, sitting and chatting in the space, the work erases the difference between the artists and visitors, and questions the general expectations towards an exhibition. It exists as a performance, an interaction, and an immaterial experience.
-                         In Take Place ⅠⅠ, a group of artists sit on three rows of stadium seats inside the gallery facing the window, and stare at the street through the entire opening hours. Rather than being observed, the work is observing whatever is happening outside the gallery and creating an unfamiliar situation for both the artists and the viewers. And the work itself is held in the moments of these encounters. Through these encounters, the work challenges the viewers’ as well as the artists’ roles and participations in a work and in an exhibition, blurring the lines between the making, presenting, and experiencing of an art piece.")
-image = URI.open("https://res.cloudinary.com/diucx7fqo/image/upload/v1615388104/take_place_jzok5q.jpg")
-take_place.photo.attach(io: image, filename: "take_place", content_type: "image/png")
-take_place.tag_list = %w[ whitecube opencall performance berlin ]
-take_place.save
-
 female_side = Project.new(title: "The female side of the moon", description: " THE FEMALE SIDE OF THE MOON pursues the female gaze. But rather than examining what it is and if such a thing ever exists, it wants to render and foster the multiplicity of the looks of women* towards women*. The bodies photographed turn into the cracks of the earth, they witness the restless geographies they arise from. Much of Maple‘s work is inspired by feminism and gender politics. She is interested in the part shame plays in womens’ lives,
 be that how they take up space in the world, their physical appearance, their bodily functions or blame culture.
 Maple is interested in how we can change the visual narrative for women as a form of empowerment. In much of this work
@@ -615,6 +606,15 @@ new_message = DirectMessage.create(chatroom: Chatroom.last, user: User.last, con
 
 puts " \n "
 puts "Creating very last projects"
+
+take_place = Project.new(title: "Take Place, 100 artists in a white cube", user: dummy1, location: "Berlin", start_date: Date.parse('01-08-2021'), end_date: Date.parse('10-08-2021'),
+                         description: "The exhibition invites 100 Berlin-based artists to come into an empty gallery space and their presence becomes part of the work. It aims to go beyond the usual bound that separates the artist and the performer from the public, and invite the public to participate in the artist’s experience and to the artist’s point of view.
+                         As a response to Institut für Alles Mögliche, Take Place Ⅰ fills the 20 square meter gallery space with artists. Presented through the window wall towards the street, the work consists of live encounters between people, while the material is the artists or the artists’ presence. During the opening hour, street passengers and visitors are welcome to come into the gallery. Once they enter the gallery, the audiences become parts of the work. With artists standing, sitting and chatting in the space, the work erases the difference between the artists and visitors, and questions the general expectations towards an exhibition. It exists as a performance, an interaction, and an immaterial experience.
+                         In Take Place ⅠⅠ, a group of artists sit on three rows of stadium seats inside the gallery facing the window, and stare at the street through the entire opening hours. Rather than being observed, the work is observing whatever is happening outside the gallery and creating an unfamiliar situation for both the artists and the viewers. And the work itself is held in the moments of these encounters. Through these encounters, the work challenges the viewers’ as well as the artists’ roles and participations in a work and in an exhibition, blurring the lines between the making, presenting, and experiencing of an art piece.")
+image = URI.open("https://res.cloudinary.com/diucx7fqo/image/upload/v1615388104/take_place_jzok5q.jpg")
+take_place.photo.attach(io: image, filename: "take_place", content_type: "image/png")
+take_place.tag_list = %w[ whitecube opencall performance berlin ]
+take_place.save
 
 the_ephemerals = Project.new(user: amanda_burke, title: "The Ephemerals: Trending",
                              start_date: Date.parse('05-04-2021'),

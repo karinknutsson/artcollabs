@@ -10,6 +10,28 @@
   background-color: $dark-blue;
 }
 
+.btn-white {
+  background: white;
+  color: $dark-blue !important;
+  transition: background 1s;
+}
+
+.btn-white:hover {
+  background: $warm-red;
+  color: white !important;
+}
+
+.btn-white-outline {
+  border: 2px solid white;
+  transition: background 1s;
+}
+
+.btn-white-outline:hover {
+  color: white !important;
+  border: 0;
+  background: $warm-red;
+}
+
 .btn-disabled {
   margin: 0 0 16px 0;
   background-color: $grey-light-med;
@@ -22,7 +44,7 @@
   background-color: $warm-red;
   width: 240px;
   text-align: center;
-  transition: background 1.2s;
+  transition: background 1s;
 }
 
 .btn-warm-red:hover {
@@ -35,7 +57,7 @@
   width: 240px;
   text-align: center;
   color: $warm-red;
-  transition: background 1.2s;
+  transition: background 1s;
 }
 
 .btn-warm-red-outline:hover {
@@ -48,7 +70,7 @@
   background-color: $grey-dark;
   width: 240px;
   text-align: center;
-  transition: background 1.2s;
+  transition: background 1s;
 }
 
 .btn-grey:hover {
@@ -77,8 +99,14 @@
   border-radius: 50px;
   font-family: "futurateemedregular", Futura, Helvetica, sans-serif;
   font-size: 14pt;
-  background-color: $dark-blue;
+  background-color: $warm-red;
   color: white;
+  transition: background 1s;
+}
+
+.btn-home-explore:hover {
+  color: white;
+  background-color: $warm-yellow;
 }
 
 #message-btn {
