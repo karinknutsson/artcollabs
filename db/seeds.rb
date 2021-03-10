@@ -53,6 +53,7 @@ def avatar_generator
   "https://res.cloudinary.com/diucx7fqo/image/upload/v1615389994/131095149_10159344369656803_7672496422223214144_o_bj8vx8.jpg",
   "https://res.cloudinary.com/diucx7fqo/image/upload/v1615389970/1385603_10202277040554564_497888576_n_u7okfs.jpg",
   "https://res.cloudinary.com/diucx7fqo/image/upload/v1615389960/153570563_10224319594714881_8119968243381150920_o_j3j5la.jpg",
+  "https://res.cloudinary.com/diucx7fqo/image/upload/v1615397679/bjarne-pedersen.1024x1024_w0jaeo.jpg",
   "https://res.cloudinary.com/diucx7fqo/image/upload/v1615389948/78671526_10220267721540731_6379688930500935680_n_dz85ej.jpg",
   "https://res.cloudinary.com/diucx7fqo/image/upload/v1615389829/chloe_sevigny_gummo_bleached_eyebrows_galore_mag_ugtcbp.jpg",
   "https://res.cloudinary.com/diucx7fqo/image/upload/v1615395701/Lempertz-1052-785-Contemporary-Art-Bjarne-Melgaard-Untitled_tkqlqg.jpg",
@@ -270,7 +271,6 @@ counter = 0
   random_project.photo.attach(io: image, filename: "name", content_type: "image/png")
   random_project.tag_list = tag_generator
   random_project.save
-  sleep(0.5)
 end
 
 puts " \n "
