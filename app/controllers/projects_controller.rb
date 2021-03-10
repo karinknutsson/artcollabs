@@ -10,7 +10,7 @@ class ProjectsController < ApplicationController
     set_user_type
     set_user_favourites
     set_chat
-  
+
     authorize @project
   end
 
@@ -92,7 +92,7 @@ class ProjectsController < ApplicationController
   end
 
   def collab_logic
-    if collaboration.confirmed == true
+    if @collaboration.confirmed == true
       @user_type = :collaborator
     else
       @user_type = :pending
@@ -148,7 +148,7 @@ class ProjectsController < ApplicationController
     else
       redirect_to project_path(@project)
     end
-    flash[:notice] = " \n #{@project.title} was edited."  
+    flash[:notice] = " \n #{@project.title} was edited."
   end
 
   def set_previous_page

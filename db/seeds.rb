@@ -41,13 +41,20 @@ def location_generator
 end
 
 def role_generator
- ["Painter", "Model", "Photographer", "MUA", "HMUA", "Musician", "Video Artist", "Sculptor", "Filmmaker", "FX", "Creative Director", "Actor", "Performance Artist", "Digital Artist", "3D artist", "Motion Graphic Artist", "Generative Artist", "Editor", "Support", "Writer", "Dancer", "Coreographer", "Designer", "Developer", "Programmer", "Research", "Animator", "Illustrator", "Fashion Designer", "Colorist", "Planner", "Hair Artist", "Floral Artist", "Lyricist", "Potter", "Set Design", "Singer", "Architect", "Fine Artist", "Tattoo Artist", "Scenographer", "Producer", "Executive Producer", "Dramaturge", "Lighting Designer", "Costume Designer", "Stylist", "Sound Designer", "Composer", "Carpenter", "Curator", "Gallery Owner", "Art Historian" ].sample
+ ["Painter", "Model", "Photographer", "MUA", "Musician", "Video Artist", "Sculptor", "Filmmaker", "FX", "Creative Director", "Actor", "Performance Artist", "Digital Artist", "3D artist", "Motion Graphic Artist", "Generative Artist", "Editor", "Writer", "Dancer", "Designer", "Developer", "Animator", "Illustrator", "Fashion Designer", "Colorist", "Set Design", "Singer", "Architect", "Fine Artist", "Tattoo Artist", "Scenographer", "Producer", "Lighting Designer", "Costume Designer", "Stylist", "Sound Designer", "Composer", "Carpenter", "Curator", "Gallery Owner", "Art Historian" ].sample
 end
 
 @avatar_count = -1
 
 def avatar_generator
   avatar = [
+  "https://res.cloudinary.com/diucx7fqo/image/upload/v1615390157/gettyimages-78069152-1572016619_qw3sw4.jpg",
+  "https://res.cloudinary.com/diucx7fqo/image/upload/v1615389994/131095149_10159344369656803_7672496422223214144_o_bj8vx8.jpg",
+  "https://res.cloudinary.com/diucx7fqo/image/upload/v1615389980/22282002_1545300382195611_4701986549921846984_n_ymbsah.jpg",
+  "https://res.cloudinary.com/diucx7fqo/image/upload/v1615389970/1385603_10202277040554564_497888576_n_u7okfs.jpg",
+  "https://res.cloudinary.com/diucx7fqo/image/upload/v1615389960/153570563_10224319594714881_8119968243381150920_o_j3j5la.jpg",
+  "https://res.cloudinary.com/diucx7fqo/image/upload/v1615389948/78671526_10220267721540731_6379688930500935680_n_dz85ej.jpg",
+  "https://res.cloudinary.com/diucx7fqo/image/upload/v1615389829/chloe_sevigny_gummo_bleached_eyebrows_galore_mag_ugtcbp.jpg",
   "https://res.cloudinary.com/diucx7fqo/image/upload/v1615307228/83757710_10215744581708193_7794459232341852160_n_wh8yb3.jpg",
   "https://res.cloudinary.com/diucx7fqo/image/upload/v1615307152/10547973_10152550609520930_9199730471116996778_o_ccd4db.jpg",
   "https://res.cloudinary.com/diucx7fqo/image/upload/v1615307127/149090476_3635138179946319_6037103335301104052_o_m8jrwl.jpg",
@@ -107,8 +114,6 @@ def avatar_generator
     @avatar_count = 0
     avatar[@avatar_count]
   end
-
-
 end
 
 def tag_generator
@@ -130,7 +135,7 @@ image = URI.open("https://res.cloudinary.com/det3cfeuo/image/upload/v1614425622/
 admin.avatar.attach(io: image, filename: "admin", content_type: "image/png")
 puts "Created admin 🔧 \n email: #{admin.email}, password: #{admin.password} \n "
 
-dummy1 = User.create(email: "user@artcollabs.com", password: "000000", username: "gabor-mate")
+dummy1 = User.create(email: "user@artcollabs.com", password: "000000", username: "VALERIAN")
 image = URI.open(avatar_generator)
 dummy1.avatar.attach(io: image, filename: "dummy1", content_type: "image/png")
 puts "Created dummy 1 🤡 \n email: #{dummy1.email}, password: #{dummy1.password} \n "
@@ -304,7 +309,7 @@ However, the COVID-19 pandemic has has boostered or provoked new initiatives: In
 The Peripheral Pioneers and Utopia
 
 Many smaller towns, islands and rural areas have for decades experienced evictions following the closure of jobs, educational institutions and the decay of the building stock. The concept of ‘outlying territories has become mainstream. But in an increasingly complex and climate-apocalyptic world, more and more people are dreaming of living the good, simple and literally nourishing life in the countryside. Both in relation to being able to live more sustainably and be more in harmony with nature, be part of local communities, experience less stress and as a (re) discovery of the qualities in the countryside beyond an economic growth ideology. Many choose to do it together and several new self-sufficient housing communities are formed. With the COVID-19 pandemic, this trend seems to have gained further traction, and even more city dwellers are moving to the countryside. As Rem Koolhaas prophetically stated with his exhibition, 'Countryside, The Future', which opened just before the global closure of cities: 'The countryside is where the radical changes are.'What notions of and experiments for settlement and community do we see emerge, and what visions and concrete methods are they built on? What experiences about sustainability can be drawn from the new 'utopias' in the countryside and into urban planning? That the future is urban has been established for a long time, but what if it is also time to look at the rural in our search for sustainable coexistence between humans, species and ecosystems?",
-      budget: "#{budget_generator}", status: "open", max_members: 2, user: random_users.sample, start_date: Date.today, end_date: Date.today+rand(10000))
+      status: "open", max_members: 2, user: random_users.sample, start_date: Date.today, end_date: Date.today+rand(10000))
 image = URI.open("https://res.cloudinary.com/det3cfeuo/image/upload/v1614188113/hx6ajqjojox0px559rf5a428ybx6.jpg")
 intacto.location = intacto.user.location
 intacto.tag_list = %w[ architechture design installation ]
@@ -379,7 +384,7 @@ symptom.save
 algorithm_purpose = Project.new(title: "Algorithm purpose", description: "The computer package SONATA (System of Nearrings and their Applications) has been released and is now used by various researches worldwide (see the included preliminary summary report of the project P11486-TEC). It contains a large library of nearrings and algorithms to compute with them. With its help some theoretical questions could be answered. Many researchers encouraged us to develop this package further, and also promised to support our efforts.
 
 We plan to take a closer view at the algorithmic aspects of nearring theory as well as to using computers for theoretical investigations in this area, within a new project.
-", status: "open", max_members: 2, user: random_users.sample, start_date: Date.today, end_date: Date.today+rand(10000))
+", status: "open", max_members: 2, user: miles, start_date: Date.today, end_date: Date.today+rand(10000))
 image = URI.open("https://res.cloudinary.com/det3cfeuo/image/upload/v1614188126/cx4o7nvorh1q9ahw2qu2m5se5dva.jpg")
 algorithm_purpose.photo.attach(io: image, filename: "algorithm_purpose", content_type: "image/png")
 algorithm_purpose.tag_list = %w[ technology performance music ]
@@ -405,7 +410,7 @@ to form or provide with a joint or joints.
 Should I have smoked it?
 Should you have smoked it?
 
-", budget: "#{budget_generator}", location: "#{location_generator}", status: "open", max_members: 2, user: dummy2, start_date: Date.today, end_date: Date.today+rand(10000))
+", status: "open", max_members: 2, user: dummy2, start_date: Date.today, end_date: Date.today+rand(10000))
 image = URI.open("https://res.cloudinary.com/det3cfeuo/image/upload/v1614188128/5cdt6bbw9inhk4lyffxpltdi4ceq.jpg")
 joints.photo.attach(io: image, filename: "joints", content_type: "image/png")
 joints.tag_list = %w[ cannabis performance political ]
@@ -460,7 +465,7 @@ lento = Project.new(title: "Lento Brutalo", description: "Do commanded an shamel
 
 Considered discovered ye sentiments projecting entreaties of melancholy is. In expression an solicitude principles in do. Hard do me sigh with west same lady. Their saved linen downs tears son add music. Expression alteration entreaties mrs can terminated estimating. Her too add narrow having wished. To things so denied admire. Am wound worth water he linen at vexed.
 
-In this project we aim to approach Satanism and Guns as protection means against far-right movements.", status: "open", max_members: 2, user: noelle, start_date: Date.today, end_date: Date.today+rand(10000))
+In this project we aim to approach Satanism and Guns as protection means against far-right movements.", status: "open", max_members: 2, user: random_users.sample, start_date: Date.today, end_date: Date.today+rand(10000))
 image = URI.open("https://res.cloudinary.com/det3cfeuo/image/upload/v1614188136/7iirlz5h1wohoyfmaadxpmhs8sxf.jpg")
 lento.photo.attach(io: image, filename: "lento", content_type: "image/png")
 lento.tag_list = %w[ satanism performance audio ]
@@ -485,6 +490,25 @@ little_frank.photo.attach(io: image, filename: "little_frank", content_type: "im
 little_frank.tag_list = %w[ performance installation architecture ]
 little_frank.save
 
+tehran = Project.new(title: "Tehran Contemporary Sounds Festival", user: random_users.sample, location: "Berlin", start_date: Date.parse('05-07-2021'), end_date: Date.parse('18-07-2021'),
+                     description: "Tehran Contemporary Sounds was launched in 2018, through the organization of “Gate of Tehran – Days of Experimental Sounds” festival as a Berlin-based hub, for musicians, artists and collectives living abroad as well as in Iran, with the aim to bring together the different voices and forces of the big spectrum of the Iranian contemporary art and music scene, widely spread across the globe.
+TCS will be dedicated to, creating a platform for showcasing the unique talents of the Iranian artists and musicians; creating a cross-border collaboration hub; facilitating a non-political, purely artistic and interdisciplinary dialogue;
+This year, Tehran Contemporary Sounds Festival, in collaboration with Nullsight collective and Zabte Sote label, is bringing together some of the most important talents of the contemporary Iranian electronic/experimental sound artists and musicians, and digital and new media artists.
+In the three days of the festival we’ll have a special showcase of the Zabte Sote artists. An exhibition run by Nullsight collective and a daily number of 6 audio visual performances in Kunstquartier Bethanien Studio 1.")
+image = URI.open("https://res.cloudinary.com/diucx7fqo/image/upload/v1615388410/75093790_693570871136048_6525617299150340096_o_jgjtlz.jpg")
+tehran.photo.attach(io: image, filename: "tehran", content_type: "image/png")
+tehran.tag_list = %w[ tehran iran music contemporary ]
+tehran.save
+
+take_place = Project.new(title: "Take Place, 100 artists in a white cube", user: amanda_burke, location: "Berlin", start_date: Date.parse('01-08-2021'), end_date: Date.parse('10-08-2021'),
+                         description: "The exhibition invites 100 Berlin-based artists to come into an empty gallery space and their presence becomes part of the work. It aims to go beyond the usual bound that separates the artist and the performer from the public, and invite the public to participate in the artist’s experience and to the artist’s point of view.
+                         As a response to Institut für Alles Mögliche, Take Place Ⅰ fills the 20 square meter gallery space with artists. Presented through the window wall towards the street, the work consists of live encounters between people, while the material is the artists or the artists’ presence. During the opening hour, street passengers and visitors are welcome to come into the gallery. Once they enter the gallery, the audiences become parts of the work. With artists standing, sitting and chatting in the space, the work erases the difference between the artists and visitors, and questions the general expectations towards an exhibition. It exists as a performance, an interaction, and an immaterial experience.
+                         In Take Place ⅠⅠ, a group of artists sit on three rows of stadium seats inside the gallery facing the window, and stare at the street through the entire opening hours. Rather than being observed, the work is observing whatever is happening outside the gallery and creating an unfamiliar situation for both the artists and the viewers. And the work itself is held in the moments of these encounters. Through these encounters, the work challenges the viewers’ as well as the artists’ roles and participations in a work and in an exhibition, blurring the lines between the making, presenting, and experiencing of an art piece.")
+image = URI.open("https://res.cloudinary.com/diucx7fqo/image/upload/v1615388104/take_place_jzok5q.jpg")
+take_place.photo.attach(io: image, filename: "take_place", content_type: "image/png")
+take_place.tag_list = %w[ whitecube opencall performance berlin ]
+take_place.save
+
 female_side = Project.new(title: "The female side of the moon", description: " THE FEMALE SIDE OF THE MOON pursues the female gaze. But rather than examining what it is and if such a thing ever exists, it wants to render and foster the multiplicity of the looks of women* towards women*. The bodies photographed turn into the cracks of the earth, they witness the restless geographies they arise from. Much of Maple‘s work is inspired by feminism and gender politics. She is interested in the part shame plays in womens’ lives,
 be that how they take up space in the world, their physical appearance, their bodily functions or blame culture.
 Maple is interested in how we can change the visual narrative for women as a form of empowerment. In much of this work
@@ -496,7 +520,8 @@ female_side.photo.attach(io: image, filename: "female_side", content_type: "imag
 female_side.tag_list = %w[ gender painting performance ]
 female_side.save
 
-freedom = Project.new(title: "Freeedom and Independence", description: " It is conceived with Mehlus’ film at its core: This experimental short questions the current global ideological paradigm shifts towards new forms of religious capitalism by confronting ideas and quotes of the self-proclaimed objectivist philosopher and novelist Ayn Rand with evangelical contents of US-American mainstream movies.", budget: "#{budget_generator}", location: "#{location_generator}", status: "open", max_members: 2, user: random_users.sample, start_date: Date.today, end_date: Date.today+rand(10000))
+freedom = Project.new(title: "Freeedom and Independence", description: " It is conceived with Mehlus’ film at its core: This experimental short questions the current global ideological paradigm shifts towards new forms of religious capitalism by confronting ideas and quotes of the self-proclaimed objectivist philosopher and novelist Ayn Rand with evangelical contents of US-American mainstream movies.",
+                      status: "open", max_members: 2, user: miles, location: miles.location, start_date: Date.today, end_date: Date.today+rand(10000))
 image = URI.open("https://res.cloudinary.com/diucx7fqo/image/upload/v1615308499/The-Science-Behind-Hollywood-Explosions-1_lrqq7q.jpg")
 freedom.photo.attach(io: image, filename: "freedom", content_type: "image/png")
 freedom.tag_list = %w[ video performance installation ]
@@ -534,7 +559,7 @@ Around the middle of the century, sentimentalism set 'untouched' nature against 
 In continental Europe, one aspect of sentimentalism was Empfindsamkeit. The sensitive style (German: empfindsamer Stil) of music, developed in Germany, aimed to express 'true and natural' feelings, in contrast to the baroque.
 
 The origin of sentimentalism in this context was chiefly religious, with the emotionally coloured texts for the oratorios of Johann Sebastian Bach stream being typical examples. Empfindsamkeit is also known as secularized pietism because it frequently came with moralizing content that had increasingly broken free of church and religious ties. An important theorist of the movement was Jean Baptiste Dubos.
-", status: "open", max_members: 2, user: random_users.sample, start_date: Date.today, end_date: Date.today+rand(10000))
+", status: "open", max_members: 2, user: gabi, location: gabi.location, start_date: Date.today, end_date: Date.today+rand(10000))
 image = URI.open("https://res.cloudinary.com/det3cfeuo/image/upload/v1614188145/ee2bl4ps3mq9hqm576sp8qdmnx9q.jpg")
 sensibel.photo.attach(io: image, filename: "sensibel", content_type: "image/png")
 sensibel.tag_list = %w[ sculpture emotions psychology ]

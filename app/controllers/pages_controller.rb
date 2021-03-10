@@ -16,6 +16,8 @@ class PagesController < ApplicationController
 
     # My collabs on other's projects
     @collaborations = Collaboration.where(user: @user)
+    @my_collabs_accepted = Collaboration.where(user: @user, confirmed: true)
+    @my_collabs_pending = @collaborations - @my_collabs_accepted
 
     # Favorites
     @favorites = FavouriteProject.where(user: @user)
