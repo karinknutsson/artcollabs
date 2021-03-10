@@ -22,4 +22,18 @@
   <%= link_to "Explore", projects_path, class: "btn-home-explore" %>
 </div>
 
+<div class="home-collection">
+  <% @collections.each_with_index do |collection, index| %>
+    <% if index < @collections.length - 1 %>
+      <%= link_to projects_path(tag_list: collection) do %>
+        <div class="collection-card">
+          <div class="collection-title">
+            <%= @collections.last[index] %>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  <% end %>
+</div>
+
 <% end %>

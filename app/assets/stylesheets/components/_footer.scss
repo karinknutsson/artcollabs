@@ -18,3 +18,16 @@
   width: 44px;
   height: 42px;
 }
+
+.footer-fake-links {
+  font-family: "futurateemedregular", Futura, Helvetica, sans-serif;
+  font-size: 10pt;
+  font-weight: 500;
+  color: $grey-dark;
+  display: flex;
+  justify-content: space-between;
+  p {
+    margin: 16px;
+  }
+  margin-right: 64px;
+}

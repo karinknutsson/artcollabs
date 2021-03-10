@@ -70,6 +70,12 @@ class ProjectsController < ApplicationController
     authorize @project
   end
 
+  def collection
+    @trending_topics = Project.where(tag_list: ["gender", "identity", "vidoe-art", "masculinity"])
+    @paid_works = Project.where(budget: ["low", "medium", "high"])
+    @collection = [@trending_topics, @paid_works]
+  end
+
   private
 
   def set_project

@@ -119,8 +119,9 @@ end
 
 def tag_generator
   tag_generator_array = []
-  tags = %w[ identity family childhood music performance installation photography perception style anthropology covid-19 sculpture fakenews projection video architecture designrebel collage cyber drag music political gender multidisciplinary event feminism conceptual painting experimental satanism audio christianity religion painting accessibility senses emotions psychology programming high-tech low-fi magic darkness holyness global local news sharing love acceptance crisis respect avoidance union multiculturalism equality typing typography homosexuality panssexuality bisexuality trans queer stones richness poverty dance poetry interpretation masculinity paint colors night day primitive nature duality philosophy idealism constructivism formalist avant-garde minimal explore movement gestalt art-history imperialist patriarchy exhibition opencall open-call groupshow group-show Berlin London NewYork Paris Venice]
-  3.times do
+  tags = %w[ protest resistance collective interactive residency permaculture exhibit identity abstract prints post-truth colonization expressionism socialmedia dialogue media print-making music performance installation spectacle photography perception fakenews style anthropology covid-19 sculpture projection video architecture post-pandemic connectivity community collage cyber drag political gender multidisciplinary interdisciplinary event feminism conceptual experimental audio religion painting accessibility senses emotions psychology high-tech low-fi magic darkness space global local love crisis union multiculturalism equality typography homosexuality trans queer dance interpretation masculinity paint colors primitive nature duality philosophy idealism constructivism formalist avant-garde minimal explore movement gestalt imperialist patriarchy exhibition ideological exhibition sexualized violence opencall open-call groupshow group-show]
+  tags.push("visual art", "video art", "open call", "group show", "public sphere", "digital art", "art history")
+  4.times do
     tag_generator_array << tags.sample
   end
   tag_generator_array
@@ -218,7 +219,7 @@ gabi.save
 
 puts "---- Created Gabrielle 🍄 \n email: #{gabi.email}, password: #{gabi.password} \n "
 
-miles = User.create(email: "miles@email.com", password: "123456", username: "milo", first_name: "Miles", last_name: "Davenport", location: "London",
+miles = User.create(email: "miles@email.com", password: "123456", username: "Milo", first_name: "Miles", last_name: "Davenport", location: "London",
                     bio: "Miles Davenport is the Frick’s Deputy Director and Peter Jay Sharp Chief Curator. A noted scholar of Paolo Veronese, he curated the monographic exhibition on the artist at the National Gallery, London (2014). Previously, Davenport was Curator in the Department of European Paintings at the Metropolitan Museum of Art and, before that, the Arturo and Holly Melosi Chief Curator at Dulwich Picture Gallery, where he curated Van Dyck in Sicily, 1624–25: Painting and the Plague (2012) and collaborated with Nicholas Cullinan on Twombly and Poussin: Arcadian Painters (2011). As an Andrew W. Mellon Curatorial Fellow at the Frick (2004–6), he curated Veronese's Allegories: Virtue, Love, and Exploration in Renaissance Venice (2006). Davenport’s other exhibitions for the Frick include Cagnacci’s Repentant Magdalene: An Italian Baroque Masterpiece from the Norton Simon Museum (2016–17), Veronese in Murano: Two Venetian Renaissance Masterpieces Restored (2017–18), Murillo: The Self-Portraits (2017–18), Canova’s George Washington (2018), Tiepolo in Milan: The Lost Frescoes of Palazzo Archinto (2019), and (with Aimee Ng and Alexander Noelle) Bertoldo di Giovanni: The Renaissance of Sculpture in Medici Florence (2019–20). Davenport received his Ph.D. on the patronage of Cardinal Pietro Aldobrandini from the Courtauld Institute of Art. He has published in Apollo, The Burlington Magazine, Master Drawings, The Medal, The Art Newspaper, Journal of the History of Collections, and The Metropolitan Museum of Art Journal. Davenport also wrote (with Maira Kalman) the latest volume in the Frick Diptych series, Rembrandt’s Polish Rider (2019). He is a trustee and a member of the Projects Committee of Save Venice. In 2018, Italy named Davenport Cavaliere dell’Ordine della Stella d’Italia.")
 image = URI.open("https://res.cloudinary.com/diucx7fqo/image/upload/v1615378459/miles_avvh2z.jpg")
 miles.avatar.attach(io: image, filename: "miles", content_type: "image/png")
@@ -239,7 +240,7 @@ serge.save
 puts "---- Created Serge 🍸 \n email: #{serge.email}, password: #{serge.password} \n "
 
 puts " \n "
-puts "Creating random users..."
+puts "Creating random users... 🥱☕️"
 puts " \n "
 
 random_users = [dummy1, dummy2, felix, amanda_burke, serge, miles, gabi]
@@ -253,13 +254,13 @@ counter = 0
   random_users << random_user
 end
 
-puts "Created random users"
+puts "Created random users 🥳"
 puts " \n "
 
 puts "🆕🧾-- Creating Projects"
 
 puts " \n "
-puts "Creating random projects"
+puts "Creating random projects ⏳"
 
 counter = 0
 
@@ -274,7 +275,7 @@ counter = 0
 end
 
 puts " \n "
-puts "Creating curated projects"
+puts "Creating curated projects ✨"
 
 modular1978 = Project.new(title: "1978", description: "Wendy Carlos (born Walter Carlos; November 14, 1939) is an American musician and composer best known for her electronic music and film scores. Born and raised in Rhode Island, Carlos studied physics and music at Brown University before moving to New York City in 1962 to study music composition at Columbia University. Studying and working with various electronic musicians and technicians at the city's Columbia-Princeton Electronic Music Center, she helped in the development of the Moog synthesizer, the first commercially available keyboard instrument created by Robert Moog.
 
@@ -389,32 +390,6 @@ image = URI.open("https://res.cloudinary.com/det3cfeuo/image/upload/v1614188126/
 algorithm_purpose.photo.attach(io: image, filename: "algorithm_purpose", content_type: "image/png")
 algorithm_purpose.tag_list = %w[ technology performance music ]
 algorithm_purpose.save
-
-joints = Project.new(title: "Joints I should have smoked", description: "
-Stoner? Collab!
-
-noun
-the place at which two things, or separate parts of one thing, are joined or united, either rigidly or in such a way as to permit motion; juncture.
-a connection between pieces of wood, metal, or the like, often reinforced with nails, screws, or glue.
-
-adjective
-shared by or common to two or more:
-a joint obligation.
-undertaken or produced by two or more in conjunction or in common:
-a joint reply; a joint effort.
-
-verb (used with object)
-to unite by a joint or joints.
-to form or provide with a joint or joints.
-
-Should I have smoked it?
-Should you have smoked it?
-
-", status: "open", max_members: 2, user: dummy2, start_date: Date.today, end_date: Date.today+rand(10000))
-image = URI.open("https://res.cloudinary.com/det3cfeuo/image/upload/v1614188128/5cdt6bbw9inhk4lyffxpltdi4ceq.jpg")
-joints.photo.attach(io: image, filename: "joints", content_type: "image/png")
-joints.tag_list = %w[ cannabis performance political ]
-joints.save
 
 binary = Project.new(title: "Sketch of Binary Perception", description: "2020 was a particularly hard year for the trans and non-binary community. Not only were we struck by the morbid, isolating restrictions of lockdown, but we faced increasing global violence (particularly against trans people of colour), transphobic tirades, and the implementation of devastating policy by Liz Truss.
 
@@ -536,6 +511,16 @@ south.photo.attach(io: image, filename: "south", content_type: "image/png")
 south.tag_list = %w[ painting comtemporary auction artfair ]
 south.save
 
+folklore = Project.new(user: serge, title: "Folklore and traditions",
+                         start_date: Date.parse('01-08-2021'),
+                         end_date: Date.parse('30-08-2021'),
+                         location: serge.location,
+                         description: "Pictures cannot be considered to be merely documents. They are also able to capture, preserve, interpret and reinvent occurrences, situations, places that are progressively disappearing or - on the contrary - still surviving, like folklore and traditions. This call aims to collect photographs that are capable of catching the essence, the traditional part of our society - e.g. agricultural objects that are not in use anymore, practices or celebrations, folkloristic costumes, ethnic museums and collections. In other words, everything reminding us of our roots, of the most genuine side of the society we live in.")
+image = URI.open("https://res.cloudinary.com/diucx7fqo/image/upload/v1615315345/folklore_njkedb.jpg")
+folklore.photo.attach(io: image, filename: "folklore", content_type: "image/png")
+folklore.tag_list = %w[ opencall exhibition ]
+folklore.save
+
 auction_6 = Project.new(user: weserhalle, title: "Auction 6 - Group Show",
                         start_date: Date.parse('01-09-2021'),
                         end_date: Date.parse('01-11-2021'),
@@ -580,11 +565,11 @@ end
 puts "#{Project.count} projects created."
 
 puts " \n \n "
-sleep(1)
+sleep(2)
 puts "--------------------------------------------"
 puts "--------Hope you're having a good day!----- "
 puts "--------------------------------------------"
-sleep(1)
+sleep(2)
 puts "😁"
 sleep(1)
 puts " \n \n "
@@ -639,16 +624,6 @@ image = URI.open("https://res.cloudinary.com/diucx7fqo/image/upload/v1615304115/
 the_ephemerals.photo.attach(io: image, filename: "the_ephemerals", content_type: "image/png")
 the_ephemerals.tag_list = %w[ aboriginal woman indiginous ]
 the_ephemerals.save
-
-folklore = Project.new(user: serge, title: "Folklore and traditions",
-                         start_date: Date.parse('01-08-2021'),
-                         end_date: Date.parse('30-08-2021'),
-                         location: serge.location,
-                         description: "Pictures cannot be considered to be merely documents. They are also able to capture, preserve, interpret and reinvent occurrences, situations, places that are progressively disappearing or - on the contrary - still surviving, like folklore and traditions. This call aims to collect photographs that are capable of catching the essence, the traditional part of our society - e.g. agricultural objects that are not in use anymore, practices or celebrations, folkloristic costumes, ethnic museums and collections. In other words, everything reminding us of our roots, of the most genuine side of the society we live in.")
-image = URI.open("https://res.cloudinary.com/diucx7fqo/image/upload/v1615315345/folklore_njkedb.jpg")
-folklore.photo.attach(io: image, filename: "folklore", content_type: "image/png")
-folklore.tag_list = %w[ opencall exhibition ]
-folklore.save
 
 not_cancelled = Project.new(user: weserhalle, title: "Not Cancelled Group Show",
                             start_date: Date.parse('06-06-2021'),
