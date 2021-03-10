@@ -34,7 +34,7 @@ def budget_generator
   # ["no budget", "big budget", "expanses cover", "1000€", "9000€", "from my own pocket", "50€"].sample
 end
 
-@names = ["The end of Osiris", "Pentimento", "Through triple darkness", "Wake up the statues", "The importance of being self suficient", "Verhandlungsbasis", "false ruins and lost innocence", "Scene with Perfect Babble", "Absence over Vision", "Samurai Masu Biitsu", "Spoiler Alert, Everybody is Dying.", "Selvagem", "Darkroom Lover", "Lay me down", "0055444", "@street", "Heimcomputer", "Axioms", "Cupio dissolvi", "tepeu", "près du mur", "et j'ai besoin d'un câlin", "resistance de ma bouche", "...hemos hecho", "bezduszny", "kycklingarna har rymt", "harab aldijaj", "talchulhaessda", "I was wrong", "She's made a choice (and you won't like it.)",  "I'm not a crook", "The rent is too damn high", "mathematischen Verhältnissen", "Springbrunnen", "Exertion", "Why would anyone do that?", "56600 - The Past. The Future.", "The Goose Feels Happy", "Soul Rythms", "Black Aura - White What?" ]
+@names = ["The end of Osiris", "Pentimento", "Through triple darkness", "Verhandlungsbasis", "false ruins and lost innocence", "Absence over Vision", "Samurai Masu Biitsu", "Spoiler Alert, Everybody is Dying.", "Selvagem", "...hemos hecho", "Darkroom Lover", "0055444", "@street", "Heimcomputer", "Axioms", "Cupio dissolvi", "Smound = Smell + Sound", "et j'ai besoin d'un câlin", "I Never Loved Your Mind", "WHY ARE WE MAD?", "Re-encountered.", "harab aldijaj", "A Slightly Curving Place", "Das illegale Bild", "56600 - The Past. The Future.", "生ける光の影", "Music for airports", "Black Aura - White What?" ]
 
 def location_generator
   [Faker::Address.full_address, "remote"].sample
@@ -242,7 +242,7 @@ puts " \n "
 puts "Creating random users..."
 puts " \n "
 
-random_users = [felix, amanda_burke, serge, miles, gabi]
+random_users = [dummy1, dummy2, felix, amanda_burke, serge, miles, gabi]
 
 counter = 0
 20.times do
@@ -478,7 +478,7 @@ freedom.photo.attach(io: image, filename: "freedom", content_type: "image/png")
 freedom.tag_list = %w[ video performance installation ]
 freedom.save
 
-red_twilight = Project.new(title: "Red Twilight", user: gabi, location: gabi.location, start_date: Date.parse('01-05-2021'), end_date: Date.parse('01-07-2021'),
+red_twilight = Project.new(title: "Red Twilight", user: random_users.sample, start_date: Date.parse('01-05-2021'), end_date: Date.parse('01-07-2021'),
                            description: "I always loved watching my sister applying make-up in the morning, that calmness on her face while contouring her lips dark red like all the Yugo girls did. These were the early 90ies and St. Linda Evangelista was watching the scenery from a torn-out magazine page my sister had stuck to the wall. I tried to make her laugh but she was too focused and just poked me in the arm without looking away from the mirror. There was a ­petrol station near our house to which she would send me to buy red Gauloises for her and sweets for myself. In those mornings we would talk and wonder why things had turned out to be that difficult while she was smoking and drinking coffee from her metal Thermos jug until she left for work always in a hurry.")
 image = URI.open("https://res.cloudinary.com/diucx7fqo/image/upload/v1615384076/Screenshot_2021-03-10_at_14.32.48_wdladq.png")
 red_twilight.photo.attach(io: image, filename: "red_twilight", content_type: "image/png")
@@ -507,7 +507,7 @@ tehran.photo.attach(io: image, filename: "tehran", content_type: "image/png")
 tehran.tag_list = %w[ tehran iran music contemporary ]
 tehran.save
 
-take_place = Project.new(title: "Take Place, 100 artists in a white cube", user: amanda_burke, location: "Berlin", start_date: Date.parse('01-08-2021'), end_date: Date.parse('10-08-2021'),
+take_place = Project.new(title: "Take Place, 100 artists in a white cube", user: dummy1, location: "Berlin", start_date: Date.parse('01-08-2021'), end_date: Date.parse('10-08-2021'),
                          description: "The exhibition invites 100 Berlin-based artists to come into an empty gallery space and their presence becomes part of the work. It aims to go beyond the usual bound that separates the artist and the performer from the public, and invite the public to participate in the artist’s experience and to the artist’s point of view.
                          As a response to Institut für Alles Mögliche, Take Place Ⅰ fills the 20 square meter gallery space with artists. Presented through the window wall towards the street, the work consists of live encounters between people, while the material is the artists or the artists’ presence. During the opening hour, street passengers and visitors are welcome to come into the gallery. Once they enter the gallery, the audiences become parts of the work. With artists standing, sitting and chatting in the space, the work erases the difference between the artists and visitors, and questions the general expectations towards an exhibition. It exists as a performance, an interaction, and an immaterial experience.
                          In Take Place ⅠⅠ, a group of artists sit on three rows of stadium seats inside the gallery facing the window, and stare at the street through the entire opening hours. Rather than being observed, the work is observing whatever is happening outside the gallery and creating an unfamiliar situation for both the artists and the viewers. And the work itself is held in the moments of these encounters. Through these encounters, the work challenges the viewers’ as well as the artists’ roles and participations in a work and in an exhibition, blurring the lines between the making, presenting, and experiencing of an art piece.")
