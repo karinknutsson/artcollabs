@@ -48,17 +48,17 @@ end
 
 def avatar_generator
   avatar = [
+  "https://res.cloudinary.com/diucx7fqo/image/upload/v1615395797/a-study-for-a-portrait-of-francis-bacon-ii-ryan-babcock_dzw4d9.jpg",
   "https://res.cloudinary.com/diucx7fqo/image/upload/v1615390157/gettyimages-78069152-1572016619_qw3sw4.jpg",
   "https://res.cloudinary.com/diucx7fqo/image/upload/v1615389994/131095149_10159344369656803_7672496422223214144_o_bj8vx8.jpg",
-  "https://res.cloudinary.com/diucx7fqo/image/upload/v1615389980/22282002_1545300382195611_4701986549921846984_n_ymbsah.jpg",
   "https://res.cloudinary.com/diucx7fqo/image/upload/v1615389970/1385603_10202277040554564_497888576_n_u7okfs.jpg",
   "https://res.cloudinary.com/diucx7fqo/image/upload/v1615389960/153570563_10224319594714881_8119968243381150920_o_j3j5la.jpg",
   "https://res.cloudinary.com/diucx7fqo/image/upload/v1615389948/78671526_10220267721540731_6379688930500935680_n_dz85ej.jpg",
   "https://res.cloudinary.com/diucx7fqo/image/upload/v1615389829/chloe_sevigny_gummo_bleached_eyebrows_galore_mag_ugtcbp.jpg",
+  "https://res.cloudinary.com/diucx7fqo/image/upload/v1615395701/Lempertz-1052-785-Contemporary-Art-Bjarne-Melgaard-Untitled_tkqlqg.jpg",
   "https://res.cloudinary.com/diucx7fqo/image/upload/v1615307228/83757710_10215744581708193_7794459232341852160_n_wh8yb3.jpg",
   "https://res.cloudinary.com/diucx7fqo/image/upload/v1615307152/10547973_10152550609520930_9199730471116996778_o_ccd4db.jpg",
   "https://res.cloudinary.com/diucx7fqo/image/upload/v1615307127/149090476_3635138179946319_6037103335301104052_o_m8jrwl.jpg",
-  "https://res.cloudinary.com/diucx7fqo/image/upload/v1615307101/96843326_10214444925355467_2470081510640713728_o_feco64.jpg",
   "https://res.cloudinary.com/diucx7fqo/image/upload/v1615307073/90173837_100350838280910_5190167926505734144_n_jfduei.jpg",
   "https://res.cloudinary.com/diucx7fqo/image/upload/v1615306927/79079119_10215496323389705_7108197701245730816_o_lcrpdj.jpg",
   "https://res.cloudinary.com/diucx7fqo/image/upload/v1615306898/74211334_2458287684291346_1017414023697661952_n_nh12t9.jpg",
@@ -352,7 +352,7 @@ People are at once a celebrated and reviled pastime. From humble beginnings as a
 
 One of the most important features is that the people are shown in their natural habitat, so the viewer can truly understand the space the art creates (quite an improvement over putting a Banksy piece in an auction). Not only does Shanaya's project preserve  art for time immemorial, but it provides a window into another world of art spanning the entire globe.",
 status: "open", max_members: 2, user: dummy1, start_date: Date.today, end_date: Date.today+rand(10000))
-image = URI.open("https://res.cloudinary.com/det3cfeuo/image/upload/v1614188120/4kjgc9uizaty09zji49uw0kafu6b.jpg")
+image = URI.open("https://res.cloudinary.com/diucx7fqo/image/upload/v1615393011/people_ujf3p2.jpg")
 street.photo.attach(io: image, filename: "street", content_type: "image/png")
 street.tag_list = %w[ photography style anthropology ]
 street.save
@@ -471,6 +471,13 @@ lento.photo.attach(io: image, filename: "lento", content_type: "image/png")
 lento.tag_list = %w[ satanism performance audio ]
 lento.save
 
+freedom = Project.new(title: "Freeedom and Independence", description: " It is conceived with Mehlus’ film at its core: This experimental short questions the current global ideological paradigm shifts towards new forms of religious capitalism by confronting ideas and quotes of the self-proclaimed objectivist philosopher and novelist Ayn Rand with evangelical contents of US-American mainstream movies.",
+                      status: "open", max_members: 2, user: miles, location: miles.location, start_date: Date.today, end_date: Date.today+rand(10000))
+image = URI.open("https://res.cloudinary.com/diucx7fqo/image/upload/v1615308499/The-Science-Behind-Hollywood-Explosions-1_lrqq7q.jpg")
+freedom.photo.attach(io: image, filename: "freedom", content_type: "image/png")
+freedom.tag_list = %w[ video performance installation ]
+freedom.save
+
 red_twilight = Project.new(title: "Red Twilight", user: gabi, location: gabi.location, start_date: Date.parse('01-05-2021'), end_date: Date.parse('01-07-2021'),
                            description: "I always loved watching my sister applying make-up in the morning, that calmness on her face while contouring her lips dark red like all the Yugo girls did. These were the early 90ies and St. Linda Evangelista was watching the scenery from a torn-out magazine page my sister had stuck to the wall. I tried to make her laugh but she was too focused and just poked me in the arm without looking away from the mirror. There was a ­petrol station near our house to which she would send me to buy red Gauloises for her and sweets for myself. In those mornings we would talk and wonder why things had turned out to be that difficult while she was smoking and drinking coffee from her metal Thermos jug until she left for work always in a hurry.")
 image = URI.open("https://res.cloudinary.com/diucx7fqo/image/upload/v1615384076/Screenshot_2021-03-10_at_14.32.48_wdladq.png")
@@ -520,12 +527,14 @@ female_side.photo.attach(io: image, filename: "female_side", content_type: "imag
 female_side.tag_list = %w[ gender painting performance ]
 female_side.save
 
-freedom = Project.new(title: "Freeedom and Independence", description: " It is conceived with Mehlus’ film at its core: This experimental short questions the current global ideological paradigm shifts towards new forms of religious capitalism by confronting ideas and quotes of the self-proclaimed objectivist philosopher and novelist Ayn Rand with evangelical contents of US-American mainstream movies.",
-                      status: "open", max_members: 2, user: miles, location: miles.location, start_date: Date.today, end_date: Date.today+rand(10000))
-image = URI.open("https://res.cloudinary.com/diucx7fqo/image/upload/v1615308499/The-Science-Behind-Hollywood-Explosions-1_lrqq7q.jpg")
-freedom.photo.attach(io: image, filename: "freedom", content_type: "image/png")
-freedom.tag_list = %w[ video performance installation ]
-freedom.save
+south = Project.new(title: "South South Veza", user: random_users.sample, start_date: Date.parse('04-08-2021'), end_date: Date.parse('08-10-2021'),
+                    description: "The pandemic has disrupted art businesses everywhere, but the reduced ability to travel and the absence of international exhibitions and fairs has exacerbated the isolation of galleries and artists working outside of the established art capitals.
+Enter South South Veza, a novel sales platform that centers the Global South. Part auction, part online fair, the new model hopes to bring momentum to corners of the market that have been neglected during the pandemic. The platform debuted on February 23 with a live, 22-lot auction and a 49-lot timed online auction, which kicked off a week of online viewing rooms.
+The hybrid format is being introduced amid a wider blurring of the boundaries between the traditional territories of galleries and auction houses, as private sales become more important for the main houses, and the demand for ultra-contemporary work continues to soar.")
+image = URI.open("https://res.cloudinary.com/diucx7fqo/image/upload/v1615395896/Lot-No.3-768x1024_jdggc8.jpg")
+south.photo.attach(io: image, filename: "south", content_type: "image/png")
+south.tag_list = %w[ painting comtemporary auction artfair ]
+south.save
 
 auction_6 = Project.new(user: weserhalle, title: "Auction 6 - Group Show",
                         start_date: Date.parse('01-09-2021'),
