@@ -10,6 +10,14 @@ input[type=submit] {
   transition: background 1.5s;
 }
 
+textarea:focus, input:focus {
+  outline: none !important;
+}
+
+input[type=submit]:focus {
+  outline: none;
+}
+
 input[type=submit]:hover {
   color: white;
   background-color: $warm-yellow;

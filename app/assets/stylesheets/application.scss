@@ -89,6 +89,9 @@ a.white, a.btn-white:visited, a.white:active, a.btn-white:hover{
 
 textarea:focus, input:focus {
   outline: none;
+  border-color: inherit;
+  -webkit-box-shadow: none;
+  box-shadow: none;
 }
 
 input:-webkit-autofill,
@@ -114,8 +117,22 @@ input:-webkit-autofill {
   font-size: 10pt;
 }
 
+.artcollabs-input:focus {
+  outline: none !important;
+  border-color: inherit;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
 .bio {
   height: 160px !important;
+}
+
+.bio:focus {
+  outline: none !important;
+  border-color: inherit;
+  -webkit-box-shadow: none;
+  box-shadow: none;
 }
 
 .profile-container {
