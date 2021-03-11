@@ -10,7 +10,7 @@ class ProjectsController < ApplicationController
     set_user_type
     set_user_favourites
     set_chat
-
+    @counter = 0
     authorize @project
   end
 
