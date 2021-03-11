@@ -30,7 +30,8 @@ class PagesController < ApplicationController
     @collaborations = Collaboration.where(user: @user)
     @my_collabs_accepted = Collaboration.where(user: @user, confirmed: true)
     @my_collabs_pending = @collaborations - @my_collabs_accepted
-    @collaborations.each do |collab|
+    @collaborations_to_my_projects = Collaboration.where(project_id: @projects)
+    @collaborations_to_my_projects.each do |collab|
       @pending_collabs << collab if collab.status.nil?
     end
   end
