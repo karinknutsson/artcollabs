@@ -55,7 +55,7 @@
           <div class="card-tags">
             <% if project.tag_list %>
               <% project.tag_list.each do |tag| %>
-                <span class="a-tag"><%= link_to tag, tagged_path(tag: tag) %></span>
+                <div class="a-tag"><%= link_to tag, tagged_path(tag: tag) %></div>
               <% end %>
             <% end %>
           </div>
@@ -166,7 +166,7 @@
           <div class="card-tags">
             <% if project.tag_list %>
               <% project.tag_list.each do |tag| %>
-                <span class="a-tag"><%= link_to tag, tagged_path(tag: tag) %></span>
+                <div class="a-tag"><%= link_to tag, tagged_path(tag: tag) %></div>
               <% end %>
             <% end %>
           </div>

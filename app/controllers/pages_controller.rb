@@ -6,8 +6,8 @@ class PagesController < ApplicationController
     @projects = policy_scope(Project).order(created_at: :desc)
 
     # Collections
-    @group_shows = Project.where(tag_list: ["group-show", "groupshow", "exhibition", "exhibit"])
-    @trending_topics = Project.where(tag_list: ["gender", "identity", "vidoe-art", "masculinity"])
+    @group_shows = Project.where(tag_list: ["group-show", "groupshow", "group show", "exhibition", "exhibit"])
+    @trending_topics = Project.where(tag_list: ["gender", "identity", "video art", "video", "masculinity"])
     @joint_works = Project.where(tag_list: ["jointworks", "joint-works"])
     @paid_roles = Project.where(budget: ["low", "medium", "high"])
     @collection_titles = ["Group Shows", "Trending Topics", "Joint Works", "Paid Roles"]
