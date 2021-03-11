@@ -1,4 +1,7 @@
 <div class="tab-show-container container">
+
+  <% @counter = 1 %>
+
   <div class="timeline-container">
     <% @milestones.sort.each_with_index do |milestone, index| %>
 
@@ -6,9 +9,11 @@
         <div id="dot-<%= @counter %>">
           <% if milestone.completed == true %>
             <%= render "shared/milestone_complete" %>
+            <br>
             <h6 class="complete"><%= @counter %></h6>
           <% else %>
             <%= render "shared/milestone_incomplete" %>
+            <br>
             <h6 class="incomplete"><%= @counter %></h6>
           <% end %>
         </div>
@@ -32,16 +37,27 @@
 
   <br><br><br>
 
+    <div class="tab-button-container">
+      <button type="button" class="white btn-artcollabs btn-warm-red btn-apply btn-margin-right" data-toggle="modal" data-target="#milestoneModal">
+        New Milestone
+      </button>
+    </div>
+
+  <br><br><br>
+
   <% @counter = 1 %>
 
-  <% @milestones.sort.each do |milestone| %>
+  <% @milestones.sort.each_with_index do |milestone, index| %>
     <div class="milestone-item" id="milestone-<%= milestone.id %>">
-      <h6 class="number"><%= @counter %> <%= milestone.title %> (<%= milestone.id %>)</h6>
-      <p><%= milestone.description %></p>
-      <div class="float-right">
-        <% if milestone.completed != true %>
+      <div class="milestone-description">
+        <h6 class="number <%= 'complete' if milestone.completed == true %>"><%= @counter %> <%= milestone.title %> (<%= milestone.id %>)</h6>
+        <p><%= milestone.description %></p>
+      </div>
+      <div class="float-right" style="width: 500px;">
+        <% if @milestones[index - 1].completed == true && milestone.completed != true %>
           <%= button_to "Mark completed", project_status_milestone_path(@project, milestone), method: :patch, data: { confirm: "Are you sure?" }  %>
         <% end %>
+        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
       </div>
     </div>
 
@@ -50,11 +66,6 @@
     <%#= link_to "mark as completed", status_milestone_path(milestone) %>
     <%#= button_to "Delete milestone", project_milestone_path(@project, milestone), method: :delete, data: { confirm: "delete milestone named: '#{@milestone.title}' ?" } %>
   <% end %>
-</div>
-<div class="tab-button-container">
-  <button type="button" class="white btn-artcollabs btn-warm-red btn-apply" data-toggle="modal" data-target="#milestoneModal">
-    New Milestone
-  </button>
 </div>
 
 <div class="modal fade" id="milestoneModal" tabindex="-1" role="dialog" aria-labelledby="milestoneModalLabel" aria-hidden="true">
@@ -72,5 +83,3 @@
     </div>
   </div>
 </div>
-
-<%= javascript_tag "add_links(" + @counter.to_s + ")" %>

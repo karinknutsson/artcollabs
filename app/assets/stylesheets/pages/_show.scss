@@ -111,12 +111,21 @@
 }
 
 .milestone-item {
+  display: flex;
+  justify-content: space-between;
+  width: 70vw;
   padding: 16px;
-  width: 40vw;
-  h6.number {
+  .number {
     font-family: "futurateebold", Futura, Helvetica, sans-serif;
     color: $grey-med;
   }
+  .complete {
+    color: $warm-yellow !important;
+  }
+}
+
+.milestone-btn {
+  width: 200px;
 }
 
 .line-container {
@@ -135,3 +144,4 @@
   height: 4px;
   background-color: $grey-light-med;
 }
+
