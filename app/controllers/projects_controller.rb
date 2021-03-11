@@ -10,7 +10,7 @@ class ProjectsController < ApplicationController
     set_user_type
     set_user_favourites
     set_chat
-    @counter = 0
+    @counter = 1
     authorize @project
   end
 
@@ -94,7 +94,11 @@ class ProjectsController < ApplicationController
     if @project.user_id == current_user.id
       @user_type = :owner
     elsif collaboration
-      collab_logic
+      if collaboration.confirmed == true
+        @user_type = :collaborator
+      else
+        @user_type = :pending
+      end
     else
       @user_type = :visitor
     end
