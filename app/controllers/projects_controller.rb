@@ -141,7 +141,7 @@ class ProjectsController < ApplicationController
   def index_logic
     if params[:query].present?
       if @query.empty?
-        redirect_to projects_path
+        redirect_to projects_path(search: :noresults)
         flash[:notice] = " No projects with #{params[:query]}"
       else
         @projects = @query
