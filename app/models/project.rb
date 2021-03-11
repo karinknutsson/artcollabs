@@ -46,7 +46,7 @@ class Project < ApplicationRecord
   end
 
   include PgSearch::Model
-  pg_search_scope :search_by_title_and_budget_and_location_and_description,
+  pg_search_scope :search_by_title_budget_location_and_description,
     against: [ :title, :budget, :location, :description ],
     using: {
       tsearch: { prefix: true }

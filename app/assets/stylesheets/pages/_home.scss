@@ -14,8 +14,13 @@ input[type="text"]:focus {
   opacity: 1;
 }
 
-.home-search-container {
+.home-search-explore {
+  width: 60vw;
   margin: 0 auto;
+  display: flex;
+}
+
+.home-search-container {
   padding: 0 0 0 14px;
   background-color: white;
   border-radius: 50px;
@@ -59,3 +64,25 @@ input[type="text"]:focus {
     line-height: 2vw;
   }
 }
+
+.home-collection {
+  width: 80vw;
+  margin: 80px auto;
+  display: flex;
+  justify-content: space-between;
+}
+
+.collection-card {
+  border-radius: 20px;
+  width: 220px;
+  height: 360px;
+  background: $light-blue;
+  font-family: "futurateemed", Futura, Helvetica, sans-serif;
+  text-transform: uppercase;
+  font-size: 16pt;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+

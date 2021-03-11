@@ -4,8 +4,14 @@ class PagesController < ApplicationController
 
   def home
     @projects = policy_scope(Project).order(created_at: :desc)
-    # add collections arrays from Projects by tags?
-    @quote = footer_quotes.sample
+
+    # Collections
+    @group_shows = Project.where(tag_list: ["group-show", "groupshow", "exhibition", "exhibit"])
+    @trending_topics = Project.where(tag_list: ["gender", "identity", "vidoe-art", "masculinity"])
+    @joint_works = Project.where(tag_list: ["jointworks", "joint-works"])
+    @paid_roles = Project.where(budget: ["low", "medium", "high"])
+    @collection_titles = ["Group Shows", "Trending Topics", "Joint Works", "Paid Roles"]
+    @collections = [@group_shows, @trending_topics, @joint_works, @paid_roles, @collection_titles]
   end
 
   def dashboard
@@ -16,6 +22,8 @@ class PagesController < ApplicationController
 
     # My collabs on other's projects
     @collaborations = Collaboration.where(user: @user)
+    @my_collabs_accepted = Collaboration.where(user: @user, confirmed: true)
+    @my_collabs_pending = @collaborations - @my_collabs_accepted
 
     # Favorites
     @favorites = FavouriteProject.where(user: @user)
@@ -49,18 +57,6 @@ class PagesController < ApplicationController
     # My projects and collabs
     @projects = Project.where(user: @user)
     @collaborations = Collaboration.where(user: @user)
-  end
-
-  def footer_quotes
-    @quotes = [
-      "Life isn't about finding yourself. Life is about creating yourself.",
-      "You see things; and you say 'Why?' But I dream things that never were; and I say 'Why not?'",
-      "Progress is impossible without change, and those who cannot change their minds cannot change anything.",
-      "A life spent making mistakes is not only more honorable, but more useful than a life spent doing nothing.",
-      "You use a glass mirror to see your face; you use works of art to see your soul.",
-      "Without art, the crudeness of reality would make the world unbearable.",
-      "If you hear a voice within you say 'you cannot paint,' then by all means paint, and that voice will be silenced."
-    ]
   end
 
   private
