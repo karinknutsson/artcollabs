@@ -1,9 +1,9 @@
 class ProjectsController < ApplicationController
-  before_action :set_project, only: %i[ show edit update destroy media]
-  before_action :set_user, only: %i[ show index ]
+  before_action :set_project, only: %i[show edit update destroy media]
+  before_action :set_user, only: %i[show index]
   before_action :authenticate_user!
 
-  skip_before_action :authenticate_user!, only: %i[ index tagged ]
+  skip_before_action :authenticate_user!, only: %i[index tagged]
 
   def show
     fetch_project_data
@@ -16,7 +16,8 @@ class ProjectsController < ApplicationController
 
   def index
     @favourite_project = FavouriteProject.new
-    @query = (policy_scope(Project.search_by_title_budget_location_and_description(params[:query])) + policy_scope(Project.tagged_with(params[:query])))
+    @query = (policy_scope(Project.search_by_title_budget_location_and_description(params[:query])) +
+              policy_scope(Project.tagged_with(params[:query])))
     index_logic
   end
 
@@ -43,7 +44,7 @@ class ProjectsController < ApplicationController
 
   def update
     authorize @project
-    if @project.update
+    if @project.update(project_params)
       update_logic
     else
       render :edit
@@ -83,7 +84,9 @@ class ProjectsController < ApplicationController
   end
 
   def project_params
-    params.require(:project).permit(:user_id, :title, :description, :status, :budget, :max_members, :start_date, :end_date, :tag_list, :photo, media: [] )
+    params.require(:project).permit(:user_id, :title, :description,
+                                    :status, :budget, :max_members,
+                                    :start_date, :end_date, :tag_list, :photo, media: [])
   end
 
   def set_user_type

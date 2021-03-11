@@ -5,7 +5,7 @@ class UsersController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit(:name, :tag_list, :avatar, :photos, :skill_list, :interest_list) ## Rails 4 strong params usage
+    params.require(:user).permit(:name, :tag_list, :avatar, :photos, :skill_list, :interest_list)
   end
 
   def tagged
