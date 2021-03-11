@@ -121,8 +121,8 @@ end
 
 def tag_generator
   tag_generator_array = []
-  tags = %w[ virtual immersive protest museum otherness vr resistance cognition process collective interactive residency permaculture exhibit identity abstract prints post-truth colonization expressionism socialmedia dialogue media print-making music performance installation spectacle photography perception fakenews style anthropology covid-19 sculpture projection video architecture post-pandemic connectivity community collage cyber drag political gender multidisciplinary interdisciplinary event feminism conceptual experimental audio religion painting accessibility senses emotions psychology high-tech low-fi magic space global local crisis union multiculturalism equality typography homosexuality trans queer dance interpretation masculinity paint colors primitive nature duality philosophy idealism constructivism formalist avant-garde minimal explore movement gestalt imperialist patriarchy exhibition ideological exhibition violence opencall groupshow ]
-  tags.push("visual art", "video art", "open call", "group show", "public sphere", "digital art", "art history", "art fair")
+  tags = %w[ virtual immersive protest museum jointworks otherness vr resistance cognition process collective interactive residency permaculture exhibit identity abstract prints post-truth colonization expressionism socialmedia dialogue media print-making music performance installation spectacle photography perception fakenews style anthropology covid-19 sculpture projection video architecture post-pandemic connectivity community collage cyber drag political gender multidisciplinary interdisciplinary event feminism conceptual experimental audio religion painting accessibility senses emotions psychology high-tech low-fi magic space global local crisis union multiculturalism equality typography homosexuality trans queer dance interpretation masculinity paint colors primitive nature duality philosophy idealism constructivism formalist avant-garde minimal explore movement gestalt imperialist patriarchy exhibition ideological exhibition violence opencall groupshow ]
+  tags.push("visual art", "joint works", "video art", "open call", "group show", "public sphere", "digital art", "art history", "art fair")
   4.times do
     tag_generator_array << tags.sample
   end
@@ -298,7 +298,7 @@ transgression = Project.new(title: "TRANSGRESSION", description: "Our sponsor, t
 transgression.location = transgression.user.location
 image = URI.open("https://res.cloudinary.com/det3cfeuo/image/upload/v1614188111/rhld9yqy6yejtyo0xbgs92fdlxxd.jpg")
 transgression.photo.attach(io: image, filename: "transgression", content_type: "image/png")
-transgression.tag_list = %w[ rebel installation collage ]
+transgression.tag_list = %w[ rebel installation jointworks collage ]
 transgression.save
 
 

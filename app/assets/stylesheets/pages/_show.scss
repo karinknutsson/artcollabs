@@ -83,6 +83,9 @@
     width: 120px;
     font-size: 10pt;
   }
+  textarea:focus, input:focus {
+    outline: none;
+  }
 }
 
 .timeline-container {
