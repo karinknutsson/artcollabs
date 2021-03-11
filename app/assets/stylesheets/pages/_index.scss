@@ -9,4 +9,14 @@
   align-items: center;
   justify-content: center;
   margin-bottom: 16px;
+  a {
+    &:hover {
+      color: $warm-red;
+      transition: 0.5s;
+    }
+  }
+}
+
+.current {
+  color: $warm-red;
 }
