@@ -94,18 +94,14 @@ class ProjectsController < ApplicationController
     if @project.user_id == current_user.id
       @user_type = :owner
     elsif collaboration
-      if collaboration.confirmed == true
-        @user_type = :collaborator
-      else
-        @user_type = :pending
-      end
+      collab_logic(collaboration)
     else
       @user_type = :visitor
     end
   end
 
-  def collab_logic
-    if @collaboration.confirmed == true
+  def collab_logic(col)
+    if col.confirmed == true
       @user_type = :collaborator
     else
       @user_type = :pending
