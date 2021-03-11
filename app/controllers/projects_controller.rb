@@ -60,10 +60,10 @@ class ProjectsController < ApplicationController
 
   def tagged
     if params[:tag].present?
-      @projects = Project.tagged_with(params[:tag]).page.per(12)
+      @projects = Project.tagged_with(params[:tag]).page params[:page]
       authorize @projects
     else
-      @projects = policy_scope(Project).order(created_at: :desc).page.per(12)
+      @projects = policy_scope(Project).order(created_at: :desc).page params[:page]
     end
   end
 
@@ -148,7 +148,7 @@ class ProjectsController < ApplicationController
         @projects = Kaminari.paginate_array(@query).page(params[:page])
       end
     else
-      @projects = policy_scope(Project).order(created_at: :desc).page.per(12)
+      @projects = policy_scope(Project).order(created_at: :desc).page (params[:page])
     end
   end
 
