@@ -5,10 +5,10 @@ class PagesController < ApplicationController
   def home
     @projects = policy_scope(Project).order(created_at: :desc)
     # Collections
-    @group_shows = Project.where(tag_list: ["group-show", "groupshow", "exhibition", "exhibit"])
-    @trending_topics = Project.where(tag_list: ["gender", "identity", "vidoe-art", "masculinity"])
-    @joint_works = Project.where(tag_list: ["jointworks", "joint-works"])
-    @paid_roles = Project.where(budget: ["low", "medium", "high"])
+    @group_shows = ["groupshow", "group show", "exhibition", "exhibit"]
+    @trending_topics = ["gender", "identity", "video art", "video", "masculinity", "virtual", "immersive", "immersion"]
+    @joint_works = ["jointworks", "joint works"]
+    @paid_roles = ["low", "medium", "high"]
     @collection_titles = ["Group Shows", "Trending Topics", "Joint Works", "Paid Roles"]
     @collections = [@group_shows, @trending_topics, @joint_works, @paid_roles, @collection_titles]
   end

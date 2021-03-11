@@ -4,7 +4,7 @@
   column-gap: 16px;
   row-gap: 56px;
   justify-items: center;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
 }
 
 .dashboard-list {
@@ -47,5 +47,21 @@
     width: 40px;
     height: 40px;
     border-radius: 50px;
+  }
+}
+
+@media(max-width: 1300px) {
+  .dashboard-grid {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+@media(max-width: 800px) {
+  .dashboard-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media(max-width: 500px) {
+  .dashboard-grid {
+    grid-template-columns: 1fr;
   }
 }
