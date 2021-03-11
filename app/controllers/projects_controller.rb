@@ -60,10 +60,10 @@ class ProjectsController < ApplicationController
 
   def tagged
     if params[:tag].present?
-      @projects = Project.tagged_with(params[:tag])
+      @projects = Project.tagged_with(params[:tag]).page.per(12)
       authorize @projects
     else
-      @projects = policy_scope(Project).order(created_at: :desc)
+      @projects = policy_scope(Project).order(created_at: :desc).page.per(12)
     end
   end
 
@@ -140,14 +140,15 @@ class ProjectsController < ApplicationController
 
   def index_logic
     if params[:query].present?
+      @searched = params[:query]
       if @query.empty?
-        redirect_to projects_path(search: :noresults)
+        redirect_to projects_path(search: :noresults, searched: @searched)
         flash[:notice] = " No projects with #{params[:query]}"
       else
-        @projects = @query
+        @projects = Kaminari.paginate_array(@query).page(params[:page])
       end
     else
-      @projects = policy_scope(Project).order(created_at: :desc)
+      @projects = policy_scope(Project).order(created_at: :desc).page.per(12)
     end
   end
 
