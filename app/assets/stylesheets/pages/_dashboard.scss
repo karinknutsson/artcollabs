@@ -13,6 +13,7 @@
 
 .dashboard-pair {
   display: flex;
+
   margin-left: 24px;
   margin-bottom: 40px;
 }
@@ -26,6 +27,10 @@
   display: flex;
   align-items: flex-start;
   justify-content: flex-end;
+}
+
+.dashboard-message {
+  margin-top: 16px;
 }
 
 .user-bold {

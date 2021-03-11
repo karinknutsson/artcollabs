@@ -116,9 +116,7 @@
     <!-- REQUESTS -->
     <div class="tab-pane fade dashboard-list" id="requests" role="tabpanel" aria-labelledby="requests-tab">
       <% @pending_collabs.each do |collaboration| %>
-        <div class="dashboard-pair">
-          <div class="dashboard-item">
-            <div class="user-avatar request-user">
+        <div class="user-avatar request-user">
               <%= link_to profile_path(collaboration.user), class: "r-member" do %>
                 <% if collaboration.user.avatar.attached? %>
                   <%= image_tag collaboration.user.avatar %>
@@ -129,15 +127,21 @@
                 <% end %>
                 <h3><%= collaboration.user.username %></h3>
               <% end %>
+        </div>
+        <div class="dashboard-pair">
+          <div class="dashboard-item">
+            <h6>wants to collaborate as <%= collaboration.role  %> on<br>
+            <%= link_to "#{collaboration.project.title}", project_path(collaboration.project) %></h6>
+            <div class="dashboard-message">
+              <strong>Message:</strong> <%= collaboration.message %>
             </div>
-            <h4>wants to collaborate as <%= collaboration.role  %> on <%= link_to "#{collaboration.project.title}", project_path(collaboration.project) %></h4>
-            Message: <%= collaboration.message %>
           </div>
           <div class="dashboard-request float-right">
-            <%= button_to  "Confirm", confirm_path(collaboration), method: :patch, data: { confirm: "Are you sure?" }  %>
-            <%= button_to  "  Deny  ", confirm_path(collaboration), method: :patch, data: { confirm: "Are you sure?" } %>
+            <%= link_to  "Confirm", confirm_path(collaboration), class: "white btn-artcollabs btn-warm-red btn-margin-right btn-dashboard", method: :patch, data: { confirm: "Are you sure?" }  %>
+            <%= link_to  "  Deny  ", confirm_path(collaboration), class: "btn-artcollabs btn-warm-red-outline btn-dashboard", method: :patch, data: { confirm: "Are you sure?" } %>
           </div>
         </div>
+        <hr><br>
       <% end %>
     </div>
 
