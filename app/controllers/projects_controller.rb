@@ -167,7 +167,9 @@ class ProjectsController < ApplicationController
   end
 
   def add_milestone
-    @first_milestone = Milestone.new(title: "Project created", description: "The project #{@project.title} was created on #{Date.today} by #{@project.user.username}", completed: true)
+    @first_milestone = Milestone.new(title: "Project created", 
+                                    description: "The project #{@project.title} 
+                                    was created on #{Date.today} by #{@project.user.username}", completed: true)
     @first_milestone.project = @project
     @first_milestone.save
   end
