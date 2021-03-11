@@ -1,10 +1,9 @@
 class PagesController < ApplicationController
-  before_action :get_my_collabs, only: [ :dashboard, :show ]
-  skip_before_action :authenticate_user!, only: [ :home ]
+
+  skip_before_action :authenticate_user!, only: [:home]
 
   def home
     @projects = policy_scope(Project).order(created_at: :desc)
-
     # Collections
     @group_shows = ["groupshow", "group show", "exhibition", "exhibit"]
     @trending_topics = ["gender", "identity", "video art", "video", "masculinity", "virtual", "immersive", "immersion"]
@@ -16,62 +15,38 @@ class PagesController < ApplicationController
 
   def dashboard
     @user = current_user
-
-    # My projects (which I created)
-    @projects = Project.where(user: @user)
-
-    # My collabs on other's projects
-    @collaborations = Collaboration.where(user: @user)
-    @my_collabs_accepted = Collaboration.where(user: @user, confirmed: true)
-    @my_collabs_pending = @collaborations - @my_collabs_accepted
-
-    # Favorites
-    @favorites = FavouriteProject.where(user: @user)
-    @project_faves = @favorites.map { |fave| Project.find(fave.project_id) }
-
-    ## FOR THE DASHBOARD TABS
-    # @open_projects = []
-    # @active_projects = []
-    # @closed_projects = []
-    # @finished_projects = []
-    # @projects.each do |project|
-    #   if project.status == "open"
-    #     @open_projects << project
-    #   elsif project.status == "active"
-    #     @active_projects << project
-    #   elsif project.status == "closed"
-    #     @closed_projects << project
-    #   elsif project.status == "finished"
-    #     @finished_projects << project
-    #   end
-    # end
-    ###########################
-  end
-
-  def show
+    set_user_data
   end
 
   def profile
     @user = User.find(params[:id])
-
-    # My projects and collabs
-    @projects = Project.where(user: @user)
-    @collaborations = Collaboration.where(user: @user)
+    set_user_data
   end
 
   private
 
-  def get_my_collabs
+  def set_my_collabs
     @pending_collabs = []
-
-    @projects = Project.where(user: current_user)
-
-    @collaborations_to_my_projects = Collaboration.where(project_id: @projects)
-
-    @collaborations_to_my_projects.each do |collab|
-      if collab.status == nil
-        @pending_collabs << collab
-      end
+    @collaborations = Collaboration.where(user: @user)
+    @my_collabs_accepted = Collaboration.where(user: @user, confirmed: true)
+    @my_collabs_pending = @collaborations - @my_collabs_accepted
+    @collaborations.each do |collab|
+      @pending_collabs << collab if collab.status.nil?
     end
+  end
+
+  def set_projects
+    @projects = Project.where(user: @user)
+  end
+
+  def set_favourites
+    @favorites = FavouriteProject.where(user: @user)
+    @project_faves = @favorites.map { |fave| Project.find(fave.project_id) }
+  end
+
+  def set_user_data
+    set_projects
+    set_my_collabs
+    set_favourites
   end
 end

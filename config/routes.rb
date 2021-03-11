@@ -25,10 +25,6 @@ Rails.application.routes.draw do
     resources :favourite_projects, only: [ :new, :create, :destroy ]
 
     patch '/milestone/:id', to: 'milestones#status', as: "status_milestone"
-
-    # member do
-    #   patch :milestones, only: [:status]
-    # end
   end
 
   get '/tagged', to: "projects#tagged", as: :tagged

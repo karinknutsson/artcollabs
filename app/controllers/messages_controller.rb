@@ -1,20 +1,14 @@
 class MessagesController < ApplicationController
-  def create
-     # Gets current page to redirect later
-     session[:return_to] ||= request.referer
+  before_action :set_previous_page, only: %i[ destroy confirm deny ]
 
-    @project_chat = ProjectChat.find(params[:project_chat_id])
-    @message = Message.new(message_params)
-    @message.project_chat = @project_chat
-    @message.user = current_user
+  def create
+    message_config
     if @message.save
       ProjectChatChannel.broadcast_to(
         @project_chat,
         render_to_string(partial: "message", locals: { message: @message })
       )
-
     else
-      # Redirects to previous page
       redirect_to session.delete(:return_to)
     end
     authorize @message
@@ -24,5 +18,16 @@ class MessagesController < ApplicationController
 
   def message_params
     params.require(:message).permit(:content)
+  end
+
+  def set_previous_page
+    session[:return_to] ||= request.referer
+  end
+
+  def message_config
+    @project_chat = ProjectChat.find(params[:project_chat_id])
+    @message = Message.new(message_params)
+    @message.project_chat = @project_chat
+    @message.user = current_user
   end
 end

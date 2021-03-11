@@ -1,5 +1,11 @@
+  <% if ["noresults"].include? params[:search] %>
+    <div class="no-results text-center" style="margin-top: 10px">
+      <h2>Sorry, no results for your search.</h2>
+      <p>What about those?</p>
+    </div>
+  <% end %>
 <div class="index-card-container">
-
+  
   <% @projects.each do |project| %>
 
     <div class="index-card">

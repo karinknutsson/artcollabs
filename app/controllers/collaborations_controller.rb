@@ -1,8 +1,8 @@
 class CollaborationsController < ApplicationController
-  before_action :set_collaboration, only: %i[ update destroy confirm deny ]
-  before_action :set_project, only: %i[ create edit destroy ]
+  before_action :set_collaboration, only: %i[update destroy confirm deny]
+  before_action :set_project, only: %i[create edit destroy]
   before_action :authenticate_user!
-  before_action :set_page, only: %i[ destroy confirm deny ]
+  before_action :set_previous_page, only: %i[destroy confirm deny]
 
   def new
     @collaboration = Collaboration.new
@@ -67,10 +67,12 @@ class CollaborationsController < ApplicationController
   end
 
   def collaboration_params
-    params.require(:collaboration).permit(:project_id, :user_id, :status, :role, :message, :created_at, :updated_at, :confirmed)
+    params.require(:collaboration).permit(:project_id, :user_id, :status,
+                                          :role, :message, :created_at, :updated_at,
+                                          :confirmed)
   end
 
-  def set_page
+  def set_previous_page
     session[:return_to] ||= request.referer
   end
 
