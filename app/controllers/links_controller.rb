@@ -1,5 +1,4 @@
 class LinksController < ApplicationController
-
   def new
     @link = Link.new
     authorize @link

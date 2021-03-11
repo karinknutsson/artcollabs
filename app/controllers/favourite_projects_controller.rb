@@ -1,17 +1,12 @@
 class FavouriteProjectsController < ApplicationController
   before_action :set_project, only: %i[ create destroy ]
   before_action :set_user , only: %i[ create destroy ]
+  before_action :set_previous_page , only: %i[ create destroy ]
 
-  # ⭕
   def create
-    # gets latest page user was visiting
-    session[:return_to] ||= request.referer
-
     @favourite_project = FavouriteProject.new(user: current_user, project: @project)
     authorize @favourite_project
     @favourite_project.save
-
-    # redirects to latest page user was visiting
     redirect_to session.delete(:return_to)
   end
 
@@ -30,5 +25,9 @@ class FavouriteProjectsController < ApplicationController
 
   def set_project
     @project = Project.find(params[:project_id])
+  end
+
+  def set_previous_page
+    session[:return_to] ||= request.referer
   end
 end

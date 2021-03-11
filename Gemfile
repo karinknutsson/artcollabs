@@ -47,6 +47,7 @@ gem 'pg_search', '~> 2.3.0'
 gem 'bullet', group: 'development'
 gem 'rails_admin', '~> 2.0'
 gem "mini_magick"
+gem 'kaminari'
 
 ##############################
 

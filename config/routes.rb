@@ -2,6 +2,10 @@ Rails.application.routes.draw do
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
+  concern :paginatable do
+    get '(page/:page)', action: :index, on: :collection, as: ''
+  end
+
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
 
   devise_for :users
@@ -19,16 +23,12 @@ Rails.application.routes.draw do
     resources :direct_messages, only: :create
   end
 
-  resources :projects do
+  resources :projects, concerns: :paginatable do
     resources :collaborations
     resources :milestones
     resources :favourite_projects, only: [ :new, :create, :destroy ]
 
     patch '/milestone/:id', to: 'milestones#status', as: "status_milestone"
-
-    # member do
-    #   patch :milestones, only: [:status]
-    # end
   end
 
   get '/tagged', to: "projects#tagged", as: :tagged
