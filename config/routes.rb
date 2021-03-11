@@ -42,8 +42,6 @@ Rails.application.routes.draw do
   patch '/confirm/:id', to: 'collaborations#confirm', as: "confirm"
   patch '/confirm/:id', to: 'collaborations#deny', as: "deny"
 
- 
-
 
 
   mount ActionCable.server => "/cable"

@@ -10,7 +10,7 @@ class ProjectsController < ApplicationController
     set_user_type
     set_user_favourites
     set_chat
-  
+
     authorize @project
   end
 
@@ -70,6 +70,12 @@ class ProjectsController < ApplicationController
     authorize @project
   end
 
+  def collection
+    @trending_topics = Project.where(tag_list: ["gender", "identity", "vidoe-art", "masculinity"])
+    @paid_works = Project.where(budget: ["low", "medium", "high"])
+    @collection = [@trending_topics, @paid_works]
+  end
+
   private
 
   def set_project
@@ -92,7 +98,7 @@ class ProjectsController < ApplicationController
   end
 
   def collab_logic
-    if collaboration.confirmed == true
+    if @collaboration.confirmed == true
       @user_type = :collaborator
     else
       @user_type = :pending
@@ -148,7 +154,7 @@ class ProjectsController < ApplicationController
     else
       redirect_to project_path(@project)
     end
-    flash[:notice] = " \n #{@project.title} was edited."  
+    flash[:notice] = " \n #{@project.title} was edited."
   end
 
   def set_previous_page
