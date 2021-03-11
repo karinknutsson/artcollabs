@@ -145,7 +145,7 @@ class ProjectsController < ApplicationController
         redirect_to projects_path(search: :noresults, searched: @searched)
         flash[:notice] = " No projects with #{params[:query]}"
       else
-        @projects = @query
+        @projects = Kaminari.paginate_array(@query).page(params[:page])
       end
     else
       @projects = policy_scope(Project).order(created_at: :desc).page.per(12)
