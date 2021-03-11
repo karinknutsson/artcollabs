@@ -10,7 +10,7 @@ class ProjectsController < ApplicationController
     set_user_type
     set_user_favourites
     set_chat
-    @counter = 0
+    @counter = 1
     authorize @project
   end
 
@@ -31,6 +31,7 @@ class ProjectsController < ApplicationController
     @project.user = current_user
     authorize @project
     if @project.save
+      add_milestone
       redirect_to @project
       flash[:notice] = " New project: \n #{@project.title} was created."
     else
@@ -163,5 +164,11 @@ class ProjectsController < ApplicationController
 
   def set_previous_page
     session[:return_to] ||= request.referer
+  end
+
+  def add_milestone
+    @first_milestone = Milestone.new(title: "Project created", description: "The project was created on #{Date.today} by #{@project.user.username}")
+    @first_milestone.project = @project
+    @first_milestone.save
   end
 end

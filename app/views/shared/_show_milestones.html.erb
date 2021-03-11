@@ -36,7 +36,7 @@
 
   <% @milestones.sort.each do |milestone| %>
     <div class="milestone-item" id="milestone-<%= milestone.id %>">
-      <h6 class="number"><%= @counter %> <%= milestone.title %> (<%= milestone.id %>)</h6>
+      <h6 class="number"><%= @counter %> <%= milestone.title %></h6>
       <p><%= milestone.description %></p>
       <div class="float-right">
         <% if milestone.completed != true %>
