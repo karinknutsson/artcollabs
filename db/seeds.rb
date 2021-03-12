@@ -152,7 +152,11 @@ dummy1 = User.create(email: "user@artcollabs.com", password: "000000", username:
 image = URI.open(avatar_generator)
 dummy1.avatar.attach(io: image, filename: "dummy1", content_type: "image/png")
 dummy1.interest_list.add("digital art", "surrealism", "visual art")
+dummy1.skill_list.add("painting", "#{skill_generator}")
 dummy1.save
+Link.new(user: dummy1, title: "Portfolio", url: "https://www").save
+Link.new(user: dummy1, title: "Instagram", url: "https://www").save
+Link.new(user: dummy1, title: "Youtube", url: "https://www").save
 puts "Created dummy 1 🤡 \n email: #{dummy1.email}, password: #{dummy1.password} \n "
 
 dummy2 = User.create(email: "user2@artcollabs.com", password: "000000", username: "saturn", first_name: "Sara", last_name: "Aviam", location: "Miami",
@@ -161,6 +165,10 @@ image = URI.open(avatar_generator)
 dummy2.avatar.attach(io: image, filename: "dummy2", content_type: "image/png")
 dummy2.interest_list.add("visual art", "portraiture", "philosophy")
 dummy2.skill_list.add("portraits", "landscape", "nature", "painting", "drawing")
+dummy2.save
+Link.new(user: dummy2, title: "Portfolio", url: "https://www").save
+Link.new(user: dummy2, title: "Instagram", url: "https://www").save
+Link.new(user: dummy2, title: "Youtube", url: "https://www").save
 puts "Created dummy 2 👺 \n email: #{dummy2.email}, password: #{dummy2.password} \n "
 
 noelle = User.create(email: "noelle@gmail.com", password: "000000", username: "noelle_from_hessen",
@@ -282,7 +290,7 @@ counter = 0
   random_user.avatar.attach(io: image, filename: "random_user#{counter}", content_type: "image/png")
   random_user.bio = "#{random_user.first_name} #{random_user.last_name} is an artist who works in a variety of media. By applying abstraction, #{random_user.first_name} makes work that deals with the documentation of events and the question of how they can be presented. The work tries to express this with the help of physics and technology, but not by telling a story or creating a metaphor.Their artworks doesn’t reference recognisable form. The results are deconstructed to the extent that meaning is shifted and possible interpretation becomes multifaceted. With Plato’s allegory of the cave in mind, they try to increase the dynamic between audience and author by objectifying emotions and investigating the duality that develops through different interpretations. Their works are an investigation into representations of (seemingly) concrete ages and situations as well as depictions and ideas that can only be realized in art."
   random_user.interest_list.add("#{interest_generator}", "#{interest_generator}", "#{interest_generator}", "#{interest_generator}")
-  random_user.skill_list.add("#{skill_generator}", "#{skill_generator}", "#{skill_generator}")
+  random_user.skill_list.add("#{skill_generator}", "#{skill_generator}", "#{skill_generator}", "#{skill_generator}", "#{skill_generator}")
   random_user.save
   Link.new(user: random_user, title: "Portfolio", url: "https://www").save
   Link.new(user: random_user, title: "Linked In", url: "https://www").save
@@ -632,18 +640,6 @@ counter = 0
   puts " \n "
 end
 
-puts " \n "
-puts "🆕🚩🚩-- Creating Milestones"
-puts " \n "
-
-counter = 0
-50.times do
-  counter = counter + 1
-  milestone = Milestone.create!(project: Project.all.sample, title: "#{Faker::Marketing.buzzwords}", description: "#{milestone_generator}", completed: [true, false].sample)
-  puts "Random Milestone #{counter}: project: #{milestone.project.title}"
-  puts " \n "
-end
-
 puts "📨📨-- Message system seeds ..."
 
 new_chatroom = Chatroom.create
@@ -689,7 +685,25 @@ not_cancelled.save
 @remainder = ((@time_min - @time_min.floor) * 60).round
 
 puts " \n "
+puts "🆕🚩🚩-- Creating Milestones"
+puts " \n "
+
+Project.all.each do |project|
+  Milestone.create!(project: project, title: "Project created", description: "Project created on #{project.created_at.day} of #{Date::MONTHNAMES[project.created_at.month]} by #{project.user.username}.", completed: true)
+end
+
+counter = 0
+50.times do
+  counter = counter + 1
+  milestone = Milestone.create!(project: Project.all.sample, title: "#{Faker::Marketing.buzzwords}", description: "#{milestone_generator}", completed: false)
+  puts "Random Milestone #{counter}: project: #{milestone.project.title}"
+  puts " \n "
+end
+
+puts " \n "
 puts "#{User.all.length.to_s} users and #{Project.all.length.to_s} projects created in #{@time_min.floor} minutes and #{@remainder} seconds 🥂✨"
+
+
 
 puts " \n "
 puts "----------------------SEED ENDED----------------------"
