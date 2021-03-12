@@ -4,15 +4,16 @@
   column-gap: 16px;
   row-gap: 56px;
   justify-items: center;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
 }
 
 .dashboard-list {
-  margin-top: 40px;
+  margin: 60px 40px 100px 40px;
 }
 
 .dashboard-pair {
   display: flex;
+  margin-left: 24px;
   margin-bottom: 40px;
 }
 
@@ -25,6 +26,10 @@
   display: flex;
   align-items: flex-start;
   justify-content: flex-end;
+}
+
+.dashboard-message {
+  margin-top: 16px;
 }
 
 .user-bold {
@@ -47,5 +52,21 @@
     width: 40px;
     height: 40px;
     border-radius: 50px;
+  }
+}
+
+@media(max-width: 1300px) {
+  .dashboard-grid {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+@media(max-width: 800px) {
+  .dashboard-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media(max-width: 500px) {
+  .dashboard-grid {
+    grid-template-columns: 1fr;
   }
 }

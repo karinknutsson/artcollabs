@@ -1,3 +1,12 @@
+<div class="results text-center" style="margin-top: 16px">
+  <% if ["noresults"].include? params[:search] %>
+    <h2>Sorry, no results for <%= params[:searched] %></h2>
+    <p>What about those:</p>
+  <% end %>
+  <% if params[:query] %>
+    <h2>Results for <%= params[:query] %></h2>
+  <% end %>
+</div>
 <div class="index-card-container">
   
   <% @projects.each do |project| %>
@@ -21,7 +30,7 @@
         <div class="card-tags">
           <% if project.tag_list %>
             <% project.tag_list.each do |tag| %>
-              <span class="a-tag"><%= link_to tag, tagged_path(tag: tag) %></span>
+              <div class="a-tag"><%= link_to tag, tagged_path(tag: tag) %></div>
             <% end %>
           <% end %>
         </div>
@@ -41,4 +50,8 @@
 
   <% end %>
 
+</div>
+
+<div class="pagination text-center" style="margin-top: 10px" >
+  <h3><%= paginate @projects %></h3>
 </div>

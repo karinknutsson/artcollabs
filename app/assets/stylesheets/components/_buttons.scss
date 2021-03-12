@@ -17,7 +17,7 @@
 }
 
 .btn-white:hover {
-  background: $warm-red;
+  background: $dark-blue;
   color: white !important;
 }
 
@@ -29,7 +29,7 @@
 .btn-white-outline:hover {
   color: white !important;
   border: 0;
-  background: $warm-red;
+  background: $dark-blue;
 }
 
 .btn-disabled {
@@ -107,6 +107,14 @@
 .btn-home-explore:hover {
   color: white;
   background-color: $warm-yellow;
+}
+
+.button_to {
+  margin-left: 40px;
+}
+
+.btn-dashboard {
+  width: 200px !important;
 }
 
 #message-btn {

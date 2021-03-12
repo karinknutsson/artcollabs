@@ -1,7 +1,6 @@
 class MilestonesController < ApplicationController
-
-  before_action :set_milestone, only: %i[ show edit update destroy status ]
-  before_action :set_project, only: %i[ create edit destroy ]
+  before_action :set_milestone, only: %i[show edit update destroy status]
+  before_action :set_project, only: %i[create edit destroy]
 
   def show
     @milestones = Milestone.where(project_id: @project)
@@ -16,10 +15,7 @@ class MilestonesController < ApplicationController
     @milestone.project = @project
     authorize @milestone
     if @milestone.save
-      if params[:tab] == "milestone"
-        redirect_to project_path(@project, tab: :milestone, anchor: "milestone-#{@milestone.id}")
-        flash[:notice] = " Milestone was created"
-      end
+      create_logic if params[:tab] == "milestone"
     else
       render :new
     end
@@ -31,12 +27,8 @@ class MilestonesController < ApplicationController
 
   def update
     authorize @milestone
-
     if @milestone.update(milestone_params)
-      if params[:tab] == "milestone"
-        redirect_to project_path(@project, tab: :milestone)
-        flash[:notice] = "Milestone was edited"
-      end
+      update_logic if params[:tab] == "milestone"
     else
       render :edit
     end
@@ -52,10 +44,7 @@ class MilestonesController < ApplicationController
     authorize @milestone
     @milestone.completed = true
     @project = @milestone.project
-    if @milestone.save
-      redirect_to project_path(@project, tab: :milestone, anchor: "milestone-#{@milestone.id}")
-      flash[:notice] = "Milestone was marked as completed"
-    end
+    status_save if @milestone.save
   end
 
   private
@@ -70,5 +59,20 @@ class MilestonesController < ApplicationController
 
   def milestone_params
     params.require(:milestone).permit(:title, :description, :completed, :project_id)
+  end
+
+  def create_logic
+    redirect_to project_path(@project, tab: :milestone, anchor: "milestone-#{@milestone.id}")
+    flash[:notice] = " Milestone was created"
+  end
+
+  def update_logic
+    redirect_to project_path(@project, tab: :milestone)
+    flash[:notice] = "Milestone was edited"
+  end
+
+  def status_save
+    redirect_to project_path(@project, tab: :milestone, anchor: "milestone-#{@milestone.id}")
+    flash[:notice] = "Milestone was marked as completed"
   end
 end
