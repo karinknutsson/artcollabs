@@ -15,7 +15,7 @@
         <% if @user.bio %>
           <%= @user.bio %>
         <% else %>
-          <%= "#{@user.username} has not written a bio yet." %>
+          <%= "#{@user.username} has not yet written a bio." %>
         <% end %>
       </div>
 
@@ -29,29 +29,6 @@
           <h6><%= @user.username %></h6>
         </div>
 
-        <div class="profile-linklist">
-          <% if @user.links.present? %>
-            <h5>Links</h5>
-            <ul>
-              <% @user.links.each do |link|  %>
-                <li><%= link_to link.title, link.url %>
-                  <% if @user == current_user %>
-                    <span class="float-right" style="margin-right: 100px;">
-                      <%= link_to "Delete", link_path(link), class: "btn-artcollabs btn-profile-outline", method: :delete, data: { confirm: "Delete the link?" } %>
-                    </span>
-                  <% end %>
-                </li>
-              <% end %>
-            </ul>
-          <% end %>
-
-          <% if @user == current_user %>
-            <div style="margin-bottom: 20px; margin-left: 8px;">
-              <%= link_to "Add a Link", new_link_path, class: "white btn-artcollabs btn-profile" %>
-            </div>
-          <% end %>
-
-        </div>
       </div>
 
       <div class="profile-tags">
@@ -84,10 +61,32 @@
 
       </div>
 
+
+        <div class="profile-linklist">
+          <% if @user.links.present? %>
+            <h5>Links</h5>
+            <ul>
+              <% @user.links.each do |link|  %>
+                <li><%= link_to link.title, link.url %>
+                  <% if @user == current_user %>
+                    <span class="float-right" style="margin-right: 100px;">
+                      <%= link_to "Delete", link_path(link), class: "btn-artcollabs btn-profile-outline", method: :delete, data: { confirm: "Delete the link?" } %>
+                    </span>
+                  <% end %>
+                </li>
+              <% end %>
+            </ul>
+          <% end %>
+
+          <% if @user == current_user %>
+            <div style="margin-bottom: 20px; margin-left: 8px;">
+              <%= link_to "Add a Link", new_link_path, class: "white btn-artcollabs btn-profile" %>
+            </div>
+          <% end %>
+
+        </div>
+
     </div>
 
   </div>
 </div>
-
-
-

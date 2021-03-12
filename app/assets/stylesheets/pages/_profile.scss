@@ -47,12 +47,15 @@
 }
 
 .profile-tags {
+  margin-top: 60px;
+  margin-bottom: 10px;
   width: 100%;
   display: flex;
   align-items: flex-start;
 }
 
 .profile-linklist {
+  width: 100%;
   padding: 40px 0 20px 0;
   font-weight: bold;
   ul {
@@ -94,4 +97,12 @@
   padding: 16px;
   border-radius: 20px;
   border: 2px solid $grey-light-med;
+}
+
+.profile-thumb {
+  width: 64px;
+  height: 64px;
+  img {
+    object-fit: cover;
+  }
 }
