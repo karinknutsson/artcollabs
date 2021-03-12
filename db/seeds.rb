@@ -499,6 +499,13 @@ tehran.photo.attach(io: image, filename: "tehran", content_type: "image/png")
 tehran.tag_list = %w[ tehran iran music contemporary ]
 tehran.save
 
+hugged = Project.new(title: "hugged in a kind yet misterious mist", budget: "high", user: random_users.sample, start_date: Date.parse('05-09-2021'), end_date: Date.parse('18-09-2021'),
+                     description: "We make conceptual artworks, photos, drawings and installations. By studying sign processes, signification and communication, we make work that generates diverse meanings. Associations and meanings collide. Space becomes time and language becomes image. Our conceptual artworks feature coincidental, accidental and unexpected connections which make it possible to revise art history and, even better, to complement it. Combining unrelated aspects lead to surprising analogies. By manipulating the viewer to create confusion, we often create several practically identical works, upon which thoughts that have apparently just been developed are manifested: notes are made and then crossed out again, ‘mistakes’ are repeated. Our works question the conditions of appearance of an image in the context of contemporary visual culture in which images, representations and ideas normally function. By experimenting with aleatoric processes, we formalize the coincidental and emphasizes the conscious process of composition that is behind the seemingly random works. The thought processes, which are supposedly private, highly subjective and unfiltered in their references to dream worlds, are frequently revealed as assemblages. Our works are on the one hand touchingly beautiful, on the other hand painfully attractive. Again and again, the artists leave us orphaned with a mix of conflicting feelings and thoughts.")
+image = URI.open("https://res.cloudinary.com/diucx7fqo/image/upload/v1615569074/Screenshot_2021-03-12_at_18.09.30_j0wwhb.png")
+hugged.photo.attach(io: image, filename: "hugged", content_type: "image/png")
+hugged.tag_list = %w[ installation conceptual art drawing painting signification signifyer sign ]
+hugged.save
+
 the_ephemerals = Project.new(user: amanda_burke, title: "The Ephemerals: Trending",
                              start_date: Date.parse('05-04-2021'),
                              end_date: Date.parse('05-06-2021'),

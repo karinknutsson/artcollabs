@@ -9,14 +9,17 @@
   align-items: center;
   justify-content: center;
   margin-bottom: 16px;
+  font-family: "futurateemedregular", Futura, Helvetica, sans-serif;
+  font-size: 20pt;
   a {
-    &:hover {
-      color: $warm-red;
-      transition: 0.5s;
-    }
+    margin: 12px;
+    color: $grey-dark;
+  }
+  a:hover {
+    color: $warm-red;
   }
 }
 
 .current {
-  color: $warm-red;
+  color: black;
 }
