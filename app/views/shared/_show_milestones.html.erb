@@ -56,7 +56,7 @@
       </div>
 
       <div>
-        <% if (@milestones[index - 1].completed == true) && (milestone.completed == false) %>
+        <% if (@milestones.sort[index - 1].completed == true) && (milestone.completed == false) %>
           <%= link_to "Mark completed", project_status_milestone_path(@project, milestone), class: "btn-artcollabs btn-warm-red-outline", method: :patch, data: { confirm: "Are you sure?" }  %>
         <% end %>
       </div>
