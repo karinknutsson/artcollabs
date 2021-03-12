@@ -12,7 +12,7 @@
       </div>
 
       <div class="profile-bio">
-        <% if @user.bio.length.positive? %>
+        <% if @user.bio %>
           <%= @user.bio %>
         <% else %>
           <%= "#{@user.username} has not written a bio yet." %>
