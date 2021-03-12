@@ -139,20 +139,23 @@ image = URI.open("https://res.cloudinary.com/det3cfeuo/image/upload/v1614425622/
 admin.avatar.attach(io: image, filename: "admin", content_type: "image/png")
 puts "Created admin 🔧 \n email: #{admin.email}, password: #{admin.password} \n "
 
-dummy1 = User.create(email: "user@artcollabs.com", password: "000000", username: "Valerian")
+dummy1 = User.create(email: "user@artcollabs.com", password: "000000", username: "Valerian", first_name: "John Valerian", last_name: "Seymor", location: "San Fransisco",
+                     bio: "John Valerian Seymor was born in Argentina and currently lives in San Francisco, California. He graduated from UC Berkeley and received a scholarship to SF Academy of Art. His art reflects his interest in travel and culture. He juxtaposes elements of reality with surrealism using paint, charcoal, and digital art. His rhythmic compositions convey feelings of whimsy with elements of surprise. In addition to original works of art John offers limited edition prints on archival, museum quality paper. His art is sold through many interior designers and art consultants. John’s many exhibitions include those held at the San Diego Art Museum and at the Ace Academy in San Francisco. He won an Award of Excellence in “Artists for Peace” presented by Manhattan Arts International. His art is found in many private collections in the U.S. and several public collections namely the Horace Bank and Dudley Insurance Co., both in California.")
 image = URI.open(avatar_generator)
 dummy1.avatar.attach(io: image, filename: "dummy1", content_type: "image/png")
+dummy1.interest_list.add("digital art", "surrealism", "visual art")
+dummy1.save
 puts "Created dummy 1 🤡 \n email: #{dummy1.email}, password: #{dummy1.password} \n "
 
-
-dummy2 = User.create(email: "user2@artcollabs.com", password: "000000", username: "saturn")
+dummy2 = User.create(email: "user2@artcollabs.com", password: "000000", username: "saturn", first_name: "sara", last_name: "h", location: "Miami",
+                     bio: "Sara was born in Ra’anana, Israel. From an early age she demonstrated an innate artistic talent and continued to bring her creative passion to fruition. In 1999 she moved to New York where she pursued an art education at the School of Visual Arts and The Art Students League. In 2019, she moved to Miami, Florida where she currently resides. Sara expresses  joie de vivre in her stylized inspirational portraits and nature scenes. She communicates the healing power of art and lifts our spirits. Her art has been selected for exhibitions presented by the National Association of Women Artists, a prestigious New York-based organization. They have been held at the Coral Springs Museum of Art, in Florida, and Sylvia Wald and Po Kim Art Gallery in New York City, NY. She has also shown her artwork at Armory Annex Gallery, Lake Worth, Florida, and Haven Art Studio, Port Washington, NY, among other venues." )
 image = URI.open(avatar_generator)
 dummy2.avatar.attach(io: image, filename: "dummy2", content_type: "image/png")
 puts "Created dummy 2 👺 \n email: #{dummy2.email}, password: #{dummy2.password} \n "
 
 noelle = User.create(email: "noelle@gmail.com", password: "000000", username: "noelle_from_hessen",
                      first_name: "Noelle", last_name: "H.",
-                     bio: "I am Noelle!")
+                     bio: "I am an artist, hunter and a sex-positive queer feminist. I work conceptually with text, sculpture, collage, photography, video, performance, sound and installation. My works are based on personal narratives and address radicality, love, poetry, nature and sexuality. I completed my Master of Fine Arts at the Weissensee Academy of Art Berlin in July 2020.")
 puts "Created THE Noelle 💅 \n email: #{noelle.email}, password: #{noelle.password} \n "
 image = URI.open("https://res.cloudinary.com/diucx7fqo/image/upload/v1615311038/10475467_10204209381861889_6319051138607362249_n_nm3w2r.jpg")
 noelle.avatar.attach(io: image, filename: "noelle", content_type: "image/png")

@@ -1,7 +1,11 @@
-<%= simple_form_for @link do |f| %>
-  <%= f.input :title, input_html: { class: "artcollabs-input" } %>
-  <%= f.input :url, input_html: { class: "artcollabs-input" } %>
-  <div class="float-right">
-    <%= f.submit %>
-  </div>
-<% end %>
+<div class="form-container">
+
+  <%= simple_form_for @link do |f| %>
+    <%= f.input :title, input_html: { class: "artcollabs-input" } %>
+    <%= f.input :url, input_html: { class: "artcollabs-input" } %>
+    <div class="float-right">
+      <%= f.submit %>
+    </div>
+  <% end %>
+
+</div>

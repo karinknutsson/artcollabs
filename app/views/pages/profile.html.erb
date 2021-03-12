@@ -2,63 +2,88 @@
   <div class="profile-content">
 
     <div class="profile-left">
-      <div class="profile-text">
-        <h1><%= @user.first_name %> <%= @user.last_name %></h1>
-        <h4><%= @user.username %></h4>
-      </div>
 
-      <div class="profile-text">
-        <%= @user.bio %>
-      </div>
-
-      <div class="profile-text">
-        <h5>Interests</h5>
-        <div class="card-tags">
-        <% if @user.interest_list %>
-          <% @user.interest_list.each do |interest| %>
-            <span class="a-tag"><%= link_to interest, users_path(interest: interest) %></span>
-          <% end %>
+      <div class="profile-pic user-avatar">
+        <% if @user.avatar.attached? %>
+          <%= image_tag @user.avatar %>
+        <% else %>
+          <%= render "shared/avatar" %>
         <% end %>
-        </div>
       </div>
 
-      <div class="profile-text">
-        <h5>Skills</h5>
-        <div class="card-tags">
-        <% if @user.skill_list %>
-          <% @user.skill_list.each do |skill| %>
-            <span class="a-tag"><%= link_to skill, users_path(skill: skill) %></span>
-          <% end %>
+      <div class="profile-bio">
+        <% if @user.bio.length.positive? %>
+          <%= @user.bio %>
+        <% else %>
+          <%= "#{@user.username} has not written a bio yet." %>
         <% end %>
-        </div>
       </div>
+
     </div>
 
     <div class="profile-right">
-      <div class="profile-pic user-avatar">
-          <% if @user.avatar.attached? %>
-            <%= image_tag @user.avatar %>
-          <% else %>
-            <%= render "shared/avatar" %>
-          <% end %>
-      </div>
 
-      <div class="profile-card">
-        <h5>Links/social media</h5>
-        <ul>
+      <div class="profile-name">
+        <div class="name-username">
+          <h3><%= @user.first_name %> <%= @user.last_name %></h3>
+          <h6><%= @user.username %></h6>
+        </div>
+
+        <div class="profile-linklist">
           <% if @user.links.present? %>
-            <% @user.links.each do |link|  %>
-              <li><%= link_to link.title, link.url %><%= link_to "Delete", link_path(link), method: :delete, data: { confirm: "delete the link?" } %></li>
-            <% end %>
+            <h5>Links</h5>
+            <ul>
+              <% @user.links.each do |link|  %>
+                <li><%= link_to link.title, link.url %>
+                  <% if @user == current_user %>
+                    <span class="float-right" style="margin-right: 100px;">
+                      <%= link_to "Delete", link_path(link), class: "btn-artcollabs btn-profile-outline", method: :delete, data: { confirm: "Delete the link?" } %>
+                    </span>
+                  <% end %>
+                </li>
+              <% end %>
+            </ul>
           <% end %>
-        </ul>
-        <%= link_to "Add a Link", new_link_path %>
+
+          <% if @user == current_user %>
+            <div style="margin-bottom: 20px; margin-left: 8px;">
+              <%= link_to "Add a Link", new_link_path, class: "white btn-artcollabs btn-profile" %>
+            </div>
+          <% end %>
+
+        </div>
       </div>
 
-      <div class="profile-card">
-        <h5>Media uploads</h5>
-        <br><br>
+      <div class="profile-tags">
+
+        <div class="profile-taglist">
+          <% if @user.interest_list.length.positive? %>
+            <h5>Interests</h5>
+            <div class="card-tags">
+            <% if @user.interest_list %>
+              <% @user.interest_list.each do |interest| %>
+                <span class="a-tag"><%= link_to interest, users_path(interest: interest) %></span>
+              <% end %>
+            <% end %>
+            </div>
+          <% end %>
+        </div>
+
+        <div class="profile-taglist">
+          <% if @user.skill_list.length.positive? %>
+            <h5>Skills</h5>
+            <div class="card-tags">
+            <% if @user.skill_list %>
+              <% @user.skill_list.each do |skill| %>
+                <span class="a-tag"><%= link_to skill, users_path(skill: skill) %></span>
+              <% end %>
+            <% end %>
+            </div>
+          <% end %>
+        </div>
+
       </div>
+
     </div>
 
   </div>
