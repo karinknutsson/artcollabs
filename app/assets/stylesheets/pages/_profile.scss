@@ -69,9 +69,33 @@
   }
 }
 
+.links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+}
+
 .profile-taglist {
   width: 50%;
   margin-right: 24px;
+}
+
+.link-item {
+  margin: 16px;
+  padding: 10px 30px;
+  border-radius: 50px;
+  border: 2px solid $light-blue;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.delete-link {
+  color: $warm-red;
+  font-family: "futurateemedregular", Futura, Helvetica, sans-serif;
+  font-size: 14pt;
+  margin-left: -28px;
+  margin-top: 14px;
 }
 
 .profile-text {

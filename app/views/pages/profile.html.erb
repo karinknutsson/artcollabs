@@ -65,21 +65,23 @@
         <div class="profile-linklist">
           <% if @user.links.present? %>
             <h5>Links</h5>
-            <ul>
+            <div class="links">
               <% @user.links.each do |link|  %>
-                <li><%= link_to link.title, link.url %>
+
+                  <%= link_to link.title, link.url, class: "link-item" %>
                   <% if @user == current_user %>
-                    <span class="float-right" style="margin-right: 100px;">
-                      <%= link_to "Delete", link_path(link), class: "btn-artcollabs btn-profile-outline", method: :delete, data: { confirm: "Delete the link?" } %>
-                    </span>
+                      <%= link_to link_path(link), class: "delete-link", method: :delete, data: { confirm: "Delete the link?" } do %>
+                        <i class='fas fa-times-circle'></i>
+                      <% end %>
                   <% end %>
-                </li>
+
               <% end %>
-            </ul>
+            </div>
           <% end %>
 
           <% if @user == current_user %>
-            <div style="margin-bottom: 20px; margin-left: 8px;">
+          <br>
+            <div class="float-right" style="margin-right: 100px;">
               <%= link_to "Add a Link", new_link_path, class: "white btn-artcollabs btn-profile" %>
             </div>
           <% end %>
