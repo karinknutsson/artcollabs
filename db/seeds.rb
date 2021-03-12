@@ -36,7 +36,7 @@ def budget_generator
   # ["no budget", "big budget", "expanses cover", "1000€", "9000€", "from my own pocket", "50€"].sample
 end
 
-@names = ["The end of Osiris", "Pentimento", "Through triple darkness", "false ruins and lost innocence", "Absence over Vision", "Samurai Masu Biitsu", "Spoiler Alert, Everybody is Dying.", "Selvagem", "...hemos hecho", "Darkroom Lover", "0055444", "@street", "Heimcomputer", "Axioms", "Cupio dissolvi", "Smound = Smell + Sound", "et j'ai besoin d'un câlin", "I Never Loved Your Mind", "WHY ARE WE MAD?", "Re-encountered.", "harab aldijaj", "A Slightly Curving Place", "Das illegale Bild", "56600 - The Past. The Future.", "生ける光の影", "Music for airports", "Black Aura - White What?" ]
+@names = ["The end of Osiris", "Pentimento", "Through triple darkness", "false ruins and lost innocence", "Absence over Vision", "Spoiler Alert, Everybody is Dying.", "Darkroom Lover", "0055444", "@street", "Cupio dissolvi", "Smound = Smell + Sound", "I Never Loved Your Mind", "WHY ARE WE MAD?", "Re-encountered.", "harab aldijaj", "A Slightly Curving Place", "Das illegale Bild", "56600 - The Past. The Future.", "生ける光の影", "Music for airports", "Black Aura - White What?" ]
 
 def location_generator
   [Faker::Address.full_address, "remote"].sample
@@ -44,6 +44,14 @@ end
 
 def role_generator
  ["Painter", "Model", "Photographer", "MUA", "Musician", "Video Artist", "Sculptor", "Filmmaker", "FX", "Creative Director", "Actor", "Performance Artist", "Digital Artist", "3D artist", "Motion Graphic Artist", "Generative Artist", "Editor", "Writer", "Dancer", "Designer", "Developer", "Animator", "Illustrator", "Fashion Designer", "Colorist", "Set Design", "Singer", "Architect", "Fine Artist", "Tattoo Artist", "Scenographer", "Producer", "Lighting Designer", "Costume Designer", "Stylist", "Sound Designer", "Composer", "Carpenter", "Curator", "Gallery Owner", "Art Historian" ].sample
+end
+
+def skill_generator
+  ["artist", "curator", "painting", "video art", "sculpture", "make up artist", "stylist", "musician", "performance", "writing", "editing", "film"].sample
+end
+
+def interest_generator
+  ["art", "visual art", "video art", "art history", "feminism", "interdisciplinary", "gender", "critical theory", "performance", "nature", "politics", "philosophy", "ideology", "identity", "vr", "immersion", "film theory"].sample
 end
 
 @avatar_count = -1
@@ -139,26 +147,43 @@ image = URI.open("https://res.cloudinary.com/det3cfeuo/image/upload/v1614425622/
 admin.avatar.attach(io: image, filename: "admin", content_type: "image/png")
 puts "Created admin 🔧 \n email: #{admin.email}, password: #{admin.password} \n "
 
-dummy1 = User.create(email: "user@artcollabs.com", password: "000000", username: "Valerian")
+dummy1 = User.create(email: "user@artcollabs.com", password: "000000", username: "Valerian", first_name: "John Valerian", last_name: "Seymor", location: "San Fransisco",
+                     bio: "John Valerian Seymor was born in Argentina and currently lives in San Francisco, California. He graduated from UC Berkeley and received a scholarship to SF Academy of Art. His art reflects his interest in travel and culture. He juxtaposes elements of reality with surrealism using paint, charcoal, and digital art. His rhythmic compositions convey feelings of whimsy with elements of surprise. In addition to original works of art John offers limited edition prints on archival, museum quality paper. His art is sold through many interior designers and art consultants. John’s many exhibitions include those held at the San Diego Art Museum and at the Ace Academy in San Francisco. He won an Award of Excellence in “Artists for Peace” presented by Manhattan Arts International. His art is found in many private collections in the U.S. and several public collections namely the Horace Bank and Dudley Insurance Co., both in California.")
 image = URI.open(avatar_generator)
 dummy1.avatar.attach(io: image, filename: "dummy1", content_type: "image/png")
+dummy1.interest_list.add("digital art", "surrealism", "visual art")
+dummy1.skill_list.add("painting", "#{skill_generator}")
+dummy1.save
+Link.new(user: dummy1, title: "Portfolio", url: "https://www").save
+Link.new(user: dummy1, title: "Instagram", url: "https://www").save
+Link.new(user: dummy1, title: "Youtube", url: "https://www").save
 puts "Created dummy 1 🤡 \n email: #{dummy1.email}, password: #{dummy1.password} \n "
 
-
-dummy2 = User.create(email: "user2@artcollabs.com", password: "000000", username: "saturn")
+dummy2 = User.create(email: "user2@artcollabs.com", password: "000000", username: "saturn", first_name: "Sara", last_name: "Aviam", location: "Miami",
+                     bio: "Sara was born in Ra’anana, Israel. From an early age she demonstrated an innate artistic talent and continued to bring her creative passion to fruition. In 1999 she moved to New York where she pursued an art education at the School of Visual Arts and The Art Students League. In 2019, she moved to Miami, Florida where she currently resides. Sara expresses  joie de vivre in her stylized inspirational portraits and nature scenes. She communicates the healing power of art and lifts our spirits. Her art has been selected for exhibitions presented by the National Association of Women Artists, a prestigious New York-based organization. They have been held at the Coral Springs Museum of Art, in Florida, and Sylvia Wald and Po Kim Art Gallery in New York City, NY. She has also shown her artwork at Armory Annex Gallery, Lake Worth, Florida, and Haven Art Studio, Port Washington, NY, among other venues." )
 image = URI.open(avatar_generator)
 dummy2.avatar.attach(io: image, filename: "dummy2", content_type: "image/png")
+dummy2.interest_list.add("visual art", "portraiture", "philosophy")
+dummy2.skill_list.add("portraits", "landscape", "nature", "painting", "drawing")
+dummy2.save
+Link.new(user: dummy2, title: "Portfolio", url: "https://www").save
+Link.new(user: dummy2, title: "Instagram", url: "https://www").save
+Link.new(user: dummy2, title: "Youtube", url: "https://www").save
 puts "Created dummy 2 👺 \n email: #{dummy2.email}, password: #{dummy2.password} \n "
 
 noelle = User.create(email: "noelle@gmail.com", password: "000000", username: "noelle_from_hessen",
                      first_name: "Noelle", last_name: "H.",
-                     bio: "I am Noelle!")
+                     bio: "I am an artist, hunter and a sex-positive queer feminist. I work conceptually with text, sculpture, collage, photography, video, performance, sound and installation. My works are based on personal narratives and address radicality, love, poetry, nature and sexuality. I completed my Master of Fine Arts at the Weissensee Academy of Art Berlin in July 2020.")
 puts "Created THE Noelle 💅 \n email: #{noelle.email}, password: #{noelle.password} \n "
 image = URI.open("https://res.cloudinary.com/diucx7fqo/image/upload/v1615311038/10475467_10204209381861889_6319051138607362249_n_nm3w2r.jpg")
 noelle.avatar.attach(io: image, filename: "noelle", content_type: "image/png")
 noelle.interest_list.add("visual art", "painting")
 noelle.skill_list.add("oil painting", "acrylic", "resin", "portraits")
 noelle.save
+Link.new(user: noelle, title: "Portfolio", url: "https://www").save
+Link.new(user: noelle, title: "Instagram", url: "https://www").save
+Link.new(user: noelle, title: "Youtube", url: "https://www").save
+Link.new(user: noelle, title: "Soundcloud", url: "https://www").save
 
 puts "------ Creating Felix 🧔"
 felix = User.create(username: "felix", email: "felixwor@aol.com", password: "12345678")
@@ -172,13 +197,8 @@ weserhalle = User.create(email: "weserhalle@email.com", password: "123456", user
                          By exploring alternative modes of cultural production, artistic expression, discourse and connection we aim to question prevailing modes of practice within the art world, which are characterized by precarity, lack of accessibility and a constant risk of capitalist subsumption. Instead we seek to foster networks of mutual care and creative exchange within our neighbourhood and beyond. We strive to position ourselves as a recognisable, positive force in the (creative) community, creating meaningful exchange and connection for all involved.")
 image = URI.open("https://res.cloudinary.com/diucx7fqo/image/upload/v1615297412/weserhalle_ujjvqg.jpg")
 weserhalle.avatar.attach(io: image, filename: "weserhalle", content_type: "image/png")
-weserhalle.interest_list.add("Build long-lasting networks based on cultural discourse and care")
-weserhalle.interest_list.add("Engage in sustainable exchange with the neighbourhood")
-weserhalle.interest_list.add("Foster collaboration, conversation and discourse")
-weserhalle.interest_list.add("Compensate everyone fairly")
-weserhalle.interest_list.add("Ensure accessibility to the space and its programming")
-weserhalle.interest_list.add("Cultivate cultural equity")
-weserhalle.interest_list.add("Promote local and emerging artists and their work")
+weserhalle.interest_list.add("visual art", "conceptual art", "performance", "local artists", "emerging artists")
+weserhalle.skill_list.add("exhibitions", "curating", "curator", "gallery")
 weserhalle.save
 
 puts "---- Created Weserhalle \n email: #{weserhalle.email}, password: #{weserhalle.password} \n "
@@ -208,6 +228,9 @@ amanda_burke.avatar.attach(io: image, filename: "amanda_burke", content_type: "i
 amanda_burke.interest_list.add("aboriginal art", "conceptual art", "video", "performance")
 amanda_burke.skill_list.add("curator", "curator-in-residence", "coordinator", "art history")
 amanda_burke.save
+Link.new(user: amanda_burke, title: "Portfolio", url: "https://www.amandaburke.com").save
+Link.new(user: amanda_burke, title: "Instagram", url: "https://www.instagram.com/amanda____burke").save
+Link.new(user: amanda_burke, title: "Linked In", url: "https://www.linkedincom/amanda").save
 
 puts "---- Created Amanda 💄 \n email: #{amanda_burke.email}, password: #{amanda_burke.password} \n "
 
@@ -218,6 +241,9 @@ gabi.avatar.attach(io: image, filename: "gabi", content_type: "image/png")
 gabi.interest_list.add("feminism", "magic", "occult", "film")
 gabi.skill_list.add("photography", "painting", "writing", "editing", "perception theory")
 gabi.save
+Link.new(user: gabi, title: "Portfolio", url: "https://www").save
+Link.new(user: gabi, title: "Instagram", url: "https://www").save
+Link.new(user: gabi, title: "Youtube", url: "https://www").save
 
 puts "---- Created Gabrielle 🍄 \n email: #{gabi.email}, password: #{gabi.password} \n "
 
@@ -227,6 +253,9 @@ image = URI.open("https://res.cloudinary.com/diucx7fqo/image/upload/v1615378459/
 miles.avatar.attach(io: image, filename: "miles", content_type: "image/png")
 miles.skill_list.add("coordinator", "creative director", "curator")
 miles.save
+Link.new(user: miles, title: "Portfolio", url: "https://www.miles.com").save
+Link.new(user: miles, title: "Linked In", url: "https://www.linkedincom/miles").save
+Link.new(user: miles, title: "Artconnect", url: "https://artconnect.com/miles").save
 
 puts "---- Created Miles 👔 \n email: #{miles.email}, password: #{miles.password} \n "
 
@@ -238,6 +267,11 @@ serge.avatar.attach(io: image, filename: "serge", content_type: "image/png")
 serge.interest_list.add("post idea", "video", "perception", "dark matter")
 serge.skill_list.add("artist", "art historian", "writer", "curator")
 serge.save
+Link.new(user: serge, title: "Portfolio", url: "https://www.serge.com").save
+Link.new(user: serge, title: "Instagram", url: "https://www.instagram.com/serge").save
+Link.new(user: serge, title: "Linked In", url: "https://www.linkedincom/serge").save
+Link.new(user: serge, title: "The-Dots", url: "https://www.thdots.com/serge").save
+Link.new(user: serge, title: "Artconnect", url: "https://artconnect.com/serge").save
 
 puts "---- Created Serge 🍸 \n email: #{serge.email}, password: #{serge.password} \n "
 
@@ -248,15 +282,23 @@ puts " \n "
 random_users = [dummy1, dummy2, gh36, felix, amanda_burke, serge, miles, gabi]
 
 counter = 0
-20.times do
+12.times do
   counter += 1
-  random_user = User.create(email: "#{Faker::Internet.email}", password: "000000", username: "#{Faker::Internet.username}", location: location_generator)
+  random_user = User.create(email: "#{Faker::Internet.email}", password: "000000", username: "#{Faker::Internet.username}",
+                            first_name: "#{Faker::Name.first_name}", last_name: "#{Faker::Name.last_name}")
   image = URI.open(avatar_generator)
   random_user.avatar.attach(io: image, filename: "random_user#{counter}", content_type: "image/png")
+  random_user.bio = "#{random_user.first_name} #{random_user.last_name} is an artist who works in a variety of media. By applying abstraction, #{random_user.first_name} makes work that deals with the documentation of events and the question of how they can be presented. The work tries to express this with the help of physics and technology, but not by telling a story or creating a metaphor.Their artworks doesn’t reference recognisable form. The results are deconstructed to the extent that meaning is shifted and possible interpretation becomes multifaceted. With Plato’s allegory of the cave in mind, they try to increase the dynamic between audience and author by objectifying emotions and investigating the duality that develops through different interpretations. Their works are an investigation into representations of (seemingly) concrete ages and situations as well as depictions and ideas that can only be realized in art."
+  random_user.interest_list.add("#{interest_generator}", "#{interest_generator}", "#{interest_generator}", "#{interest_generator}")
+  random_user.skill_list.add("#{skill_generator}", "#{skill_generator}", "#{skill_generator}", "#{skill_generator}", "#{skill_generator}")
+  random_user.save
+  Link.new(user: random_user, title: "Portfolio", url: "https://www").save
+  Link.new(user: random_user, title: "Linked In", url: "https://www").save
+  Link.new(user: random_user, title: "Instagram", url: "https://www").save
   random_users << random_user
 end
 
-puts "Created 20 random users 🥳"
+puts "Created #{random_users.length} random users 🥳"
 puts " \n "
 puts " \n "
 
@@ -457,6 +499,13 @@ tehran.photo.attach(io: image, filename: "tehran", content_type: "image/png")
 tehran.tag_list = %w[ tehran iran music contemporary ]
 tehran.save
 
+hugged = Project.new(title: "hugged in a kind yet misterious mist", budget: "high", user: random_users.sample, start_date: Date.parse('05-09-2021'), end_date: Date.parse('18-09-2021'),
+                     description: "We make conceptual artworks, photos, drawings and installations. By studying sign processes, signification and communication, we make work that generates diverse meanings. Associations and meanings collide. Space becomes time and language becomes image. Our conceptual artworks feature coincidental, accidental and unexpected connections which make it possible to revise art history and, even better, to complement it. Combining unrelated aspects lead to surprising analogies. By manipulating the viewer to create confusion, we often create several practically identical works, upon which thoughts that have apparently just been developed are manifested: notes are made and then crossed out again, ‘mistakes’ are repeated. Our works question the conditions of appearance of an image in the context of contemporary visual culture in which images, representations and ideas normally function. By experimenting with aleatoric processes, we formalize the coincidental and emphasizes the conscious process of composition that is behind the seemingly random works. The thought processes, which are supposedly private, highly subjective and unfiltered in their references to dream worlds, are frequently revealed as assemblages. Our works are on the one hand touchingly beautiful, on the other hand painfully attractive. Again and again, the artists leave us orphaned with a mix of conflicting feelings and thoughts.")
+image = URI.open("https://res.cloudinary.com/diucx7fqo/image/upload/v1615569074/Screenshot_2021-03-12_at_18.09.30_j0wwhb.png")
+hugged.photo.attach(io: image, filename: "hugged", content_type: "image/png")
+hugged.tag_list = %w[ installation conceptual signifyer sign ]
+hugged.save
+
 the_ephemerals = Project.new(user: amanda_burke, title: "The Ephemerals: Trending",
                              start_date: Date.parse('05-04-2021'),
                              end_date: Date.parse('05-06-2021'),
@@ -598,18 +647,6 @@ counter = 0
   puts " \n "
 end
 
-puts " \n "
-puts "🆕🚩🚩-- Creating Milestones"
-puts " \n "
-
-counter = 0
-50.times do
-  counter = counter + 1
-  milestone = Milestone.create!(project: Project.all.sample, title: "#{Faker::Marketing.buzzwords}", description: "#{milestone_generator}", completed: [true, false].sample)
-  puts "Random Milestone #{counter}: project: #{milestone.project.title}"
-  puts " \n "
-end
-
 puts "📨📨-- Message system seeds ..."
 
 new_chatroom = Chatroom.create
@@ -655,7 +692,25 @@ not_cancelled.save
 @remainder = ((@time_min - @time_min.floor) * 60).round
 
 puts " \n "
+puts "🆕🚩🚩-- Creating Milestones"
+puts " \n "
+
+Project.all.each do |project|
+  Milestone.create!(project: project, title: "Project created", description: "Project created on #{project.created_at.day} of #{Date::MONTHNAMES[project.created_at.month]} by #{project.user.username}.", completed: true)
+end
+
+counter = 0
+50.times do
+  counter = counter + 1
+  milestone = Milestone.create!(project: Project.all.sample, title: "#{Faker::Marketing.buzzwords}", description: "#{milestone_generator}", completed: false)
+  puts "Random Milestone #{counter}: project: #{milestone.project.title}"
+  puts " \n "
+end
+
+puts " \n "
 puts "#{User.all.length.to_s} users and #{Project.all.length.to_s} projects created in #{@time_min.floor} minutes and #{@remainder} seconds 🥂✨"
+
+
 
 puts " \n "
 puts "----------------------SEED ENDED----------------------"
