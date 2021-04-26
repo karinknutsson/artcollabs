@@ -143,7 +143,6 @@ puts "🆕👩‍🦰👨‍🦲-- Creating Users"
 puts " \n "
 
 admin = User.create(email: "admin@artcollabs.com", password: "admin123456", admin: true, username: "artcollabs_admin")
-admin.avatar.attach(io: image, filename: "admin", content_type: "image/png")
 puts "Created admin 🔧 \n email: #{admin.email}, password: #{admin.password} \n "
 
 dummy1 = User.create(email: "user@artcollabs.com", password: "000000", username: "Valerian", first_name: "John Valerian", last_name: "Seymor", location: "San Fransisco",
