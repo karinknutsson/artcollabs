@@ -143,7 +143,6 @@ puts "🆕👩‍🦰👨‍🦲-- Creating Users"
 puts " \n "
 
 admin = User.create(email: "admin@artcollabs.com", password: "admin123456", admin: true, username: "artcollabs_admin")
-image = URI.open("https://res.cloudinary.com/det3cfeuo/image/upload/v1614425622/logo_ej62wp.jpg")
 admin.avatar.attach(io: image, filename: "admin", content_type: "image/png")
 puts "Created admin 🔧 \n email: #{admin.email}, password: #{admin.password} \n "
 
