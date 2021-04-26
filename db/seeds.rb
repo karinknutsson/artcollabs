@@ -73,50 +73,7 @@ def avatar_generator
   "https://res.cloudinary.com/diucx7fqo/image/upload/v1615307073/90173837_100350838280910_5190167926505734144_n_jfduei.jpg",
   "https://res.cloudinary.com/diucx7fqo/image/upload/v1615306927/79079119_10215496323389705_7108197701245730816_o_lcrpdj.jpg",
   "https://res.cloudinary.com/diucx7fqo/image/upload/v1615306898/74211334_2458287684291346_1017414023697661952_n_nh12t9.jpg",
-  "https://res.cloudinary.com/diucx7fqo/image/upload/v1615306736/22859696_10154920863740812_2760474336786047136_o_sgktrk.jpg",
-  "https://res.cloudinary.com/det3cfeuo/image/upload/v1614429314/XzA2NTI1NTYuanBn_typve3.jpg",
-  "https://res.cloudinary.com/det3cfeuo/image/upload/v1614429315/XzA3NjY3MzAuanBn_lt7pqk.jpg",
-  "https://res.cloudinary.com/det3cfeuo/image/upload/v1614429315/XzAxMzE0MzIuanBn_nralvx.jpg",
-  "https://res.cloudinary.com/det3cfeuo/image/upload/v1614429315/XzAwNjQ0NzYuanBn_brysyf.jpg",
-  "https://res.cloudinary.com/det3cfeuo/image/upload/v1614429315/XzA5OTk5MTEuanBn_fxeudm.jpg",
-  "https://res.cloudinary.com/det3cfeuo/image/upload/v1614429315/XzAxMTYwMTkuanBn_m6aqux.jpg",
-  "https://res.cloudinary.com/det3cfeuo/image/upload/v1614429315/XzAwNjM2MzUuanBn_bq11bk.jpg",
-  "https://res.cloudinary.com/det3cfeuo/image/upload/v1614429315/XzA5OTc4NDUuanBn_deg9ba.jpg",
-  "https://res.cloudinary.com/det3cfeuo/image/upload/v1614429314/XzA2MjEyNzUuanBn_xrout9.jpg",
-  "https://res.cloudinary.com/det3cfeuo/image/upload/v1614429314/LmpwZw_5_jqoqt5.jpg",
-  "https://res.cloudinary.com/det3cfeuo/image/upload/v1614429315/XzA5MDcyODMuanBn_og5suh.jpg",
-  "https://res.cloudinary.com/det3cfeuo/image/upload/v1614429314/ssasdsdsa_turxn7.jpg",
-  "https://res.cloudinary.com/det3cfeuo/image/upload/v1614429314/XzA0Mjc1NzMuanBn_cbip92.jpg",
-  "https://res.cloudinary.com/det3cfeuo/image/upload/v1614429314/NTkzNjYuanBn_kebow5.jpg",
-  "https://res.cloudinary.com/det3cfeuo/image/upload/v1614429314/NjAzMDAuanBn_fiz7ok.jpg",
-  "https://res.cloudinary.com/det3cfeuo/image/upload/v1614429314/NDY4MTcuanBn_m8fkfd.jpg",
-  "https://res.cloudinary.com/det3cfeuo/image/upload/v1614429313/LmpwZw_km0kt8.jpg",
-  "https://res.cloudinary.com/det3cfeuo/image/upload/v1614429313/MzI4NzUuanBn_nfu30e.jpg",
-  "https://res.cloudinary.com/det3cfeuo/image/upload/v1614429313/LmpwZw_3_y1somd.jpg",
-  "https://res.cloudinary.com/det3cfeuo/image/upload/v1614429313/LmpwZw_4_yhdtv3.jpg",
-  "https://res.cloudinary.com/det3cfeuo/image/upload/v1614429313/image_hwack1.jpg",
-  "https://res.cloudinary.com/det3cfeuo/image/upload/v1614429313/image_2_wl7oug.jpg",
-  "https://res.cloudinary.com/det3cfeuo/image/upload/v1614429313/LmpwZw_2_szjihg.jpg",
-  "https://res.cloudinary.com/det3cfeuo/image/upload/v1614429313/LmpwZw_1_kh6nkx.jpg",
-  "https://res.cloudinary.com/det3cfeuo/image/upload/v1614429312/image_4_muqmek.jpg",
-  "https://res.cloudinary.com/det3cfeuo/image/upload/v1614429313/image_6_xcwo2k.jpg",
-  "https://res.cloudinary.com/det3cfeuo/image/upload/v1614429312/image_5_luwghv.jpg",
-  "https://res.cloudinary.com/det3cfeuo/image/upload/v1614429312/image_3_wi2aib.jpg",
-  "https://res.cloudinary.com/det3cfeuo/image/upload/v1614429311/cG5n_qaigo3.png",
-  "https://res.cloudinary.com/det3cfeuo/image/upload/b_rgb:1c3a5e/v1614429311/dasas_msmz7c.png",
-  "https://res.cloudinary.com/det3cfeuo/image/upload/b_rgb:802a6e/v1614429310/cG5n_11_m7tue3.png",
-  "https://res.cloudinary.com/det3cfeuo/image/upload/v1614429310/fdfsd_ymzcfe.jpg",
-  "https://res.cloudinary.com/det3cfeuo/image/upload/v1614429310/dasdas_do36in.jpg",
-  "https://res.cloudinary.com/det3cfeuo/image/upload/b_rgb:cecece/v1614429309/cG5n_10_ccdxri.png",
-  "https://res.cloudinary.com/det3cfeuo/image/upload/b_rgb:878787/v1614429309/cG5n_9_ex1k69.png",
-  "https://res.cloudinary.com/det3cfeuo/image/upload/b_rgb:ffffff/v1614429309/cG5n_8_ux5zfa.png",
-  "https://res.cloudinary.com/det3cfeuo/image/upload/b_rgb:ffffff/v1614429309/cG5n_12_jjwuci.png",
-  "https://res.cloudinary.com/det3cfeuo/image/upload/b_rgb:000000/v1614429309/cG5n_7_bi6kc7.png",
-  "https://res.cloudinary.com/det3cfeuo/image/upload/b_rgb:ff0b0b/v1614429308/cG5n_4_eswzht.png",
-  "https://res.cloudinary.com/det3cfeuo/image/upload/b_rgb:6f4d4d/v1614429308/cG5n_6_uklpnv.png",
-  "https://res.cloudinary.com/det3cfeuo/image/upload/b_rgb:d691b8/v1614429308/cG5n_1_bbsjki.png",
-  "https://res.cloudinary.com/det3cfeuo/image/upload/b_rgb:271414,e_cartoonify/v1614429308/cG5n_3_f08nq6.png",
-  "https://res.cloudinary.com/det3cfeuo/image/upload/b_rgb:2d1515/v1614429306/XzAxODgzNDUuanBn_wme9rz.jpg" ]
+  "https://res.cloudinary.com/diucx7fqo/image/upload/v1615306736/22859696_10154920863740812_2760474336786047136_o_sgktrk.jpg" ]
 
   if @avatar_count < avatar.length
     @avatar_count += 1
@@ -157,7 +114,7 @@ Link.new(user: dummy1, title: "Instagram", url: "https://www").save
 Link.new(user: dummy1, title: "Youtube", url: "https://www").save
 puts "Created dummy 1 🤡 \n email: #{dummy1.email}, password: #{dummy1.password} \n "
 
-dummy2 = User.create(email: "user2@artcollabs.com", password: "000000", username: "saturn", first_name: "Sara", last_name: "Aviam", location: "Miami",
+dummy2 = User.create(email: "user2@artcollabs.com", password: "123456", username: "saturn", first_name: "Sara", last_name: "Aviam", location: "Miami",
                      bio: "Sara was born in Ra’anana, Israel. From an early age she demonstrated an innate artistic talent and continued to bring her creative passion to fruition. In 1999 she moved to New York where she pursued an art education at the School of Visual Arts and The Art Students League. In 2019, she moved to Miami, Florida where she currently resides. Sara expresses  joie de vivre in her stylized inspirational portraits and nature scenes. She communicates the healing power of art and lifts our spirits. Her art has been selected for exhibitions presented by the National Association of Women Artists, a prestigious New York-based organization. They have been held at the Coral Springs Museum of Art, in Florida, and Sylvia Wald and Po Kim Art Gallery in New York City, NY. She has also shown her artwork at Armory Annex Gallery, Lake Worth, Florida, and Haven Art Studio, Port Washington, NY, among other venues." )
 image = URI.open(avatar_generator)
 dummy2.avatar.attach(io: image, filename: "dummy2", content_type: "image/png")
@@ -169,7 +126,7 @@ Link.new(user: dummy2, title: "Instagram", url: "https://www").save
 Link.new(user: dummy2, title: "Youtube", url: "https://www").save
 puts "Created dummy 2 👺 \n email: #{dummy2.email}, password: #{dummy2.password} \n "
 
-noelle = User.create(email: "noelle@gmail.com", password: "000000", username: "noelle_from_hessen",
+noelle = User.create(email: "noelle@gmail.com", password: "123456", username: "noelle_from_hessen",
                      first_name: "Noelle", last_name: "H.",
                      bio: "I am an artist, hunter and a sex-positive queer feminist. I work conceptually with text, sculpture, collage, photography, video, performance, sound and installation. My works are based on personal narratives and address radicality, love, poetry, nature and sexuality. I completed my Master of Fine Arts at the Weissensee Academy of Art Berlin in July 2020.")
 puts "Created THE Noelle 💅 \n email: #{noelle.email}, password: #{noelle.password} \n "
@@ -183,12 +140,6 @@ Link.new(user: noelle, title: "Instagram", url: "https://www").save
 Link.new(user: noelle, title: "Youtube", url: "https://www").save
 Link.new(user: noelle, title: "Soundcloud", url: "https://www").save
 
-puts "------ Creating Felix 🧔"
-felix = User.create(username: "felix", email: "felixwor@aol.com", password: "12345678")
-image = URI.open("https://profile-images.xing.com/images/6fe0ce6b1a2c5fb6c2a753b94892b1a9-6/felix-worringen.1024x1024.jpg")
-felix.avatar.attach(io: image, filename: "felix", content_type: "image/png")
-puts "Felix created"
-puts " \n "
 
 weserhalle = User.create(email: "weserhalle@email.com", password: "123456", username: "WESERHALLE", location: "Berlin",
                          bio: "Weserhalle’s purpose is to create a space for artistic expression, conversation, learning and engagement. Through our various formats and by showcasing local and emerging artists, we seek to establish a dialogue and cultural exchange within the neighbourhood and the wider Neukölln/Berlin community.
@@ -328,16 +279,12 @@ modular1978 = Project.new(title: "1978", description: "Wendy Carlos (born Walter
 The use of modular synthesizers has become a trend between musicians and aspiring musicians and we aim to explore how they are connected to social movements and music experimentantions from time to time.
 ", status: "open", budget: "low", max_members: 2, user: dummy1, start_date: Date.today, end_date: Date.today+rand(10000))
 modular1978.location = modular1978.user.location
-image = URI.open("https://res.cloudinary.com/det3cfeuo/image/upload/v1614275132/w7bmjq8zp6w6fz33gykowcy2j3l3.jpg")
-modular1978.photo.attach(io: image, filename: "modular1978", content_type: "image/png")
 modular1978.tag_list = %w[ music performance installation ]
 modular1978.save
 
 transgression = Project.new(title: "TRANSGRESSION", description: "Our sponsor, the Worcester Art Museum (WAM), is largely involved with art from the past and exhibiting example of historical periods of art. However, in the near future they will be sponsoring a new exhibit, called Reusable Universes, that will feature artwork created by the contemporary artist, Shih Chieh Huang. This new exhibit will need corresponding interactive activities, provided by the WAM, to allow visitors to become more involved. Huang takes inspiration from early technology such as computer cooling fans, basic circuit boards, and even simpler objects; such as power strips, in order to create his sculptures. His views of these everyday objects differ from those of the public and our understanding of his creative process can only be developed so far through text. In order for viewers to truly grasp the thoughts and concepts that go into his work, Huang has set out to bring his artistic process to life and put on a show featuring himself creating one of his sculptures. He plans to highlight the meaning of each object through the location and orientation he chooses as the audience observes how he brings his art to life. Working alongside the WAM, Huang will be able to give the audience enough information and examples of his work to develop a true appreciation of his art style.",
                             status: "open", max_members: 2, user: dummy2, start_date: Date.today, end_date: Date.today+rand(10000))
-transgression.location = transgression.user.location
-image = URI.open("https://res.cloudinary.com/det3cfeuo/image/upload/v1614188111/rhld9yqy6yejtyo0xbgs92fdlxxd.jpg")
-transgression.photo.attach(io: image, filename: "transgression", content_type: "image/png")
+
 transgression.tag_list = %w[ rebel installation jointworks collage ]
 transgression.save
 
@@ -357,10 +304,9 @@ The Peripheral Pioneers and Utopia
 
 Many smaller towns, islands and rural areas have for decades experienced evictions following the closure of jobs, educational institutions and the decay of the building stock. The concept of ‘outlying territories has become mainstream. But in an increasingly complex and climate-apocalyptic world, more and more people are dreaming of living the good, simple and literally nourishing life in the countryside. Both in relation to being able to live more sustainably and be more in harmony with nature, be part of local communities, experience less stress and as a (re) discovery of the qualities in the countryside beyond an economic growth ideology. Many choose to do it together and several new self-sufficient housing communities are formed. With the COVID-19 pandemic, this trend seems to have gained further traction, and even more city dwellers are moving to the countryside. As Rem Koolhaas prophetically stated with his exhibition, 'Countryside, The Future', which opened just before the global closure of cities: 'The countryside is where the radical changes are.'What notions of and experiments for settlement and community do we see emerge, and what visions and concrete methods are they built on? What experiences about sustainability can be drawn from the new 'utopias' in the countryside and into urban planning? That the future is urban has been established for a long time, but what if it is also time to look at the rural in our search for sustainable coexistence between humans, species and ecosystems?",
       status: "open", max_members: 2, user: random_users.sample, start_date: Date.today, end_date: Date.today+rand(10000))
-image = URI.open("https://res.cloudinary.com/det3cfeuo/image/upload/v1614188113/hx6ajqjojox0px559rf5a428ybx6.jpg")
 intacto.location = intacto.user.location
 intacto.tag_list = %w[ architechture design installation ]
-intacto.photo.attach(io: image, filename: "intacto", content_type: "image/png")
+
 intacto.save
 
 past_future = Project.new(title: "56600 _ The Past. The Future.", budget: "medium", description: "Humans have changed dramatically in our 200,000 years of existence. We've gotten taller, we live longer, and we're smarter. We've built giant cities, domesticated animals and plants, and created and destroyed ecosystem.
@@ -372,8 +318,7 @@ Now ASAP Science has partnered with National Geographic's new Breakthrough serie
 
 Using projections we're trying to immerse the visitor into a future vision where humanity is not on earth anymore and uses love as the only food.
 ", status: "open", max_members: 2, user: dummy2, start_date: Date.today, end_date: Date.today+rand(10000))
-image = URI.open("https://res.cloudinary.com/det3cfeuo/image/upload/v1614188116/jaoa2c6erd9tgti2c5u7auuxlt7y.jpg")
-past_future.photo.attach(io: image, filename: "past_future", content_type: "image/png")
+
 past_future.tag_list = %w[ projection video immersion sci-fi ]
 past_future.save
 
@@ -388,8 +333,7 @@ And since Tim is on the Royal Society of Canada's COVID-19 response committee, S
 'Research tells us that if you just get people to think about an issue, to pause and think about accuracy, it can make a difference,' said Tim.
 
 'And what a great way to do that-with compelling art.'", status: "open", max_members: 2, user: random_users.sample, start_date: Date.today, end_date: Date.today+rand(10000))
-image = URI.open("https://res.cloudinary.com/det3cfeuo/image/upload/v1614188118/zkoy2ipkv7d24mn94l9h5uo2c6nr.jpg")
-misinformation.photo.attach(io: image, filename: "misinformation", content_type: "image/png")
+
 misinformation.tag_list = %w[ covid19 sculpture fakenews socialmedia ]
 misinformation.save
 
@@ -404,28 +348,16 @@ street.photo.attach(io: image, filename: "street", content_type: "image/png")
 street.tag_list = %w[ photography style anthropology urban ]
 street.save
 
-cryonic = Project.new(title: "Cryonic Suspension May Save Your Life", description: "To our knowledge, we are the only species in the animal kingdom, aware of our mortality. Dubbed Mortality salience, this source of anxiety has driven some of the most recent interesting technological projects, like Elon Musk's plan to upload the human mind to computers. Cryonics could also help ease our fears. However, we are getting ahead of ourselves. What is the definition of cryonics?
 
-For the uninitiated, cryogenics is the study of what happens to materials at very low temperatures. Cryonics is the technique used to stor­e human bodies at extremely low temperatures with the hope of one day reviving them. If you think that this is some distant opportunity for your future ancestors, you would be wrong. In fact, you can sign up to be cryogenically preserved now after you pass away for a hefty fee. However, what does science say about cryonics, and is it something that we should be excited about?
-
-In this project we will find the answers.", status: "open", max_members: 2, user: dummy2, start_date: Date.today, end_date: Date.today+rand(10000))
-image = URI.open("https://res.cloudinary.com/det3cfeuo/image/upload/v1614188121/eeuccjpdymy8h0jlrrybeppfzggj.jpg")
-cryonic.photo.attach(io: image, filename: "cryonic", content_type: "image/png")
-cryonic.tag_list = %w[ cyber drag vr immersion ]
-cryonic.save
 
 kinectic_sunset = Project.new(title: "Kinetic Sunset", description: "We're looking for Photographers who are into night city Photography to create a series of collages. Our biggest inspiration are neon lights, frequently used in busy streets of China.",
                               status: "open", max_members: 2, user: random_users.sample, start_date: Date.today, end_date: Date.today+rand(10000))
 kinectic_sunset.location = kinectic_sunset.user.location
-image = URI.open("https://res.cloudinary.com/det3cfeuo/image/upload/v1614188123/3bjlk0v3srnrnfr84rnreujhq65f.jpg")
-kinectic_sunset.photo.attach(io: image, filename: "kinectic_sunset", content_type: "image/png")
 kinectic_sunset.tag_list = %w[ photography collage cityscape dualism ]
 kinectic_sunset.save
 
 symptom = Project.new(title: "symptom, sympathy", budget: "medium", description: "After extensive research about upbringing of Children during and after the Nazi-Regime, we're looking for artists to collaborate on a project about the physical consequences that lack of emotional connection and rigid upbringing brings to an formed adult.",
                       status: "open", max_members: 2, user: random_users.sample, start_date: Date.today, end_date: Date.today+rand(10000))
-image = URI.open("https://res.cloudinary.com/det3cfeuo/image/upload/v1614188125/ifef73z08nu6h9c5l7q9fj0s5hha.jpg")
-symptom.photo.attach(io: image, filename: "symptom", content_type: "image/png")
 symptom.tag_list = %w[ painting psychology authoritarism ]
 symptom.save
 
@@ -433,8 +365,6 @@ algorithm_purpose = Project.new(title: "Algorithm purpose", description: "The co
 
 We plan to take a closer view at the algorithmic aspects of nearring theory as well as to using computers for theoretical investigations in this area, within a new project.
 ", status: "open", max_members: 2, user: miles, start_date: Date.today, end_date: Date.today+rand(10000))
-image = URI.open("https://res.cloudinary.com/det3cfeuo/image/upload/v1614188126/cx4o7nvorh1q9ahw2qu2m5se5dva.jpg")
-algorithm_purpose.photo.attach(io: image, filename: "algorithm_purpose", content_type: "image/png")
 algorithm_purpose.tag_list = %w[ technology math performance music ]
 algorithm_purpose.save
 
@@ -451,22 +381,6 @@ holly_daze.photo.attach(io: image, filename: "holly_daze", content_type: "image/
 holly_daze.tag_list = %w[ Berlin opencall GH36 exhibition ]
 holly_daze.save
 
-lento = Project.new(title: "Lento Brutalo", description: "Do commanded an shameless we disposing do. Indulgence ten remarkably nor are impression out. Power is lived means oh every in we quiet. Remainder provision an in intention. Saw supported too joy promotion engrossed propriety. Me till like it sure no sons.
-
-Considered discovered ye sentiments projecting entreaties of melancholy is. In expression an solicitude principles in do. Hard do me sigh with west same lady. Their saved linen downs tears son add music. Expression alteration entreaties mrs can terminated estimating. Her too add narrow having wished. To things so denied admire. Am wound worth water he linen at vexed.
-
-In this project we aim to approach Satanism and Guns as protection means against far-right movements.", status: "open", max_members: 2, user: random_users.sample, start_date: Date.today, end_date: Date.today+rand(10000))
-image = URI.open("https://res.cloudinary.com/det3cfeuo/image/upload/v1614188136/7iirlz5h1wohoyfmaadxpmhs8sxf.jpg")
-lento.photo.attach(io: image, filename: "lento", content_type: "image/png")
-lento.tag_list = %w[ satanism performance audio ]
-lento.save
-
-freedom = Project.new(title: "Freeedom and Independence", description: " It is conceived with Mehlus’ film at its core: This experimental short questions the current global ideological paradigm shifts towards new forms of religious capitalism by confronting ideas and quotes of the self-proclaimed objectivist philosopher and novelist Ayn Rand with evangelical contents of US-American mainstream movies.",
-                      status: "open", max_members: 2, user: miles, location: miles.location, start_date: Date.today, end_date: Date.today+rand(10000))
-image = URI.open("https://res.cloudinary.com/diucx7fqo/image/upload/v1615308499/The-Science-Behind-Hollywood-Explosions-1_lrqq7q.jpg")
-freedom.photo.attach(io: image, filename: "freedom", content_type: "image/png")
-freedom.tag_list = %w[ video performance installation dialogue ]
-freedom.save
 
 red_twilight = Project.new(title: "Red Twilight", user: random_users.sample, start_date: Date.parse('01-05-2021'), end_date: Date.parse('01-07-2021'),
                            description: "I always loved watching my sister applying make-up in the morning, that calmness on her face while contouring her lips dark red like all the Yugo girls did. These were the early 90ies and St. Linda Evangelista was watching the scenery from a torn-out magazine page my sister had stuck to the wall. I tried to make her laugh but she was too focused and just poked me in the arm without looking away from the mirror. There was a ­petrol station near our house to which she would send me to buy red Gauloises for her and sweets for myself. In those mornings we would talk and wonder why things had turned out to be that difficult while she was smoking and drinking coffee from her metal Thermos jug until she left for work always in a hurry.")
@@ -546,8 +460,6 @@ The residency took place at the abandoned, old campus of Central Saint Martins, 
 
 In December, photographer Antonio Perricone visited the artists for a series of portraits. Being on location at the eerie old campus set the tone for the shoot. ”Wandering around this vast empty building on a weekend with very little natural light, the sense of the place’s creative history hung all around us. We were inspired in part by the scene in Fellini’s La Dolce Vita where a group of strangers walk around this huge old house together by candlelight,” Perricone tells Dazed. “Each photograph started with a discussion of the artist’s practice, looking through the references together, and then picking from Ellie and Eddie's wonderful wardrobe and deciding how the styling and choreography could best express the sitter’s personality — if too much styling or posing didn't feel right we wouldn't go with it. I wanted to show every artist’s dual vulnerability and strength.”",
 status: "open", max_members: 2, user: random_users.sample, start_date: Date.today, end_date: Date.today+rand(10000))
-image = URI.open("https://res.cloudinary.com/det3cfeuo/image/upload/v1614188130/5b9vuaqiupq164tm570orst1zbt4.jpg")
-binary.photo.attach(io: image, filename: "binary", content_type: "image/png")
 binary.tag_list = %w[ gender queer multidisciplinary event ]
 binary.save
 
@@ -565,8 +477,6 @@ auction_6.save
 
 glitch = Project.new(title: "d@3cðáv[39 80==", description: "To die: to suffer 0101555% native hue of resolution is sicklied o'er wsh a bare bodkin? Who woulsssss ear the dread of som234ng after death, the thought, and sweat under a weary life; for in that the unworthy takes, when he himself might his quietus make cowards of outrageous fortune, or not to be444t makes calamity of so long a life; fo334mind to sleep to sleep of dispriz'd lc**e, the unworthy takes, when he himself might his quietus make cowards of dispriz'd love, than fly to be wish'd. To be, or t",
                      status: "open", max_members: 2, user: dummy1, start_date: Date.today, end_date: Date.today+rand(10000))
-image = URI.open("https://res.cloudinary.com/det3cfeuo/image/upload/v1614188134/q3im2lfz6kb7c3it24vqufr96rbo.jpg")
-glitch.photo.attach(io: image, filename: "glitch", content_type: "image/png")
 glitch.tag_list = %w[ glitch digital installation ]
 glitch.tag_list.push("digital art")
 glitch.save
@@ -603,8 +513,6 @@ In continental Europe, one aspect of sentimentalism was Empfindsamkeit. The sens
 
 The origin of sentimentalism in this context was chiefly religious, with the emotionally coloured texts for the oratorios of Johann Sebastian Bach stream being typical examples. Empfindsamkeit is also known as secularized pietism because it frequently came with moralizing content that had increasingly broken free of church and religious ties. An important theorist of the movement was Jean Baptiste Dubos.
 ", status: "open", budget: "medium", max_members: 2, user: gabi, location: gabi.location, start_date: Date.today, end_date: Date.today+rand(10000))
-image = URI.open("https://res.cloudinary.com/det3cfeuo/image/upload/v1614188145/ee2bl4ps3mq9hqm576sp8qdmnx9q.jpg")
-sensibel.photo.attach(io: image, filename: "sensibel", content_type: "image/png")
 sensibel.tag_list = %w[ sculpture emotions psychology ]
 sensibel.save
 
@@ -663,17 +571,6 @@ take_place.tag_list = %w[ performance berlin ]
 take_place.tag_list.push("white cube", "open call")
 take_place.save
 
-nase = Project.new(title: "Verhandlungsbasis",
-                   description: "Das heutige Europa entstand als Projekt des Widerstandes gegen die Faschismen der Vergangenheit. In einem Workshop- und Konferenzprogramm erforschen junge Menschen zusammen mit Künstler*innen, Wissenschaftler*innen, Kultur- und Bildungsexpert*innen künstlerische Formen der Faschismusbekämpfung als Möglichkeiten der Verwirklichung einer (europäischen) Gemeinschaft.
-
-Wie können sich künstlerische und kuratorische Praxen rassistischem Gedankengut entgegenstellen? Kann der Erdboden Gegenerinnerungen speichern? Könnte eine antirassistische und antisexistische Gamingkultur die Diversität der europäischen Gemeinschaft fördern? Wie sieht Menschenrechtsbildung aus? Diese Fragen umkreisen vier thematische Workshops für Jugendliche und junge Erwachsene: Arts of Resistance, Communities of Resistance, Digital Resistance, Education of Resistance. Workshopteilnehmer*innen können außerdem an Präsentationen von Studierenden aus St. Pölten, Zagreb, Berlin und Bozen teilnehmen: Sie sprechen über künstlerische Arbeiten, die sie ausgehend von Widerstandsliedern, Gedichten und Graffiti aus den Jahren 1939 bis 1945 entwickelten – und darüber, was sich von historischen Widerstandskämpfer*innen für das Hier und Jetzt lernen lässt. In einem abschließenden öffentlichen Vortrag gibt Jonathan Horowitz Einblicke in seine künstlerische und kuratorische Arbeit. Anschließend spricht er mit dem Künstler und Fotograf Wolfgang Tillmans über das Potenzial der Kunst, Rassismus und Antisemitismus zu bekämpfen.
-
-Workshops mit Barbara Staudinger & Sebastian Cichocki (Arts of Resistance); Galia Bar-Or & Milica Tomic (Communities of Resistance); Total Refusal: Digital Disarmament Movement & Keinen Pixel den Faschisten! (Digital Resistance); Jean-Philippe Restoueix, Roman Fröhlich, Katja Pratschke & Active Bystander Company (Education of Resistance)",
- location: "Berlin", budget: "medium", status: "open", max_members: 2, user: random_users.sample, start_date: Date.today, end_date: Date.today+rand(10000))
-image = URI.open("https://res.cloudinary.com/det3cfeuo/image/upload/v1614188131/e3ze6hhdsdvk9v9q5bhumdyamvxm.jpg")
-nase.photo.attach(io: image, filename: "nase", content_type: "image/png")
-nase.tag_list = %w[ conceptual painting experimental avant-garde ]
-nase.save
 
 not_cancelled = Project.new(user: weserhalle, title: "Not Cancelled Group Show",
                             start_date: Date.parse('06-06-2021'),
