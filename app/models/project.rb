@@ -23,7 +23,6 @@ class Project < ApplicationRecord
   validates :title, presence: true, length: { maximum: 80 }, uniqueness: true
   # validates :description, presence: true
   # validates :status, presence: true, inclusion: { in: %w[open active closed finished] }
-  # validates :budget, presence: true
   # validates :max_members, presence: true
   # validates :start_date, presence: true
   # validates :end_date, presence: true
@@ -46,8 +45,8 @@ class Project < ApplicationRecord
   end
 
   include PgSearch::Model
-  pg_search_scope :search_by_title_budget_location_and_description,
-    against: [ :title, :budget, :location, :description ],
+  pg_search_scope :search_by_title_location_and_description,
+    against: [ :title, :location, :description ],
     using: {
       tsearch: { prefix: true }
     }

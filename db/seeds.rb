@@ -31,11 +31,6 @@ def milestone_generator
    ["#{Faker::TvShows::TwinPeaks.quote}, what do you think?", " We should do as one said: #{Faker::TvShows::RuPaul.quote} Then we can't be free from the stress of thinking about all the time.", " #{Faker::TvShows::StrangerThings.quote}, What if #{Faker::TvShows::Community.quotes}?", "I believe the best date to deliver this is #{Date.today+rand(10000)}, otherwise we might run out of time.", "Find a #{Faker::Appliance.equipment}.", "We still have to make a #{Faker::ElectricalComponents.electromechanical} in order for the #{Faker::Gender.type} #{Faker::Military.army_rank} at the #{Faker::Mountain.range} to be ready for the #{Faker::Relationship.familial} #{Faker::Science.element} to be at least presentable when we approach the #{Faker::Marketing.buzzwords}", "Prepare the #{Faker::House.furniture} that we can use for the #{Faker::IndustrySegments.sector} whenever we need to share something about it on the internet.", "It's coming! The final day is almost there, we just need to #{Faker::Games::Pokemon.move} the  #{Faker::House.furniture} the week before we share it with the world.", "I just realized that we will have to start from the beggining with #{Faker::Relationship.familial} #{Faker::Science.element} because it has some errors that cannot be resolved.", "Collaborators, the #{Faker::Relationship.familial} #{Faker::Science.element} Institut told us that if we don't have the #{Faker::JapaneseMedia::StudioGhibli.character} ready in a week we won't be able to have it displayed there. The #{role_generator} will have to hurry on that one."].sample
 end
 
-def budget_generator
-  ["high", "medium", "low", "none"].sample
-  # ["no budget", "big budget", "expanses cover", "1000€", "9000€", "from my own pocket", "50€"].sample
-end
-
 @names = ["The end of Osiris", "Pentimento", "Through triple darkness", "false ruins and lost innocence", "Absence over Vision", "Spoiler Alert, Everybody is Dying.", "Darkroom Lover", "0055444", "@street", "Cupio dissolvi", "Smound = Smell + Sound", "I Never Loved Your Mind", "WHY ARE WE MAD?", "Re-encountered.", "harab aldijaj", "A Slightly Curving Place", "Das illegale Bild", "56600 - The Past. The Future.", "生ける光の影", "Music for airports", "Black Aura - White What?" ]
 
 def location_generator
@@ -259,7 +254,7 @@ puts "Creating random projects ⏳"
 counter = 0
 
 @names.each do |name|
-  random_project = Project.new(user: random_users.sample, title: name, description: "On the other hand, we denounce with righteous indignation and dislike men who are so beguiled and demoralized by the charms of pleasure of the moment, so blinded by desire, that they cannot foresee the pain and trouble that are bound to ensue; and equal blame belongs to those who fail in their duty through weakness of will, which is the same as saying through shrinking from toil and pain. These cases are perfectly simple and easy to distinguish. In a free hour, when our power of choice is untrammelled and when nothing prevents our being able to do what we like best, every pleasure is to be welcomed and every pain avoided. But in certain circumstances and owing to the claims of duty or the obligations of business it will frequently occur that pleasures have to be repudiated and annoyances accepted. The wise man therefore always holds in these matters to this principle of selection: he rejects pleasures to secure other greater pleasures, or else he endures pains to avoid worse pains.", budget: "#{budget_generator}",
+  random_project = Project.new(user: random_users.sample, title: name, description: "On the other hand, we denounce with righteous indignation and dislike men who are so beguiled and demoralized by the charms of pleasure of the moment, so blinded by desire, that they cannot foresee the pain and trouble that are bound to ensue; and equal blame belongs to those who fail in their duty through weakness of will, which is the same as saying through shrinking from toil and pain. These cases are perfectly simple and easy to distinguish. In a free hour, when our power of choice is untrammelled and when nothing prevents our being able to do what we like best, every pleasure is to be welcomed and every pain avoided. But in certain circumstances and owing to the claims of duty or the obligations of business it will frequently occur that pleasures have to be repudiated and annoyances accepted. The wise man therefore always holds in these matters to this principle of selection: he rejects pleasures to secure other greater pleasures, or else he endures pains to avoid worse pains.",
                               status: "open", max_members: 2, start_date: Date.today, end_date: Date.today+rand(10000))
   random_project.location = random_project.user.location
   image = URI.open("https://source.unsplash.com/random")
@@ -302,7 +297,7 @@ intacto.tag_list = %w[ architechture design installation ]
 
 intacto.save
 
-past_future = Project.new(title: "56600 _ The Past. The Future.", budget: "medium", description: "Humans have changed dramatically in our 200,000 years of existence. We've gotten taller, we live longer, and we're smarter. We've built giant cities, domesticated animals and plants, and created and destroyed ecosystem.
+past_future = Project.new(title: "56600 _ The Past. The Future.", description: "Humans have changed dramatically in our 200,000 years of existence. We've gotten taller, we live longer, and we're smarter. We've built giant cities, domesticated animals and plants, and created and destroyed ecosystem.
 And the technology we build is progressing at a blistering pace. And that pace keeps picking up.
 
 Things like flying cars, sophisticated artificial intelligence, and quantum computers may emerge from science fiction into reality in less time than we think.
@@ -349,7 +344,7 @@ kinectic_sunset.location = kinectic_sunset.user.location
 kinectic_sunset.tag_list = %w[ photography collage cityscape dualism ]
 kinectic_sunset.save
 
-symptom = Project.new(title: "symptom, sympathy", budget: "medium", description: "After extensive research about upbringing of Children during and after the Nazi-Regime, we're looking for artists to collaborate on a project about the physical consequences that lack of emotional connection and rigid upbringing brings to an formed adult.",
+symptom = Project.new(title: "symptom, sympathy", description: "After extensive research about upbringing of Children during and after the Nazi-Regime, we're looking for artists to collaborate on a project about the physical consequences that lack of emotional connection and rigid upbringing brings to an formed adult.",
                       status: "open", max_members: 2, user: random_users.sample, start_date: Date.today, end_date: Date.today+rand(10000))
 symptom.tag_list = %w[ painting psychology authoritarism ]
 symptom.save
@@ -394,7 +389,7 @@ little_frank.photo.attach(io: image, filename: "little_frank", content_type: "im
 little_frank.tag_list = %w[ performance installation architecture museum ]
 little_frank.save
 
-tehran = Project.new(title: "Tehran Contemporary Sounds Festival", budget: "high", user: random_users.sample, location: "Berlin", start_date: Date.parse('05-07-2021'), end_date: Date.parse('18-07-2021'),
+tehran = Project.new(title: "Tehran Contemporary Sounds Festival", user: random_users.sample, location: "Berlin", start_date: Date.parse('05-07-2021'), end_date: Date.parse('18-07-2021'),
                      description: "Tehran Contemporary Sounds was launched in 2018, through the organization of “Gate of Tehran – Days of Experimental Sounds” festival as a Berlin-based hub, for musicians, artists and collectives living abroad as well as in Iran, with the aim to bring together the different voices and forces of the big spectrum of the Iranian contemporary art and music scene, widely spread across the globe.
 TCS will be dedicated to, creating a platform for showcasing the unique talents of the Iranian artists and musicians; creating a cross-border collaboration hub; facilitating a non-political, purely artistic and interdisciplinary dialogue;
 This year, Tehran Contemporary Sounds Festival, in collaboration with Nullsight collective and Zabte Sote label, is bringing together some of the most important talents of the contemporary Iranian electronic/experimental sound artists and musicians, and digital and new media artists.
@@ -404,7 +399,7 @@ tehran.photo.attach(io: image, filename: "tehran", content_type: "image/png")
 tehran.tag_list = %w[ tehran iran music contemporary ]
 tehran.save
 
-hugged = Project.new(title: "hugged in a kind yet misterious mist", budget: "high", user: random_users.sample, start_date: Date.parse('05-09-2021'), end_date: Date.parse('18-09-2021'),
+hugged = Project.new(title: "hugged in a kind yet misterious mist", user: random_users.sample, start_date: Date.parse('05-09-2021'), end_date: Date.parse('18-09-2021'),
                      description: "We make conceptual artworks, photos, drawings and installations. By studying sign processes, signification and communication, we make work that generates diverse meanings. Associations and meanings collide. Space becomes time and language becomes image. Our conceptual artworks feature coincidental, accidental and unexpected connections which make it possible to revise art history and, even better, to complement it. Combining unrelated aspects lead to surprising analogies. By manipulating the viewer to create confusion, we often create several practically identical works, upon which thoughts that have apparently just been developed are manifested: notes are made and then crossed out again, ‘mistakes’ are repeated. Our works question the conditions of appearance of an image in the context of contemporary visual culture in which images, representations and ideas normally function. By experimenting with aleatoric processes, we formalize the coincidental and emphasizes the conscious process of composition that is behind the seemingly random works. The thought processes, which are supposedly private, highly subjective and unfiltered in their references to dream worlds, are frequently revealed as assemblages. Our works are on the one hand touchingly beautiful, on the other hand painfully attractive. Again and again, the artists leave us orphaned with a mix of conflicting feelings and thoughts.")
 image = URI.open("https://res.cloudinary.com/diucx7fqo/image/upload/v1615569074/Screenshot_2021-03-12_at_18.09.30_j0wwhb.png")
 hugged.photo.attach(io: image, filename: "hugged", content_type: "image/png")
@@ -414,7 +409,6 @@ hugged.save
 the_ephemerals = Project.new(user: amanda_burke, title: "The Ephemerals: Trending",
                              start_date: Date.parse('05-04-2021'),
                              end_date: Date.parse('05-06-2021'),
-                             budget: "medium",
                              description: "In online social networking sites, the concept of 'trending' demarcates a noted increase in the popularity of a specific thing or topic among a large group of internet users. In the wider world, a fashion trend indicates an upward shift of interest in a particular style or mode of dress by a number of people. A recent trend that has found its way into runway shows and suburban malls alike is an Indigenously-inspired look involving apparel such as leather mukluks, beaded headbands and feathered accessories. Clothing remains an important element within an Aboriginal art history as well as in contemporary creative culture where questions of appropriation and freedom of expression are beginning to erupt around this issue.")
 image = URI.open("https://res.cloudinary.com/diucx7fqo/image/upload/v1615304115/103680649_10157460668107879_3771724203750008978_o_s8cmyd.jpg")
 the_ephemerals.photo.attach(io: image, filename: "the_ephemerals", content_type: "image/png")
@@ -436,14 +430,13 @@ folklore = Project.new(user: serge, title: "Folklore and traditions",
                          start_date: Date.parse('01-08-2021'),
                          end_date: Date.parse('30-08-2021'),
                          location: serge.location,
-                         budget: "low",
                          description: "Pictures cannot be considered to be merely documents. They are also able to capture, preserve, interpret and reinvent occurrences, situations, places that are progressively disappearing or - on the contrary - still surviving, like folklore and traditions. This call aims to collect photographs that are capable of catching the essence, the traditional part of our society - e.g. agricultural objects that are not in use anymore, practices or celebrations, folkloristic costumes, ethnic museums and collections. In other words, everything reminding us of our roots, of the most genuine side of the society we live in.")
 image = URI.open("https://res.cloudinary.com/diucx7fqo/image/upload/v1615315345/folklore_njkedb.jpg")
 folklore.photo.attach(io: image, filename: "folklore", content_type: "image/png")
 folklore.tag_list = [ "opencall", "open call", "group show", "exhibition" ]
 folklore.save
 
-binary = Project.new(title: "Sketch of Binary Perception", budget: "low", description: "2020 was a particularly hard year for the trans and non-binary community. Not only were we struck by the morbid, isolating restrictions of lockdown, but we faced increasing global violence (particularly against trans people of colour), transphobic tirades, and the implementation of devastating policy by Liz Truss.
+binary = Project.new(title: "Sketch of Binary Perception", description: "2020 was a particularly hard year for the trans and non-binary community. Not only were we struck by the morbid, isolating restrictions of lockdown, but we faced increasing global violence (particularly against trans people of colour), transphobic tirades, and the implementation of devastating policy by Liz Truss.
 
 Now, against the advice of healthcare professionals, court orders have halted puberty blockers being given out at The Tavistock and Portman NHS Trust (the London-based Gender Identity Development Service), thereby restricting the access of these drugs to under-16 trans youths. Amid this backdrop of hostility, violence, prejudice, and isolation a group of artists came together during lockdown to resiliently forge a creative trans community.
 
@@ -474,14 +467,14 @@ glitch.tag_list = %w[ glitch digital installation ]
 glitch.tag_list.push("digital art")
 glitch.save
 
-adelaides = Project.new(title: "Adelaide's Voyage", budget: "high", description: " This project aims to assist the clients at Seven Hills Geriatric Center by designing an outdoor interactive space that incorporates universal design principles, and appealed to the cognitive growth and development of the residents. To complete our goal we produced designs and prototypes of recreational activities that integrate educational aspects that meets the accommodations for individuals with various spectrums of cognitive, physical, and developmental disabilities.",
+adelaides = Project.new(title: "Adelaide's Voyage", description: " This project aims to assist the clients at Seven Hills Geriatric Center by designing an outdoor interactive space that incorporates universal design principles, and appealed to the cognitive growth and development of the residents. To complete our goal we produced designs and prototypes of recreational activities that integrate educational aspects that meets the accommodations for individuals with various spectrums of cognitive, physical, and developmental disabilities.",
                         status: "open", max_members: 2, user: random_users.sample, start_date: Date.today, end_date: Date.today+rand(10000))
 image = URI.open("https://res.cloudinary.com/diucx7fqo/image/upload/v1615308624/old-lady-photo-by-fariansyah-_tsy3xc.jpg")
 adelaides.photo.attach(io: image, filename: "adelaides", content_type: "image/png")
 adelaides.tag_list = %w[ performance accessibility senses ]
 adelaides.save
 
-south = Project.new(title: "South South Veza", budget: "low", user: random_users.sample, start_date: Date.parse('04-08-2021'), end_date: Date.parse('08-10-2021'),
+south = Project.new(title: "South South Veza", user: random_users.sample, start_date: Date.parse('04-08-2021'), end_date: Date.parse('08-10-2021'),
                     description: "The pandemic has disrupted art businesses everywhere, but the reduced ability to travel and the absence of international exhibitions and fairs has exacerbated the isolation of galleries and artists working outside of the established art capitals.
 Enter South South Veza, a novel sales platform that centers the Global South. Part auction, part online fair, the new model hopes to bring momentum to corners of the market that have been neglected during the pandemic. The platform debuted on February 23 with a live, 22-lot auction and a 49-lot timed online auction, which kicked off a week of online viewing rooms.
 The hybrid format is being introduced amid a wider blurring of the boundaries between the traditional territories of galleries and auction houses, as private sales become more important for the main houses, and the demand for ultra-contemporary work continues to soar.")
@@ -505,7 +498,7 @@ Around the middle of the century, sentimentalism set 'untouched' nature against 
 In continental Europe, one aspect of sentimentalism was Empfindsamkeit. The sensitive style (German: empfindsamer Stil) of music, developed in Germany, aimed to express 'true and natural' feelings, in contrast to the baroque.
 
 The origin of sentimentalism in this context was chiefly religious, with the emotionally coloured texts for the oratorios of Johann Sebastian Bach stream being typical examples. Empfindsamkeit is also known as secularized pietism because it frequently came with moralizing content that had increasingly broken free of church and religious ties. An important theorist of the movement was Jean Baptiste Dubos.
-", status: "open", budget: "medium", max_members: 2, user: gabi, location: gabi.location, start_date: Date.today, end_date: Date.today+rand(10000))
+", status: "open", max_members: 2, user: gabi, location: gabi.location, start_date: Date.today, end_date: Date.today+rand(10000))
 sensibel.tag_list = %w[ sculpture emotions psychology ]
 sensibel.save
 

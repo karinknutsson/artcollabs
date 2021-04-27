@@ -16,7 +16,7 @@ class ProjectsController < ApplicationController
 
   def index
     @favourite_project = FavouriteProject.new
-    @query = (policy_scope(Project.search_by_title_budget_location_and_description(params[:query])) +
+    @query = (policy_scope(Project.search_by_title_location_and_description(params[:query])) +
               policy_scope(Project.tagged_with(params[:query])))
     index_logic
   end
@@ -74,7 +74,7 @@ class ProjectsController < ApplicationController
 
   def collection
     @trending_topics = Project.where(tag_list: ["gender", "identity", "vidoe-art", "masculinity"])
-    @paid_works = Project.where(budget: ["low", "medium", "high"])
+    @paid_works = Project.where(tag_list: ["paid"])
     @collection = [@trending_topics, @paid_works]
   end
 
@@ -86,7 +86,7 @@ class ProjectsController < ApplicationController
 
   def project_params
     params.require(:project).permit(:user_id, :title, :description,
-                                    :status, :budget, :max_members,
+                                    :status, :max_members,
                                     :start_date, :end_date, :tag_list, :photo, media: [])
   end
 
