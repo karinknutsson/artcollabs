@@ -274,13 +274,6 @@ puts "Created #{@names.length.to_s} random projects 🙌"
 puts " \n "
 puts "Creating curated projects ✨"
 
-modular1978 = Project.new(title: "1978", description: "Wendy Carlos (born Walter Carlos; November 14, 1939) is an American musician and composer best known for her electronic music and film scores. Born and raised in Rhode Island, Carlos studied physics and music at Brown University before moving to New York City in 1962 to study music composition at Columbia University. Studying and working with various electronic musicians and technicians at the city's Columbia-Princeton Electronic Music Center, she helped in the development of the Moog synthesizer, the first commercially available keyboard instrument created by Robert Moog.
-
-The use of modular synthesizers has become a trend between musicians and aspiring musicians and we aim to explore how they are connected to social movements and music experimentantions from time to time.
-", status: "open", budget: "low", max_members: 2, user: dummy1, start_date: Date.today, end_date: Date.today+rand(10000))
-modular1978.location = modular1978.user.location
-modular1978.tag_list = %w[ music performance installation ]
-modular1978.save
 
 transgression = Project.new(title: "TRANSGRESSION", description: "Our sponsor, the Worcester Art Museum (WAM), is largely involved with art from the past and exhibiting example of historical periods of art. However, in the near future they will be sponsoring a new exhibit, called Reusable Universes, that will feature artwork created by the contemporary artist, Shih Chieh Huang. This new exhibit will need corresponding interactive activities, provided by the WAM, to allow visitors to become more involved. Huang takes inspiration from early technology such as computer cooling fans, basic circuit boards, and even simpler objects; such as power strips, in order to create his sculptures. His views of these everyday objects differ from those of the public and our understanding of his creative process can only be developed so far through text. In order for viewers to truly grasp the thoughts and concepts that go into his work, Huang has set out to bring his artistic process to life and put on a show featuring himself creating one of his sculptures. He plans to highlight the meaning of each object through the location and orientation he chooses as the audience observes how he brings his art to life. Working alongside the WAM, Huang will be able to give the audience enough information and examples of his work to develop a true appreciation of his art style.",
                             status: "open", max_members: 2, user: dummy2, start_date: Date.today, end_date: Date.today+rand(10000))
