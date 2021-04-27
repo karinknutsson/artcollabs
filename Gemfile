@@ -46,12 +46,12 @@ gem 'geocoder'
 gem 'pg_search', '~> 2.3.0'
 gem 'bullet', group: 'development'
 gem 'rails_admin', '~> 2.0'
-gem "mini_magick"
+gem 'mini_magick'
 gem 'kaminari'
 
 ##############################
 
-group :development, :test do  gem 'pry-byebug'
+group :development, :test do gem 'pry-byebug'
   gem 'pry-rails'
   gem 'dotenv-rails'
 
