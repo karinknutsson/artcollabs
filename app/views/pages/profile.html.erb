@@ -5,7 +5,7 @@
 
       <div class="profile-pic user-avatar">
         <% if @user.avatar.attached? %>
-          <%= cl_image_tag(@user.avatar.key) %>
+          <%= cl_image_tag(@user.avatar) %>
         <% else %>
           <%= render "shared/avatar" %>
         <% end %>
