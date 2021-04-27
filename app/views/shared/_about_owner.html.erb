@@ -31,7 +31,6 @@
 
   <div style="height: 60px"></div>
 
-      <!-- Modal -->
       <div class="modal fade" id="requestModal" tabindex="-1" role="dialog" aria-labelledby="requestModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
           <div class="modal-content">
@@ -70,37 +69,3 @@
           </div>
         </div>
       </div>
-
-
-  <!-- legacy
-  <%#= render "shared/about" %>
-
-  <div class="show-content">
-
-    <div class="content-left">
-
-      <div class="project-description">
-        <%= @project.description %>
-      </div>
-
-      <div class="project-links">
-        <h4>Resources</h4>
-
-      </div>
-
-    </div>
-
-    <div class="content-right">
-
-      <%= link_to "Edit content", edit_project_path(@project.id), class: "white btn-artcollabs btn-warm-red" %>
-
-      <a href="#" class="white btn-artcollabs btn-warm-red">Pending requests</a>
-      <a href="#" class="white btn-artcollabs btn-warm-red">Delete project</a>
-
-      <%= render "shared/members" %>
-
-    </div>
-
-  </div>
-
-  <div style="height: 60px"></div>
