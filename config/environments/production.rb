@@ -116,4 +116,8 @@ Rails.application.configure do
   # Adds files to media without overwriting
   config.active_storage.replace_on_assign_to_many = false
 
+  Rails.application.configure do
+    config.cache_store = :redis_cache_store, { url: ENV.fetch("REDISCLOUD_URL", "redis://localhost:6379/0") }
+  end
+
 end
