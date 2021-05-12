@@ -70,7 +70,7 @@ def avatar_generator
   "https://res.cloudinary.com/diucx7fqo/image/upload/v1619537882/adult-blur-boardwalk-567459-ID12377-900x601_h7c9vj.jpg",
   "https://res.cloudinary.com/diucx7fqo/image/upload/v1619537904/environment-festival-girl-690729-ID12345-900x600_le89ww.jpg"
   ]
-1
+
   if @avatar_count < avatar.length
     @avatar_count += 1
     avatar[@avatar_count]
