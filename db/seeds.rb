@@ -95,9 +95,6 @@ puts " \n "
 puts "🆕👩‍🦰-- Creating Users"
 puts " \n "
 
-admin = User.create(email: "admin@artcollabs.com", password: "admin123456", admin: true, username: "artcollabs_admin")
-puts "Created admin 🔧 \n email: #{admin.email}, password: #{admin.password} \n "
-
 dummy1 = User.create(email: "user@artcollabs.com", password: "123456", username: "Valerian", first_name: "John Valerian", last_name: "Seymor", location: "San Fransisco",
                      bio: "John Valerian Seymor was born in Argentina and currently lives in San Francisco, California. He graduated from UC Berkeley and received a scholarship to SF Academy of Art. His art reflects his interest in travel and culture. He juxtaposes elements of reality with surrealism using paint, charcoal, and digital art. His rhythmic compositions convey feelings of whimsy with elements of surprise. In addition to original works of art John offers limited edition prints on archival, museum quality paper. His art is sold through many interior designers and art consultants. John’s many exhibitions include those held at the San Diego Art Museum and at the Ace Academy in San Francisco. He won an Award of Excellence in “Artists for Peace” presented by Manhattan Arts International. His art is found in many private collections in the U.S. and several public collections namely the Horace Bank and Dudley Insurance Co., both in California.")
 image = URI.open(avatar_generator)
@@ -205,7 +202,7 @@ puts " \n "
 puts "Creating random users... 🥱☕️"
 puts " \n "
 
-random_users = [dummy1, dummy2, gh93, amanda_burke, serge, miles, gabi]
+random_users = []
 
 counter = 0
 20.times do
@@ -236,7 +233,7 @@ puts "Creating random projects ⏳"
 counter = 0
 
 @names.each do |name|
-  random_project = Project.new(user: random_users.sample, title: name,
+  random_project = Project.new(user: random_users.sample, title: @names[counter],
                               description: "The indexical and acyclic text synthesis marginalises and immerses the artist collective. It marginalises unveiled, mechanic text syntheses from various acyclic artist collectives. It is at this point that the text synthesis emancipates and substantiates the characteristic, unveiled logo. Sometimes an emancipating net culture marginalises fictive and habitual catalogues. The list of fictive segments immerses and emancipates the acyclic, projective occupancy.",
                               status: "open", max_members: 2, start_date: Date.today+rand(1000), end_date: Date.today+rand(10000))
   random_project.location = random_project.user.location
@@ -244,6 +241,7 @@ counter = 0
   random_project.photo.attach(io: image, filename: "name", content_type: "image/png")
   random_project.tag_list = tag_generator
   random_project.save
+  counter += 1
 end
 
 puts " \n "
