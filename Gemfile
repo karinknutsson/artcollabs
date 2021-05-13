@@ -39,14 +39,14 @@ gem 'cloudinary', '~> 1.16.0'
 gem 'faker'
 gem 'active_storage_validations'
 
-gem 'autoprefixer-rails'
+# gem 'autoprefixer-rails'
 gem 'font-awesome-sass'
 gem 'simple_form'
-gem 'geocoder'
+# gem 'geocoder'
 gem 'pg_search', '~> 2.3.0'
 gem 'bullet', group: 'development'
 gem 'rails_admin', '~> 2.0'
-gem 'mini_magick'
+# gem 'mini_magick'
 gem 'kaminari'
 
 ##############################
