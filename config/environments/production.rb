@@ -117,8 +117,7 @@ Rails.application.configure do
   config.active_storage.replace_on_assign_to_many = false
 
   Rails.application.configure do
-    config.cache_store = :redis_cache_store, { url: ENV.fetch("REDISCLOUD_URL", "redis://localhost:6379/0") }
-    # config.cache_store = :redis_cache_store, { url: ENV.fetch("REDISCLOUD_URL", "redis://default:HTrniZMBJPSngtCxV5vDzz58Dp4qKBK4@redis-13674.c77.eu-west-1-1.ec2.cloud.redislabs.com:13674") }
+    config.cache_store = :redis_cache_store, { url: ENV.fetch("REDISCLOUD_URL", "redis://localhost:6379/1") }
   end
 
 end
