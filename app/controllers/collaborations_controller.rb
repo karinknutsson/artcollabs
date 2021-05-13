@@ -15,9 +15,9 @@ class CollaborationsController < ApplicationController
     authorize @collaboration
     redirect_to @project
     if @collaboration.save
-      flash[:notice] = "You submitted a request to collaborate for the project #{@project.title}."
+      flash[:notice] = "You submitted a request to join the project #{@project.title}."
     else
-      flash[:notice] = "You have to enter a message to apply."
+      flash[:notice] = "You need to enter a message to apply."
     end
   end
 
