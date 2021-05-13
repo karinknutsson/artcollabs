@@ -110,14 +110,14 @@ Rails.application.configure do
   # config.active_record.database_selector = { delay: 2.seconds }
   # config.active_record.database_resolver = ActiveRecord::Middleware::DatabaseSelector::Resolver
   # config.active_record.database_resolver_context = ActiveRecord::Middleware::DatabaseSelector::Resolver::Session
-  config.action_cable.url = "ws://www.artcollabs.net/cable"
+  config.action_cable.url = "wss://www.artcollabs.net/cable"
   config.action_cable.allowed_request_origins = [ "http://www.artcollabs.net", "https://www.artcollabs.net" ]
 
   # Adds files to media without overwriting
   config.active_storage.replace_on_assign_to_many = false
 
   Rails.application.configure do
-    config.cache_store = :redis_cache_store, { url: ENV.fetch("REDISCLOUD_URL", "redis://localhost:6379/0") }
+    config.cache_store = :redis_cache_store, { url: ENV.fetch("REDISCLOUD_URL", "redis://localhost:6379/1") }
   end
 
 end
