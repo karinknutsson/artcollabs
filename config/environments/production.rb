@@ -111,7 +111,8 @@ Rails.application.configure do
   # config.active_record.database_resolver = ActiveRecord::Middleware::DatabaseSelector::Resolver
   # config.active_record.database_resolver_context = ActiveRecord::Middleware::DatabaseSelector::Resolver::Session
   config.action_cable.url = "wss://art--collabs.herokuapp.com/cable"
-  config.action_cable.allowed_request_origins = [ "http://art--collabs.herokuapp.com", "https://art--collabs.herokuapp.com" ]
+  # config.action_cable.allowed_request_origins = [ "http://art--collabs.herokuapp.com", "https://art--collabs.herokuapp.com" ]
+  config.action_cable.allowed_request_origins = [ "http://art--collabs.herokuapp.com", /http:\/\/art--collabs.herokuapp.com.*/ ]
 
   # Adds files to media without overwriting
   config.active_storage.replace_on_assign_to_many = false

@@ -7,7 +7,6 @@ const initProjectChatCable = () => {
 
     consumer.subscriptions.create({ channel: "ProjectChatChannel", id: id }, {
       received(data) {
-        console.log(data); // called when data is broadcast in the cable
         messagesContainer.insertAdjacentHTML('afterbegin', data);
       },
     });
