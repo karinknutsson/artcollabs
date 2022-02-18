@@ -39,6 +39,7 @@ class PagesController < ApplicationController
       end
 
       @projects.push(*policy_scope(Project.tagged_with(params[:query])))
+      @users.push(*policy_scope(User).tagged_with(params[:query]))
     else
       @results = []
     end
