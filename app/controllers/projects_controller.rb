@@ -23,7 +23,6 @@ class ProjectsController < ApplicationController
       @searched = params[:query]
       if @query.empty?
         redirect_to projects_path(search: :noresults, searched: @searched)
-        flash[:notice] = "No projects with #{params[:query]}"
       else
         @projects = Kaminari.paginate_array(@query).page(params[:page])
       end
