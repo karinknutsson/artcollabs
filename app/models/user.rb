@@ -17,4 +17,7 @@ class User < ApplicationRecord
   def collaborator?
     # if current user is a collaborator for this project return true
   end
+
+  include PgSearch::Model
+  multisearchable against: [:username, :first_name, :last_name]
 end

@@ -50,6 +50,7 @@ class Project < ApplicationRecord
     using: {
       tsearch: { prefix: true }
     }
+  multisearchable against: [:title, :location, :description]
 
   private
 
