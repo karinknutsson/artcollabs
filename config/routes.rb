@@ -24,7 +24,7 @@ Rails.application.routes.draw do
   end
 
   resources :projects, concerns: :paginatable do
-    resources :collaborations
+    resources :collabs
     resources :milestones
     resources :favorites, only: [ :new, :create, :destroy ]
 
@@ -40,8 +40,8 @@ Rails.application.routes.draw do
   get '/messages/', to: 'pages#messages', as: "messages"
   get '/results/', to: 'pages#results', as: "search_results"
 
-  patch '/confirm/:id', to: 'collaborations#confirm', as: "confirm"
-  patch '/confirm/:id', to: 'collaborations#deny', as: "deny"
+  patch '/confirm/:id', to: 'collabs#confirm', as: "confirm"
+  patch '/confirm/:id', to: 'collabs#deny', as: "deny"
 
   mount ActionCable.server => "/cable"
 end

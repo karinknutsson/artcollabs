@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class CollaborationPolicyTest < ActiveSupport::TestCase
+class CollabPolicyTest < ActiveSupport::TestCase
   def test_scope
   end
 

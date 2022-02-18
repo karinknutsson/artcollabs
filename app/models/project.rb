@@ -6,7 +6,7 @@ class Project < ApplicationRecord
   #validate :start_date_cannot_be_in_the_past
   #validate :end_date_cannot_be_before_start_date
 
-  has_many :collaborations, dependent: :destroy
+  has_many :collabs, dependent: :destroy
   has_many :milestones, dependent: :destroy
   has_one_attached :photo, dependent: :destroy
 

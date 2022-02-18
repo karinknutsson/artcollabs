@@ -46,11 +46,11 @@ class PagesController < ApplicationController
 
   def set_my_collabs
     @pending_collabs = []
-    @collaborations = Collaboration.where(user: @user)
-    @collaborations_to_my_projects = Collaboration.where(project_id: @projects)
-    @my_collabs_accepted = Collaboration.where(user: @user, confirmed: true)
-    @my_collabs_pending = @collaborations - @my_collabs_accepted
-    @collaborations_to_my_projects.each do |collab|
+    @collabs = Collab.where(user: @user)
+    @collabs_to_my_projects = Collab.where(project_id: @projects)
+    @my_collabs_accepted = Collab.where(user: @user, confirmed: true)
+    @my_collabs_pending = @collabs - @my_collabs_accepted
+    @collabs_to_my_projects.each do |collab|
       if collab.status == nil
         @pending_collabs << collab
       end

@@ -106,11 +106,11 @@ class ProjectsController < ApplicationController
   end
 
   def set_user_type
-    collaboration = Collaboration.find_by(project_id: @project.id, user_id: current_user.id)
+    collab = Collab.find_by(project_id: @project.id, user_id: current_user.id)
     if @project.user_id == current_user.id
       @user_type = :owner
-    elsif collaboration
-      collab_logic(collaboration)
+    elsif collab
+      collab_logic(collab)
     else
       @user_type = :visitor
     end
@@ -137,12 +137,12 @@ class ProjectsController < ApplicationController
   end
 
   def fetch_project_data
-    @collaboration = Collaboration.new
+    @collab = Collab.new
     @milestone = Milestone.new
     @milestones = Milestone.where(project_id: @project)
-    @collabs = Collaboration.where(project_id: @project, status: "confirmed")
-    @project_collabs = Collaboration.where(project_id: @project)
-    @pending_collabs = Collaboration.where(project_id: @project, status: nil)
+    @collabs = Collab.where(project_id: @project, status: "confirmed")
+    @project_collabs = Collab.where(project_id: @project)
+    @pending_collabs = Collab.where(project_id: @project, status: nil)
     # show related projects from tags
     @related_projects = @project.find_related_tags
   end

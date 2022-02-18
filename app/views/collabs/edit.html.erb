@@ -1,0 +1,10 @@
+<h1>Collabs#edit</h1>
+<p>Find me in app/views/collabs/edit.html.erb</p>
+<%= @collab.role %>
+<%= @collab.project.title %>
+
+<%= simple_form_for [@collab.project, @collab] do |f| %>
+  <%= f.input :role %>
+  <%= f.input :message %>
+  <%= f.submit %>
+<% end %>

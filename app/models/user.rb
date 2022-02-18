@@ -11,7 +11,7 @@ class User < ApplicationRecord
   has_many_attached :photos
   has_many :links, dependent: :destroy
 
-  has_many :collaborations, dependent: :destroy
+  has_many :collabs, dependent: :destroy
   has_many :projects, dependent: :destroy
 
   def collaborator?
