@@ -1,7 +1,7 @@
 class Project < ApplicationRecord
   belongs_to :user
 
-  acts_as_taggable_on :tags #You can also configure multiple tag types per model
+  acts_as_taggable_on :tags
 
   #validate :start_date_cannot_be_in_the_past
   #validate :end_date_cannot_be_before_start_date
@@ -11,9 +11,8 @@ class Project < ApplicationRecord
   has_one_attached :photo, dependent: :destroy
 
   # validates :photo, size: { less_than: 100.megabytes , message: 'The image should not be larger than 100 MB' }
-  # class_name: "Title_Pic"
+
   has_many_attached :media, dependent: :destroy
-  # class_name: "Media_files"
   has_one :project_chat, dependent: :destroy
 
   # we can also add audio and video using cloudinary (both use video on the tag), need some config apparently. hints:

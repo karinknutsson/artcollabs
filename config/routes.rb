@@ -9,9 +9,10 @@ Rails.application.routes.draw do
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
 
   devise_for :users
+
   root to: 'pages#home'
 
-  resources :users, only: :index
+  # resources :users, only: :index
 
   resources :links, only: [ :index, :new, :create, :destroy ]
 
@@ -32,6 +33,7 @@ Rails.application.routes.draw do
   end
 
   get '/tagged', to: "projects#tagged", as: :tagged
+  get '/users', to: "users#index", as: :users
 
   post '/project/:id/', to: "projects#media"
 

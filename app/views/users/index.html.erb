@@ -1,3 +1,7 @@
-<% @users.each do |user| %>
-<h2><%= user.username %></h2>
-<% end %>
+<div class="results text-center" style="margin-top: 80px">
+    <h2><%= params[:interest] %></h2>
+    <h2><%= params[:skill] %></h2>
+    <% @users.each do |user| %>
+        <h4><%= link_to user.username, profile_path(user) %></h4>
+    <% end %>
+</div>

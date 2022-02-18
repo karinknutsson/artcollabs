@@ -4,8 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  acts_as_taggable_on :tags
-  acts_as_taggable_on :skills, :interests #You can also configure multiple tag types per model
+  acts_as_taggable_on :skills, :interests
 
   has_one_attached :avatar
   has_many_attached :photos

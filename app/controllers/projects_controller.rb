@@ -15,7 +15,6 @@ class ProjectsController < ApplicationController
   end
 
   def index
-    @favorite = Favorite.new
     @query = (policy_scope(Project.search_by_title_location_and_description(params[:query])) +
               policy_scope(Project.tagged_with(params[:query])))
 

@@ -4,11 +4,12 @@ class FavoritePolicy < ApplicationPolicy
       scope.all
     end
   end
+
   def create?
     true
   end
 
   def destroy?
-    true #record.user == current_user
+    record.user == user
   end
 end
