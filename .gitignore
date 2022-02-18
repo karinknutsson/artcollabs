@@ -40,3 +40,6 @@ yarn-debug.log*
 *.swp
 .DS_Store
 .env*
+
+# Ignore seed file
+/db/seeds.rb
