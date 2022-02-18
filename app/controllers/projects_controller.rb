@@ -24,10 +24,10 @@ class ProjectsController < ApplicationController
       if @query.empty?
         redirect_to projects_path(search: :noresults, searched: @searched)
       else
-        @projects = Kaminari.paginate_array(@query).page(params[:page])
+        @projects = Kaminari.paginate_array(@query).page(params[:page]).per(12)
       end
     else
-      @projects = policy_scope(Project).order(created_at: :desc).page (params[:page])
+      @projects = policy_scope(Project).order(created_at: :desc).page(params[:page]).per(12)
     end
   end
 
@@ -76,10 +76,10 @@ class ProjectsController < ApplicationController
 
   def tagged
     if params[:tag].present?
-      @projects = Project.tagged_with(params[:tag]).page params[:page]
+      @projects = Project.tagged_with(params[:tag]).page(params[:page]).per(12)
       authorize @projects
     else
-      @projects = policy_scope(Project).order(created_at: :desc).page params[:page]
+      @projects = policy_scope(Project).order(created_at: :desc).page(params[:page]).per(12)
     end
   end
 
