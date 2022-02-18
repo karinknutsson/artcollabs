@@ -13,10 +13,6 @@ class User < ApplicationRecord
   has_many :collabs, dependent: :destroy
   has_many :projects, dependent: :destroy
 
-  def collaborator?
-    # if current user is a collaborator for this project return true
-  end
-
   include PgSearch::Model
   multisearchable against: [:username, :first_name, :last_name]
 end

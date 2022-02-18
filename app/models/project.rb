@@ -15,10 +15,6 @@ class Project < ApplicationRecord
   has_many_attached :media, dependent: :destroy
   has_one :project_chat, dependent: :destroy
 
-  # we can also add audio and video using cloudinary (both use video on the tag), need some config apparently. hints:
-  # has_many_attached :audios, resource_type: video ,dependent: :destroy
-  # <%= cl_video_tag @i..., controls: true, style: "width: 100%;" %>
-
   validates :title, presence: true, length: { maximum: 80 }, uniqueness: true
   # validates :description, presence: true
   # validates :status, presence: true, inclusion: { in: %w[open active closed finished] }
@@ -28,8 +24,6 @@ class Project < ApplicationRecord
   # validates :location, presence: true
 
   after_create :initialize_project_chat
-
-  STATUS = ['High', 'Medium', 'Low', 'None']
 
   def start_date_cannot_be_in_the_past
     if start_date < Date.today

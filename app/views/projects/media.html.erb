@@ -7,13 +7,7 @@
   <h1><%= @project.title %></h1>
 
 <div class="show-container">
-    <%= render "shared/tabs_without_js" %>
-
-  <!-- ⭕ Media gets overwritten when trying to add more files to gallery, create method on projects_controller to manage upload files, link route to a button which triggers upload. HOW?
-  images are not clickable 
-  put them on a modal? 
-  using js?
-  generate html with src = cl_image_tag? -->
+  <%= render "shared/tabs_without_js" %>
 
   <%= simple_form_for @project do |f| %>
     <%= f.input :media, as: :file, input_html: { multiple: true }, class: "btn" %>
@@ -24,19 +18,12 @@
   <% end %>
 
     <div class="media-container">
-
         <% if @project.media.attached? %>
-          <% @project.media.each do |media| %>
-            <ul>  
-              <li><%= cl_image_tag media.key, loading: "lazy" %></li>  
-            
-              <!--how can something like this be done?
-              <li><img src="#{media.key}" alt=""></li>
-              or use link_to with photo instead of text? -->
-          <% end %>  
+          <ul>
+            <% @project.media.each do |media| %>
+              <li><%= cl_image_tag media.key, loading: "lazy" %></li>
+            <% end %>
+          </ul>
         <% end %>
-        
-              <li></li>
-            </ul>
     </div>
 </div>

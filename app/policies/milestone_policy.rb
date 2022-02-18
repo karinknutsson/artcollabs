@@ -5,8 +5,6 @@ class MilestonePolicy < ApplicationPolicy
     end
   end
 
-  # ASSING POLICIES FOR PROJECT SHOW PAGE SO THAT ONLY TEAM MEMBERS CAN SEE MILESTONES
-
   def create?
     true
   end
@@ -30,5 +28,4 @@ class MilestonePolicy < ApplicationPolicy
   def status?
     true
   end
-  
 end
