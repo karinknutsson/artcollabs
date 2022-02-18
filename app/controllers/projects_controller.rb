@@ -18,7 +18,18 @@ class ProjectsController < ApplicationController
     @favourite_project = FavouriteProject.new
     @query = (policy_scope(Project.search_by_title_location_and_description(params[:query])) +
               policy_scope(Project.tagged_with(params[:query])))
-    index_logic
+
+    if params[:query].present?
+      @searched = params[:query]
+      if @query.empty?
+        redirect_to projects_path(search: :noresults, searched: @searched)
+        flash[:notice] = "No projects with #{params[:query]}"
+      else
+        @projects = Kaminari.paginate_array(@query).page(params[:page])
+      end
+    else
+      @projects = policy_scope(Project).order(created_at: :desc).page (params[:page])
+    end
   end
 
   def new
@@ -46,7 +57,12 @@ class ProjectsController < ApplicationController
   def update
     authorize @project
     if @project.update(project_params)
-      update_logic
+      if params[:tab] == "media"
+        redirect_to project_path(@project, tab: :media)
+      else
+        redirect_to project_path(@project)
+      end
+      flash[:notice] = " \n #{@project.title} was edited."
     else
       render :edit
       flash[:notice] = " \n #{@project.title} was not edited."
@@ -137,29 +153,6 @@ class ProjectsController < ApplicationController
     @project = @project_chat.project
     @message = Message.new
     authorize @project_chat
-  end
-
-  def index_logic
-    if params[:query].present?
-      @searched = params[:query]
-      if @query.empty?
-        redirect_to projects_path(search: :noresults, searched: @searched)
-        flash[:notice] = "No projects with #{params[:query]}"
-      else
-        @projects = Kaminari.paginate_array(@query).page(params[:page])
-      end
-    else
-      @projects = policy_scope(Project).order(created_at: :desc).page (params[:page])
-    end
-  end
-
-  def update_logic
-    if params[:tab] == "media"
-      redirect_to project_path(@project, tab: :media)
-    else
-      redirect_to project_path(@project)
-    end
-    flash[:notice] = " \n #{@project.title} was edited."
   end
 
   def set_previous_page
