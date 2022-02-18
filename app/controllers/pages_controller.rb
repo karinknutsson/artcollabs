@@ -23,6 +23,25 @@ class PagesController < ApplicationController
     set_user_data
   end
 
+  def results
+    @users = []
+    @projects = []
+
+    if params[:query].present?
+      @results = PgSearch.multisearch(params[:query])
+
+      @results.each do |result|
+        if result.searchable_type == "Project"
+          @projects.push(Project.find(result.searchable.id))
+        else
+          @users.push(result.searchable)
+        end
+      end
+    else
+      @results = []
+    end
+  end
+
   private
 
   def set_my_collabs

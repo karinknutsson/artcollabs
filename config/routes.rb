@@ -38,6 +38,7 @@ Rails.application.routes.draw do
   get '/profile/:id', to: 'pages#profile', as: "profile"
   get '/dashboard/', to: 'pages#dashboard', as: "dashboard"
   get '/messages/', to: 'pages#messages', as: "messages"
+  get '/results/', to: 'pages#results', as: "search_results"
 
   patch '/confirm/:id', to: 'collaborations#confirm', as: "confirm"
   patch '/confirm/:id', to: 'collaborations#deny', as: "deny"
