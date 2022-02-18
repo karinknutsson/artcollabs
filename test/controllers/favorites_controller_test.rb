@@ -1,18 +1,18 @@
 require 'test_helper'
 
-class FavouritesControllerTest < ActionDispatch::IntegrationTest
+class FavoritesControllerTest < ActionDispatch::IntegrationTest
   test "should get new" do
-    get favourites_new_url
+    get favorites_new_url
     assert_response :success
   end
 
   test "should get create" do
-    get favourites_create_url
+    get favorites_create_url
     assert_response :success
   end
 
   test "should get destroy" do
-    get favourites_destroy_url
+    get favorites_destroy_url
     assert_response :success
   end
 

@@ -8,14 +8,14 @@ class ProjectsController < ApplicationController
   def show
     fetch_project_data
     set_user_type
-    set_user_favourites
+    set_user_favorites
     set_chat
     @counter = 1
     authorize @project
   end
 
   def index
-    @favourite_project = FavouriteProject.new
+    @favorite = Favorite.new
     @query = (policy_scope(Project.search_by_title_location_and_description(params[:query])) +
               policy_scope(Project.tagged_with(params[:query])))
 
@@ -124,11 +124,11 @@ class ProjectsController < ApplicationController
     end
   end
 
-  def set_user_favourites
-    if @favourite_project == FavouriteProject.find_by(user: @user, project: @project)
-      @favourite_project
+  def set_user_favorites
+    if @favorite == Favorite.find_by(user: @user, project: @project)
+      @favorite
     else
-      @favourite_project = FavouriteProject.new
+      @favorite = Favorite.new
     end
   end
 

@@ -1,19 +1,19 @@
-class FavouriteProjectsController < ApplicationController
+class FavoritesController < ApplicationController
   before_action :set_project, only: %i[ create destroy ]
   before_action :set_user , only: %i[ create destroy ]
   before_action :set_previous_page , only: %i[ create destroy ]
 
   def create
-    @favourite_project = FavouriteProject.new(user: current_user, project: @project)
-    authorize @favourite_project
-    @favourite_project.save
+    @favorite = Favorite.new(user: current_user, project: @project)
+    authorize @favorite
+    @favorite.save
     redirect_to session.delete(:return_to)
   end
 
   def destroy
-    favourite_project = FavouriteProject.find(params[:id])
-    authorize favourite_project
-    favourite_project.destroy
+    favorite = Favorite.find(params[:id])
+    authorize favorite
+    favorite.destroy
     redirect_to project_path(@project)
   end
 

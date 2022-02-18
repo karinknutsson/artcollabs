@@ -8,7 +8,7 @@ puts " \n "
 puts "💥Deleting previous DB"
 puts " \n "
 
-FavouriteProject.destroy_all
+Favorite.destroy_all
 DirectMessage.destroy_all
 Message.destroy_all
 ProjectChat.destroy_all

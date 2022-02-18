@@ -61,14 +61,14 @@ class PagesController < ApplicationController
     @projects = Project.where(user: current_user)
   end
 
-  def set_favourites
-    @favorites = FavouriteProject.where(user: @user)
+  def set_favorites
+    @favorites = Favorite.where(user: @user)
     @project_faves = @favorites.map { |fave| Project.find(fave.project_id) }
   end
 
   def set_user_data
     set_projects
     set_my_collabs
-    set_favourites
+    set_favorites
   end
 end

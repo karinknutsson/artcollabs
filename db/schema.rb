@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_27_144310) do
+ActiveRecord::Schema.define(version: 2022_02_18_175106) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -64,13 +64,13 @@ ActiveRecord::Schema.define(version: 2021_04_27_144310) do
     t.index ["user_id"], name: "index_direct_messages_on_user_id"
   end
 
-  create_table "favourite_projects", force: :cascade do |t|
+  create_table "favorites", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "project_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["project_id"], name: "index_favourite_projects_on_project_id"
-    t.index ["user_id"], name: "index_favourite_projects_on_user_id"
+    t.index ["project_id"], name: "index_favorites_on_project_id"
+    t.index ["user_id"], name: "index_favorites_on_user_id"
   end
 
   create_table "links", force: :cascade do |t|
@@ -184,8 +184,8 @@ ActiveRecord::Schema.define(version: 2021_04_27_144310) do
   add_foreign_key "collaborations", "users"
   add_foreign_key "direct_messages", "chatrooms"
   add_foreign_key "direct_messages", "users"
-  add_foreign_key "favourite_projects", "projects"
-  add_foreign_key "favourite_projects", "users"
+  add_foreign_key "favorites", "projects"
+  add_foreign_key "favorites", "users"
   add_foreign_key "links", "users"
   add_foreign_key "messages", "project_chats"
   add_foreign_key "messages", "users"

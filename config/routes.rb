@@ -26,7 +26,7 @@ Rails.application.routes.draw do
   resources :projects, concerns: :paginatable do
     resources :collaborations
     resources :milestones
-    resources :favourite_projects, only: [ :new, :create, :destroy ]
+    resources :favorites, only: [ :new, :create, :destroy ]
 
     patch '/milestone/:id', to: 'milestones#status', as: "status_milestone"
   end

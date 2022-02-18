@@ -1,4 +1,4 @@
-class FavouriteProjectPolicy < ApplicationPolicy
+class FavoritePolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
       scope.all
