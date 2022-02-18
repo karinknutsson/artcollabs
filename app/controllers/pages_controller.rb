@@ -37,6 +37,8 @@ class PagesController < ApplicationController
           @users.push(result.searchable)
         end
       end
+
+      @projects.push(*policy_scope(Project.tagged_with(params[:query])))
     else
       @results = []
     end

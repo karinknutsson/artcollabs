@@ -16,6 +16,7 @@ Collab.destroy_all
 Milestone.destroy_all
 Project.destroy_all
 User.destroy_all
+Project.destroy_all
 
 @start = Time.now
 
