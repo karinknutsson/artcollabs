@@ -69,8 +69,10 @@ class ProjectsController < ApplicationController
 
   def destroy
     authorize @project
+    @project.photo.purge
+    @project.media.purge
     @project.destroy
-    redirect_to @projects
+    redirect_to dashboard_path
   end
 
   def tagged
