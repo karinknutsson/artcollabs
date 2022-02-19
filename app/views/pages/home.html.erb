@@ -1,3 +1,10 @@
+<style>
+  body {
+    background: $dark-blue;
+    background-image: url(/assets/home_bg.png);
+    background-size: cover;
+  }
+</style>
 
 <h1>Ready to make things happen?</h1>
 
@@ -13,7 +20,7 @@
     <%= text_field_tag :query,
       params[:query],
       class: "home-search-text",
-      placeholder: "Which topic are you interested in?"
+      placeholder: "Search projects"
     %>
 
     <button class="search-submit"><div class="icon-bg"><i class="fas fa-search home-search-icon"></i></div></button>

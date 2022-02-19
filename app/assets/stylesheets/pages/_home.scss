@@ -1,8 +1,4 @@
-body {
-  background: $dark-blue;
-  background-image: url(/assets/home_bg.png);
-  background-size: cover;
-}
+
 
 h1 {
   color: white;
@@ -28,12 +24,11 @@ input[type="text"]:focus {
 }
 
 .home-search-container {
-  padding: 0 0 0 14px;
+  padding: 28px 8px 28px 16px;
   background-color: white;
-  border-radius: 50px;
   border: 2pt solid $dark-blue;
   height: 48px;
-  width: 50vw;
+  width: 20vw;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -66,8 +61,8 @@ input[type="text"]:focus {
   margin: 0 auto 5vw auto;
   width: 50vw;
   h6 {
-    font-size: 1.5vw;
-    color: $grey-dark;
+    font-size: 1.2vw;
+    color: white;
     line-height: 2vw;
   }
 }
