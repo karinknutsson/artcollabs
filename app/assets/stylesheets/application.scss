@@ -29,7 +29,6 @@ h1 {
   font-family: 'futurateebold', Futura, Helvetica, sans-serif;
 }
 
-
 h2 {
   font-size: 24pt;
 }
@@ -55,6 +54,7 @@ hr {
 }
 
 a, a:hover, a:active, a:visited {
+  color: $warm-red;
   text-decoration: none;
 }
 
