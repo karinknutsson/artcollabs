@@ -1,10 +1,7 @@
-
-
 h1 {
   color: white;
   font-size: 8vw;
   line-height: 10vw;
-  margin: 80px 160px 60px 160px;
   text-transform: uppercase;
 }
 
@@ -12,26 +9,46 @@ input[type="text"]:focus {
     outline : none;
 }
 
+a.explore {
+  color: white !important;
+}
+
 ::placeholder {
   color: $grey-med;
   opacity: 1;
 }
 
+.home-container {
+  position: absolute;
+  z-index: 10;
+  padding-top: 6vw;
+}
+
+.home-subheader {
+  font-size: 1.2rem;
+  color: white;
+  font-weight: 600;
+  padding-top: 40px;
+}
+
 .home-search-explore {
-  width: 60vw;
-  margin: 0 auto;
   display: flex;
+  flex-direction: row;
+  gap: 40px;
+  padding-top: 48px;
 }
 
 .home-search-container {
   padding: 28px 8px 28px 16px;
   background-color: white;
-  border: 2pt solid $dark-blue;
+  /* border: 2pt solid $dark-blue; */
+  border: 0;
   height: 48px;
-  width: 20vw;
+  width: 320px;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  flex-grow: 4;
 }
 
 .home-search-text {
@@ -57,34 +74,10 @@ input[type="text"]:focus {
   color: white;
 }
 
-.home-sub {
-  margin: 0 auto 5vw auto;
-  width: 50vw;
-  h6 {
-    font-size: 1.2vw;
-    color: white;
-    line-height: 2vw;
-  }
-}
 
-.home-collection {
-  width: 80vw;
-  margin: 80px auto;
-  display: flex;
-  justify-content: space-between;
+.ball-container {
+  position: absolute;
+  z-index: 1;
+  width: 240px;
+  height: 240px;
 }
-
-.collection-card {
-  border-radius: 20px;
-  width: 220px;
-  height: 360px;
-  background: $light-blue;
-  font-family: "futurateemed", Futura, Helvetica, sans-serif;
-  text-transform: uppercase;
-  font-size: 16pt;
-  color: white;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-

@@ -77,6 +77,8 @@ class ProjectsController < ApplicationController
   end
 
   def tagged
+  @collabs = Collab.all
+
     if params[:tag].present?
       @projects = Project.tagged_with(params[:tag]).page(params[:page]).per(12)
       authorize @projects

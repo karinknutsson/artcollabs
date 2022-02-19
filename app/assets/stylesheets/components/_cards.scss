@@ -38,7 +38,11 @@
 .card-title {
   height: 34px;
   margin: 16px;
-  overflow-wrap: break-word;
+  word-break: break-all;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-wrap: wrap;
 }
 
 .card-user {

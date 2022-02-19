@@ -8,27 +8,44 @@
 
 <% content_for :nav, render('shared/home_navbar') %>
 
-<h1>Ready to make things happen?</h1>
+<div class="container-fluid home-container">
 
-<div class="home-sub">
-  <h6>We are here to help you find your next creative team. Whether you want to realize your own vision or join an ongoing project, this is the place to start!</h6>
+    <div class="row">
+        <div class="col-sm-1"></div>
+        <div class="col-xs-12 col-sm-10"><h1>Ready to make things happen?</h1></div>
+        <div class="col-sm-1"></div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-1 col-md-2"></div>
+        <div class="col-xs-12 col-sm-10 col-md-7 home-subheader">
+            We are here to help you find your next creative team. Whether you want to realize your own vision or join an ongoing project, this is the place to start!
+        </div>
+        <div class="col-sm-1 col-md-3"></div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-1 col-md-2"></div>
+        <div class="col-xs-12 col-sm-10 col-md-7">
+            <%= form_tag projects_path, method: :get do %>
+                <div class="home-search-explore">
+                      <div class="home-search-container">
+                        <%= text_field_tag :query,
+                          params[:query],
+                          class: "home-search-text",
+                          placeholder: "Search projects"
+                        %>
+                        <button class="search-submit"><div class="icon-bg"><i class="fas fa-search home-search-icon"></i></div></button>
+                      </div>
+
+                      <%= link_to "Explore", projects_path, class: "explore btn-artcollabs btn-home-explore" %>
+                </div>
+            <% end %>
+        </div>
+        <div class="col-sm-1 col-md-3"></div>
+    </div>
 </div>
 
-<%= form_tag projects_path, method: :get do %>
-
-<div class="home-search-explore">
-  <div class="home-search-container">
-
-    <%= text_field_tag :query,
-      params[:query],
-      class: "home-search-text",
-      placeholder: "Search projects"
-    %>
-
-    <button class="search-submit"><div class="icon-bg"><i class="fas fa-search home-search-icon"></i></div></button>
-
-  </div>
-  <%= link_to "Explore", projects_path, class: "btn-home-explore" %>
+<div class="container-fluid ball-container">
+  <%= render 'shared/ball' %>
 </div>
-
-<% end %>
