@@ -1,24 +1,19 @@
 class Project < ApplicationRecord
   belongs_to :user
 
-  acts_as_taggable_on :tags #You can also configure multiple tag types per model
+  acts_as_taggable_on :tags
 
   #validate :start_date_cannot_be_in_the_past
   #validate :end_date_cannot_be_before_start_date
 
-  has_many :collaborations, dependent: :destroy
+  has_many :collabs, dependent: :destroy
   has_many :milestones, dependent: :destroy
   has_one_attached :photo, dependent: :destroy
 
   # validates :photo, size: { less_than: 100.megabytes , message: 'The image should not be larger than 100 MB' }
-  # class_name: "Title_Pic"
-  has_many_attached :media, dependent: :destroy
-  # class_name: "Media_files"
-  has_one :project_chat, dependent: :destroy
 
-  # we can also add audio and video using cloudinary (both use video on the tag), need some config apparently. hints:
-  # has_many_attached :audios, resource_type: video ,dependent: :destroy
-  # <%= cl_video_tag @i..., controls: true, style: "width: 100%;" %>
+  has_many_attached :media, dependent: :destroy
+  has_one :project_chat, dependent: :destroy
 
   validates :title, presence: true, length: { maximum: 80 }, uniqueness: true
   # validates :description, presence: true
@@ -29,8 +24,6 @@ class Project < ApplicationRecord
   # validates :location, presence: true
 
   after_create :initialize_project_chat
-
-  STATUS = ['High', 'Medium', 'Low', 'None']
 
   def start_date_cannot_be_in_the_past
     if start_date < Date.today

@@ -10,7 +10,7 @@
       </li>
 
       <li class="nav-item tab">
-        <a class="nav-link tab" id="my-collabs-tab" data-toggle="tab" href="#my-collabs" role="tab" aria-controls="my-collabs" aria-selected="false"><h2>My collaborations</h2></a>
+        <a class="nav-link tab" id="my-collabs-tab" data-toggle="tab" href="#my-collabs" role="tab" aria-controls="my-collabs" aria-selected="false"><h2>My collabs</h2></a>
       </li>
 
       <li class="nav-item tab">
@@ -82,15 +82,15 @@
     <div class="tab-pane fade dashboard-list" id="my-collabs" role="tabpanel" aria-labelledby="my-collabs-tab">
       <% if @my_collabs_accepted.length.positive? %>
         <h2>Ongoing projects</h2><br>
-        <% @my_collabs_accepted.each do |collaboration| %>
+        <% @my_collabs_accepted.each do |collab| %>
           <div class="dashboard-pair">
             <div class="dashboard-item">
-              <h6><%= collaboration.role %> on<br>
-              <%= link_to "#{collaboration.project.title}", project_path(collaboration.project) %></h6>
+              <h6><%= collab.role %> on<br>
+              <%= link_to "#{collab.project.title}", project_path(collab.project) %></h6>
             </div>
             <div class="dashboard-request float-right">
-              <%= link_to "Edit", edit_project_collaboration_path(collaboration.project, collaboration), class: "white btn-artcollabs btn-warm-red btn-margin-right btn-dashboard" %>
-              <%= link_to "Delete", project_collaboration_path(collaboration.project, collaboration), class: "btn-artcollabs btn-warm-red-outline btn-dashboard", method: :delete, data: { confirm: "Delete request? Are you sure?" } %>
+              <%= link_to "Edit", edit_project_collab_path(collab.project, collab), class: "white btn-artcollabs btn-warm-red btn-margin-right btn-dashboard" %>
+              <%= link_to "Delete", project_collab_path(collab.project, collab), class: "btn-artcollabs btn-warm-red-outline btn-dashboard", method: :delete, data: { confirm: "Delete request? Are you sure?" } %>
             </div>
           </div>
         <% end %>
@@ -98,15 +98,15 @@
       <% end %>
       <% if @my_collabs_pending.length.positive? %>
         <h2>Sent requests</h2><br>
-        <% @my_collabs_pending.each do |collaboration| %>
+        <% @my_collabs_pending.each do |collab| %>
           <div class="dashboard-pair">
             <div class="dashboard-item">
-              <h6><%= collaboration.role %> on<br>
-              <%= link_to "#{collaboration.project.title}", project_path(collaboration.project) %></h6>
+              <h6><%= collab.role %> on<br>
+              <%= link_to "#{collab.project.title}", project_path(collab.project) %></h6>
             </div>
             <div class="dashboard-request float-right">
-              <%= link_to "Edit", edit_project_collaboration_path(collaboration.project, collaboration), class: "white btn-artcollabs btn-warm-red btn-margin-right btn-dashboard" %>
-              <%= link_to "Delete", project_collaboration_path(collaboration.project, collaboration), class: "btn-artcollabs btn-warm-red-outline btn-dashboard", method: :delete, data: { confirm: "Delete request? Are you sure?" } %>
+              <%= link_to "Edit", edit_project_collab_path(collab.project, collab), class: "white btn-artcollabs btn-warm-red btn-margin-right btn-dashboard" %>
+              <%= link_to "Delete", project_collab_path(collab.project, collab), class: "btn-artcollabs btn-warm-red-outline btn-dashboard", method: :delete, data: { confirm: "Delete request? Are you sure?" } %>
             </div>
           </div>
         <% end %>
@@ -115,30 +115,30 @@
 
     <!-- REQUESTS -->
     <div class="tab-pane fade dashboard-list" id="requests" role="tabpanel" aria-labelledby="requests-tab">
-      <% @pending_collabs.each do |collaboration| %>
+      <% @pending_collabs.each do |collab| %>
         <div class="user-avatar request-user">
-              <%= link_to profile_path(collaboration.user), class: "r-member" do %>
-                <% if collaboration.user.avatar.attached? %>
-                  <%= image_tag collaboration.user.avatar %>
+              <%= link_to profile_path(collab.user), class: "r-member" do %>
+                <% if collab.user.avatar.attached? %>
+                  <%= image_tag collab.user.avatar %>
                 <% else %>
                   <div class="avatar-member">
                     <%= render "shared/avatar" %>
                   </div>
                 <% end %>
-                <h3><%= collaboration.user.username %></h3>
+                <h3><%= collab.user.username %></h3>
               <% end %>
         </div>
         <div class="dashboard-pair">
           <div class="dashboard-item">
-            <h6>wants to collaborate as <%= collaboration.role  %> on<br>
-            <%= link_to "#{collaboration.project.title}", project_path(collaboration.project) %></h6>
+            <h6>wants to collaborate as <%= collab.role  %> on<br>
+            <%= link_to "#{collab.project.title}", project_path(collab.project) %></h6>
             <div class="dashboard-message">
-              <strong>Message:</strong> <%= collaboration.message %>
+              <strong>Message:</strong> <%= collab.message %>
             </div>
           </div>
           <div class="dashboard-request float-right">
-            <%= link_to  "Confirm", confirm_path(collaboration), class: "white btn-artcollabs btn-warm-red btn-margin-right btn-dashboard", method: :patch, data: { confirm: "Are you sure?" }  %>
-            <%= link_to  "  Deny  ", confirm_path(collaboration), class: "btn-artcollabs btn-warm-red-outline btn-dashboard", method: :patch, data: { confirm: "Are you sure?" } %>
+            <%= link_to  "Confirm", confirm_path(collab), class: "white btn-artcollabs btn-warm-red btn-margin-right btn-dashboard", method: :patch, data: { confirm: "Are you sure?" }  %>
+            <%= link_to  "  Deny  ", confirm_path(collab), class: "btn-artcollabs btn-warm-red-outline btn-dashboard", method: :patch, data: { confirm: "Are you sure?" } %>
           </div>
         </div>
         <hr><br>

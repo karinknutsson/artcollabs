@@ -1,4 +1,4 @@
-class CollaborationPolicy < ApplicationPolicy
+class CollabPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
       scope.all
@@ -29,5 +29,4 @@ class CollaborationPolicy < ApplicationPolicy
   def confirm?
     true
   end
-
 end

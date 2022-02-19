@@ -8,14 +8,13 @@ class ProjectsController < ApplicationController
   def show
     fetch_project_data
     set_user_type
-    set_user_favourites
+    set_user_favorites
     set_chat
     @counter = 1
     authorize @project
   end
 
   def index
-    @favourite_project = FavouriteProject.new
     @query = (policy_scope(Project.search_by_title_location_and_description(params[:query])) +
               policy_scope(Project.tagged_with(params[:query])))
 
@@ -24,10 +23,10 @@ class ProjectsController < ApplicationController
       if @query.empty?
         redirect_to projects_path(search: :noresults, searched: @searched)
       else
-        @projects = Kaminari.paginate_array(@query).page(params[:page])
+        @projects = Kaminari.paginate_array(@query).page(params[:page]).per(12)
       end
     else
-      @projects = policy_scope(Project).order(created_at: :desc).page (params[:page])
+      @projects = policy_scope(Project).order(created_at: :desc).page(params[:page]).per(12)
     end
   end
 
@@ -70,16 +69,18 @@ class ProjectsController < ApplicationController
 
   def destroy
     authorize @project
+    @project.photo.purge
+    @project.media.purge
     @project.destroy
-    redirect_to @projects
+    redirect_to dashboard_path
   end
 
   def tagged
     if params[:tag].present?
-      @projects = Project.tagged_with(params[:tag]).page params[:page]
+      @projects = Project.tagged_with(params[:tag]).page(params[:page]).per(12)
       authorize @projects
     else
-      @projects = policy_scope(Project).order(created_at: :desc).page params[:page]
+      @projects = policy_scope(Project).order(created_at: :desc).page(params[:page]).per(12)
     end
   end
 
@@ -106,11 +107,11 @@ class ProjectsController < ApplicationController
   end
 
   def set_user_type
-    collaboration = Collaboration.find_by(project_id: @project.id, user_id: current_user.id)
+    collab = Collab.find_by(project_id: @project.id, user_id: current_user.id)
     if @project.user_id == current_user.id
       @user_type = :owner
-    elsif collaboration
-      collab_logic(collaboration)
+    elsif collab
+      collab_logic(collab)
     else
       @user_type = :visitor
     end
@@ -124,11 +125,11 @@ class ProjectsController < ApplicationController
     end
   end
 
-  def set_user_favourites
-    if @favourite_project == FavouriteProject.find_by(user: @user, project: @project)
-      @favourite_project
+  def set_user_favorites
+    if @favorite == Favorite.find_by(user: @user, project: @project)
+      @favorite
     else
-      @favourite_project = FavouriteProject.new
+      @favorite = Favorite.new
     end
   end
 
@@ -137,12 +138,12 @@ class ProjectsController < ApplicationController
   end
 
   def fetch_project_data
-    @collaboration = Collaboration.new
+    @collab = Collab.new
     @milestone = Milestone.new
     @milestones = Milestone.where(project_id: @project)
-    @collabs = Collaboration.where(project_id: @project, status: "confirmed")
-    @project_collabs = Collaboration.where(project_id: @project)
-    @pending_collabs = Collaboration.where(project_id: @project, status: nil)
+    @collabs = Collab.where(project_id: @project, status: "confirmed")
+    @project_collabs = Collab.where(project_id: @project)
+    @pending_collabs = Collab.where(project_id: @project, status: nil)
     # show related projects from tags
     @related_projects = @project.find_related_tags
   end

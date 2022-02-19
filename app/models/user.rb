@@ -4,19 +4,14 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  acts_as_taggable_on :tags
-  acts_as_taggable_on :skills, :interests #You can also configure multiple tag types per model
+  acts_as_taggable_on :skills, :interests
 
   has_one_attached :avatar
   has_many_attached :photos
   has_many :links, dependent: :destroy
 
-  has_many :collaborations, dependent: :destroy
+  has_many :collabs, dependent: :destroy
   has_many :projects, dependent: :destroy
-
-  def collaborator?
-    # if current user is a collaborator for this project return true
-  end
 
   include PgSearch::Model
   multisearchable against: [:username, :first_name, :last_name]

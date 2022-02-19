@@ -9,9 +9,10 @@ Rails.application.routes.draw do
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
 
   devise_for :users
+
   root to: 'pages#home'
 
-  resources :users, only: :index
+  # resources :users, only: :index
 
   resources :links, only: [ :index, :new, :create, :destroy ]
 
@@ -24,14 +25,15 @@ Rails.application.routes.draw do
   end
 
   resources :projects, concerns: :paginatable do
-    resources :collaborations
+    resources :collabs
     resources :milestones
-    resources :favourite_projects, only: [ :new, :create, :destroy ]
+    resources :favorites, only: [ :new, :create, :destroy ]
 
     patch '/milestone/:id', to: 'milestones#status', as: "status_milestone"
   end
 
   get '/tagged', to: "projects#tagged", as: :tagged
+  get '/users', to: "users#index", as: :users
 
   post '/project/:id/', to: "projects#media"
 
@@ -40,8 +42,8 @@ Rails.application.routes.draw do
   get '/messages/', to: 'pages#messages', as: "messages"
   get '/results/', to: 'pages#results', as: "search_results"
 
-  patch '/confirm/:id', to: 'collaborations#confirm', as: "confirm"
-  patch '/confirm/:id', to: 'collaborations#deny', as: "deny"
+  patch '/confirm/:id', to: 'collabs#confirm', as: "confirm"
+  patch '/confirm/:id', to: 'collabs#deny', as: "deny"
 
   mount ActionCable.server => "/cable"
 end

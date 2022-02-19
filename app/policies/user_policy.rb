@@ -4,4 +4,16 @@ class UserPolicy < ApplicationPolicy
       scope.all
     end
   end
+
+  def index?
+    true
+  end
+
+  def tagged?
+    true
+  end
+
+  def show?
+    true
+  end
 end

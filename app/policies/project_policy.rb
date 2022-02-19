@@ -5,8 +5,6 @@ class ProjectPolicy < ApplicationPolicy
     end
   end
 
-  # ASSING POLICIES FOR PROJECTS SO THAT ONLY TEAM MEMBERS CAN SEE ADDITIONAL INFO
-
   def index?
     true
   end
@@ -42,5 +40,4 @@ class ProjectPolicy < ApplicationPolicy
   def media?
     true
   end
-  
 end

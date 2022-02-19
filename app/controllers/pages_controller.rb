@@ -4,13 +4,6 @@ class PagesController < ApplicationController
 
   def home
     @projects = policy_scope(Project).order(created_at: :desc)
-    # Collections
-    @group_shows = ["groupshow", "group show", "exhibition", "exhibit"]
-    @trending_topics = ["gender", "identity", "video art", "video", "masculinity", "virtual", "immersive", "immersion"]
-    @joint_works = ["jointworks", "joint works"]
-    @paid_roles = ["low", "medium", "high"]
-    @collection_titles = ["Group Shows", "Trending Topics", "Joint Works", "Paid Roles"]
-    @collections = [@group_shows, @trending_topics, @joint_works, @paid_roles, @collection_titles]
   end
 
   def dashboard
@@ -37,6 +30,9 @@ class PagesController < ApplicationController
           @users.push(result.searchable)
         end
       end
+
+      @projects.push(*policy_scope(Project.tagged_with(params[:query])))
+      @users.push(*policy_scope(User).tagged_with(params[:query]))
     else
       @results = []
     end
@@ -46,11 +42,11 @@ class PagesController < ApplicationController
 
   def set_my_collabs
     @pending_collabs = []
-    @collaborations = Collaboration.where(user: @user)
-    @collaborations_to_my_projects = Collaboration.where(project_id: @projects)
-    @my_collabs_accepted = Collaboration.where(user: @user, confirmed: true)
-    @my_collabs_pending = @collaborations - @my_collabs_accepted
-    @collaborations_to_my_projects.each do |collab|
+    @collabs = Collab.where(user: @user)
+    @collabs_to_my_projects = Collab.where(project_id: @projects)
+    @my_collabs_accepted = Collab.where(user: @user, confirmed: true)
+    @my_collabs_pending = @collabs - @my_collabs_accepted
+    @collabs_to_my_projects.each do |collab|
       if collab.status == nil
         @pending_collabs << collab
       end
@@ -61,14 +57,14 @@ class PagesController < ApplicationController
     @projects = Project.where(user: current_user)
   end
 
-  def set_favourites
-    @favorites = FavouriteProject.where(user: @user)
+  def set_favorites
+    @favorites = Favorite.where(user: @user)
     @project_faves = @favorites.map { |fave| Project.find(fave.project_id) }
   end
 
   def set_user_data
     set_projects
     set_my_collabs
-    set_favourites
+    set_favorites
   end
 end

@@ -8,14 +8,15 @@ puts " \n "
 puts "💥Deleting previous DB"
 puts " \n "
 
-FavouriteProject.destroy_all
+Favorite.destroy_all
 DirectMessage.destroy_all
 Message.destroy_all
 ProjectChat.destroy_all
-Collaboration.destroy_all
+Collab.destroy_all
 Milestone.destroy_all
 Project.destroy_all
 User.destroy_all
+Project.destroy_all
 
 @start = Time.now
 
@@ -171,7 +172,7 @@ Link.new(user: gabi, title: "Youtube", url: "https://www").save
 puts "---- Created Gabrielle 🍄 \n email: #{gabi.email}, password: #{gabi.password} \n "
 
 miles = User.create(email: "miles@email.com", password: "123456", username: "Milo", first_name: "Miles", last_name: "Davenport", location: "London",
-                    bio: "Miles Davenport is the Frick’s Deputy Director and Peter Jay Sharp Chief Curator. A noted scholar of Paolo Veronese, he curated the monographic exhibition on the artist at the National Gallery, London (2014). Previously, Davenport was Curator in the Department of European Paintings at the Metropolitan Museum of Art and, before that, the Arturo and Holly Melosi Chief Curator at Dulwich Picture Gallery, where he curated Van Dyck in Sicily, 1624–25: Painting and the Plague (2012) and collaborated with Nicholas Cullinan on Twombly and Poussin: Arcadian Painters (2011). As an Andrew W. Mellon Curatorial Fellow at the Frick (2004–6), he curated Veronese's Allegories: Virtue, Love, and Exploration in Renaissance Venice (2006). Davenport’s other exhibitions for the Frick include Cagnacci’s Repentant Magdalene: An Italian Baroque Masterpiece from the Norton Simon Museum (2016–17), Veronese in Murano: Two Venetian Renaissance Masterpieces Restored (2017–18), Murillo: The Self-Portraits (2017–18), Canova’s George Washington (2018), Tiepolo in Milan: The Lost Frescoes of Palazzo Archinto (2019), and (with Aimee Ng and Alexander Noelle) Bertoldo di Giovanni: The Renaissance of Sculpture in Medici Florence (2019–20). Davenport received his Ph.D. on the patronage of Cardinal Pietro Aldobrandini from the Courtauld Institute of Art. He has published in Apollo, The Burlington Magazine, Master Drawings, The Medal, The Art Newspaper, Journal of the History of Collections, and The Metropolitan Museum of Art Journal. Davenport also wrote (with Maira Kalman) the latest volume in the Frick Diptych series, Rembrandt’s Polish Rider (2019). He is a trustee and a member of the Projects Committee of Save Venice. In 2018, Italy named Davenport Cavaliere dell’Ordine della Stella d’Italia.")
+                    bio: "Miles Davenport is the Frick’s Deputy Director and Peter Jay Sharp Chief Curator. A noted scholar of Paolo Veronese, he curated the monographic exhibition on the artist at the National Gallery, London (2014). Previously, Davenport was Curator in the Department of European Paintings at the Metropolitan Museum of Art and, before that, the Arturo and Holly Melosi Chief Curator at Dulwich Picture Gallery, where he curated Van Dyck in Sicily, 1624–25: Painting and the Plague (2012) and collaborated with Nicholas Cullinan on Twombly and Poussin: Arcadian Painters (2011). As an Andrew W. Mellon Curatorial Fellow at the Frick (2004–6), he curated Veronese's Allegories: Virtue, Love, and Expl in Renaissance Venice (2006). Davenport’s other exhibitions for the Frick include Cagnacci’s Repentant Magdalene: An Italian Baroque Masterpiece from the Norton Simon Museum (2016–17), Veronese in Murano: Two Venetian Renaissance Masterpieces Restored (2017–18), Murillo: The Self-Portraits (2017–18), Canova’s George Washington (2018), Tiepolo in Milan: The Lost Frescoes of Palazzo Archinto (2019), and (with Aimee Ng and Alexander Noelle) Bertoldo di Giovanni: The Renaissance of Sculpture in Medici Florence (2019–20). Davenport received his Ph.D. on the patronage of Cardinal Pietro Aldobrandini from the Courtauld Institute of Art. He has published in Apollo, The Burlington Magazine, Master Drawings, The Medal, The Art Newspaper, Journal of the History of Collections, and The Metropolitan Museum of Art Journal. Davenport also wrote (with Maira Kalman) the latest volume in the Frick Diptych series, Rembrandt’s Polish Rider (2019). He is a trustee and a member of the Projects Committee of Save Venice. In 2018, Italy named Davenport Cavaliere dell’Ordine della Stella d’Italia.")
 image = URI.open("https://res.cloudinary.com/diucx7fqo/image/upload/v1615378459/miles_avvh2z.jpg")
 miles.avatar.attach(io: image, filename: "miles", content_type: "image/png")
 miles.skill_list.add("coordinator", "creative director", "curator")
@@ -329,8 +330,8 @@ little_frank.save
 
 tehran = Project.new(title: "Tehran Contemporary Sounds Festival", user: random_users.sample, location: "Berlin", start_date: Date.parse('05-07-2021'), end_date: Date.parse('18-07-2021'),
                      description: "Tehran Contemporary Sounds was launched in 2018, through the organization of “Gate of Tehran – Days of Experimental Sounds” festival as a Berlin-based hub, for musicians, artists and collectives living abroad as well as in Iran, with the aim to bring together the different voices and forces of the big spectrum of the Iranian contemporary art and music scene, widely spread across the globe.
-                     TCS will be dedicated to, creating a platform for showcasing the unique talents of the Iranian artists and musicians; creating a cross-border collaboration hub; facilitating a non-political, purely artistic and interdisciplinary dialogue;
-                     This year, Tehran Contemporary Sounds Festival, in collaboration with Nullsight collective and Zabte Sote label, is bringing together some of the most important talents of the contemporary Iranian electronic/experimental sound artists and musicians, and digital and new media artists.
+                     TCS will be dedicated to, creating a platform for showcasing the unique talents of the Iranian artists and musicians; creating a cross-border collab hub; facilitating a non-political, purely artistic and interdisciplinary dialogue;
+                     This year, Tehran Contemporary Sounds Festival, in collab with Nullsight collective and Zabte Sote label, is bringing together some of the most important talents of the contemporary Iranian electronic/experimental sound artists and musicians, and digital and new media artists.
                      In the three days of the festival we’ll have a special showcase of the Zabte Sote artists. An exhibition run by Nullsight collective and a daily number of 6 audio visual performances in Kunstquartier Bethanien Studio 1.")
 image = URI.open("https://res.cloudinary.com/diucx7fqo/image/upload/v1615388410/75093790_693570871136048_6525617299150340096_o_jgjtlz.jpg")
 tehran.photo.attach(io: image, filename: "tehran", content_type: "image/png")
@@ -432,19 +433,19 @@ puts " \n "
 puts "🆕👯-- Creating Collabs"
 puts " \n "
 
-Collaboration.create(project: Project.where(user: dummy1).first, role: "#{role_generator}", user: dummy2, message: "Hey! I'm #{dummy2.username} and I would love to collaborate in this project.")
-puts "Collaboration from dummy 2 on dummy 1 project requested"
+Collab.create(project: Project.where(user: dummy1).first, role: "#{role_generator}", user: dummy2, message: "Hey! I'm #{dummy2.username} and I would love to collaborate in this project.")
+puts "Collab from dummy 2 on dummy 1 project requested"
 puts " \n "
 
-Collaboration.create(project: Project.where(user: dummy2).first, role: "#{role_generator}", user: dummy1, message: "Hey! I'm #{dummy1.username} and I would love to collaborate in this project.")
-puts "Collaboration from dummy 1 on dummy 2 project requested"
+Collab.create(project: Project.where(user: dummy2).first, role: "#{role_generator}", user: dummy1, message: "Hey! I'm #{dummy1.username} and I would love to collaborate in this project.")
+puts "Collab from dummy 1 on dummy 2 project requested"
 puts " \n "
 
 counter = 0
 40.times do
   role = role_generator
   counter = counter + 1
-  collab = Collaboration.create!(project: Project.all.sample, role: "#{role}", user: random_users.sample, message: "Hey! I want to collab as #{role}.")
+  collab = Collab.create!(project: Project.all.sample, role: "#{role}", user: random_users.sample, message: "Hey! I want to collab as #{role}.")
   puts "Random collab #{counter}: User: #{collab.user.username}, project: #{collab.project.title}"
   puts " \n "
 end
@@ -472,7 +473,7 @@ not_cancelled = Project.new(user: winkelhalle, title: "Not Cancelled Group Show"
                             start_date: Date.parse('06-06-2021'),
                             end_date: Date.parse('05-07-2021'),
                             location: "Berlin",
-                            description: "In collaboration with guest curator Daniela Villalobos, winkelhalle presents the Not Cancelled Group Show. Due to the current pandemic, access of students to their workspaces has been strictly limited and commonly prohibited. Opportunities and platforms for students to exhibit their work have been postponed, cancelled, or forced online. We acknowledge that exhibiting work during studies is an integral part of the learning process. As the regular structure for this process has been compromised, winkelhalle has provided an opportunity for this to continue.")
+                            description: "In collab with guest curator Daniela Villalobos, winkelhalle presents the Not Cancelled Group Show. Due to the current pandemic, access of students to their workspaces has been strictly limited and commonly prohibited. Opportunities and platforms for students to exhibit their work have been postponed, cancelled, or forced online. We acknowledge that exhibiting work during studies is an integral part of the learning process. As the regular structure for this process has been compromised, winkelhalle has provided an opportunity for this to continue.")
 image = URI.open("https://res.cloudinary.com/diucx7fqo/image/upload/v1615303162/weserhalle-not-cancelled-group-show-01_azgkhx.jpg")
 not_cancelled.photo.attach(io: image, filename: "not_cancelled", content_type: "image/png")
 not_cancelled.tag_list = %w[ exhibition winkelhalle neukölln ]

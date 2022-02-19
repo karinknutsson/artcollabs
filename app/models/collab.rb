@@ -1,4 +1,4 @@
-class Collaboration < ApplicationRecord
+class Collab < ApplicationRecord
   belongs_to :project
   belongs_to :user
 

@@ -8,14 +8,12 @@ class PagesPolicy < ApplicationPolicy
   def home?
     true
   end
-  
-  # ⭕ only user should be able to access their dashboard
+
   def dashboard?
-    true
+    record.user == user
   end
 
   def profile?
     true
   end
-
 end
