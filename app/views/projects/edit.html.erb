@@ -4,7 +4,7 @@
   <br>
 
   <%= simple_form_for @project do |f| %>
-  <%= f.input :title, input_html: { class: "artcollabs-input", maxlength: 56 } %>
+  <%= f.input :title, input_html: { class: "artcollabs-input", maxlength: 42 } %>
   <%= f.input :description, input_html: { class: "artcollabs-input bio", maxlength: 10000 } %>
   <%= f.input :tag_list, label: "Tags", hint: "Separate tags by commas.", input_html: { value: @project.tag_list.to_s, class: "artcollabs-input" } %>
   <%= f.input :max_members, input_html: { class: "artcollabs-input", maxlength: 15 } %>

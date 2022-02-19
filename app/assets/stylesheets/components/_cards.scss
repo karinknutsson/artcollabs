@@ -1,4 +1,5 @@
 .index-card-container {
+  position: relative;
   margin: 60px auto;
   width: 90vw;
   display: flex;
@@ -6,23 +7,22 @@
   flex-wrap: wrap;
   align-items: flex-start;
   justify-content: center;
-  gap:40px;
+  gap: 56px 40px;
 }
 
 .index-card {
+  position: relative;
   margin: 0;
-  width: 280px;
-  height: 280px;
-  /* border: 2px solid $grey-light-med; */
+  width: 320px;
+  height: 320px;
   border: 0;
-  background: $grey-light;
+  background: $grey-light-med;
   border-radius: 0;
 }
 
 .card-image {
   width: 100%;
-  height: 140px;
-
+  height: 160px;
   text-align: center;
   vertical-align: middle;
   overflow: hidden;
@@ -38,47 +38,24 @@
 .card-title {
   height: 34px;
   margin: 16px;
+  overflow-wrap: break-word;
 }
 
-.card-roles {
-  margin: 16px;
+.card-user {
+  position: absolute;
+  right: 8px;
+  bottom: 8px;
+  width: 160px;
+}
+
+.card-user-link {
   display: flex;
+  flex-direction: row;
   align-items: center;
-}
-
-.card-tags {
-  height: 50px;
-  width: 220px;
-  margin: 6px 6px 12px 6px;
-  display:flex;
-  flex-wrap: wrap;
-  .a-tag {
-    color: $warm-red;
-    height: 20px;
-    margin: 2px;
-    line-height: 16px;
-    padding: 2px 16px 2px 16px;
-    font-size: 8pt;
-    background: white;
-    border-radius: 40px;
-  }
-}
-
-.card-footer {
-  padding: auto 8px auto 8px;
-  display: flex;
-  align-items: center;
-  background-color: rgba(0, 0, 0, 0);
-  border-top: 1px solid $grey-light;
-  h6 {
-    margin: 0 0 2px 12px;
-  }
-}
-
-.a-footer {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+  font-size: 10pt;
+  font-weight: 600;
   img {
     width: 32px;
     height: 32px;
@@ -86,17 +63,29 @@
   }
 }
 
+.card-tags {
+  margin: 8px 16px;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: center;
+  .a-tag {
+    margin: 2px;
+    font-size: 8pt;
+  }
+}
+
+.card-roles {
+  margin: 12px 16px 8px 16px;
+  display: flex;
+  align-items: center;
+  font-size: 10pt;
+}
+
 .user-icon {
   font-size: 14pt;
   padding-right: 6px;
-}
-
-.icon-black {
-  color: black;
-}
-
-.icon-grey {
-  color: $grey-med;
 }
 
 .member-card {

@@ -25,7 +25,7 @@
                   required: false %>
       <%= f.input :username,
                   required: true,
-                  input_html: { autocomplete: "username", value: current_user.username, class: "artcollabs-input", maxlength: 32 } %>
+                  input_html: { autocomplete: "username", value: current_user.username, class: "artcollabs-input", maxlength: 20 } %>
       <%= f.input :first_name,
                   required: true,
                   input_html: { autocomplete: "first_name", value: current_user.first_name, class: "artcollabs-input", maxlength: 128 } %>
