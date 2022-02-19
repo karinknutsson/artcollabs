@@ -7,7 +7,11 @@ a {
 }
 
 .nav-artcollabs {
-  height: 72px;
+  background: $light-blue;
+}
+
+.nav-artcollabs, .nav-artcollabs-home {
+  height: 80px;
   position: relative;
   display: flex;
   align-items: center;
