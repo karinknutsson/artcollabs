@@ -1,26 +1,28 @@
 .index-card-container {
   margin: 60px auto;
-  width: 70vw;
-  display: grid;
-  column-gap: 16px;
-  row-gap: 56px;
-  justify-items: center;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  width: 90vw;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: center;
+  gap:40px;
 }
 
 .index-card {
   margin: 0;
-  width: 240px;
-  height: 366px;
-  border: 2px solid $grey-light-med;
-  border-radius: 20px;
+  width: 280px;
+  height: 280px;
+  /* border: 2px solid $grey-light-med; */
+  border: 0;
+  background: $grey-light;
+  border-radius: 0;
 }
 
 .card-image {
   width: 100%;
   height: 140px;
 
-  // suggestion - moving pics
   text-align: center;
   vertical-align: middle;
   overflow: hidden;
@@ -30,48 +32,7 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
-    border-top-left-radius: 17px;
-    border-top-right-radius: 17px;
-
-    // suggestion - moving pics
-    &:hover {
-      animation-name: zoom-in-pic;
-      animation-duration: 20s;
-      animation-iteration-count: infinite;
-      animation-timing-function: linear;
-
-    }
   }
-}
-
-@keyframes zoom-in-pic {
-  0% {
-    object-position: 100% 0%;
-  }
-  15% {
-    object-position: 100% 100%;
-  }
-  35% {
-    object-fit: none;
-    object-position: 0% 20%;
-  }
-  60% {
-    object-position: 80% 20%;
-  }
-  68% {
-
-    object-position: 50% 50%;
-  }
-  70% {
-    object-fit: cover;
-  }
-  85% {
-    object-position: 50% 100%;
-  }
-  100% {
-    object-fit: none;
-  }
-
 }
 
 .card-title {
@@ -92,12 +53,13 @@
   display:flex;
   flex-wrap: wrap;
   .a-tag {
+    color: $warm-red;
     height: 20px;
     margin: 2px;
     line-height: 16px;
     padding: 2px 16px 2px 16px;
     font-size: 8pt;
-    background-color: $grey-light;
+    background: white;
     border-radius: 40px;
   }
 }
