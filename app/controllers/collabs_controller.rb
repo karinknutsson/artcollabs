@@ -13,7 +13,7 @@ class CollabsController < ApplicationController
     @collab.project = @project
     @collab.user = current_user
     authorize @collab
-    redirect_to @project
+    redirect_to dashboard_path
     if @collab.save
       flash[:notice] = "You submitted a request to join the project #{@project.title}."
     else
