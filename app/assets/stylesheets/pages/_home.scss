@@ -1,7 +1,7 @@
 h1 {
   color: white;
-  font-size: 8vw;
-  line-height: 10vw;
+  font-size: 16vmin;
+  line-height: 18vmin;
   text-transform: uppercase;
 }
 
@@ -31,24 +31,17 @@ a.explore {
   padding-top: 40px;
 }
 
-.home-search-explore {
-  display: flex;
-  flex-direction: row;
-  gap: 40px;
-  padding-top: 48px;
-}
-
 .home-search-container {
   padding: 28px 8px 28px 16px;
+  height: 56px;
   background-color: white;
-  /* border: 2pt solid $dark-blue; */
+  opacity: 0.7;
   border: 0;
-  height: 48px;
-  width: 320px;
+  border-radius: 4px;
+  width: auto;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  flex-grow: 4;
 }
 
 .home-search-text {
@@ -78,6 +71,5 @@ a.explore {
 .ball-container {
   position: absolute;
   z-index: 1;
-  width: 240px;
-  height: 240px;
+  padding-top: 16px;
 }

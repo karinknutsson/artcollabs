@@ -136,3 +136,21 @@ input:-webkit-autofill {
     outline: none;
   }
 }
+
+.center-flex {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.fill {
+  flex: 1;
+}
+
+.margin-right-32 {
+  margin-right: 32px;
+}
+
+.padding-top-32 {
+  padding-top: 32px;
+}

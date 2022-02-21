@@ -12,13 +12,13 @@
 
     <div class="row">
         <div class="col-sm-1"></div>
-        <div class="col-xs-12 col-sm-10"><h1>Ready to make things happen?</h1></div>
+        <div class="col-12 col-sm-10"><h1>Ready to make things happen?</h1></div>
         <div class="col-sm-1"></div>
     </div>
 
     <div class="row">
         <div class="col-sm-1 col-md-2"></div>
-        <div class="col-xs-12 col-sm-10 col-md-7 home-subheader">
+        <div class="col-12 col-sm-10 col-md-7 home-subheader">
             We are here to help you find your next creative team. Whether you want to realize your own vision or join an ongoing project, this is the place to start!
         </div>
         <div class="col-sm-1 col-md-3"></div>
@@ -26,26 +26,49 @@
 
     <div class="row">
         <div class="col-sm-1 col-md-2"></div>
-        <div class="col-xs-12 col-sm-10 col-md-7">
-            <%= form_tag projects_path, method: :get do %>
-                <div class="home-search-explore">
-                      <div class="home-search-container">
-                        <%= text_field_tag :query,
-                          params[:query],
-                          class: "home-search-text",
-                          placeholder: "Search projects"
-                        %>
-                        <button class="search-submit"><div class="icon-bg"><i class="fas fa-search home-search-icon"></i></div></button>
-                      </div>
-
-                      <%= link_to "Explore", projects_path, class: "explore btn-artcollabs btn-home-explore" %>
+        <div class="col-12 col-sm-7 col-md-5 center-flex padding-top-32">
+            <%= form_tag projects_path, method: :get, class: 'fill' do %>
+                <div class="home-search-container">
+                    <%= text_field_tag :query,
+                      params[:query],
+                      class: "home-search-text",
+                      placeholder: "Search projects"
+                    %>
+                    <button class="search-submit"><div class="icon-bg"><i class="fas fa-search home-search-icon"></i></div></button>
                 </div>
             <% end %>
+        </div>
+        <div class="col-12 col-sm-3 col-md-2 center-flex padding-top-32">
+            <%= link_to "Explore", projects_path, class: "explore btn-artcollabs btn-home-explore fill center-flex" %>
         </div>
         <div class="col-sm-1 col-md-3"></div>
     </div>
 </div>
 
 <div class="container-fluid ball-container">
-  <%= render 'shared/ball' %>
+
+    <div class="row">
+        <div class="col-1 col-sm-1 col-md-2"></div>
+        <div class="col-4 col-sm-3 col-md-2">
+            <%= render 'shared/ball' %>
+        </div>
+        <div class="col-7 col-sm-8 col-md-8"></div>
+    </div>
+
+    <div class="row padding-top-32">
+        <div class="col-6 col-sm-7 col-md-8"></div>
+        <div class="col-5 col-sm-4 col-md-3">
+            <%= render 'shared/ball' %>
+        </div>
+        <div class="col-1 col-sm-1 col-md-1"></div>
+    </div>
+
+    <div class="row padding-top-32">
+        <div class="col-0 col-md-1"></div>
+        <div class="col-3 col-sm-2 col-md-1">
+            <%= render 'shared/ball' %>
+        </div>
+        <div class="col-9 col-sm-10"></div>
+    </div>
+
 </div>

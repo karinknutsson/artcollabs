@@ -1,8 +1,8 @@
 .btn-artcollabs {
-  border-radius: 0;
-  padding: 10px 32px 10px 32px;
-  font-family: inherit;
-  font-size: 14pt;
+  border-radius: 6px;
+  font-family: 'futurateemedregular', Futura, Helvetica, sans-serif;
+  font-size: 16pt;
+  letter-spacing: 1pt;
   font-weight: 600;
   text-transform: uppercase;
   border: 0;
@@ -32,6 +32,11 @@
 .btn-white-outline:hover {
   color: $warm-red !important;
   background: white;
+}
+
+.btn-white-glass {
+  background: rgba(255, 255, 255, 0.6);
+  color: $strong-pink !important;
 }
 
 .btn-disabled {
@@ -92,14 +97,9 @@
 }
 
 .btn-home-explore {
-  border-radius: 0;
-  padding: 10px 32px 10px 32px;
-  font-family: inherit;
-  font-size: 16pt;
-  font-weight: 600;
-  text-transform: uppercase;
-  border: 0;
-  background-color: $dark-blue;
+  height: 56px;
+  text-align: center;
+  background: rgba(242, 56, 146, 0.7);
   transition: background 1s;
 }
 
