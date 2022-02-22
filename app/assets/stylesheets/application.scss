@@ -29,6 +29,15 @@ h1 {
   font-family: 'futurateebold', Futura, Helvetica, sans-serif;
 }
 
+h2, h3, h4 {
+  font-family: 'futurateemedregular', Futura, Helvetica, sans-serif;
+}
+
+h5, h6 {
+  font-family: inherit;
+  font-weight: 600;
+}
+
 h2 {
   font-size: 24pt;
 }
@@ -143,8 +152,18 @@ input:-webkit-autofill {
   justify-content: center;
 }
 
+.end-flex {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
 .fill {
   flex: 1;
+}
+
+.no-padding {
+  padding: 0;
 }
 
 .margin-right-32 {

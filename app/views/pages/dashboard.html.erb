@@ -35,44 +35,7 @@
       <div class="dashboard-grid">
 
       <% @projects.each do |project| %>
-
-        <div class="index-card">
-          <%= link_to project_path(project) do %>
-            <div class="card-image">
-              <% if project.photo.attached? %>
-                <%= cl_image_tag(project.photo.key) %>
-              <% else %>
-                <%= image_tag "clouds.jpg" %>
-              <% end %>
-            </div>
-            <div class="card-title">
-              <h6><%= project.title %></h6>
-            </div>
-            <div class="card-roles">
-              <i class="fas fa-user-circle user-icon icon-black"></i><i class="fas fa-user-circle user-icon icon-grey"></i> 3 more people can join
-            </div>
-          <% end %>
-          <div class="card-tags">
-            <% if project.tag_list %>
-              <% project.tag_list.each do |tag| %>
-                <div class="a-tag"><%= link_to tag, tagged_path(tag: tag) %></div>
-              <% end %>
-            <% end %>
-          </div>
-          <div class="card-footer user-avatar">
-            <%= link_to profile_path(project.user), class: "a-footer" do %>
-              <% if project.user.avatar.attached? %>
-                <%= cl_image_tag(project.user.avatar.key) %>
-              <% else %>
-                <div class="avatar-member">
-                  <%= render "shared/avatar" %>
-                </div>
-              <% end %>
-              <h6><%= project.user.username %></h6>
-            <% end %>
-          </div>
-        </div>
-
+        <%= render partial: 'shared/project_card', locals:  { project: project } %>
       <% end %>
 
       </div>
@@ -150,44 +113,7 @@
       <div class="dashboard-grid">
 
       <% @project_faves.each do |project| %>
-
-        <div class="index-card">
-          <%= link_to project_path(project) do %>
-            <div class="card-image">
-              <% if project.photo.attached? %>
-                <%= cl_image_tag(project.photo.key) %>
-              <% else %>
-                <%= image_tag "clouds.jpg" %>
-              <% end %>
-            </div>
-            <div class="card-title">
-              <h6><%= project.title %></h6>
-            </div>
-            <div class="card-roles">
-              <i class="fas fa-user-circle user-icon icon-black"></i><i class="fas fa-user-circle user-icon icon-grey"></i> 3 more people can join
-            </div>
-          <% end %>
-          <div class="card-tags">
-            <% if project.tag_list %>
-              <% project.tag_list.each do |tag| %>
-                <div class="a-tag"><%= link_to tag, tagged_path(tag: tag) %></div>
-              <% end %>
-            <% end %>
-          </div>
-          <div class="card-footer user-avatar">
-            <%= link_to profile_path(project.user), class: "a-footer" do %>
-              <% if project.user.avatar.attached? %>
-                <%= cl_image_tag(project.user.avatar.key) %>
-              <% else %>
-                <div class="avatar-member">
-                  <%= render "shared/avatar" %>
-                </div>
-              <% end %>
-              <h6><%= project.user.username %></h6>
-            <% end %>
-          </div>
-        </div>
-
+        <%= render partial: 'shared/project_card', locals:  { project: project } %>
       <% end %>
 
       </div>

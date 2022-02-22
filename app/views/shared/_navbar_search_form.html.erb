@@ -1,6 +1,6 @@
-<%= form_tag search_results_path, method: :get do %>
+<%= form_tag search_results_path, method: :get, class: 'center-flex fill' do %>
 
-  <div class="navbar-search-container">
+  <div class="navbar-search-container fill">
 
     <%= text_field_tag :query,
       params[:query],
