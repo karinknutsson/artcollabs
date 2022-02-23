@@ -139,4 +139,3 @@ function add_links(amount) {
   //   element.scrollIntoView();
   // })
 }
-

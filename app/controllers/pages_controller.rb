@@ -17,15 +17,19 @@ class PagesController < ApplicationController
   end
 
   def results
+    @project_mode = true
+    @user_mode = true
+
     @users = []
     @projects = []
+    @collabs = Collab.all
 
     if params[:query].present?
       @results = PgSearch.multisearch(params[:query])
 
       @results.each do |result|
         if result.searchable_type == "Project"
-          @projects.push(Project.find(result.searchable.id))
+          @projects.push(result.searchable)
         else
           @users.push(result.searchable)
         end

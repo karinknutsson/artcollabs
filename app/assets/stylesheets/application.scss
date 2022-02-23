@@ -146,6 +146,16 @@ input:-webkit-autofill {
   }
 }
 
+.blue-text {
+  color: $dark-blue !important;
+}
+
+.start-flex {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
 .center-flex {
   display: flex;
   align-items: center;
@@ -160,6 +170,14 @@ input:-webkit-autofill {
 
 .fill {
   flex: 1;
+}
+
+.wrap {
+  flex-wrap: wrap;
+}
+
+.gap {
+  gap: 56px 40px;
 }
 
 .no-padding {
