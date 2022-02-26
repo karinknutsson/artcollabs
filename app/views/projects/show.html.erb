@@ -1,12 +1,24 @@
-<div class="project-photo" id="project-pic">
+<div class="container-fluid no-padding">
+    <div class="row margin-top-64 top-row"></div>
 
-  <% if @project.photo.attached? %>
-    <%= cl_image_tag(@project.photo.key) %>
-  <% else %>
-    <%= image_tag "clouds.jpg" %>
-  <% end %>
+    <div class="row">
+        <div class="col-0 col-md-1"></div>
+        <div class="col-12 col-md-6">
+            <div class="project-photo" id="project-pic">
+              <% if @project.photo.attached? %>
+                <%= cl_image_tag(@project.photo.key) %>
+              <% else %>
+                <%= image_tag "clouds.jpg" %>
+              <% end %>
+            </div>
+        </div>
+        <div class="col-0 col-md-1"></div>
+        <div class="col-1 col-md-3"><h4>Team members mmmmmmmmmmmmmm m m m m m <i class="fas fa-solid fa-photo-film"></i> </h4></div>
+        <div class="col-1 col-md-1"></div>
+    </div>
 
 </div>
+
 
 <div class="show-container">
 

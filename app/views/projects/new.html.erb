@@ -7,7 +7,7 @@
     <%= f.input :title, input_html: { class: "artcollabs-input", maxlength: 42 } %>
     <%= f.input :description, input_html: { class: "artcollabs-input bio", maxlength: 10000 } %>
     <%= f.input :tag_list, label: "Tags", hint: "Separate tags by commas.", input_html: { class: "artcollabs-input", maxlength: 52 } %>
-    <%= f.input :max_members, input_html: { class: "artcollabs-input", maxlength: 15 } %>
+    <%= f.input :max_members, input_html: { class: "artcollabs-input", min: 0, max: 100 } %>
     <%= f.input :start_date, input_html: { class: "artcollabs-input" } %>
     <%= f.input :end_date, input_html: { class: "artcollabs-input" } %>
     <%= f.input :photo %>

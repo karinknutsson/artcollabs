@@ -30,8 +30,6 @@ gem 'bootsnap', '>= 1.4.2', require: false
 
 gem 'devise'
 
-# GEMS WE INSTALLED ##########
-
 gem 'acts-as-taggable-on', '~> 7.0'
 gem 'pundit'
 # .env

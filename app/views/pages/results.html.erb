@@ -23,16 +23,14 @@
 
             <%= form_tag search_results_path, method: 'get' do %>
             <%= hidden_field_tag :query, params[:query] %>
-
-              <%= check_box_tag :user_mode, "true", "false", onchange: "toggleUsers()" %>
-
+              <%= check_box_tag :user_mode, "true", "false", onchange: "toggleVisibility('users')" %>
             <% end %>
 
-                <div id="users">
                 <h2>Users</h2>
-                <% @users.each do |user| %>
-                    <h4><%= link_to user.username, profile_path(user) %></h4>
-                <% end %>
+                <div id="users">
+                    <% @users.each do |user| %>
+                        <h4><%= link_to user.username, profile_path(user) %></h4>
+                    <% end %>
                 </div>
             </div>
         <% end %>
@@ -41,9 +39,14 @@
         <div class="col-md-1"></div>
 
         <div class="col-md-7">
+
             <% if @project_mode && @projects.length.positive? %>
+                        <%= form_tag search_results_path, method: 'get' do %>
+                        <%= hidden_field_tag :query, params[:query] %>
+                          <%= check_box_tag :project_mode, "true", "false", onchange: "toggleVisibility('projects')" %>
+                        <% end %>
                 <h2>Projects</h2>
-                <div class="start-flex wrap gap padding-top-32">
+                <div id="projects" class="start-flex wrap gap padding-top-32">
                     <% @projects.each do |project| %>
                         <%= render partial: 'shared/project_card', locals: { project: project } %>
                     <% end %>

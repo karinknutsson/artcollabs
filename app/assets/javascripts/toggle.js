@@ -1,9 +1,8 @@
-
-function toggleUsers() {
-    const users = document.getElementById("users");
-    if (users.style.display === "none") {
-        users.style.display = "block";
+const toggleVisibility = (entity) => {
+    const element = document.getElementById(entity);
+    if (element.style.display === "none") {
+        element.style.display = "block";
     } else {
-        users.style.display = "none";
+        element.style.display = "none";
     }
 }

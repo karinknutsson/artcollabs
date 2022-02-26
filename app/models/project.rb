@@ -10,15 +10,14 @@ class Project < ApplicationRecord
   has_many :milestones, dependent: :destroy
   has_one_attached :photo, dependent: :destroy
 
-  # validates :photo, size: { less_than: 100.megabytes , message: 'The image should not be larger than 100 MB' }
+  validates :photo, size: { less_than: 5.megabytes , message: 'The image should not be larger than 5 MB' }
 
   has_many_attached :media, dependent: :destroy
   has_one :project_chat, dependent: :destroy
 
-  validates :title, presence: true, length: { maximum: 80 }, uniqueness: true
-  # validates :description, presence: true
-  # validates :status, presence: true, inclusion: { in: %w[open active closed finished] }
-  # validates :max_members, presence: true
+  validates :title, presence: true, length: { maximum: 42 }, uniqueness: true
+  validates :description, presence: true, length: { maximum: 10000 }
+  validates :max_members, presence: true, numericality: { only_integer: true, greater_than_less_than_or_equal_to: 0, less_than_or_equal_to: 100 }
   # validates :start_date, presence: true
   # validates :end_date, presence: true
   # validates :location, presence: true

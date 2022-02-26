@@ -6,16 +6,16 @@
   <div class="tab-container-bts">
     <ul class="nav justify-content-between" id="ProjectsTab" role="tablist">
       <li class="nav-item tab">
-        <a class="nav-link tab <%= 'active' if !["media", "milestone"].include? params[:tab] %>" id="about-tab" data-toggle="tab" href="#about" role="tab" aria-controls="about" aria-selected="true"><h2>About</h2></a>
+        <a class="nav-link tab <%= 'active' if !["media", "milestone"].include? params[:tab] %>" id="about-tab" data-toggle="tab" href="#about" role="tab" aria-controls="about" aria-selected="true"><h2><i class="fas fa-solid fa-circle-info"></i> <span class="tab-title">About</span></h2></a>
       </li>
       <li class="nav-item tab">
-        <a class="nav-link tab <%= 'active' if params[:tab] == "milestone" %>" id="timeline-tab" data-toggle="tab" href="#timeline" role="tab" aria-controls="timeline" aria-selected="false"><h2>Timeline</h2></a>
+        <a class="nav-link tab <%= 'active' if params[:tab] == "milestone" %>" id="timeline-tab" data-toggle="tab" href="#timeline" role="tab" aria-controls="timeline" aria-selected="false"><h2><i class="fas fa-solid fa-timeline"></i> <span class="tab-title">Timeline</h2></span></a>
       </li>
       <li class="nav-item tab">
-        <a class="nav-link tab <%= 'active' if params[:tab] == "media" %>" id="media-tab" data-toggle="tab" href="#media" role="tab" aria-controls="media" aria-selected="false"><h2>Media</h2></a>
+        <a class="nav-link tab <%= 'active' if params[:tab] == "media" %>" id="media-tab" data-toggle="tab" href="#media" role="tab" aria-controls="media" aria-selected="false"><h2><i class="fas fa-solid fa-photo-film"></i> <span class="tab-title">Media</h2></span></a>
       </li>
       <li class="nav-item tab">
-        <a class="nav-link tab" id="chat-tab" data-toggle="tab" href="#chat" role="tab" aria-controls="media" aria-selected="false"><h2>Chat</h2></a>
+        <a class="nav-link tab" id="chat-tab" data-toggle="tab" href="#chat" role="tab" aria-controls="media" aria-selected="false"><h2><i class="fas fa-solid fa-comments"></i> <span class="tab-title">Chat</span></h2></a>
       </li>
 
     </ul>
